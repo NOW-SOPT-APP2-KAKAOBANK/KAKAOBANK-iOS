@@ -14,6 +14,7 @@
 		CAD3987F2BECED4000B57329 /* Base in Resources */ = {isa = PBXBuildFile; fileRef = CAD3987E2BECED4000B57329 /* Base */; };
 		CAD398882BECEEB900B57329 /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = CAD398872BECEEB900B57329 /* SnapKit */; };
 		CAD3988A2BECEEB900B57329 /* SnapKit-Dynamic in Frameworks */ = {isa = PBXBuildFile; productRef = CAD398892BECEEB900B57329 /* SnapKit-Dynamic */; };
+		CAD3988D2BECEEE100B57329 /* Then in Frameworks */ = {isa = PBXBuildFile; productRef = CAD3988C2BECEEE100B57329 /* Then */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -32,6 +33,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				CAD398882BECEEB900B57329 /* SnapKit in Frameworks */,
+				CAD3988D2BECEEE100B57329 /* Then in Frameworks */,
 				CAD3988A2BECEEB900B57329 /* SnapKit-Dynamic in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -87,6 +89,7 @@
 			packageProductDependencies = (
 				CAD398872BECEEB900B57329 /* SnapKit */,
 				CAD398892BECEEB900B57329 /* SnapKit-Dynamic */,
+				CAD3988C2BECEEE100B57329 /* Then */,
 			);
 			productName = "KAKAOBANK-iOS";
 			productReference = CAD3986F2BECED3F00B57329 /* KAKAOBANK-iOS.app */;
@@ -118,6 +121,7 @@
 			mainGroup = CAD398662BECED3F00B57329;
 			packageReferences = (
 				CAD398862BECEEB900B57329 /* XCRemoteSwiftPackageReference "SnapKit" */,
+				CAD3988B2BECEEE100B57329 /* XCRemoteSwiftPackageReference "Then" */,
 			);
 			productRefGroup = CAD398702BECED3F00B57329 /* Products */;
 			projectDirPath = "";
@@ -370,6 +374,14 @@
 				minimumVersion = 5.7.1;
 			};
 		};
+		CAD3988B2BECEEE100B57329 /* XCRemoteSwiftPackageReference "Then" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/devxoul/Then";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 3.0.0;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -382,6 +394,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = CAD398862BECEEB900B57329 /* XCRemoteSwiftPackageReference "SnapKit" */;
 			productName = "SnapKit-Dynamic";
+		};
+		CAD3988C2BECEEE100B57329 /* Then */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = CAD3988B2BECEEE100B57329 /* XCRemoteSwiftPackageReference "Then" */;
+			productName = Then;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
