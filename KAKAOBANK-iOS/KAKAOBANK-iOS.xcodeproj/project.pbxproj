@@ -13,6 +13,10 @@
 		CA22B3F52BF136610013B7AB /* Pretendard-SemiBold.otf in Resources */ = {isa = PBXBuildFile; fileRef = CA22B3F42BF136610013B7AB /* Pretendard-SemiBold.otf */; };
 		CA22B3F72BF1379B0013B7AB /* UIFont+.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA22B3F62BF1379B0013B7AB /* UIFont+.swift */; };
 		CA22B3F92BF13C380013B7AB /* UILabel+.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA22B3F82BF13C380013B7AB /* UILabel+.swift */; };
+		CA22B3FB2BF146C50013B7AB /* UIVIew+.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA22B3FA2BF146C50013B7AB /* UIVIew+.swift */; };
+		CA22B3FD2BF147040013B7AB /* UIStackView+.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA22B3FC2BF147040013B7AB /* UIStackView+.swift */; };
+		CA22B3FF2BF147980013B7AB /* UICollectionViewCell+.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA22B3FE2BF147980013B7AB /* UICollectionViewCell+.swift */; };
+		CA22B4012BF147BF0013B7AB /* UITableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA22B4002BF147BF0013B7AB /* UITableViewCell.swift */; };
 		CAD398732BECED3F00B57329 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAD398722BECED3F00B57329 /* AppDelegate.swift */; };
 		CAD398752BECED3F00B57329 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAD398742BECED3F00B57329 /* SceneDelegate.swift */; };
 		CAD398772BECED3F00B57329 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAD398762BECED3F00B57329 /* ViewController.swift */; };
@@ -31,6 +35,10 @@
 		CA22B3F42BF136610013B7AB /* Pretendard-SemiBold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Pretendard-SemiBold.otf"; sourceTree = "<group>"; };
 		CA22B3F62BF1379B0013B7AB /* UIFont+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIFont+.swift"; sourceTree = "<group>"; };
 		CA22B3F82BF13C380013B7AB /* UILabel+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UILabel+.swift"; sourceTree = "<group>"; };
+		CA22B3FA2BF146C50013B7AB /* UIVIew+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIVIew+.swift"; sourceTree = "<group>"; };
+		CA22B3FC2BF147040013B7AB /* UIStackView+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIStackView+.swift"; sourceTree = "<group>"; };
+		CA22B3FE2BF147980013B7AB /* UICollectionViewCell+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UICollectionViewCell+.swift"; sourceTree = "<group>"; };
+		CA22B4002BF147BF0013B7AB /* UITableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITableViewCell.swift; sourceTree = "<group>"; };
 		CAD3986F2BECED3F00B57329 /* KAKAOBANK-iOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "KAKAOBANK-iOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		CAD398722BECED3F00B57329 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		CAD398742BECED3F00B57329 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -127,6 +135,10 @@
 			children = (
 				CA22B3F62BF1379B0013B7AB /* UIFont+.swift */,
 				CA22B3F82BF13C380013B7AB /* UILabel+.swift */,
+				CA22B3FA2BF146C50013B7AB /* UIVIew+.swift */,
+				CA22B3FC2BF147040013B7AB /* UIStackView+.swift */,
+				CA22B3FE2BF147980013B7AB /* UICollectionViewCell+.swift */,
+				CA22B4002BF147BF0013B7AB /* UITableViewCell.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -263,10 +275,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CA22B4012BF147BF0013B7AB /* UITableViewCell.swift in Sources */,
+				CA22B3FD2BF147040013B7AB /* UIStackView+.swift in Sources */,
 				CA22B3F72BF1379B0013B7AB /* UIFont+.swift in Sources */,
 				CAD398772BECED3F00B57329 /* ViewController.swift in Sources */,
+				CA22B3FB2BF146C50013B7AB /* UIVIew+.swift in Sources */,
 				CA22B3F92BF13C380013B7AB /* UILabel+.swift in Sources */,
 				CAD398732BECED3F00B57329 /* AppDelegate.swift in Sources */,
+				CA22B3FF2BF147980013B7AB /* UICollectionViewCell+.swift in Sources */,
 				CAD398752BECED3F00B57329 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
