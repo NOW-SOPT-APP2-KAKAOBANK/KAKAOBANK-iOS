@@ -15,7 +15,7 @@ extension UILabel {
         case .head1, .head3, .head4, .head5, .body2, .number2, .subTitle2, .caption1, .caption2, .ad1:
             tracking = 0
         case .body1, .body4, .subTitle1, .body6, .body8:
-            tracking = 0.3
+            tracking = 0.03
         }
         
         let font = UIFont.pretendard(fontName)
