@@ -25,7 +25,7 @@
 		CAD398762BECED3F00B57329 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		CAD3987B2BECED4000B57329 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		CAD3987E2BECED4000B57329 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
-		CAD398802BECED4000B57329 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		CAD398802BECED4000B57329 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = Info.plist; path = "KAKAOBANK-iOS/Global/Settings/Info.plist"; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -43,6 +43,95 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		CA22B3E02BF1328E0013B7AB /* Global */ = {
+			isa = PBXGroup;
+			children = (
+				CA22B3ED2BF133CA0013B7AB /* Settings */,
+				CA22B3EB2BF133840013B7AB /* Extension */,
+				CA22B3EA2BF133770013B7AB /* Literals */,
+				CA22B3E92BF1336A0013B7AB /* Resources */,
+				CA22B3E82BF133630013B7AB /* UIComponents */,
+			);
+			path = Global;
+			sourceTree = "<group>";
+		};
+		CA22B3E12BF132C00013B7AB /* Application */ = {
+			isa = PBXGroup;
+			children = (
+				CAD3987D2BECED4000B57329 /* LaunchScreen.storyboard */,
+				CAD398742BECED3F00B57329 /* SceneDelegate.swift */,
+				CAD398722BECED3F00B57329 /* AppDelegate.swift */,
+			);
+			path = Application;
+			sourceTree = "<group>";
+		};
+		CA22B3E22BF132CA0013B7AB /* Network */ = {
+			isa = PBXGroup;
+			children = (
+				CA22B3E52BF1330E0013B7AB /* Base */,
+			);
+			path = Network;
+			sourceTree = "<group>";
+		};
+		CA22B3E32BF132D20013B7AB /* Presentation */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Presentation;
+			sourceTree = "<group>";
+		};
+		CA22B3E52BF1330E0013B7AB /* Base */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Base;
+			sourceTree = "<group>";
+		};
+		CA22B3E82BF133630013B7AB /* UIComponents */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = UIComponents;
+			sourceTree = "<group>";
+		};
+		CA22B3E92BF1336A0013B7AB /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				CAD3987B2BECED4000B57329 /* Assets.xcassets */,
+				CA22B3EC2BF133A30013B7AB /* Font */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		CA22B3EA2BF133770013B7AB /* Literals */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Literals;
+			sourceTree = "<group>";
+		};
+		CA22B3EB2BF133840013B7AB /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Extension;
+			sourceTree = "<group>";
+		};
+		CA22B3EC2BF133A30013B7AB /* Font */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Font;
+			sourceTree = "<group>";
+		};
+		CA22B3ED2BF133CA0013B7AB /* Settings */ = {
+			isa = PBXGroup;
+			children = (
+				CAD398802BECED4000B57329 /* Info.plist */,
+			);
+			path = Settings;
+			sourceTree = "<group>";
+		};
 		CAD398662BECED3F00B57329 = {
 			isa = PBXGroup;
 			children = (
@@ -62,12 +151,11 @@
 		CAD398712BECED3F00B57329 /* KAKAOBANK-iOS */ = {
 			isa = PBXGroup;
 			children = (
-				CAD398722BECED3F00B57329 /* AppDelegate.swift */,
-				CAD398742BECED3F00B57329 /* SceneDelegate.swift */,
+				CA22B3E32BF132D20013B7AB /* Presentation */,
+				CA22B3E22BF132CA0013B7AB /* Network */,
+				CA22B3E12BF132C00013B7AB /* Application */,
+				CA22B3E02BF1328E0013B7AB /* Global */,
 				CAD398762BECED3F00B57329 /* ViewController.swift */,
-				CAD3987B2BECED4000B57329 /* Assets.xcassets */,
-				CAD3987D2BECED4000B57329 /* LaunchScreen.storyboard */,
-				CAD398802BECED4000B57329 /* Info.plist */,
 			);
 			path = "KAKAOBANK-iOS";
 			sourceTree = "<group>";
@@ -301,7 +389,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = D3HYNZN587;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = "KAKAOBANK-iOS/Info.plist";
+				INFOPLIST_FILE = "KAKAOBANK-iOS/Global/Settings/Info.plist";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
@@ -329,7 +417,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = D3HYNZN587;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = "KAKAOBANK-iOS/Info.plist";
+				INFOPLIST_FILE = "KAKAOBANK-iOS/Global/Settings/Info.plist";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
