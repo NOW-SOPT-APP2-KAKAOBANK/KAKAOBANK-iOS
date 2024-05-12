@@ -1,0 +1,12 @@
+{
+  "images" : [
+    {
+      "filename" : "btn_leading_ios.svg",
+      "idiom" : "universal"
+    }
+  ],
+  "info" : {
+    "author" : "xcode",
+    "version" : 1
+  }
+}
