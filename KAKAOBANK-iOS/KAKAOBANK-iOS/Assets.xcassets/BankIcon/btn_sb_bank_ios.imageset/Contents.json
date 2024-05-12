@@ -1,0 +1,12 @@
+{
+  "images" : [
+    {
+      "filename" : "btn_sb_bank_ios.svg",
+      "idiom" : "universal"
+    }
+  ],
+  "info" : {
+    "author" : "xcode",
+    "version" : 1
+  }
+}
