@@ -2,18 +2,7 @@
   "images" : [
     {
       "filename" : "btn_uri_bank_ios.svg",
-      "idiom" : "universal",
-      "scale" : "1x"
-    },
-    {
-      "filename" : "btn_uri_bank_ios@2x.svg",
-      "idiom" : "universal",
-      "scale" : "2x"
-    },
-    {
-      "filename" : "btn_uri_bank_ios@3x.svg",
-      "idiom" : "universal",
-      "scale" : "3x"
+      "idiom" : "universal"
     }
   ],
   "info" : {
