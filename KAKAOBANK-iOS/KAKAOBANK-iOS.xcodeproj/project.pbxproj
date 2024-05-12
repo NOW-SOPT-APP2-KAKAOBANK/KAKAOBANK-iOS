@@ -12,6 +12,7 @@
 		CA22B3F32BF136580013B7AB /* Pretendard-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = CA22B3F22BF136580013B7AB /* Pretendard-Regular.otf */; };
 		CA22B3F52BF136610013B7AB /* Pretendard-SemiBold.otf in Resources */ = {isa = PBXBuildFile; fileRef = CA22B3F42BF136610013B7AB /* Pretendard-SemiBold.otf */; };
 		CA22B3F72BF1379B0013B7AB /* UIFont+.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA22B3F62BF1379B0013B7AB /* UIFont+.swift */; };
+		CA22B3F92BF13C380013B7AB /* UILabel+.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA22B3F82BF13C380013B7AB /* UILabel+.swift */; };
 		CAD398732BECED3F00B57329 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAD398722BECED3F00B57329 /* AppDelegate.swift */; };
 		CAD398752BECED3F00B57329 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAD398742BECED3F00B57329 /* SceneDelegate.swift */; };
 		CAD398772BECED3F00B57329 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAD398762BECED3F00B57329 /* ViewController.swift */; };
@@ -29,6 +30,7 @@
 		CA22B3F22BF136580013B7AB /* Pretendard-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Pretendard-Regular.otf"; sourceTree = "<group>"; };
 		CA22B3F42BF136610013B7AB /* Pretendard-SemiBold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Pretendard-SemiBold.otf"; sourceTree = "<group>"; };
 		CA22B3F62BF1379B0013B7AB /* UIFont+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIFont+.swift"; sourceTree = "<group>"; };
+		CA22B3F82BF13C380013B7AB /* UILabel+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UILabel+.swift"; sourceTree = "<group>"; };
 		CAD3986F2BECED3F00B57329 /* KAKAOBANK-iOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "KAKAOBANK-iOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		CAD398722BECED3F00B57329 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		CAD398742BECED3F00B57329 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -124,6 +126,7 @@
 			isa = PBXGroup;
 			children = (
 				CA22B3F62BF1379B0013B7AB /* UIFont+.swift */,
+				CA22B3F82BF13C380013B7AB /* UILabel+.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -262,6 +265,7 @@
 			files = (
 				CA22B3F72BF1379B0013B7AB /* UIFont+.swift in Sources */,
 				CAD398772BECED3F00B57329 /* ViewController.swift in Sources */,
+				CA22B3F92BF13C380013B7AB /* UILabel+.swift in Sources */,
 				CAD398732BECED3F00B57329 /* AppDelegate.swift in Sources */,
 				CAD398752BECED3F00B57329 /* SceneDelegate.swift in Sources */,
 			);
