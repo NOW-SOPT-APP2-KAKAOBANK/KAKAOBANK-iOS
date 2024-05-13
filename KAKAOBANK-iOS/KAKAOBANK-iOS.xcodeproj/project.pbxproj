@@ -17,6 +17,7 @@
 		CA22B3FD2BF147040013B7AB /* UIStackView+.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA22B3FC2BF147040013B7AB /* UIStackView+.swift */; };
 		CA22B3FF2BF147980013B7AB /* UICollectionViewCell+.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA22B3FE2BF147980013B7AB /* UICollectionViewCell+.swift */; };
 		CA22B4012BF147BF0013B7AB /* UITableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA22B4002BF147BF0013B7AB /* UITableViewCell.swift */; };
+		CA51DE7F2BF1F0CB0084E610 /* StringLiterals.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA51DE7E2BF1F0CB0084E610 /* StringLiterals.swift */; };
 		CAD398732BECED3F00B57329 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAD398722BECED3F00B57329 /* AppDelegate.swift */; };
 		CAD398752BECED3F00B57329 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAD398742BECED3F00B57329 /* SceneDelegate.swift */; };
 		CAD398772BECED3F00B57329 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAD398762BECED3F00B57329 /* ViewController.swift */; };
@@ -39,6 +40,7 @@
 		CA22B3FC2BF147040013B7AB /* UIStackView+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIStackView+.swift"; sourceTree = "<group>"; };
 		CA22B3FE2BF147980013B7AB /* UICollectionViewCell+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UICollectionViewCell+.swift"; sourceTree = "<group>"; };
 		CA22B4002BF147BF0013B7AB /* UITableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITableViewCell.swift; sourceTree = "<group>"; };
+		CA51DE7E2BF1F0CB0084E610 /* StringLiterals.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = StringLiterals.swift; path = ../../../../../../../Documents/StringLiterals.swift; sourceTree = "<group>"; };
 		CAD3986F2BECED3F00B57329 /* KAKAOBANK-iOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "KAKAOBANK-iOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		CAD398722BECED3F00B57329 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		CAD398742BECED3F00B57329 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -126,6 +128,7 @@
 		CA22B3EA2BF133770013B7AB /* Literals */ = {
 			isa = PBXGroup;
 			children = (
+				CA51DE7E2BF1F0CB0084E610 /* StringLiterals.swift */,
 			);
 			path = Literals;
 			sourceTree = "<group>";
@@ -281,6 +284,7 @@
 				CAD398772BECED3F00B57329 /* ViewController.swift in Sources */,
 				CA22B3FB2BF146C50013B7AB /* UIVIew+.swift in Sources */,
 				CA22B3F92BF13C380013B7AB /* UILabel+.swift in Sources */,
+				CA51DE7F2BF1F0CB0084E610 /* StringLiterals.swift in Sources */,
 				CAD398732BECED3F00B57329 /* AppDelegate.swift in Sources */,
 				CA22B3FF2BF147980013B7AB /* UICollectionViewCell+.swift in Sources */,
 				CAD398752BECED3F00B57329 /* SceneDelegate.swift in Sources */,
