@@ -24,6 +24,12 @@ final class InputCell: UICollectionViewCell {
     
     private let kakaoFriendsBtn = UIButton()
         
+    private let leftView = UIView()
+    
+    private let searchImg = UIImageView()
+    
+    private let paddingView = UIView()
+    
     
     // MARK: - Properties
 
@@ -44,13 +50,16 @@ final class InputCell: UICollectionViewCell {
     
 }
 
+
+// MARK: - Private Methods
+
 private extension InputCell {
     
     func setHierarchy() {
         
         self.addSubviews(searchField, underlineView, buttonStackView)
         buttonStackView.addArrangedSubviews(accountNumberBtn, kakaoFriendsBtn)
-        
+        leftView.addSubviews(searchImg, paddingView)
     }
     
     func setLayout() {
@@ -72,6 +81,23 @@ private extension InputCell {
             $0.bottom.equalToSuperview()
         }
         
+        leftView.snp.makeConstraints {
+            $0.width.equalTo(50)
+            $0.height.equalTo(24)
+        }
+        
+        searchImg.snp.makeConstraints {
+            $0.centerY.equalToSuperview()
+            $0.leading.equalToSuperview().inset(10)
+            $0.size.equalTo(24)
+        }
+        
+        paddingView.snp.makeConstraints {
+            $0.verticalEdges.equalToSuperview()
+            $0.leading.equalTo(searchImg.snp.trailing)
+            $0.width.equalTo(25)
+        }
+        
     }
     
     func setStyle() {
@@ -79,10 +105,11 @@ private extension InputCell {
         searchField.do {
             $0.attributedPlaceholder = UILabel.attributedText(for: .body4, withText: "받는사람 이름 또는 계좌번호")
             $0.textColor = UIColor(resource: .gray7)
-            
-            let searchImg = UIImageView()
+
             searchImg.image = UIImage(resource: .btnSearchIos)
-            $0.leftView = searchImg
+            $0.leftView = leftView
+            $0.leftViewMode = .always
+            $0.isUserInteractionEnabled = false
         }
         
         underlineView.do {
@@ -109,7 +136,7 @@ private extension InputCell {
             let attributedText = UILabel.attributedText(for: .subTitle2, withText: "카카오톡 친구")
             $0.setAttributedTitle(attributedText, for: .normal)
             $0.setTitleColor(.gray9, for: .normal)
-            $0.layer.cornerRadius = 35
+            $0.layer.cornerRadius = 15
             $0.clipsToBounds = true
             $0.backgroundColor = .white
         }
