@@ -17,6 +17,8 @@ final class TransferViewController: UIViewController {
     
     private lazy var transferCollectionView = UICollectionView(frame: .zero, collectionViewLayout: self.makeLayout())
     
+    private let inputAccountButton = InputAccountButton()
+    
     
     // MARK: - Properties
 
@@ -50,7 +52,7 @@ private extension TransferViewController {
     }
     
     func setHierarchy() {
-        self.view.addSubviews(transferCollectionView)
+        self.view.addSubviews(transferCollectionView, inputAccountButton)
     }
     
     func setLayout() {
@@ -58,22 +60,26 @@ private extension TransferViewController {
             $0.top.equalTo(self.view.safeAreaLayoutGuide)
             $0.horizontalEdges.bottom.equalToSuperview()
         }
+        
+        inputAccountButton.snp.makeConstraints {
+            $0.bottom.equalTo(self.view.safeAreaLayoutGuide)
+            $0.horizontalEdges.equalToSuperview()
+            $0.height.equalTo(57)
+        }
     }
     
     func setStyle() {
-
         self.view.backgroundColor = UIColor(resource: .white)
     }
     
     func setDelegate() {
-        
         transferNaviBar.delegate = self
+        inputAccountButton.delegate = self
         transferCollectionView.delegate = self
         transferCollectionView.dataSource = self
     }
     
     func registerCell() {
-        
         transferCollectionView.do {
             $0.register(InputCell.self, forCellWithReuseIdentifier: InputCell.cellIdentifier)
             $0.register(MyAccountCell.self, forCellWithReuseIdentifier: MyAccountCell.cellIdentifier)
@@ -153,8 +159,16 @@ private extension TransferViewController {
 extension TransferViewController: TransferNaviBarDelegate {
     
     func popToMainVC() {
-        print("tap")
+        print("tap popToMainVC")
 //        self.navigationController?.popViewController(animated: true)
+    }
+    
+}
+
+extension TransferViewController: InputAccountButtonDelegate {
+    
+    func pushToSelectBankVC() {
+        print("tap pushToSelectBankVC")
     }
     
 }

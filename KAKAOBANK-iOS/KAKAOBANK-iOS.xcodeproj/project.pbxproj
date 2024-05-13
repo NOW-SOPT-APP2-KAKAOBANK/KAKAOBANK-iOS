@@ -11,6 +11,7 @@
 		CA05B3A52BF27C1B00DA77E1 /* AccountInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA05B3A42BF27C1B00DA77E1 /* AccountInfoView.swift */; };
 		CA05B3A82BF282DB00DA77E1 /* AccountInfoModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA05B3A72BF282DB00DA77E1 /* AccountInfoModel.swift */; };
 		CA05B3AA2BF2923700DA77E1 /* RecentTransferCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA05B3A92BF2923700DA77E1 /* RecentTransferCell.swift */; };
+		CA05B3AC2BF2A50C00DA77E1 /* InputAccountButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA05B3AB2BF2A50C00DA77E1 /* InputAccountButton.swift */; };
 		CA22B3EF2BF136420013B7AB /* Pretendard-Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = CA22B3EE2BF136420013B7AB /* Pretendard-Bold.otf */; };
 		CA22B3F12BF1364C0013B7AB /* Pretendard-Medium.otf in Resources */ = {isa = PBXBuildFile; fileRef = CA22B3F02BF1364C0013B7AB /* Pretendard-Medium.otf */; };
 		CA22B3F32BF136580013B7AB /* Pretendard-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = CA22B3F22BF136580013B7AB /* Pretendard-Regular.otf */; };
@@ -42,6 +43,7 @@
 		CA05B3A42BF27C1B00DA77E1 /* AccountInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountInfoView.swift; sourceTree = "<group>"; };
 		CA05B3A72BF282DB00DA77E1 /* AccountInfoModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountInfoModel.swift; sourceTree = "<group>"; };
 		CA05B3A92BF2923700DA77E1 /* RecentTransferCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecentTransferCell.swift; sourceTree = "<group>"; };
+		CA05B3AB2BF2A50C00DA77E1 /* InputAccountButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputAccountButton.swift; sourceTree = "<group>"; };
 		CA22B3EE2BF136420013B7AB /* Pretendard-Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Pretendard-Bold.otf"; sourceTree = "<group>"; };
 		CA22B3F02BF1364C0013B7AB /* Pretendard-Medium.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Pretendard-Medium.otf"; sourceTree = "<group>"; };
 		CA22B3F22BF136580013B7AB /* Pretendard-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Pretendard-Regular.otf"; sourceTree = "<group>"; };
@@ -176,6 +178,7 @@
 				CA51DE8A2BF203070084E610 /* TransferNaviBar.swift */,
 				CA6B4FA52BF2141D009A641D /* SectionHeaderView.swift */,
 				CA05B3A42BF27C1B00DA77E1 /* AccountInfoView.swift */,
+				CA05B3AB2BF2A50C00DA77E1 /* InputAccountButton.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -325,6 +328,7 @@
 				CA05B3A52BF27C1B00DA77E1 /* AccountInfoView.swift in Sources */,
 				CA22B3FD2BF147040013B7AB /* UIStackView+.swift in Sources */,
 				CA22B3F72BF1379B0013B7AB /* UIFont+.swift in Sources */,
+				CA05B3AC2BF2A50C00DA77E1 /* InputAccountButton.swift in Sources */,
 				CA6B4FA92BF21643009A641D /* InputCell.swift in Sources */,
 				CAD398772BECED3F00B57329 /* ViewController.swift in Sources */,
 				CA05B3A82BF282DB00DA77E1 /* AccountInfoModel.swift in Sources */,
