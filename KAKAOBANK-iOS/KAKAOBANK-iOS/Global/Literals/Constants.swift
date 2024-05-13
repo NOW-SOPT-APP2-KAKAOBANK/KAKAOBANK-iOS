@@ -9,8 +9,10 @@ import UIKit
 
 enum TransferSection {
     case input
+    case myAccount
     
     static let transferSections: [TransferSection] = [
-        TransferSection.input
+        TransferSection.input,
+        TransferSection.myAccount
     ]
 }
