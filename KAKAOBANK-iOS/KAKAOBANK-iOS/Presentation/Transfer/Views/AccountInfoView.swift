@@ -14,7 +14,9 @@ final class AccountInfoView: UIView {
     
     // MARK: - UI Properties
     
-    private let bankImageView = UIImageView()
+    let bankImageView = UIImageView()
+    
+    private let labelStackView = UIStackView()
     
     private let bankbookNameLabel = UILabel()
     
@@ -52,22 +54,20 @@ final class AccountInfoView: UIView {
 private extension AccountInfoView {
     
     func setHierarchy() {
-        self.addSubviews(bankImageView, bankbookNameLabel, accountNumberLabel)
+        self.addSubviews(bankImageView, labelStackView)
+        labelStackView.addArrangedSubviews(bankbookNameLabel, accountNumberLabel)
     }
     
     func setLayout() {
         bankImageView.snp.makeConstraints {
-            $0.centerY.leading.equalToSuperview()
+            $0.top.leading.equalToSuperview()
             $0.size.equalTo(42)
         }
         
-        bankbookNameLabel.snp.makeConstraints {
-            $0.top.trailing.equalToSuperview()
-            $0.leading.equalTo(bankImageView.snp.trailing).offset(14)
-        }
-        
-        accountNumberLabel.snp.makeConstraints {
-            $0.bottom.trailing.equalToSuperview()
+        labelStackView.snp.makeConstraints {
+            $0.trailing.equalToSuperview()
+            $0.height.equalTo(42)
+            $0.centerY.equalTo(bankImageView)
             $0.leading.equalTo(bankImageView.snp.trailing).offset(14)
         }
         
@@ -80,6 +80,12 @@ private extension AccountInfoView {
         bankImageView.do {
             $0.clipsToBounds = true
             $0.layer.cornerRadius = 21
+        }
+        
+        labelStackView.do {
+            $0.axis = .vertical
+            $0.alignment = .leading
+            $0.distribution = .fill
         }
         
         bankbookNameLabel.do {
