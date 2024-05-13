@@ -77,6 +77,7 @@ private extension TransferViewController {
         
         transferCollectionView.do {
             $0.register(InputCell.self, forCellWithReuseIdentifier: InputCell.cellIdentifier)
+            $0.register(MyAccountCell.self, forCellWithReuseIdentifier: MyAccountCell.cellIdentifier)
             $0.register(
                 SectionHeaderView.self,
                 forSupplementaryViewOfKind: SectionHeaderView.elementKinds,
@@ -91,6 +92,9 @@ private extension TransferViewController {
             switch TransferSection.transferSections[section] {
             case .input:
                 return self.makeInputLayout()
+                
+            case .myAccount:
+                return self.makeAccountInfoLayout()
 
             }
             
@@ -108,6 +112,23 @@ private extension TransferViewController {
         
         let section = NSCollectionLayoutSection(group: group)
         section.contentInsets = NSDirectionalEdgeInsets(top: 10, leading: 20, bottom: 0, trailing: 20)
+        
+        let header = makeHeaderLayout()
+        section.boundarySupplementaryItems = [header]
+        
+        return section
+    }
+    
+    func makeAccountInfoLayout() -> NSCollectionLayoutSection {
+        
+        let itemSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1), heightDimension: .fractionalHeight(1))
+        let item = NSCollectionLayoutItem(layoutSize: itemSize)
+        
+        let groupSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1), heightDimension: .fractionalHeight(42/812))
+        let group = NSCollectionLayoutGroup.vertical(layoutSize: groupSize, subitems: [item])
+        
+        let section = NSCollectionLayoutSection(group: group)
+        section.contentInsets = NSDirectionalEdgeInsets(top: 40, leading: 20, bottom: 0, trailing: 20)
         
         let header = makeHeaderLayout()
         section.boundarySupplementaryItems = [header]
@@ -142,11 +163,19 @@ extension TransferViewController: UICollectionViewDelegate {}
 
 extension TransferViewController: UICollectionViewDataSource {
     
+    func numberOfSections(in collectionView: UICollectionView) -> Int {
+        return TransferSection.transferSections.count
+    }
+    
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         
         switch TransferSection.transferSections[section] {
         case .input:
             return 1
+            
+        case .myAccount:
+            return AccountInfoModel.myAccountInfoAppData.count
+            
         }
     }
     
@@ -154,8 +183,16 @@ extension TransferViewController: UICollectionViewDataSource {
         
         switch TransferSection.transferSections[indexPath.section] {
         case .input:
-            guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: InputCell.cellIdentifier, for: indexPath) as? InputCell else {
-                return UICollectionViewCell() }
+            guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: InputCell.cellIdentifier, for: indexPath) as? InputCell else { return UICollectionViewCell() }
+            return cell
+            
+        case .myAccount:
+            guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: MyAccountCell.cellIdentifier, for: indexPath) as? MyAccountCell else { return UICollectionViewCell() }
+            let data = AccountInfoModel.myAccountInfoAppData[indexPath.row]
+            cell.accountInfoView.bindAccountInfo(
+                image: data.bankImg,
+                name: data.bankbookName,
+                number: data.accountNumber)
             return cell
         }
     }
@@ -168,8 +205,12 @@ extension TransferViewController: UICollectionViewDataSource {
             switch TransferSection.transferSections[indexPath.section] {
             case .input:
                 header.bindTitle(headerTitle: "이체", fontName: .head4)
-                return header
+                
+            case .myAccount:
+                header.bindTitle(headerTitle: "내 계좌", fontName: .subTitle1)
             }
+            
+            return header
         } else {
             return UICollectionReusableView()
         }
