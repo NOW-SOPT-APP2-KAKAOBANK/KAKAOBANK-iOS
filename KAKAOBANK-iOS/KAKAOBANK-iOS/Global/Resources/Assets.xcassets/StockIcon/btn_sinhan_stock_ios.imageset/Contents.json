@@ -1,0 +1,12 @@
+{
+  "images" : [
+    {
+      "filename" : "btn_sinhan_stock_ios.svg",
+      "idiom" : "universal"
+    }
+  ],
+  "info" : {
+    "author" : "xcode",
+    "version" : 1
+  }
+}
