@@ -19,6 +19,9 @@
 		CA22B4012BF147BF0013B7AB /* UITableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA22B4002BF147BF0013B7AB /* UITableViewCell.swift */; };
 		CA51DE892BF202B10084E610 /* TransferViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA51DE882BF202B10084E610 /* TransferViewController.swift */; };
 		CA51DE8B2BF203070084E610 /* TransferNaviBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA51DE8A2BF203070084E610 /* TransferNaviBar.swift */; };
+		CA6B4FA42BF210D1009A641D /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA6B4FA32BF210D1009A641D /* Constants.swift */; };
+		CA6B4FA62BF2141D009A641D /* SectionHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA6B4FA52BF2141D009A641D /* SectionHeaderView.swift */; };
+		CA6B4FA92BF21643009A641D /* InputCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA6B4FA82BF21643009A641D /* InputCell.swift */; };
 		CAD398732BECED3F00B57329 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAD398722BECED3F00B57329 /* AppDelegate.swift */; };
 		CAD398752BECED3F00B57329 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAD398742BECED3F00B57329 /* SceneDelegate.swift */; };
 		CAD398772BECED3F00B57329 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAD398762BECED3F00B57329 /* ViewController.swift */; };
@@ -43,6 +46,9 @@
 		CA22B4002BF147BF0013B7AB /* UITableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITableViewCell.swift; sourceTree = "<group>"; };
 		CA51DE882BF202B10084E610 /* TransferViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransferViewController.swift; sourceTree = "<group>"; };
 		CA51DE8A2BF203070084E610 /* TransferNaviBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransferNaviBar.swift; sourceTree = "<group>"; };
+		CA6B4FA32BF210D1009A641D /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		CA6B4FA52BF2141D009A641D /* SectionHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SectionHeaderView.swift; sourceTree = "<group>"; };
+		CA6B4FA82BF21643009A641D /* InputCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputCell.swift; sourceTree = "<group>"; };
 		CAD3986F2BECED3F00B57329 /* KAKAOBANK-iOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "KAKAOBANK-iOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		CAD398722BECED3F00B57329 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		CAD398742BECED3F00B57329 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -70,6 +76,7 @@
 		CA22B3E02BF1328E0013B7AB /* Global */ = {
 			isa = PBXGroup;
 			children = (
+				CA6B4FA22BF210C2009A641D /* Literals */,
 				CA22B3ED2BF133CA0013B7AB /* Settings */,
 				CA22B3EB2BF133840013B7AB /* Extension */,
 				CA22B3E92BF1336A0013B7AB /* Resources */,
@@ -139,6 +146,7 @@
 		CA51DE852BF2024E0084E610 /* Transfer */ = {
 			isa = PBXGroup;
 			children = (
+				CA6B4FA72BF2162A009A641D /* Cells */,
 				CA51DE872BF202930084E610 /* ViewControllers */,
 				CA51DE862BF2028E0084E610 /* Views */,
 			);
@@ -149,6 +157,7 @@
 			isa = PBXGroup;
 			children = (
 				CA51DE8A2BF203070084E610 /* TransferNaviBar.swift */,
+				CA6B4FA52BF2141D009A641D /* SectionHeaderView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -159,6 +168,22 @@
 				CA51DE882BF202B10084E610 /* TransferViewController.swift */,
 			);
 			path = ViewControllers;
+			sourceTree = "<group>";
+		};
+		CA6B4FA22BF210C2009A641D /* Literals */ = {
+			isa = PBXGroup;
+			children = (
+				CA6B4FA32BF210D1009A641D /* Constants.swift */,
+			);
+			path = Literals;
+			sourceTree = "<group>";
+		};
+		CA6B4FA72BF2162A009A641D /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				CA6B4FA82BF21643009A641D /* InputCell.swift */,
+			);
+			path = Cells;
 			sourceTree = "<group>";
 		};
 		CAD398662BECED3F00B57329 = {
@@ -275,15 +300,18 @@
 			files = (
 				CA22B4012BF147BF0013B7AB /* UITableViewCell.swift in Sources */,
 				CA51DE892BF202B10084E610 /* TransferViewController.swift in Sources */,
+				CA6B4FA62BF2141D009A641D /* SectionHeaderView.swift in Sources */,
 				CA51DE8B2BF203070084E610 /* TransferNaviBar.swift in Sources */,
 				CA22B3FD2BF147040013B7AB /* UIStackView+.swift in Sources */,
 				CA22B3F72BF1379B0013B7AB /* UIFont+.swift in Sources */,
+				CA6B4FA92BF21643009A641D /* InputCell.swift in Sources */,
 				CAD398772BECED3F00B57329 /* ViewController.swift in Sources */,
 				CA22B3FB2BF146C50013B7AB /* UIVIew+.swift in Sources */,
 				CA22B3F92BF13C380013B7AB /* UILabel+.swift in Sources */,
 				CAD398732BECED3F00B57329 /* AppDelegate.swift in Sources */,
 				CA22B3FF2BF147980013B7AB /* UICollectionViewCell+.swift in Sources */,
 				CAD398752BECED3F00B57329 /* SceneDelegate.swift in Sources */,
+				CA6B4FA42BF210D1009A641D /* Constants.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

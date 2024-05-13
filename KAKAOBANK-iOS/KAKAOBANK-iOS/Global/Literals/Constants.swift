@@ -5,4 +5,12 @@
 //  Created by 윤희슬 on 5/13/24.
 //
 
-import Foundation
+import UIKit
+
+enum TransferSection {
+    case input
+    
+    static let transferSections: [TransferSection] = [
+        TransferSection.input
+    ]
+}
