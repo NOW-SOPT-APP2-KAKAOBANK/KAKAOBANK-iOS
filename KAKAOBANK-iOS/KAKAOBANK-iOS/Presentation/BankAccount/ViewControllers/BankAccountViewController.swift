@@ -10,16 +10,17 @@ import UIKit
 final class BankAccountViewController: UIViewController {
     
     private let bankAccountNaviBar = BankAccountNaviBar()
+    
     private let scrollView = UIScrollView()
     private var contentView = UIView()
-
+    
     private var accountLabel = UILabel()
     private var underlineLabel = UILabel()
     private var balanceLabel = UILabel()
     private var wonLabel = UILabel()
     private var transferButton  = UIButton()
     private var takeButton = UIButton()
-
+    
     private var balanceStackView = UIStackView()
     private var transferButtonStackView = UIStackView()
     
