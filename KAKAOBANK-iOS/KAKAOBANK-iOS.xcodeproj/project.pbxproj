@@ -12,6 +12,8 @@
 		CA05B3A82BF282DB00DA77E1 /* AccountInfoModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA05B3A72BF282DB00DA77E1 /* AccountInfoModel.swift */; };
 		CA05B3AA2BF2923700DA77E1 /* RecentTransferCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA05B3A92BF2923700DA77E1 /* RecentTransferCell.swift */; };
 		CA05B3AC2BF2A50C00DA77E1 /* InputAccountButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA05B3AB2BF2A50C00DA77E1 /* InputAccountButton.swift */; };
+		CA05B3B22BF34A5900DA77E1 /* SelectBankViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA05B3B12BF34A5900DA77E1 /* SelectBankViewController.swift */; };
+		CA05B3B42BF34B9800DA77E1 /* SelectBankHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA05B3B32BF34B9800DA77E1 /* SelectBankHeaderView.swift */; };
 		CA22B3EF2BF136420013B7AB /* Pretendard-Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = CA22B3EE2BF136420013B7AB /* Pretendard-Bold.otf */; };
 		CA22B3F12BF1364C0013B7AB /* Pretendard-Medium.otf in Resources */ = {isa = PBXBuildFile; fileRef = CA22B3F02BF1364C0013B7AB /* Pretendard-Medium.otf */; };
 		CA22B3F32BF136580013B7AB /* Pretendard-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = CA22B3F22BF136580013B7AB /* Pretendard-Regular.otf */; };
@@ -44,6 +46,8 @@
 		CA05B3A72BF282DB00DA77E1 /* AccountInfoModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountInfoModel.swift; sourceTree = "<group>"; };
 		CA05B3A92BF2923700DA77E1 /* RecentTransferCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecentTransferCell.swift; sourceTree = "<group>"; };
 		CA05B3AB2BF2A50C00DA77E1 /* InputAccountButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputAccountButton.swift; sourceTree = "<group>"; };
+		CA05B3B12BF34A5900DA77E1 /* SelectBankViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectBankViewController.swift; sourceTree = "<group>"; };
+		CA05B3B32BF34B9800DA77E1 /* SelectBankHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectBankHeaderView.swift; sourceTree = "<group>"; };
 		CA22B3EE2BF136420013B7AB /* Pretendard-Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Pretendard-Bold.otf"; sourceTree = "<group>"; };
 		CA22B3F02BF1364C0013B7AB /* Pretendard-Medium.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Pretendard-Medium.otf"; sourceTree = "<group>"; };
 		CA22B3F22BF136580013B7AB /* Pretendard-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Pretendard-Regular.otf"; sourceTree = "<group>"; };
@@ -91,6 +95,31 @@
 			path = Models;
 			sourceTree = "<group>";
 		};
+		CA05B3AE2BF34A0200DA77E1 /* SelectBank */ = {
+			isa = PBXGroup;
+			children = (
+				CA05B3B02BF34A2800DA77E1 /* ViewControllers */,
+				CA05B3AF2BF34A2100DA77E1 /* Views */,
+			);
+			path = SelectBank;
+			sourceTree = "<group>";
+		};
+		CA05B3AF2BF34A2100DA77E1 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				CA05B3B32BF34B9800DA77E1 /* SelectBankHeaderView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		CA05B3B02BF34A2800DA77E1 /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				CA05B3B12BF34A5900DA77E1 /* SelectBankViewController.swift */,
+			);
+			path = ViewControllers;
+			sourceTree = "<group>";
+		};
 		CA22B3E02BF1328E0013B7AB /* Global */ = {
 			isa = PBXGroup;
 			children = (
@@ -115,6 +144,7 @@
 		CA22B3E32BF132D20013B7AB /* Presentation */ = {
 			isa = PBXGroup;
 			children = (
+				CA05B3AE2BF34A0200DA77E1 /* SelectBank */,
 				CA51DE852BF2024E0084E610 /* Transfer */,
 			);
 			path = Presentation;
@@ -333,6 +363,8 @@
 				CAD398772BECED3F00B57329 /* ViewController.swift in Sources */,
 				CA05B3A82BF282DB00DA77E1 /* AccountInfoModel.swift in Sources */,
 				CA22B3FB2BF146C50013B7AB /* UIVIew+.swift in Sources */,
+				CA05B3B22BF34A5900DA77E1 /* SelectBankViewController.swift in Sources */,
+				CA05B3B42BF34B9800DA77E1 /* SelectBankHeaderView.swift in Sources */,
 				CA22B3F92BF13C380013B7AB /* UILabel+.swift in Sources */,
 				CA05B3A32BF27AF300DA77E1 /* MyAccountCell.swift in Sources */,
 				CA05B3AA2BF2923700DA77E1 /* RecentTransferCell.swift in Sources */,
