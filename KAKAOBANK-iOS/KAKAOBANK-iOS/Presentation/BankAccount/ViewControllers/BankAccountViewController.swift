@@ -14,12 +14,14 @@ final class BankAccountViewController: UIViewController {
     private var contentView = UIView()
 
     private var accountLabel = UILabel()
+    private var underlineLabel = UILabel()
     private var balanceLabel = UILabel()
     private var wonLabel = UILabel()
     private var transferButton  = UIButton()
     private var takeButton = UIButton()
 
-
+    private var balanceStackView = UIStackView()
+    private var transferButtonStackView = UIStackView()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -40,7 +42,15 @@ private extension BankAccountViewController {
         [bankAccountNaviBar, contentView].forEach {
             scrollView.addSubview($0)
         }
-        [accountLabel, balanceLabel, wonLabel].forEach {
+        
+        //잔액 라벨과 원 라벨을 balanceStackView에 추가
+        balanceStackView.addArrangedSubview(balanceLabel)
+        balanceStackView.addArrangedSubview(wonLabel)
+        
+        transferButtonStackView.addArrangedSubview(transferButton)
+        transferButtonStackView.addArrangedSubview(takeButton)
+        
+        [accountLabel, underlineLabel, balanceStackView, transferButtonStackView].forEach {
             contentView.addSubview($0)
         }
     }
@@ -58,23 +68,39 @@ private extension BankAccountViewController {
         }
         bankAccountNaviBar.snp.makeConstraints {
             $0.top.leading.trailing.equalToSuperview()
-            $0.height.equalTo(40)
+            $0.height.equalTo(88)
         }
+        
         accountLabel.snp.makeConstraints {
             $0.top.equalTo(bankAccountNaviBar.snp.bottom).offset(37)
             $0.centerX.equalToSuperview()
         }
+        underlineLabel.snp.makeConstraints {
+            $0.top.equalTo(accountLabel.snp.bottom).offset(1)
+            $0.centerX.equalToSuperview()
+            $0.width.equalTo(accountLabel)
+            $0.height.equalTo(1)
+        }
         
-        balanceLabel.snp.makeConstraints {
+        balanceStackView.snp.makeConstraints {
             $0.top.equalTo(accountLabel.snp.bottom).offset(15)
             $0.centerX.equalToSuperview()
         }
         
-        wonLabel.snp.makeConstraints {
-            $0.centerY.equalTo(balanceLabel)
-            $0.centerX.equalToSuperview()
+        transferButton.snp.makeConstraints {
+            $0.width.equalTo(145)
+            $0.height.equalTo(50)
         }
         
+        takeButton.snp.makeConstraints {
+            $0.width.equalTo(145)
+            $0.height.equalTo(50)
+        }
+        
+        transferButtonStackView.snp.makeConstraints {
+            $0.top.equalTo(balanceStackView.snp.bottom).offset(47)
+            $0.centerX.equalToSuperview()
+        }
         
     }
     
@@ -86,6 +112,10 @@ private extension BankAccountViewController {
             $0.textColor = UIColor(resource: .yellow3)
         }
         
+        underlineLabel.do {
+            $0.backgroundColor = UIColor(resource: .yellow1)
+        }
+        
         balanceLabel.do {
             $0.attributedText = UILabel.attributedText(for: .head1, withText: "0")
             $0.textColor = UIColor(resource: .black2)
@@ -95,6 +125,37 @@ private extension BankAccountViewController {
             $0.attributedText = UILabel.attributedText(for: .head3, withText: "원")
             $0.textColor = UIColor(resource: .black2)
         }
+        
+        balanceStackView.do {
+            $0.axis = .horizontal
+            $0.alignment = .center
+            $0.spacing = 0
+        }
+        
+        transferButton.do {
+            $0.backgroundColor = .yellow0
+            $0.clipsToBounds = true
+            $0.layer.cornerRadius = 10
+            let attributedText = UILabel.attributedText(for: .number2, withText: "이체하기")
+            $0.setAttributedTitle(attributedText, for: .normal)
+            $0.setTitleColor(.black2, for: .normal)
+        }
+        
+        takeButton.do {
+            $0.backgroundColor = .yellow0
+            $0.clipsToBounds = true
+            $0.layer.cornerRadius = 10
+            let attributedText = UILabel.attributedText(for: .number2, withText: "가져오기")
+            $0.setAttributedTitle(attributedText, for: .normal)
+            $0.setTitleColor(.black2, for: .normal)
+        }
+        
+        transferButtonStackView.do {
+            $0.axis = .horizontal
+            $0.alignment = .center
+            $0.spacing = 8
+        }
+
     }
     
     func setDelegate() {
