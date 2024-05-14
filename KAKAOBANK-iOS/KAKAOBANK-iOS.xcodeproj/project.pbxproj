@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0D357E202BF3CB4000E044BB /* StickyHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D357E1F2BF3CB4000E044BB /* StickyHeaderView.swift */; };
 		0D5AB9052BF2663C00C41046 /* BankAccountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D5AB9042BF2663C00C41046 /* BankAccountViewController.swift */; };
 		0D5AB9072BF267E700C41046 /* BankAccountNaviBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D5AB9062BF267E700C41046 /* BankAccountNaviBar.swift */; };
 		CA05B3A32BF27AF300DA77E1 /* MyAccountCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA05B3A22BF27AF300DA77E1 /* MyAccountCell.swift */; };
@@ -41,6 +42,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		0D357E1F2BF3CB4000E044BB /* StickyHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StickyHeaderView.swift; sourceTree = "<group>"; };
 		0D5AB9042BF2663C00C41046 /* BankAccountViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BankAccountViewController.swift; sourceTree = "<group>"; };
 		0D5AB9062BF267E700C41046 /* BankAccountNaviBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BankAccountNaviBar.swift; sourceTree = "<group>"; };
 		CA05B3A22BF27AF300DA77E1 /* MyAccountCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyAccountCell.swift; sourceTree = "<group>"; };
@@ -108,10 +110,11 @@
 			isa = PBXGroup;
 			children = (
 				0D5AB9062BF267E700C41046 /* BankAccountNaviBar.swift */,
+				0D357E1F2BF3CB4000E044BB /* StickyHeaderView.swift */,
 			);
 			path = Views;
-      sourceTree = "<group>";
-    };
+			sourceTree = "<group>";
+		};
 		CA05B3A62BF282BC00DA77E1 /* Models */ = {
 			isa = PBXGroup;
 			children = (
@@ -351,6 +354,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0D357E202BF3CB4000E044BB /* StickyHeaderView.swift in Sources */,
 				CA22B4012BF147BF0013B7AB /* UITableViewCell.swift in Sources */,
 				CA51DE892BF202B10084E610 /* TransferViewController.swift in Sources */,
 				CA6B4FA62BF2141D009A641D /* SectionHeaderView.swift in Sources */,

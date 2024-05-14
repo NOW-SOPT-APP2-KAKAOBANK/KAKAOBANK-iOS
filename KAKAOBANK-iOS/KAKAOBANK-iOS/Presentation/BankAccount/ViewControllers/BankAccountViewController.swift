@@ -13,6 +13,7 @@ final class BankAccountViewController: UIViewController {
     
     private let scrollView = UIScrollView()
     private var contentView = UIView()
+    private let bankAccountTableView = UITableView()
     
     private var accountLabel = UILabel()
     private var underlineLabel = UILabel()
