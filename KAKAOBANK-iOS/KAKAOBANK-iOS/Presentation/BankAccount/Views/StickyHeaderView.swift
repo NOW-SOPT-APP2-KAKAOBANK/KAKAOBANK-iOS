@@ -53,19 +53,17 @@ private extension StickyHeaderView {
         }
         
         dateLabel.do {
-            $0.attributedText = UILabel.attributedText(for: .head5, withText: "햄들의 통장")
+            $0.attributedText = UILabel.attributedText(for: .head5, withText: "2024 3월")
             $0.textColor = UIColor(resource: .gray11)
         }
         
-        //head6 폰트 없음
         monthlyTotalLabel.do {
-            $0.attributedText = UILabel.attributedText(for: .head5, withText: "햄들의 통장")
+            $0.attributedText = UILabel.attributedText(for: .head7, withText: "3월 전체")
             $0.textColor = UIColor(resource: .gray11)
         }
         
-        //head7 폰트 없음
         totalAmountLabel.do {
-            $0.attributedText = UILabel.attributedText(for: .head5, withText: "햄들의 통장")
+            $0.attributedText = UILabel.attributedText(for: .head6, withText: "-150,000원")
             $0.textColor = UIColor(resource: .black2)
         }
    
