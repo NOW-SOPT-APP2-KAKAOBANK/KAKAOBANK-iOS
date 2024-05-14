@@ -37,22 +37,16 @@ final class BankAccountViewController: UIViewController {
 private extension BankAccountViewController {
     
     func setHierarchy() {
-        self.view.addSubview(scrollView)
+        self.view.addSubviews(bankAccountNaviBar,scrollView)
         
-        [bankAccountNaviBar, contentView].forEach {
-            scrollView.addSubview($0)
-        }
-        
-        //잔액 라벨과 원 라벨을 balanceStackView에 추가
+        self.scrollView.addSubviews(contentView)
+        self.contentView.addSubviews(accountLabel, underlineLabel, balanceStackView, transferButtonStackView)
+    
         balanceStackView.addArrangedSubview(balanceLabel)
         balanceStackView.addArrangedSubview(wonLabel)
         
         transferButtonStackView.addArrangedSubview(transferButton)
         transferButtonStackView.addArrangedSubview(takeButton)
-        
-        [accountLabel, underlineLabel, balanceStackView, transferButtonStackView].forEach {
-            contentView.addSubview($0)
-        }
     }
     
     func setLayout() {
