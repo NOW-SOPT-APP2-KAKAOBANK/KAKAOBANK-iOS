@@ -14,6 +14,7 @@ final class BankAccountViewController: UIViewController {
     private let scrollView = UIScrollView()
     private var contentView = UIView()
     private let bankAccountTableView = UITableView()
+    private let stickyHeaderVIiew = StickyHeaderView()
     
     private var accountLabel = UILabel()
     private var underlineLabel = UILabel()
@@ -63,7 +64,8 @@ private extension BankAccountViewController {
             $0.height.greaterThanOrEqualToSuperview().priority(.low)
         }
         bankAccountNaviBar.snp.makeConstraints {
-            $0.top.leading.trailing.equalToSuperview()
+            $0.top.equalToSuperview()
+            $0.leading.trailing.equalToSuperview()
             $0.height.equalTo(88)
         }
         

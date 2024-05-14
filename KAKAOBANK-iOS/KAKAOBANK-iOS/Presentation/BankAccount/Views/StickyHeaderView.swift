@@ -36,29 +36,81 @@ final class StickyHeaderView: UIView {
 private extension StickyHeaderView {
     
     func setHierarchy() {
-   
+        [searchButton, previousButton, nextButton, dateLabel, filterButton, monthlyTotalLabel, totalAmountLabel].forEach {
+            self.addSubview($0)
+        }
     }
     
     func setLayout() {
-      
+        searchButton.snp.makeConstraints {
+            $0.top.equalToSuperview().inset(15)
+            $0.leading.equalToSuperview().inset(8)
+            $0.width.equalTo(44)
+            $0.height.equalTo(44)
+        }
+        
+        previousButton.snp.makeConstraints {
+            $0.top.equalToSuperview().inset(17)
+            $0.trailing.equalTo(dateLabel.snp.leading).offset(-12)
+            $0.width.equalTo(44)
+            $0.height.equalTo(44)
+        }
+        
+        dateLabel.snp.makeConstraints {
+            $0.top.equalToSuperview().inset(29)
+            $0.centerX.equalToSuperview()
+        }
+        
+        nextButton.snp.makeConstraints {
+            $0.top.equalToSuperview().inset(17)
+            $0.leading.equalTo(dateLabel.snp.trailing).offset(12)
+            $0.width.equalTo(44)
+            $0.height.equalTo(44)
+        }
+        
+        filterButton.snp.makeConstraints {
+            $0.top.equalToSuperview().inset(17)
+            $0.trailing.equalToSuperview().inset(6)
+            $0.width.equalTo(44)
+            $0.height.equalTo(44)
+        }
+        
+        monthlyTotalLabel.snp.makeConstraints {
+            $0.top.equalToSuperview().inset(102)
+            $0.leading.equalToSuperview().inset(20)
+        }
+        
+        totalAmountLabel.snp.makeConstraints {
+            $0.top.equalToSuperview().inset(102)
+            $0.trailing.equalToSuperview().inset(20)
+        }
+        
     }
     
     func setStyle() {
+        searchButton.do {
+            $0.setImage(UIImage(resource: .btnSearchpreIos), for: .normal)
+        }
+        
         previousButton.do {
-            $0.setImage(UIImage(resource: .btnBackleadingIos), for: .normal)
+            $0.setImage(UIImage(resource: .btnBackleadingGrayIos), for: .normal)
         }
         
         nextButton.do {
-            $0.setImage(UIImage(resource: .btnFrontleadingIos), for: .normal)
+            $0.setImage(UIImage(resource: .btnFrontleadingGrayIos), for: .normal)
         }
         
         dateLabel.do {
-            $0.attributedText = UILabel.attributedText(for: .head5, withText: "2024 3월")
+            $0.attributedText = UILabel.attributedText(for: .head7, withText: "2024 3월")
             $0.textColor = UIColor(resource: .gray11)
         }
         
+        filterButton.do {
+            $0.setImage(UIImage(resource: .btnFilterIos), for: .normal)
+        }
+        
         monthlyTotalLabel.do {
-            $0.attributedText = UILabel.attributedText(for: .head7, withText: "3월 전체")
+            $0.attributedText = UILabel.attributedText(for: .head6, withText: "3월 전체")
             $0.textColor = UIColor(resource: .gray11)
         }
         
@@ -66,7 +118,5 @@ private extension StickyHeaderView {
             $0.attributedText = UILabel.attributedText(for: .head6, withText: "-150,000원")
             $0.textColor = UIColor(resource: .black2)
         }
-   
-
     }
 }
