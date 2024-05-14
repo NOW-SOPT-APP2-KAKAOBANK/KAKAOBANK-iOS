@@ -13,8 +13,9 @@ final class BankAccountViewController: UIViewController {
     
     private let scrollView = UIScrollView()
     private var contentView = UIView()
+    
     private let bankAccountTableView = UITableView()
-    private let stickyHeaderVIiew = StickyHeaderView()
+    private let stickyHeaderView = StickyHeaderView()
     
     private var accountLabel = UILabel()
     private var underlineLabel = UILabel()
@@ -43,7 +44,7 @@ private extension BankAccountViewController {
         self.view.addSubviews(bankAccountNaviBar,scrollView)
         
         self.scrollView.addSubviews(contentView)
-        self.contentView.addSubviews(accountLabel, underlineLabel, balanceStackView, transferButtonStackView)
+        self.contentView.addSubviews(accountLabel, underlineLabel, balanceStackView, transferButtonStackView, bankAccountTableView)
     
         balanceStackView.addArrangedSubview(balanceLabel)
         balanceStackView.addArrangedSubview(wonLabel)
@@ -63,6 +64,7 @@ private extension BankAccountViewController {
             $0.width.equalTo(scrollView)
             $0.height.greaterThanOrEqualToSuperview().priority(.low)
         }
+        
         bankAccountNaviBar.snp.makeConstraints {
             $0.top.equalToSuperview()
             $0.leading.trailing.equalToSuperview()
@@ -98,6 +100,11 @@ private extension BankAccountViewController {
         transferButtonStackView.snp.makeConstraints {
             $0.top.equalTo(balanceStackView.snp.bottom).offset(47)
             $0.centerX.equalToSuperview()
+        }
+        
+        //테이블 뷰 레이아웃 잡아주기
+        bankAccountTableView.snp.makeConstraints {
+            $0.top.equalTo(transferButtonStackView.snp.bottom).offset(24)
         }
         
     }
@@ -157,6 +164,8 @@ private extension BankAccountViewController {
     }
     
     func setDelegate() {
-        
     }
+    
 }
+
+
