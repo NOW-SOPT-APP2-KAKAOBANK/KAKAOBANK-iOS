@@ -19,6 +19,7 @@ final class BankAccountViewController: UIViewController {
     
     private let bankAccountTableView = UITableView()
     private let stickyHeaderView = StickyHeaderView()
+    private let headerView = StickyHeaderView()
     
     private var accountLabel = UILabel()
     private var underlineLabel = UILabel()
@@ -40,14 +41,11 @@ final class BankAccountViewController: UIViewController {
         setStyle()
         setDelegate()
         register()
-        
-        
     }
     
     
     override func viewDidAppear(_ animated: Bool) {
         bankAccountTableView.reloadData()
-        
         
         let conetentHeight = CGFloat(bankAccountList.count) * 87
         self.bankAccountTableView.snp.remakeConstraints {
@@ -64,10 +62,10 @@ final class BankAccountViewController: UIViewController {
 private extension BankAccountViewController {
     
     func setHierarchy() {
-        self.view.addSubviews(scrollView,bankAccountNaviBar)
-        
+        self.view.addSubviews(scrollView,bankAccountNaviBar,headerView)
+    
         scrollView.addSubview(contentView)
-        self.contentView.addSubviews(accountLabel, underlineLabel, balanceStackView, transferButtonStackView, stickyHeaderView, bankAccountTableView)
+        self.contentView.addSubviews(accountLabel, underlineLabel, balanceStackView, transferButtonStackView, bankAccountTableView, stickyHeaderView)
     
         balanceStackView.addArrangedSubview(balanceLabel)
         balanceStackView.addArrangedSubview(wonLabel)
@@ -134,6 +132,11 @@ private extension BankAccountViewController {
             $0.height.equalTo(163)
         }
         
+        headerView.snp.makeConstraints {
+            $0.top.equalTo(bankAccountNaviBar.snp.bottom)
+            $0.leading.trailing.equalToSuperview()
+            $0.height.equalTo(163)
+        }
     }
     
     func setStyle() {
@@ -199,12 +202,16 @@ private extension BankAccountViewController {
             $0.separatorStyle = .none
         }
         
-        
+        headerView.do {
+            $0.backgroundColor = .white
+            $0.isHidden = true
+        }
     }
     
     func setDelegate() {
         bankAccountTableView.delegate = self
         bankAccountTableView.dataSource = self
+        scrollView.delegate = self
     }
     
     private func register() {
@@ -222,7 +229,7 @@ extension BankAccountViewController: UITableViewDataSource, UITableViewDelegate 
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 6
+        return 14
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -235,3 +242,9 @@ extension BankAccountViewController: UITableViewDataSource, UITableViewDelegate 
     }
 }
 
+extension BankAccountViewController: UIScrollViewDelegate {
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        let shouldShowSticky = scrollView.contentOffset.y > stickyHeaderView.frame.minY
+        headerView.isHidden = !shouldShowSticky
+    }
+}

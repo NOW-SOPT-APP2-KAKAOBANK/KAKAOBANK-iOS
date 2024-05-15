@@ -22,6 +22,14 @@ extension BankAccountModel {
             BankAccountModel(dateLabel: "03.24", transactionLabel: "입출금통장 이자", transactionAmountLabel: "0원", totalAmountLabel: "0원"),
             BankAccountModel(dateLabel: "03.24", transactionLabel: "입출금통장 이자", transactionAmountLabel: "0원", totalAmountLabel: "0원"),
             BankAccountModel(dateLabel: "03.24", transactionLabel: "입출금통장 이자", transactionAmountLabel: "0원", totalAmountLabel: "0원"),
+            BankAccountModel(dateLabel: "03.24", transactionLabel: "입출금통장 이자", transactionAmountLabel: "0원", totalAmountLabel: "0원"),
+            BankAccountModel(dateLabel: "03.24", transactionLabel: "입출금통장 이자", transactionAmountLabel: "0원", totalAmountLabel: "0원"),
+            BankAccountModel(dateLabel: "03.24", transactionLabel: "입출금통장 이자", transactionAmountLabel: "0원", totalAmountLabel: "0원"),
+            BankAccountModel(dateLabel: "03.24", transactionLabel: "입출금통장 이자", transactionAmountLabel: "0원", totalAmountLabel: "0원"),
+            BankAccountModel(dateLabel: "03.24", transactionLabel: "입출금통장 이자", transactionAmountLabel: "0원", totalAmountLabel: "0원"),
+            BankAccountModel(dateLabel: "03.24", transactionLabel: "입출금통장 이자", transactionAmountLabel: "0원", totalAmountLabel: "0원"),
+            BankAccountModel(dateLabel: "03.24", transactionLabel: "입출금통장 이자", transactionAmountLabel: "0원", totalAmountLabel: "0원"),
+            BankAccountModel(dateLabel: "03.24", transactionLabel: "입출금통장 이자", transactionAmountLabel: "0원", totalAmountLabel: "0원"),
             BankAccountModel(dateLabel: "03.24", transactionLabel: "입출금통장 이자", transactionAmountLabel: "0원", totalAmountLabel: "0원")
         ]
     }
