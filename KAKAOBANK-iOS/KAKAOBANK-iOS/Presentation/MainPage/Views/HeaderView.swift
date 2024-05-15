@@ -2,63 +2,67 @@ import UIKit
 
 class HeaderView: UIView {
     
-    private let titleLabel: UILabel = {
-        let label = UILabel()
-        label.text = "김미정"
-        label.textColor = UIColor(named: "white")
-//        label.font = UIFont(name: "Pretendard-SemiBold", size: 21)
-        label.font = UIFont.pretendard(.head4)
-        label.textAlignment = .left
-        return label
-    }()
-    
-    private let accountButton: UIButton = {
-        let button = UIButton()
-        button.setImage(UIImage(named: "btn_myaccount_and"), for: .normal)
-        button.imageView?.contentMode = .scaleAspectFit
-        return button
-    }()
-    
-    private let profileButton: UIButton = {
-        let button = UIButton()
-        button.setImage(UIImage(named: "icn_profile_ios"), for: .normal)
-        return button
-    }()
-    
+    private var titleLabel = UILabel()
+    private var accountButton = UIButton()
+    private var profileButton = UIButton()
+
     override init(frame: CGRect) {
         super.init(frame: frame)
-        setViews()
+        
+        setHierachy()
+        setLayout()
+        setStyle()
     }
     
     required init?(coder: NSCoder) {
         super.init(coder: coder)
-        setViews()
+        
+        setHierachy()
+        setLayout()
+        setStyle()
     }
     
-    private func setViews() {
-        
+    private func setHierachy() {
         addSubviews(titleLabel, accountButton, profileButton)
+    }
+    
+    private func setLayout() {
         
-        titleLabel.translatesAutoresizingMaskIntoConstraints = false
-        accountButton.translatesAutoresizingMaskIntoConstraints = false
-        profileButton.translatesAutoresizingMaskIntoConstraints = false
+        // Using SnapKit to set constraints for titleLabel
+        titleLabel.snp.makeConstraints { make in
+            make.leading.equalToSuperview().offset(23)
+            make.centerY.equalToSuperview()
+        }
         
-        NSLayoutConstraint.activate([
-            // titleLabel을 뷰의 왼쪽 가장자리와 맞추기
-            titleLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 23),
-            titleLabel.centerYAnchor.constraint(equalTo: centerYAnchor),
-            
-            // accountButton을 titleLabel의 오른쪽에 배치
-            accountButton.leadingAnchor.constraint(equalTo: titleLabel.trailingAnchor, constant: 5),
-            accountButton.centerYAnchor.constraint(equalTo: centerYAnchor),
-            accountButton.heightAnchor.constraint(equalToConstant: 27),
-            accountButton.widthAnchor.constraint(equalToConstant: 57),
-            
-            // profileButton을 뷰의 오른쪽 가장자리와 맞추기
-            profileButton.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -26),
-            profileButton.centerYAnchor.constraint(equalTo: centerYAnchor),
-            profileButton.heightAnchor.constraint(equalToConstant: 36),
-            profileButton.widthAnchor.constraint(equalToConstant: 36)
-        ])
+        // Using SnapKit to set constraints for accountButton
+        accountButton.snp.makeConstraints { make in
+            make.leading.equalTo(titleLabel.snp.trailing).offset(5)
+            make.centerY.equalToSuperview()
+            make.height.equalTo(27)
+            make.width.equalTo(57)
+        }
+        
+        // Using SnapKit to set constraints for profileButton
+        profileButton.snp.makeConstraints { make in
+            make.trailing.equalToSuperview().offset(-26)
+            make.centerY.equalToSuperview()
+            make.height.equalTo(36)
+            make.width.equalTo(36)
+        }
+    }
+    
+    private func setStyle() {
+        // Set the styles for titleLabel
+        titleLabel.text = "김미정"
+        titleLabel.textColor = UIColor(named: "white")
+        titleLabel.font = UIFont.pretendard(.head4)
+        titleLabel.textAlignment = .left
+        
+        // Set the styles for accountButton
+        accountButton.setImage(UIImage(named: "btn_myaccount_and"), for: .normal)
+        accountButton.imageView?.contentMode = .scaleAspectFit
+        
+        // Set the styles for profileButton
+        profileButton.setImage(UIImage(named: "icn_profile_ios"), for: .normal)
     }
 }

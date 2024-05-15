@@ -1,81 +1,75 @@
 import UIKit
+import SnapKit
 
 class SecondAccountView: UIView {
     
-    private let bankImageView: UIImageView = {
-        let imageView = UIImageView()
-        imageView.image = UIImage(named: "icn_profilesmall_ios")
-        imageView.contentMode = .scaleAspectFit
-        return imageView
-    }()
-    
-    private let titleLabel: UILabel = {
-        let label = UILabel()
-        label.text = "햄통장"
-        label.textColor = UIColor(named: "black2")
-//        label.font = UIFont(name: "Pretendard-Regular", size: 12)
-        label.font = UIFont.pretendard(.body8)
-        return label
-    }()
-    
-    private let balanceLabel: UILabel = {
-        let label = UILabel()
-        label.text = "304원"
-        label.textColor = UIColor(named: "black2")
-//        label.font = UIFont(name: "Pretendard-SemiBold", size: 17)
-        label.font = UIFont.pretendard(.head5)
-        return label
-    }()
-    
-    private let moreButton: UIImageView = {
-        let imageView = UIImageView()
-        imageView.image = UIImage(named: "btn_more_ios")
-        imageView.contentMode = .scaleAspectFit
-        return imageView
-    }()
+    private let bankImageView: UIImageView = UIImageView()
+    private let titleLabel: UILabel = UILabel()
+    private let balanceLabel: UILabel = UILabel()
+    private let moreButton: UIImageView = UIImageView()
     
     override init(frame: CGRect) {
         super.init(frame: frame)
-        setViews()
+        setHierachy()
+        setStyle()
+        setLayout()
     }
     
     required init?(coder: NSCoder) {
         super.init(coder: coder)
-        setViews()
+        setHierachy()
+        setStyle()
+        setLayout()
     }
     
-    private func setViews() {
+    private func setStyle() {
+        bankImageView.image = UIImage(named: "icn_profilesmall_ios")
+        bankImageView.contentMode = .scaleAspectFit
+        
+        titleLabel.text = "햄통장"
+        titleLabel.textColor = UIColor(named: "black2")
+        titleLabel.font = UIFont.pretendard(.body8)
+        
+        balanceLabel.text = "304원"
+        balanceLabel.textColor = UIColor(named: "black2")
+        balanceLabel.font = UIFont.pretendard(.head5)
+        
+        moreButton.image = UIImage(named: "btn_more_ios")
+        moreButton.contentMode = .scaleAspectFit
+        
         backgroundColor = UIColor(named: "pink0")
-        layer.cornerRadius = 15  // 모서리 둥글게 설정
-        layer.masksToBounds = true  // 둥근 모서리가 콘텐츠를 넘지 않도록
-        
-        addSubviews(bankImageView, titleLabel, balanceLabel, moreButton)
-        
-        setConstraints()
+        layer.cornerRadius = 15
+        layer.masksToBounds = true
     }
-
-        private func setConstraints() {
-                
-            NSLayoutConstraint.activate([
-                bankImageView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 20),
-                bankImageView.topAnchor.constraint(equalTo: topAnchor, constant: 34),
-                bankImageView.widthAnchor.constraint(equalToConstant: 40),
-                bankImageView.heightAnchor.constraint(equalToConstant: 40),
-                
-                titleLabel.leadingAnchor.constraint(equalTo: bankImageView.trailingAnchor, constant: 8),
-                titleLabel.topAnchor.constraint(equalTo: topAnchor, constant: 29),
-                
-                balanceLabel.leadingAnchor.constraint(equalTo: titleLabel.leadingAnchor),
-                balanceLabel.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: 5),
-                
-                moreButton.topAnchor.constraint(equalTo: topAnchor, constant: 13),
-                moreButton.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -19),
-                moreButton.widthAnchor.constraint(equalToConstant: 24),
-                moreButton.heightAnchor.constraint(equalToConstant: 24),
-                
-            ])
-            
-            subviews.forEach { $0.translatesAutoresizingMaskIntoConstraints = false }
-        }
     
+    private func setHierachy() {
+        addSubview(bankImageView)
+        addSubview(titleLabel)
+        addSubview(balanceLabel)
+        addSubview(moreButton)
+    }
+    
+    private func setLayout() {
+        bankImageView.snp.makeConstraints { make in
+            make.leading.equalToSuperview().offset(20)
+            make.top.equalToSuperview().offset(34)
+            make.width.height.equalTo(40)
+        }
+        
+        titleLabel.snp.makeConstraints { make in
+            make.leading.equalTo(bankImageView.snp.trailing).offset(8)
+            make.top.equalToSuperview().offset(29)
+        }
+        
+        balanceLabel.snp.makeConstraints { make in
+            make.leading.equalTo(titleLabel.snp.leading)
+            make.top.equalTo(titleLabel.snp.bottom).offset(5)
+        }
+        
+        moreButton.snp.makeConstraints { make in
+            make.top.equalToSuperview().offset(13)
+            make.trailing.equalToSuperview().inset(19)
+            make.width.height.equalTo(24)
+        }
+    }
 }
