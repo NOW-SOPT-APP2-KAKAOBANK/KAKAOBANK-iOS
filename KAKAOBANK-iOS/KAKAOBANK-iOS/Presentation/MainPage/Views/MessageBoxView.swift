@@ -1,6 +1,7 @@
 import UIKit
 
 class MessageBoxView: UIView {
+    var heightConstraint: NSLayoutConstraint?
     
     private let messageLabel: UILabel = {
         let label = UILabel()
@@ -30,11 +31,15 @@ class MessageBoxView: UIView {
     override init(frame: CGRect) {
         super.init(frame: frame)
         setupViews()
+        setupCloseButtonAction()
+        configureHeightConstraint()
     }
     
     required init?(coder: NSCoder) {
         super.init(coder: coder)
         setupViews()
+        setupCloseButtonAction()
+        configureHeightConstraint()
     }
     
     private func setupViews() {
@@ -66,5 +71,24 @@ class MessageBoxView: UIView {
             checkLimitButton.widthAnchor.constraint(equalToConstant: 92),
             checkLimitButton.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -19)
         ])
+    }
+    
+    private func setupCloseButtonAction() {
+        closeButton.addTarget(self, action: #selector(handleCloseButton), for: .touchUpInside)
+    }
+    
+    private func configureHeightConstraint() {
+        self.heightConstraint = self.heightAnchor.constraint(equalToConstant: 99) // 초기 높이
+        self.heightConstraint?.isActive = true
+    }
+    
+    @objc private func handleCloseButton() {
+        UIView.animate(withDuration: 0.3) {
+            self.heightConstraint?.constant = 0  // 높이를 0으로 설정
+            self.alpha = 0  // 뷰를 투명하게 만들어 숨김 효과 추가
+            self.superview?.layoutIfNeeded()  // 부모 뷰의 레이아웃 업데이트
+        } completion: { _ in
+            self.isHidden = true  // 애니메이션이 끝난 후 뷰를 숨김
+        }
     }
 }
