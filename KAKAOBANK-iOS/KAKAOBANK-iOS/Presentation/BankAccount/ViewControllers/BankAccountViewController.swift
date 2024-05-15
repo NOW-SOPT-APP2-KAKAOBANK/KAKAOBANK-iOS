@@ -7,6 +7,9 @@
 
 import UIKit
 
+import SnapKit
+import Then
+
 final class BankAccountViewController: UIViewController {
     
     private let bankAccountNaviBar = BankAccountNaviBar()
@@ -16,6 +19,7 @@ final class BankAccountViewController: UIViewController {
     
     private let bankAccountTableView = UITableView()
     private let stickyHeaderView = StickyHeaderView()
+    let headerHeight: CGFloat = 163
     
     private var accountLabel = UILabel()
     private var underlineLabel = UILabel()
@@ -27,6 +31,8 @@ final class BankAccountViewController: UIViewController {
     private var balanceStackView = UIStackView()
     private var transferButtonStackView = UIStackView()
     
+    private let bankAccountList = BankAccountModel.dummy()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -34,6 +40,7 @@ final class BankAccountViewController: UIViewController {
         setLayout()
         setStyle()
         setDelegate()
+        register()
         
     }
 }
@@ -75,6 +82,7 @@ private extension BankAccountViewController {
             $0.top.equalTo(bankAccountNaviBar.snp.bottom).offset(37)
             $0.centerX.equalToSuperview()
         }
+        
         underlineLabel.snp.makeConstraints {
             $0.top.equalTo(accountLabel.snp.bottom).offset(1)
             $0.centerX.equalToSuperview()
@@ -102,10 +110,22 @@ private extension BankAccountViewController {
             $0.centerX.equalToSuperview()
         }
         
-        //테이블 뷰 레이아웃 잡아주기
         bankAccountTableView.snp.makeConstraints {
-            $0.top.equalTo(transferButtonStackView.snp.bottom).offset(24)
+            $0.top.equalTo(transferButtonStackView.snp.bottom).offset(40)
+            $0.trailing.leading.bottom.equalToSuperview()
         }
+        
+//        //스티키 헤더 뷰
+//        stickyHeaderView.snp.makeConstraints {
+//            $0.top.equalTo(transferButtonStackView.snp.bottom).offset(24)
+//            $0.leading.trailing.equalTo(scrollView)
+//            $0.height.equalTo(163)
+//            
+//        }
+//        //테이블 뷰 레이아웃 잡아주기
+//        bankAccountTableView.snp.makeConstraints {
+//            $0.top.equalTo(transferButtonStackView.snp.bottom).offset(24)
+//        }
         
     }
     
@@ -141,7 +161,7 @@ private extension BankAccountViewController {
             $0.backgroundColor = .yellow0
             $0.clipsToBounds = true
             $0.layer.cornerRadius = 10
-            let attributedText = UILabel.attributedText(for: .number2, withText: "이체하기")
+            let attributedText = UILabel.attributedText(for: .number3, withText: "이체하기")
             $0.setAttributedTitle(attributedText, for: .normal)
             $0.setTitleColor(.black2, for: .normal)
         }
@@ -150,7 +170,7 @@ private extension BankAccountViewController {
             $0.backgroundColor = .yellow0
             $0.clipsToBounds = true
             $0.layer.cornerRadius = 10
-            let attributedText = UILabel.attributedText(for: .number2, withText: "가져오기")
+            let attributedText = UILabel.attributedText(for: .number3, withText: "가져오기")
             $0.setAttributedTitle(attributedText, for: .normal)
             $0.setTitleColor(.black2, for: .normal)
         }
@@ -160,12 +180,54 @@ private extension BankAccountViewController {
             $0.alignment = .center
             $0.spacing = 8
         }
+    
+//        stickyHeaderView.do {
+//            $0.backgroundColor = .red
+//        }
 
     }
     
     func setDelegate() {
+       // bankAccountTableView.delegate = self
+        bankAccountTableView.dataSource = self
+    }
+    
+    private func register() {
+        bankAccountTableView.register(
+            BankAccountTableViewCell.self,
+            forCellReuseIdentifier: BankAccountTableViewCell.identifier
+        )
     }
     
 }
 
+////protocol 채택
+//extension BankAccountViewController: UITableViewDelegate {
+//    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+//        let offsetY = scrollView.contentOffset.y
+//        if offsetY < -headerHeight {
+//            stickyHeaderView.snp.updateConstraints {
+//                $0.top.equalTo(view.safeAreaLayoutGuide.snp.top).offset(0)
+//            }
+//        } else {
+//            stickyHeaderView.snp.updateConstraints {
+//                $0.top.equalTo(view.safeAreaLayoutGuide.snp.top).offset(-offsetY - headerHeight)
+//            }
+//        }
+//    }
+//}
+
+extension BankAccountViewController: UITableViewDataSource {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return 6
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        guard let cell = bankAccountTableView.dequeueReusableCell(withIdentifier: BankAccountTableViewCell.identifier, for: indexPath) as? BankAccountTableViewCell else {
+            return UITableViewCell()
+        }
+        cell.dataBind(bankAccountList[indexPath.row])
+        return cell
+    }
+}
 

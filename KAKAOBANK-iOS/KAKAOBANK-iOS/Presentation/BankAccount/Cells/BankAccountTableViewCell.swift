@@ -7,7 +7,12 @@
 
 import UIKit
 
+import SnapKit
+import Then
+
 class BankAccountTableViewCell: UITableViewCell {
+    
+    static let identifier = "BankAccountTableViewCell"
     
     private let dateLabel = UILabel()
     private let transactionLabel = UILabel()
@@ -44,7 +49,7 @@ extension BankAccountTableViewCell {
         
         transactionLabel.snp.makeConstraints {
             $0.top.equalTo(dateLabel)
-            $0.leading.equalTo(dateLabel.snp.trailing).offset(-15)
+            $0.leading.equalTo(dateLabel.snp.trailing).offset(15)
         }
         
         transactionAmountLabel.snp.makeConstraints {
@@ -54,7 +59,8 @@ extension BankAccountTableViewCell {
         
         totalAmountLabel.snp.makeConstraints {
             $0.top.equalTo(transactionAmountLabel.snp.bottom).offset(3)
-            $0.trailing.equalTo(transactionLabel)
+            $0.trailing.equalTo(transactionAmountLabel)
+            $0.bottom.equalToSuperview().offset(-24)
         }
         
     }
@@ -79,5 +85,14 @@ extension BankAccountTableViewCell {
             $0.attributedText = UILabel.attributedText(for: .number3, withText: "0원")
             $0.textColor = UIColor(resource: .gray10)
         }
+    }
+}
+
+extension BankAccountTableViewCell {
+    func dataBind(_ data: BankAccountModel) {
+        dateLabel.text = data.dateLabel
+        transactionLabel.text = data.transactionLabel
+        transactionAmountLabel.text = data.transactionAmountLabel
+        totalAmountLabel.text = data.totalAmountLabel
     }
 }
