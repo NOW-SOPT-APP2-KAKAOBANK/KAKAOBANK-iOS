@@ -52,17 +52,17 @@ class HeaderView: UIView {
         
         NSLayoutConstraint.activate([
             // titleLabel을 뷰의 왼쪽 가장자리와 맞추기
-            titleLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 16),
+            titleLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 23),
             titleLabel.centerYAnchor.constraint(equalTo: centerYAnchor),
             
             // accountButton을 titleLabel의 오른쪽에 배치
-            accountButton.leadingAnchor.constraint(equalTo: titleLabel.trailingAnchor, constant: 8),
+            accountButton.leadingAnchor.constraint(equalTo: titleLabel.trailingAnchor, constant: 5),
             accountButton.centerYAnchor.constraint(equalTo: centerYAnchor),
             accountButton.heightAnchor.constraint(equalToConstant: 27),
             accountButton.widthAnchor.constraint(equalToConstant: 57),
             
             // profileButton을 뷰의 오른쪽 가장자리와 맞추기
-            profileButton.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -16),
+            profileButton.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -26),
             profileButton.centerYAnchor.constraint(equalTo: centerYAnchor),
             profileButton.heightAnchor.constraint(equalToConstant: 36),
             profileButton.widthAnchor.constraint(equalToConstant: 36)

@@ -10,6 +10,7 @@
 		2CF9BFE62BF4387B00C7BC35 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CF9BFE52BF4387B00C7BC35 /* MainView.swift */; };
 		2CF9BFE92BF4389E00C7BC35 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CF9BFE82BF4389E00C7BC35 /* MainViewController.swift */; };
 		2CF9BFED2BF440F900C7BC35 /* HeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CF9BFEC2BF440F900C7BC35 /* HeaderView.swift */; };
+		2CF9BFEF2BF44F1500C7BC35 /* MessageBoxView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CF9BFEE2BF44F1500C7BC35 /* MessageBoxView.swift */; };
 		CA22B3EF2BF136420013B7AB /* Pretendard-Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = CA22B3EE2BF136420013B7AB /* Pretendard-Bold.otf */; };
 		CA22B3F12BF1364C0013B7AB /* Pretendard-Medium.otf in Resources */ = {isa = PBXBuildFile; fileRef = CA22B3F02BF1364C0013B7AB /* Pretendard-Medium.otf */; };
 		CA22B3F32BF136580013B7AB /* Pretendard-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = CA22B3F22BF136580013B7AB /* Pretendard-Regular.otf */; };
@@ -36,6 +37,7 @@
 		2CF9BFE52BF4387B00C7BC35 /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
 		2CF9BFE82BF4389E00C7BC35 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		2CF9BFEC2BF440F900C7BC35 /* HeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderView.swift; sourceTree = "<group>"; };
+		2CF9BFEE2BF44F1500C7BC35 /* MessageBoxView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageBoxView.swift; sourceTree = "<group>"; };
 		CA22B3EE2BF136420013B7AB /* Pretendard-Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Pretendard-Bold.otf"; sourceTree = "<group>"; };
 		CA22B3F02BF1364C0013B7AB /* Pretendard-Medium.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Pretendard-Medium.otf"; sourceTree = "<group>"; };
 		CA22B3F22BF136580013B7AB /* Pretendard-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Pretendard-Regular.otf"; sourceTree = "<group>"; };
@@ -86,6 +88,7 @@
 			children = (
 				2CF9BFE52BF4387B00C7BC35 /* MainView.swift */,
 				2CF9BFEC2BF440F900C7BC35 /* HeaderView.swift */,
+				2CF9BFEE2BF44F1500C7BC35 /* MessageBoxView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -305,6 +308,7 @@
 				CAD398732BECED3F00B57329 /* AppDelegate.swift in Sources */,
 				2CF9BFE62BF4387B00C7BC35 /* MainView.swift in Sources */,
 				CA22B3FF2BF147980013B7AB /* UICollectionViewCell+.swift in Sources */,
+				2CF9BFEF2BF44F1500C7BC35 /* MessageBoxView.swift in Sources */,
 				CAD398752BECED3F00B57329 /* SceneDelegate.swift in Sources */,
 				2CF9BFED2BF440F900C7BC35 /* HeaderView.swift in Sources */,
 				CA6B4FA42BF210D1009A641D /* Constants.swift in Sources */,

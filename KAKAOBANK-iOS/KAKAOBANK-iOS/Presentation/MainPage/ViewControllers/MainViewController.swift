@@ -7,15 +7,17 @@ class MainViewController: UIViewController {
     private var scrollView: UIScrollView!
     private var mainView: MainView!
     private var HeaderView: HeaderView! 
+    private var messageBoxView: MessageBoxView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        view.backgroundColor = UIColor(hex: "#282A31")
+        view.backgroundColor = UIColor(named: "darkgray1")
         
         setupScrollView()
         setupMainView()
         setupHeaderView()
+        setupMessageBoxView()
     }
     
     private func setupScrollView() {
@@ -62,9 +64,24 @@ class MainViewController: UIViewController {
                 HeaderView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
                 HeaderView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
                 HeaderView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
-                HeaderView.heightAnchor.constraint(equalToConstant: 60) // 적절한 높이 설정
+                HeaderView.heightAnchor.constraint(equalToConstant: 60)
             ])
         }
+    
+    private func setupMessageBoxView() {
+        messageBoxView = MessageBoxView()
+        messageBoxView.translatesAutoresizingMaskIntoConstraints = false
+        view.addSubview(messageBoxView)
+        
+        NSLayoutConstraint.activate([
+            messageBoxView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 17),
+            messageBoxView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -17),
+            messageBoxView.topAnchor.constraint(equalTo: HeaderView.bottomAnchor),
+            messageBoxView.heightAnchor.constraint(equalToConstant: 99),
+            messageBoxView.widthAnchor.constraint(equalToConstant: 341)
+
+        ])
+    }
     
 }
 
