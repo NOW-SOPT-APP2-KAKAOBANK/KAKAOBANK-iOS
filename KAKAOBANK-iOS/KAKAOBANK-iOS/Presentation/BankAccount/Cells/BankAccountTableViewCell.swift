@@ -115,5 +115,16 @@ extension BankAccountTableViewCell {
         tagLabel.text = data.tagLabel
         transactionAmountLabel.text = data.transactionAmountLabel
         totalAmountLabel.text = data.totalAmountLabel
+
+        if let firstChar = data.transactionAmountLabel.first {
+            setTextColor(for: firstChar)
+        }
+    }
+    
+    private func setTextColor(for firstCharacter: Character) {
+        if firstCharacter == "-" {
+            transactionAmountLabel.textColor = UIColor(resource: .black2) // 파란색으로 변경
+        }
     }
 }
+
