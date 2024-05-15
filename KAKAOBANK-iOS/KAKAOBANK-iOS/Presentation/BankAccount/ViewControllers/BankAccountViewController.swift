@@ -41,6 +41,22 @@ final class BankAccountViewController: UIViewController {
         setDelegate()
         register()
         
+        
+    }
+    
+    
+    override func viewDidAppear(_ animated: Bool) {
+        bankAccountTableView.reloadData()
+        
+        
+        let conetentHeight = CGFloat(bankAccountList.count) * 87
+        self.bankAccountTableView.snp.remakeConstraints {
+            $0.top.equalTo(self.stickyHeaderView.snp.bottom)
+            $0.leading.trailing.equalToSuperview()
+            $0.bottom.equalTo(self.contentView)
+            $0.height.equalTo(conetentHeight)
+        }
+        bankAccountTableView.layoutIfNeeded()
     }
     
 }
@@ -69,7 +85,8 @@ private extension BankAccountViewController {
         contentView.snp.makeConstraints {
             $0.edges.equalTo(scrollView)
             $0.width.equalTo(scrollView)
-            $0.height.equalTo(2000)
+            $0.height.greaterThanOrEqualTo(bankAccountTableView.contentSize.height)
+
         }
         
         bankAccountNaviBar.snp.makeConstraints {
@@ -115,12 +132,6 @@ private extension BankAccountViewController {
             $0.top.equalTo(transferButtonStackView.snp.bottom).offset(24)
             $0.leading.trailing.equalTo(scrollView)
             $0.height.equalTo(163)
-        }
-        
-        bankAccountTableView.snp.makeConstraints {
-            $0.top.equalTo(stickyHeaderView.snp.bottom)
-            $0.trailing.leading.equalToSuperview()
-            $0.bottom.equalTo(contentView)
         }
         
     }
@@ -182,6 +193,10 @@ private extension BankAccountViewController {
         stickyHeaderView.do {
             $0.backgroundColor = .white
         }
+        
+        bankAccountTableView.do {
+            $0.isScrollEnabled = false
+        }
 
     }
     
@@ -199,23 +214,11 @@ private extension BankAccountViewController {
     
 }
 
-////protocol 채택
-//extension BankAccountViewController: UITableViewDelegate {
-//    func scrollViewDidScroll(_ scrollView: UIScrollView) {
-//        let offsetY = scrollView.contentOffset.y
-//        if offsetY < -headerHeight {
-//            stickyHeaderView.snp.updateConstraints {
-//                $0.top.equalTo(view.safeAreaLayoutGuide.snp.top).offset(0)
-//            }
-//        } else {
-//            stickyHeaderView.snp.updateConstraints {
-//                $0.top.equalTo(view.safeAreaLayoutGuide.snp.top).offset(-offsetY - headerHeight)
-//            }
-//        }
-//    }
-//}
-
 extension BankAccountViewController: UITableViewDataSource, UITableViewDelegate {
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 87
+    }
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return 6
     }
@@ -228,9 +231,5 @@ extension BankAccountViewController: UITableViewDataSource, UITableViewDelegate 
         cell.dataBind(bankAccountList[indexPath.row])
         return cell
     }
-    
-//    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-//        87
-//    }
 }
 

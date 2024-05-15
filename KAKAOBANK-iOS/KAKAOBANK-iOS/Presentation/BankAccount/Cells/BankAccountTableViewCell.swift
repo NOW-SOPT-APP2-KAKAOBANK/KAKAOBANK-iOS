@@ -37,15 +37,11 @@ class BankAccountTableViewCell: UITableViewCell {
 extension BankAccountTableViewCell {
     private func setHierarchy() {
         [dateLabel, transactionLabel, transactionAmountLabel, totalAmountLabel].forEach {
-            self.addSubview($0)
+            contentView.addSubview($0)
         }
     }
     
     private func setLayout() {
-        contentView.snp.makeConstraints {
-            $0.width.equalToSuperview()
-            $0.height.equalTo(87)
-        }
         dateLabel.snp.makeConstraints {
             $0.top.equalToSuperview().inset(25.5)
             $0.leading.equalToSuperview().inset(15)
