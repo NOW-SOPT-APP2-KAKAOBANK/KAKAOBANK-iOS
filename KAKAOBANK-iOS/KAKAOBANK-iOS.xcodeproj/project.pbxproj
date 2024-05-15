@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0D357E202BF3CB4000E044BB /* StickyHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D357E1F2BF3CB4000E044BB /* StickyHeaderView.swift */; };
+		0D357E242BF3DFE000E044BB /* BankAccountTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D357E232BF3DFE000E044BB /* BankAccountTableViewCell.swift */; };
+		0D357E262BF3E7B100E044BB /* BankAccountModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D357E252BF3E7B100E044BB /* BankAccountModel.swift */; };
 		0D5AB9052BF2663C00C41046 /* BankAccountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D5AB9042BF2663C00C41046 /* BankAccountViewController.swift */; };
 		0D5AB9072BF267E700C41046 /* BankAccountNaviBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D5AB9062BF267E700C41046 /* BankAccountNaviBar.swift */; };
 		CA05B3A32BF27AF300DA77E1 /* MyAccountCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA05B3A22BF27AF300DA77E1 /* MyAccountCell.swift */; };
@@ -41,6 +44,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		0D357E1F2BF3CB4000E044BB /* StickyHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StickyHeaderView.swift; sourceTree = "<group>"; };
+		0D357E232BF3DFE000E044BB /* BankAccountTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BankAccountTableViewCell.swift; sourceTree = "<group>"; };
+		0D357E252BF3E7B100E044BB /* BankAccountModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BankAccountModel.swift; sourceTree = "<group>"; };
 		0D5AB9042BF2663C00C41046 /* BankAccountViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BankAccountViewController.swift; sourceTree = "<group>"; };
 		0D5AB9062BF267E700C41046 /* BankAccountNaviBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BankAccountNaviBar.swift; sourceTree = "<group>"; };
 		CA05B3A22BF27AF300DA77E1 /* MyAccountCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyAccountCell.swift; sourceTree = "<group>"; };
@@ -87,11 +93,29 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0D357E212BF3DE0F00E044BB /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				0D357E232BF3DFE000E044BB /* BankAccountTableViewCell.swift */,
+			);
+			path = Cells;
+			sourceTree = "<group>";
+		};
+		0D357E222BF3DE1800E044BB /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				0D357E252BF3E7B100E044BB /* BankAccountModel.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
 		0D5AB9012BF264B700C41046 /* BankAccount */ = {
 			isa = PBXGroup;
 			children = (
-				0D5AB9032BF265EF00C41046 /* Views */,
+				0D357E212BF3DE0F00E044BB /* Cells */,
+				0D357E222BF3DE1800E044BB /* Models */,
 				0D5AB9022BF265D100C41046 /* ViewControllers */,
+				0D5AB9032BF265EF00C41046 /* Views */,
 			);
 			path = BankAccount;
 			sourceTree = "<group>";
@@ -108,10 +132,11 @@
 			isa = PBXGroup;
 			children = (
 				0D5AB9062BF267E700C41046 /* BankAccountNaviBar.swift */,
+				0D357E1F2BF3CB4000E044BB /* StickyHeaderView.swift */,
 			);
 			path = Views;
-      sourceTree = "<group>";
-    };
+			sourceTree = "<group>";
+		};
 		CA05B3A62BF282BC00DA77E1 /* Models */ = {
 			isa = PBXGroup;
 			children = (
@@ -351,6 +376,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0D357E202BF3CB4000E044BB /* StickyHeaderView.swift in Sources */,
 				CA22B4012BF147BF0013B7AB /* UITableViewCell.swift in Sources */,
 				CA51DE892BF202B10084E610 /* TransferViewController.swift in Sources */,
 				CA6B4FA62BF2141D009A641D /* SectionHeaderView.swift in Sources */,
@@ -369,8 +395,10 @@
 				CA05B3A32BF27AF300DA77E1 /* MyAccountCell.swift in Sources */,
 				CA05B3AA2BF2923700DA77E1 /* RecentTransferCell.swift in Sources */,
 				CAD398732BECED3F00B57329 /* AppDelegate.swift in Sources */,
+				0D357E262BF3E7B100E044BB /* BankAccountModel.swift in Sources */,
 				CA22B3FF2BF147980013B7AB /* UICollectionViewCell+.swift in Sources */,
 				CAD398752BECED3F00B57329 /* SceneDelegate.swift in Sources */,
+				0D357E242BF3DFE000E044BB /* BankAccountTableViewCell.swift in Sources */,
 				CA6B4FA42BF210D1009A641D /* Constants.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
