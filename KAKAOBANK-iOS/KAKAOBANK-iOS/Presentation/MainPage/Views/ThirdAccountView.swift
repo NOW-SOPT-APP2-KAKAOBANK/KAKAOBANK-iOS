@@ -35,6 +35,14 @@ class ThirdAccountView: UIView {
         return label
     }()
     
+    private let withdrawLabel: UILabel = {
+        let label = UILabel()
+        label.text = "출금가능 3,000,041원"
+        label.textColor = UIColor(named: "blue4")
+        label.font = UIFont(name: "Pretendard-Regular", size: 11)
+        return label
+    }()
+    
     private let moreButton: UIImageView = {
         let imageView = UIImageView()
         imageView.image = UIImage(named: "btn_more_ios")
@@ -81,6 +89,7 @@ class ThirdAccountView: UIView {
         addSubview(titleLabel)
         addSubview(balanceLabel)
         addSubviews(emerFund)
+        addSubviews(withdrawLabel)
         addSubview(moreButton)
         addSubview(cardButton)
         addSubview(transferButton)
@@ -99,7 +108,6 @@ class ThirdAccountView: UIView {
                 titleLabel.leadingAnchor.constraint(equalTo: bankImageView.trailingAnchor, constant: 8),
                 titleLabel.topAnchor.constraint(equalTo: topAnchor, constant: 29),
                 
-                
                 balanceLabel.leadingAnchor.constraint(equalTo: titleLabel.leadingAnchor),
                 balanceLabel.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: 5),
                 
@@ -108,18 +116,21 @@ class ThirdAccountView: UIView {
                 emerFund.heightAnchor.constraint(equalToConstant: 16),
                 emerFund.widthAnchor.constraint(equalToConstant: 33),
                 
+                withdrawLabel.leadingAnchor.constraint(equalTo: titleLabel.leadingAnchor),
+                withdrawLabel.topAnchor.constraint(equalTo: topAnchor, constant: 78),
+                
                 moreButton.topAnchor.constraint(equalTo: topAnchor, constant: 13),
                 moreButton.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -19),
                 moreButton.widthAnchor.constraint(equalToConstant: 24),
                 moreButton.heightAnchor.constraint(equalToConstant: 24),
                 
                 cardButton.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -77), //216
-                cardButton.topAnchor.constraint(equalTo: topAnchor, constant: 70),
+                cardButton.topAnchor.constraint(equalTo: topAnchor, constant: 90),
                 cardButton.heightAnchor.constraint(equalToConstant: 31),
                 cardButton.widthAnchor.constraint(equalToConstant: 48),
                 
                 transferButton.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 284),//271
-                transferButton.topAnchor.constraint(equalTo: topAnchor, constant: 70),
+                transferButton.topAnchor.constraint(equalTo: topAnchor, constant: 90),
                 transferButton.heightAnchor.constraint(equalToConstant: 31),
                 transferButton.widthAnchor.constraint(equalToConstant: 48),
                
