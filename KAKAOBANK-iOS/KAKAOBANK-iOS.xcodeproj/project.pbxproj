@@ -13,6 +13,13 @@
 		2CF9BFF12BF47A0C00C7BC35 /* MainAccountView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CF9BFF02BF47A0C00C7BC35 /* MainAccountView.swift */; };
 		2CF9BFF32BF48A6100C7BC35 /* SecondAccountView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CF9BFF22BF48A6100C7BC35 /* SecondAccountView.swift */; };
 		2CF9BFF52BF48A7A00C7BC35 /* ThirdAccountView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CF9BFF42BF48A7A00C7BC35 /* ThirdAccountView.swift */; };
+		0D5AB9052BF2663C00C41046 /* BankAccountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D5AB9042BF2663C00C41046 /* BankAccountViewController.swift */; };
+		0D5AB9072BF267E700C41046 /* BankAccountNaviBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D5AB9062BF267E700C41046 /* BankAccountNaviBar.swift */; };
+		CA05B3A32BF27AF300DA77E1 /* MyAccountCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA05B3A22BF27AF300DA77E1 /* MyAccountCell.swift */; };
+		CA05B3A52BF27C1B00DA77E1 /* AccountInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA05B3A42BF27C1B00DA77E1 /* AccountInfoView.swift */; };
+		CA05B3A82BF282DB00DA77E1 /* AccountInfoModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA05B3A72BF282DB00DA77E1 /* AccountInfoModel.swift */; };
+		CA05B3AA2BF2923700DA77E1 /* RecentTransferCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA05B3A92BF2923700DA77E1 /* RecentTransferCell.swift */; };
+		CA05B3AC2BF2A50C00DA77E1 /* InputAccountButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA05B3AB2BF2A50C00DA77E1 /* InputAccountButton.swift */; };
 		CA22B3EF2BF136420013B7AB /* Pretendard-Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = CA22B3EE2BF136420013B7AB /* Pretendard-Bold.otf */; };
 		CA22B3F12BF1364C0013B7AB /* Pretendard-Medium.otf in Resources */ = {isa = PBXBuildFile; fileRef = CA22B3F02BF1364C0013B7AB /* Pretendard-Medium.otf */; };
 		CA22B3F32BF136580013B7AB /* Pretendard-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = CA22B3F22BF136580013B7AB /* Pretendard-Regular.otf */; };
@@ -42,6 +49,13 @@
 		2CF9BFF02BF47A0C00C7BC35 /* MainAccountView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainAccountView.swift; sourceTree = "<group>"; };
 		2CF9BFF22BF48A6100C7BC35 /* SecondAccountView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondAccountView.swift; sourceTree = "<group>"; };
 		2CF9BFF42BF48A7A00C7BC35 /* ThirdAccountView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThirdAccountView.swift; sourceTree = "<group>"; };
+		0D5AB9042BF2663C00C41046 /* BankAccountViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BankAccountViewController.swift; sourceTree = "<group>"; };
+		0D5AB9062BF267E700C41046 /* BankAccountNaviBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BankAccountNaviBar.swift; sourceTree = "<group>"; };
+		CA05B3A22BF27AF300DA77E1 /* MyAccountCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyAccountCell.swift; sourceTree = "<group>"; };
+		CA05B3A42BF27C1B00DA77E1 /* AccountInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountInfoView.swift; sourceTree = "<group>"; };
+		CA05B3A72BF282DB00DA77E1 /* AccountInfoModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountInfoModel.swift; sourceTree = "<group>"; };
+		CA05B3A92BF2923700DA77E1 /* RecentTransferCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecentTransferCell.swift; sourceTree = "<group>"; };
+		CA05B3AB2BF2A50C00DA77E1 /* InputAccountButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputAccountButton.swift; sourceTree = "<group>"; };
 		CA22B3EE2BF136420013B7AB /* Pretendard-Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Pretendard-Bold.otf"; sourceTree = "<group>"; };
 		CA22B3F02BF1364C0013B7AB /* Pretendard-Medium.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Pretendard-Medium.otf"; sourceTree = "<group>"; };
 		CA22B3F22BF136580013B7AB /* Pretendard-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Pretendard-Regular.otf"; sourceTree = "<group>"; };
@@ -112,6 +126,39 @@
 			children = (
 			);
 			path = Cells;
+      sourceTree = "<group>";
+		};
+		0D5AB9012BF264B700C41046 /* BankAccount */ = {
+			isa = PBXGroup;
+			children = (
+				0D5AB9032BF265EF00C41046 /* Views */,
+				0D5AB9022BF265D100C41046 /* ViewControllers */,
+			);
+			path = BankAccount;
+			sourceTree = "<group>";
+		};
+		0D5AB9022BF265D100C41046 /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				0D5AB9042BF2663C00C41046 /* BankAccountViewController.swift */,
+			);
+			path = ViewControllers;
+			sourceTree = "<group>";
+		};
+		0D5AB9032BF265EF00C41046 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				0D5AB9062BF267E700C41046 /* BankAccountNaviBar.swift */,
+			);
+			path = Views;
+      sourceTree = "<group>";
+    };
+		CA05B3A62BF282BC00DA77E1 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				CA05B3A72BF282DB00DA77E1 /* AccountInfoModel.swift */,
+			);
+			path = Models;
 			sourceTree = "<group>";
 		};
 		CA22B3E02BF1328E0013B7AB /* Global */ = {
@@ -123,6 +170,14 @@
 				CA22B3E92BF1336A0013B7AB /* Resources */,
 			);
 			path = Global;
+			sourceTree = "<group>";
+		};
+    CA6B4FA22BF210C2009A641D /* Literals */ = {
+			isa = PBXGroup;
+			children = (
+				CA6B4FA32BF210D1009A641D /* Constants.swift */,
+			);
+			path = Literals;
 			sourceTree = "<group>";
 		};
 		CA22B3E12BF132C00013B7AB /* Application */ = {
@@ -139,6 +194,8 @@
 			isa = PBXGroup;
 			children = (
 				2CF9BFE22BF4380200C7BC35 /* MainPage */,
+				0D5AB9012BF264B700C41046 /* BankAccount */,
+				CA51DE852BF2024E0084E610 /* Transfer */,
 			);
 			path = Presentation;
 			sourceTree = "<group>";
@@ -184,12 +241,44 @@
 			path = Settings;
 			sourceTree = "<group>";
 		};
-		CA6B4FA22BF210C2009A641D /* Literals */ = {
+		CA51DE852BF2024E0084E610 /* Transfer */ = {
 			isa = PBXGroup;
 			children = (
-				CA6B4FA32BF210D1009A641D /* Constants.swift */,
+				CA05B3A62BF282BC00DA77E1 /* Models */,
+				CA6B4FA72BF2162A009A641D /* Cells */,
+				CA51DE872BF202930084E610 /* ViewControllers */,
+				CA51DE862BF2028E0084E610 /* Views */,
 			);
-			path = Literals;
+			path = Transfer;
+			sourceTree = "<group>";
+		};
+		CA51DE862BF2028E0084E610 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				CA51DE8A2BF203070084E610 /* TransferNaviBar.swift */,
+				CA6B4FA52BF2141D009A641D /* SectionHeaderView.swift */,
+				CA05B3A42BF27C1B00DA77E1 /* AccountInfoView.swift */,
+				CA05B3AB2BF2A50C00DA77E1 /* InputAccountButton.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		CA51DE872BF202930084E610 /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				CA51DE882BF202B10084E610 /* TransferViewController.swift */,
+			);
+			path = ViewControllers;
+			sourceTree = "<group>";
+		};
+		CA6B4FA72BF2162A009A641D /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				CA6B4FA82BF21643009A641D /* InputCell.swift */,
+				CA05B3A22BF27AF300DA77E1 /* MyAccountCell.swift */,
+				CA05B3A92BF2923700DA77E1 /* RecentTransferCell.swift */,
+			);
+			path = Cells;
 			sourceTree = "<group>";
 		};
 		CAD398662BECED3F00B57329 = {
@@ -312,7 +401,22 @@
 				2CF9BFF52BF48A7A00C7BC35 /* ThirdAccountView.swift in Sources */,
 				CA22B3FB2BF146C50013B7AB /* UIVIew+.swift in Sources */,
 				2CF9BFF32BF48A6100C7BC35 /* SecondAccountView.swift in Sources */,
+				CA51DE892BF202B10084E610 /* TransferViewController.swift in Sources */,
+				CA6B4FA62BF2141D009A641D /* SectionHeaderView.swift in Sources */,
+				CA51DE8B2BF203070084E610 /* TransferNaviBar.swift in Sources */,
+				CA05B3A52BF27C1B00DA77E1 /* AccountInfoView.swift in Sources */,
+				CA22B3FD2BF147040013B7AB /* UIStackView+.swift in Sources */,
+				CA22B3F72BF1379B0013B7AB /* UIFont+.swift in Sources */,
+				CA05B3AC2BF2A50C00DA77E1 /* InputAccountButton.swift in Sources */,
+				CA6B4FA92BF21643009A641D /* InputCell.swift in Sources */,
+				CAD398772BECED3F00B57329 /* ViewController.swift in Sources */,
+				0D5AB9052BF2663C00C41046 /* BankAccountViewController.swift in Sources */,
+				CA05B3A82BF282DB00DA77E1 /* AccountInfoModel.swift in Sources */,
+				CA22B3FB2BF146C50013B7AB /* UIVIew+.swift in Sources */,
+				0D5AB9072BF267E700C41046 /* BankAccountNaviBar.swift in Sources */,
 				CA22B3F92BF13C380013B7AB /* UILabel+.swift in Sources */,
+				CA05B3A32BF27AF300DA77E1 /* MyAccountCell.swift in Sources */,
+				CA05B3AA2BF2923700DA77E1 /* RecentTransferCell.swift in Sources */,
 				CAD398732BECED3F00B57329 /* AppDelegate.swift in Sources */,
 				2CF9BFF12BF47A0C00C7BC35 /* MainAccountView.swift in Sources */,
 				CA22B3FF2BF147980013B7AB /* UICollectionViewCell+.swift in Sources */,
