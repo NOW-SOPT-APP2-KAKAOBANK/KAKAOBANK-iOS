@@ -1,0 +1,12 @@
+{
+  "images" : [
+    {
+      "filename" : "btn_backleading_iods.svg",
+      "idiom" : "universal"
+    }
+  ],
+  "info" : {
+    "author" : "xcode",
+    "version" : 1
+  }
+}

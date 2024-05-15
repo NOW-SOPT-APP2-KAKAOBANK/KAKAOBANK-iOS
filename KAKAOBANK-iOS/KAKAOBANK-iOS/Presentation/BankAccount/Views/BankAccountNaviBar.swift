@@ -23,7 +23,6 @@ final class BankAccountNaviBar: UIView {
         setHierarchy()
         setLayout()
         setStyle()
-        setBackgroundColor()
     }
     
     required init?(coder: NSCoder) {
@@ -37,7 +36,6 @@ private extension BankAccountNaviBar {
         [backButton,titleLabel,settingButton].forEach {
             self.addSubview($0)
         }
-        
     }
     
     func setLayout() {
@@ -70,8 +68,5 @@ private extension BankAccountNaviBar {
             $0.trailing.equalToSuperview().inset(8)
             $0.height.width.equalTo(44)
         }
-    }
-    func setBackgroundColor() {
-        self.backgroundColor = UIColor(resource: .main) // 회색 배경색 지정
     }
 }
