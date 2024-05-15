@@ -5,13 +5,8 @@ class HeaderView: UIView {
     private let titleLabel: UILabel = {
         let label = UILabel()
         label.text = "김미정"
-        label.textColor = .white
-        // 폰트 적용
-        if let semiBoldFont = UIFont(name: "Pretendard-SemiBold", size: 16) {
-            label.font = semiBoldFont
-        } else {
-            print("Pretendard-SemiBold 폰트를 불러오지 못했습니다. 폰트 파일 이름과 경로를 확인하세요.")
-        }
+        label.textColor = UIColor(named: "white")
+        label.font = UIFont(name: "Pretendard-SemiBold", size: 21)
         label.textAlignment = .left
         return label
     }()

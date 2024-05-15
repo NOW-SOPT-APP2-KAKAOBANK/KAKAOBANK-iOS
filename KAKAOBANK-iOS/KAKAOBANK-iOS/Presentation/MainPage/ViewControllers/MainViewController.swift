@@ -8,6 +8,9 @@ class MainViewController: UIViewController {
     private var mainView: MainView!
     private var HeaderView: HeaderView! 
     private var messageBoxView: MessageBoxView!
+    private var mainAccountView: MainAccountView!
+    private var secondAccountView: SecondAccountView!
+    private var thirdAccountView: ThirdAccountView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -18,6 +21,10 @@ class MainViewController: UIViewController {
         setupMainView()
         setupHeaderView()
         setupMessageBoxView()
+        
+        setupMainAccountView()
+        setupSecondAccountView()
+        setupThirdAccountView()
     }
     
     private func setupScrollView() {
@@ -80,6 +87,48 @@ class MainViewController: UIViewController {
             messageBoxView.heightAnchor.constraint(equalToConstant: 99),
             messageBoxView.widthAnchor.constraint(equalToConstant: 341)
 
+        ])
+    }
+    
+    private func setupMainAccountView() {
+        mainAccountView = MainAccountView()
+        mainAccountView.translatesAutoresizingMaskIntoConstraints = false
+        view.addSubview(mainAccountView)
+        
+        NSLayoutConstraint.activate([
+            mainAccountView.topAnchor.constraint(equalTo: messageBoxView.bottomAnchor, constant: 9),
+            mainAccountView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 17),
+            mainAccountView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -17),
+            mainAccountView.widthAnchor.constraint(equalToConstant: 341),
+            mainAccountView.heightAnchor.constraint(equalToConstant: 177)
+        ])
+    }
+    
+    private func setupSecondAccountView() {
+        secondAccountView = SecondAccountView()
+        secondAccountView.translatesAutoresizingMaskIntoConstraints = false
+        view.addSubview(secondAccountView)
+        
+        NSLayoutConstraint.activate([
+            secondAccountView.topAnchor.constraint(equalTo: mainAccountView.bottomAnchor, constant: 9),
+            secondAccountView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 17),
+            secondAccountView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -17),
+            secondAccountView.widthAnchor.constraint(equalToConstant: 341),
+            secondAccountView.heightAnchor.constraint(equalToConstant: 99)
+        ])
+    }
+    
+    private func setupThirdAccountView() {
+        thirdAccountView = ThirdAccountView()
+        thirdAccountView.translatesAutoresizingMaskIntoConstraints = false
+        view.addSubview(thirdAccountView)
+        
+        NSLayoutConstraint.activate([
+            thirdAccountView.topAnchor.constraint(equalTo: secondAccountView.bottomAnchor, constant: 9),
+            thirdAccountView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 17),
+            thirdAccountView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -17),
+            thirdAccountView.widthAnchor.constraint(equalToConstant: 341),
+            thirdAccountView.heightAnchor.constraint(equalToConstant: 140)
         ])
     }
     

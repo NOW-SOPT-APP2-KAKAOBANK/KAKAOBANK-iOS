@@ -23,7 +23,7 @@ class MessageBoxView: UIView {
         button.setTitleColor(UIColor(named: "black2"), for: .normal)
         button.backgroundColor = UIColor(named: "yellow0")  // Assets에서 색상 사용
         button.titleLabel?.font = UIFont(name: "Pretendard-SemiBold", size: 12)
-        button.layer.cornerRadius = 20  // 버튼 모서리 둥글게
+        button.layer.cornerRadius = 15  // 버튼 모서리 둥글게
         return button
     }()
     
