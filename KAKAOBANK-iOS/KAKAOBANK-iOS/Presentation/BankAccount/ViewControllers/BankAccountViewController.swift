@@ -51,7 +51,7 @@ private extension BankAccountViewController {
         self.view.addSubviews(bankAccountNaviBar,scrollView)
         
         self.scrollView.addSubviews(contentView)
-        self.contentView.addSubviews(accountLabel, underlineLabel, balanceStackView, transferButtonStackView, bankAccountTableView)
+        self.contentView.addSubviews(accountLabel, underlineLabel, balanceStackView, transferButtonStackView, stickyHeaderView, bankAccountTableView)
     
         balanceStackView.addArrangedSubview(balanceLabel)
         balanceStackView.addArrangedSubview(wonLabel)
@@ -110,18 +110,19 @@ private extension BankAccountViewController {
             $0.centerX.equalToSuperview()
         }
         
+        //스티키 헤더 뷰
+        stickyHeaderView.snp.makeConstraints {
+            $0.top.equalTo(transferButtonStackView.snp.bottom).offset(24)
+            $0.leading.trailing.equalTo(scrollView)
+            $0.height.equalTo(163)
+        }
+        
         bankAccountTableView.snp.makeConstraints {
-            $0.top.equalTo(transferButtonStackView.snp.bottom).offset(40)
+            $0.top.equalTo(stickyHeaderView.snp.bottom)
             $0.trailing.leading.bottom.equalToSuperview()
         }
         
-//        //스티키 헤더 뷰
-//        stickyHeaderView.snp.makeConstraints {
-//            $0.top.equalTo(transferButtonStackView.snp.bottom).offset(24)
-//            $0.leading.trailing.equalTo(scrollView)
-//            $0.height.equalTo(163)
-//            
-//        }
+        
 //        //테이블 뷰 레이아웃 잡아주기
 //        bankAccountTableView.snp.makeConstraints {
 //            $0.top.equalTo(transferButtonStackView.snp.bottom).offset(24)
@@ -180,10 +181,10 @@ private extension BankAccountViewController {
             $0.alignment = .center
             $0.spacing = 8
         }
-    
-//        stickyHeaderView.do {
-//            $0.backgroundColor = .red
-//        }
+        
+        stickyHeaderView.do {
+            $0.backgroundColor = .white
+        }
 
     }
     
@@ -226,6 +227,7 @@ extension BankAccountViewController: UITableViewDataSource {
         guard let cell = bankAccountTableView.dequeueReusableCell(withIdentifier: BankAccountTableViewCell.identifier, for: indexPath) as? BankAccountTableViewCell else {
             return UITableViewCell()
         }
+        cell.selectionStyle = .none
         cell.dataBind(bankAccountList[indexPath.row])
         return cell
     }
