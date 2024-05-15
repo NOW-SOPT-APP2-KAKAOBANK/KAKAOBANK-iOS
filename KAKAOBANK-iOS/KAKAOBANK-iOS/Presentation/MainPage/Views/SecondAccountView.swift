@@ -13,7 +13,8 @@ class SecondAccountView: UIView {
         let label = UILabel()
         label.text = "햄통장"
         label.textColor = UIColor(named: "black2")
-        label.font = UIFont(name: "Pretendard-Regular", size: 12)
+//        label.font = UIFont(name: "Pretendard-Regular", size: 12)
+        label.font = UIFont.pretendard(.body8)
         return label
     }()
     
@@ -21,7 +22,8 @@ class SecondAccountView: UIView {
         let label = UILabel()
         label.text = "304원"
         label.textColor = UIColor(named: "black2")
-        label.font = UIFont(name: "Pretendard-SemiBold", size: 17)
+//        label.font = UIFont(name: "Pretendard-SemiBold", size: 17)
+        label.font = UIFont.pretendard(.head5)
         return label
     }()
     
@@ -34,28 +36,25 @@ class SecondAccountView: UIView {
     
     override init(frame: CGRect) {
         super.init(frame: frame)
-        setupViews()
+        setViews()
     }
     
     required init?(coder: NSCoder) {
         super.init(coder: coder)
-        setupViews()
+        setViews()
     }
     
-    private func setupViews() {
+    private func setViews() {
         backgroundColor = UIColor(named: "pink0")
         layer.cornerRadius = 15  // 모서리 둥글게 설정
         layer.masksToBounds = true  // 둥근 모서리가 콘텐츠를 넘지 않도록
         
-        addSubview(bankImageView)
-        addSubview(titleLabel)
-        addSubview(balanceLabel)
-        addSubview(moreButton)
+        addSubviews(bankImageView, titleLabel, balanceLabel, moreButton)
         
-        setupConstraints()
+        setConstraints()
     }
 
-        private func setupConstraints() {
+        private func setConstraints() {
                 
             NSLayoutConstraint.activate([
                 bankImageView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 20),

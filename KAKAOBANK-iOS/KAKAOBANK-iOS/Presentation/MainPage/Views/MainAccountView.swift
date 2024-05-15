@@ -13,7 +13,8 @@ class MainAccountView: UIView {
         let label = UILabel()
         label.text = "햄들의 통장"
         label.textColor = UIColor(named: "black2")
-        label.font = UIFont(name: "Pretendard-Regular", size: 12)
+//        label.font = UIFont(name: "Pretendard-Regular", size: 12)
+        label.font = UIFont.pretendard(.body8)
         return label
     }()
     
@@ -28,7 +29,8 @@ class MainAccountView: UIView {
         let label = UILabel()
         label.text = "0원"
         label.textColor = UIColor(named: "black2")
-        label.font = UIFont(name: "Pretendard-SemiBold", size: 17)
+//        label.font = UIFont(name: "Pretendard-SemiBold", size: 17)
+        label.font = UIFont.pretendard(.head5)
         return label
     }()
     
@@ -45,7 +47,8 @@ class MainAccountView: UIView {
         button.setTitleColor(UIColor(named: "black2"), for: .normal)
         button.backgroundColor = UIColor(named: "yellow0")
         button.layer.cornerRadius = 15
-        button.titleLabel?.font = UIFont(name: "Pretendard-SemiBold", size: 12)
+//        button.titleLabel?.font = UIFont(name: "Pretendard-SemiBold", size: 12)
+        button.titleLabel?.font = UIFont.pretendard(.subTitle2)
         return button
     }()
     
@@ -55,7 +58,8 @@ class MainAccountView: UIView {
         button.setTitleColor(UIColor(named: "black2"), for: .normal)
         button.backgroundColor = UIColor(named: "yellow0")
         button.layer.cornerRadius = 15
-        button.titleLabel?.font = UIFont(name: "Pretendard-SemiBold", size: 12)
+//        button.titleLabel?.font = UIFont(name: "Pretendard-SemiBold", size: 12)
+        button.titleLabel?.font = UIFont.pretendard(.subTitle2)
         return button
     }()
     
@@ -69,7 +73,8 @@ class MainAccountView: UIView {
         let label = UILabel()
         label.text = "세이프박스"
         label.textColor = UIColor(named: "black2")
-        label.font = UIFont(name: "Pretendard-Regular", size: 12)
+//        label.font = UIFont(name: "Pretendard-Regular", size: 12)
+        label.font = UIFont.pretendard(.body8)
         return label
     }()
     
@@ -77,40 +82,34 @@ class MainAccountView: UIView {
         let label = UILabel()
         label.text = "394원"
         label.textColor = UIColor(named: "black2")
-        label.font = UIFont(name: "Pretendard-SemiBold", size: 14)
+//        label.font = UIFont(name: "Pretendard-SemiBold", size: 14)
+        label.font = UIFont.pretendard(.body6)
         return label
     }()
     
     override init(frame: CGRect) {
         super.init(frame: frame)
-        setupViews()
+        setViews()
     }
     
     required init?(coder: NSCoder) {
         super.init(coder: coder)
-        setupViews()
+        setViews()
     }
     
-    private func setupViews() {
+    private func setViews() {
         backgroundColor = UIColor(named: "mainColor")
         layer.cornerRadius = 15  // 모서리 둥글게 설정
         layer.masksToBounds = true  // 둥근 모서리가 콘텐츠를 넘지 않도록
         
-        addSubview(bankImageView)
-        addSubview(titleLabel)
-        addSubview(starImageView)
-        addSubview(balanceLabel)
-        addSubview(moreButton)
-        addSubview(separatorLine)
-        addSubview(cardButton)
-        addSubview(transferButton)
-        addSubview(safeBoxLabel)
-        addSubview(amountLabel)
+        addSubviews(bankImageView, titleLabel, starImageView, balanceLabel, moreButton,
+                    separatorLine, cardButton, transferButton, safeBoxLabel, amountLabel)
+
         
-        setupConstraints()
+        setConstraints()
     }
 
-        private func setupConstraints() {
+        private func setConstraints() {
                 
             NSLayoutConstraint.activate([
                 bankImageView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 20),

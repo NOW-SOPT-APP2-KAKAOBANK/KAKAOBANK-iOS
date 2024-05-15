@@ -13,7 +13,8 @@ class ThirdAccountView: UIView {
         let label = UILabel()
         label.text = "김미정의 통장"
         label.textColor = UIColor(named: "black2")
-        label.font = UIFont(name: "Pretendard-Regular", size: 12)
+//        label.font = UIFont(name: "Pretendard-Regular", size: 12)
+        label.font = UIFont.pretendard(.body8)
         return label
     }()
     
@@ -23,7 +24,8 @@ class ThirdAccountView: UIView {
         button.setTitleColor(UIColor(named: "white0"), for: .normal)
         button.backgroundColor = UIColor(named: "blue3")
         button.layer.cornerRadius = 10
-        button.titleLabel?.font = UIFont(name: "Pretendard-SemiBold", size: 9)
+//        button.titleLabel?.font = UIFont(name: "Pretendard-SemiBold", size: 9)
+        button.titleLabel?.font = UIFont.pretendard(.caption2)
         return button
     }()
     
@@ -31,7 +33,8 @@ class ThirdAccountView: UIView {
         let label = UILabel()
         label.text = "41원"
         label.textColor = UIColor(named: "black2")
-        label.font = UIFont(name: "Pretendard-SemiBold", size: 17)
+//        label.font = UIFont(name: "Pretendard-SemiBold", size: 17)
+        label.font = UIFont.pretendard(.head5)
         return label
     }()
     
@@ -39,7 +42,8 @@ class ThirdAccountView: UIView {
         let label = UILabel()
         label.text = "출금가능 3,000,041원"
         label.textColor = UIColor(named: "blue4")
-        label.font = UIFont(name: "Pretendard-Regular", size: 11)
+//        label.font = UIFont(name: "Pretendard-Regular", size: 11)
+        label.font = UIFont.pretendard(.caption1)
         return label
     }()
     
@@ -56,7 +60,8 @@ class ThirdAccountView: UIView {
         button.setTitleColor(UIColor(named: "black2"), for: .normal)
         button.backgroundColor = UIColor(named: "blue1")
         button.layer.cornerRadius = 15
-        button.titleLabel?.font = UIFont(name: "Pretendard-SemiBold", size: 12)
+//        button.titleLabel?.font = UIFont(name: "Pretendard-SemiBold", size: 12)
+        button.titleLabel?.font = UIFont.pretendard(.subTitle2)
         return button
     }()
     
@@ -66,38 +71,33 @@ class ThirdAccountView: UIView {
         button.setTitleColor(UIColor(named: "black2"), for: .normal)
         button.backgroundColor = UIColor(named: "blue1")
         button.layer.cornerRadius = 15
-        button.titleLabel?.font = UIFont(name: "Pretendard-SemiBold", size: 12)
+//        button.titleLabel?.font = UIFont(name: "Pretendard-SemiBold", size: 12)
+        button.titleLabel?.font = UIFont.pretendard(.subTitle2)
         return button
     }()
     
     override init(frame: CGRect) {
         super.init(frame: frame)
-        setupViews()
+        setViews()
     }
     
     required init?(coder: NSCoder) {
         super.init(coder: coder)
-        setupViews()
+        setViews()
     }
     
-    private func setupViews() {
+    private func setViews() {
         backgroundColor = UIColor(named: "blue0")
         layer.cornerRadius = 15  // 모서리 둥글게 설정
         layer.masksToBounds = true  // 둥근 모서리가 콘텐츠를 넘지 않도록
         
-        addSubview(bankImageView)
-        addSubview(titleLabel)
-        addSubview(balanceLabel)
-        addSubviews(emerFund)
-        addSubviews(withdrawLabel)
-        addSubview(moreButton)
-        addSubview(cardButton)
-        addSubview(transferButton)
+        addSubviews(bankImageView, titleLabel, balanceLabel, emerFund,
+                    withdrawLabel, moreButton, cardButton, transferButton)
         
-        setupConstraints()
+        setConstraints()
     }
 
-        private func setupConstraints() {
+        private func setConstraints() {
                 
             NSLayoutConstraint.activate([
                 bankImageView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 20),

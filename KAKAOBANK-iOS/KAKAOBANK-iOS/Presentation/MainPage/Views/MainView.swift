@@ -6,17 +6,17 @@ class MainView: UIView {
     
     override init(frame: CGRect) {
         super.init(frame: frame)
-        setupView()
+        setView()
     }
     
     required init?(coder: NSCoder) {
         super.init(coder: coder)
-        setupView()
+        setView()
     }
     
-    private func setupView() {
+    private func setView() {
         // 배경색 설정
-        backgroundColor = UIColor(hex: "#282A31")
+        backgroundColor = UIColor(named: "white")
         
         // ContentView가 Clip 되도록
         self.clipsToBounds = true

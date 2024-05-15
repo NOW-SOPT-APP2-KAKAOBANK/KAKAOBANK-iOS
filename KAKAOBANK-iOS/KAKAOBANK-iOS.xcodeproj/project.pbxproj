@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		2CF9BFE62BF4387B00C7BC35 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CF9BFE52BF4387B00C7BC35 /* MainView.swift */; };
 		2CF9BFE92BF4389E00C7BC35 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CF9BFE82BF4389E00C7BC35 /* MainViewController.swift */; };
 		2CF9BFED2BF440F900C7BC35 /* HeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CF9BFEC2BF440F900C7BC35 /* HeaderView.swift */; };
 		2CF9BFEF2BF44F1500C7BC35 /* MessageBoxView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CF9BFEE2BF44F1500C7BC35 /* MessageBoxView.swift */; };
@@ -37,7 +36,6 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		2CF9BFE52BF4387B00C7BC35 /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
 		2CF9BFE82BF4389E00C7BC35 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		2CF9BFEC2BF440F900C7BC35 /* HeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderView.swift; sourceTree = "<group>"; };
 		2CF9BFEE2BF44F1500C7BC35 /* MessageBoxView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageBoxView.swift; sourceTree = "<group>"; };
@@ -92,7 +90,6 @@
 		2CF9BFE32BF4385400C7BC35 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				2CF9BFE52BF4387B00C7BC35 /* MainView.swift */,
 				2CF9BFEC2BF440F900C7BC35 /* HeaderView.swift */,
 				2CF9BFEE2BF44F1500C7BC35 /* MessageBoxView.swift */,
 				2CF9BFF02BF47A0C00C7BC35 /* MainAccountView.swift */,
@@ -318,7 +315,6 @@
 				CA22B3F92BF13C380013B7AB /* UILabel+.swift in Sources */,
 				CAD398732BECED3F00B57329 /* AppDelegate.swift in Sources */,
 				2CF9BFF12BF47A0C00C7BC35 /* MainAccountView.swift in Sources */,
-				2CF9BFE62BF4387B00C7BC35 /* MainView.swift in Sources */,
 				CA22B3FF2BF147980013B7AB /* UICollectionViewCell+.swift in Sources */,
 				2CF9BFEF2BF44F1500C7BC35 /* MessageBoxView.swift in Sources */,
 				CAD398752BECED3F00B57329 /* SceneDelegate.swift in Sources */,

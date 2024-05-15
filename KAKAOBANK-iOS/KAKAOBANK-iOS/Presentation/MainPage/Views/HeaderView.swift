@@ -6,7 +6,8 @@ class HeaderView: UIView {
         let label = UILabel()
         label.text = "김미정"
         label.textColor = UIColor(named: "white")
-        label.font = UIFont(name: "Pretendard-SemiBold", size: 21)
+//        label.font = UIFont(name: "Pretendard-SemiBold", size: 21)
+        label.font = UIFont.pretendard(.head4)
         label.textAlignment = .left
         return label
     }()
@@ -26,20 +27,17 @@ class HeaderView: UIView {
     
     override init(frame: CGRect) {
         super.init(frame: frame)
-        setupViews()
+        setViews()
     }
     
     required init?(coder: NSCoder) {
         super.init(coder: coder)
-        setupViews()
+        setViews()
     }
     
-    private func setupViews() {
-//        backgroundColor = UIColor(hex: "#282A31")
+    private func setViews() {
         
-        addSubview(titleLabel)
-        addSubview(accountButton)
-        addSubview(profileButton)
+        addSubviews(titleLabel, accountButton, profileButton)
         
         titleLabel.translatesAutoresizingMaskIntoConstraints = false
         accountButton.translatesAutoresizingMaskIntoConstraints = false
