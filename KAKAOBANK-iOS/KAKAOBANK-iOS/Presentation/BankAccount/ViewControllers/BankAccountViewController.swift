@@ -19,7 +19,6 @@ final class BankAccountViewController: UIViewController {
     
     private let bankAccountTableView = UITableView()
     private let stickyHeaderView = StickyHeaderView()
-    let headerHeight: CGFloat = 163
     
     private var accountLabel = UILabel()
     private var underlineLabel = UILabel()
@@ -43,14 +42,15 @@ final class BankAccountViewController: UIViewController {
         register()
         
     }
+    
 }
 
 private extension BankAccountViewController {
     
     func setHierarchy() {
-        self.view.addSubviews(bankAccountNaviBar,scrollView)
+        self.view.addSubviews(scrollView,bankAccountNaviBar)
         
-        self.scrollView.addSubviews(contentView)
+        scrollView.addSubview(contentView)
         self.contentView.addSubviews(accountLabel, underlineLabel, balanceStackView, transferButtonStackView, stickyHeaderView, bankAccountTableView)
     
         balanceStackView.addArrangedSubview(balanceLabel)
@@ -62,14 +62,14 @@ private extension BankAccountViewController {
     
     func setLayout() {
         scrollView.snp.makeConstraints {
-            $0.top.equalToSuperview()
-            $0.leading.trailing.bottom.equalToSuperview()
+            $0.top.equalTo(bankAccountNaviBar.snp.bottom)
+            $0.horizontalEdges.bottom.equalToSuperview()
         }
         
         contentView.snp.makeConstraints {
             $0.edges.equalTo(scrollView)
             $0.width.equalTo(scrollView)
-            $0.height.greaterThanOrEqualToSuperview().priority(.low)
+            $0.height.equalTo(2000)
         }
         
         bankAccountNaviBar.snp.makeConstraints {
@@ -79,7 +79,7 @@ private extension BankAccountViewController {
         }
         
         accountLabel.snp.makeConstraints {
-            $0.top.equalTo(bankAccountNaviBar.snp.bottom).offset(37)
+            $0.top.equalToSuperview().inset(37)
             $0.centerX.equalToSuperview()
         }
         
@@ -119,19 +119,16 @@ private extension BankAccountViewController {
         
         bankAccountTableView.snp.makeConstraints {
             $0.top.equalTo(stickyHeaderView.snp.bottom)
-            $0.trailing.leading.bottom.equalToSuperview()
+            $0.trailing.leading.equalToSuperview()
+            $0.bottom.equalTo(contentView)
         }
-        
-        
-//        //테이블 뷰 레이아웃 잡아주기
-//        bankAccountTableView.snp.makeConstraints {
-//            $0.top.equalTo(transferButtonStackView.snp.bottom).offset(24)
-//        }
         
     }
     
     func setStyle() {
         self.view.backgroundColor = UIColor(resource: .main)
+        self.navigationController?.isNavigationBarHidden = true
+        bankAccountTableView.isScrollEnabled = true
         
         accountLabel.do {
             $0.attributedText = UILabel.attributedText(for: .body7, withText: "3333-17-1799152")
@@ -189,7 +186,7 @@ private extension BankAccountViewController {
     }
     
     func setDelegate() {
-       // bankAccountTableView.delegate = self
+        bankAccountTableView.delegate = self
         bankAccountTableView.dataSource = self
     }
     
@@ -218,7 +215,7 @@ private extension BankAccountViewController {
 //    }
 //}
 
-extension BankAccountViewController: UITableViewDataSource {
+extension BankAccountViewController: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return 6
     }
@@ -231,5 +228,9 @@ extension BankAccountViewController: UITableViewDataSource {
         cell.dataBind(bankAccountList[indexPath.row])
         return cell
     }
+    
+//    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+//        87
+//    }
 }
 

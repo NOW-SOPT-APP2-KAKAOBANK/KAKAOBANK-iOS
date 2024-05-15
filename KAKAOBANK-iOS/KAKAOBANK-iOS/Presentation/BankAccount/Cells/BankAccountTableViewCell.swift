@@ -42,6 +42,10 @@ extension BankAccountTableViewCell {
     }
     
     private func setLayout() {
+        contentView.snp.makeConstraints {
+            $0.width.equalToSuperview()
+            $0.height.equalTo(87)
+        }
         dateLabel.snp.makeConstraints {
             $0.top.equalToSuperview().inset(25.5)
             $0.leading.equalToSuperview().inset(15)
@@ -60,7 +64,7 @@ extension BankAccountTableViewCell {
         totalAmountLabel.snp.makeConstraints {
             $0.top.equalTo(transactionAmountLabel.snp.bottom).offset(3)
             $0.trailing.equalTo(transactionAmountLabel)
-            $0.bottom.equalToSuperview().offset(-24)
+            //$0.bottom.equalToSuperview().offset(-24)
         }
         
     }

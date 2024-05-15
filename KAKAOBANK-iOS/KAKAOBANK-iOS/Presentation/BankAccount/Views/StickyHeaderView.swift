@@ -19,6 +19,7 @@ final class StickyHeaderView: UIView {
     private let filterButton = UIButton()
     private let monthlyTotalLabel = UILabel()
     private let totalAmountLabel = UILabel()
+    private let graylineLabel = UILabel()
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -36,7 +37,7 @@ final class StickyHeaderView: UIView {
 private extension StickyHeaderView {
     
     func setHierarchy() {
-        [searchButton, previousButton, nextButton, dateLabel, filterButton, monthlyTotalLabel, totalAmountLabel].forEach {
+        [searchButton, previousButton, nextButton, dateLabel, filterButton, monthlyTotalLabel, totalAmountLabel, graylineLabel].forEach {
             self.addSubview($0)
         }
     }
@@ -85,6 +86,10 @@ private extension StickyHeaderView {
             $0.trailing.equalToSuperview().inset(20)
         }
         
+        graylineLabel.snp.makeConstraints {
+            $0.bottom.leading.trailing.equalToSuperview()
+            $0.height.equalTo(1)
+        }
     }
     
     func setStyle() {
@@ -117,6 +122,10 @@ private extension StickyHeaderView {
         totalAmountLabel.do {
             $0.attributedText = UILabel.attributedText(for: .head6, withText: "-150,000원")
             $0.textColor = UIColor(resource: .black2)
+        }
+        
+        graylineLabel.do {
+            $0.backgroundColor = UIColor(resource: .gray4)
         }
     }
 }
