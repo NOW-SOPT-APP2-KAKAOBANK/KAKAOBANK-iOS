@@ -16,6 +16,7 @@ class BankAccountTableViewCell: UITableViewCell {
     
     private let dateLabel = UILabel()
     private let transactionLabel = UILabel()
+    private let tagLabel = UILabel()
     private let transactionAmountLabel = UILabel()
     private let totalAmountLabel = UILabel()
     private let graylineLabel = UILabel()
@@ -37,7 +38,7 @@ class BankAccountTableViewCell: UITableViewCell {
 
 extension BankAccountTableViewCell {
     private func setHierarchy() {
-        [dateLabel, transactionLabel, transactionAmountLabel, totalAmountLabel, graylineLabel].forEach {
+        [dateLabel, transactionLabel, tagLabel, transactionAmountLabel, totalAmountLabel, graylineLabel].forEach {
             contentView.addSubview($0)
         }
     }
@@ -51,6 +52,11 @@ extension BankAccountTableViewCell {
         transactionLabel.snp.makeConstraints {
             $0.top.equalTo(dateLabel)
             $0.leading.equalTo(dateLabel.snp.trailing).offset(15)
+        }
+        
+        tagLabel.snp.makeConstraints {
+            $0.top.equalTo(transactionLabel.snp.bottom).offset(5)
+            $0.leading.equalTo(transactionLabel)
         }
         
         transactionAmountLabel.snp.makeConstraints {
@@ -81,6 +87,11 @@ extension BankAccountTableViewCell {
             $0.textColor = UIColor(resource: .black2)
         }
         
+        tagLabel.do {
+            $0.attributedText = UILabel.attributedText(for: .number2, withText: "#예금이자")
+            $0.textColor = UIColor(resource: .deepblue0)
+        }
+        
         transactionAmountLabel.do {
             $0.attributedText = UILabel.attributedText(for: .head5, withText: "0원")
             $0.textColor = UIColor(resource: .deepblue0)
@@ -101,6 +112,7 @@ extension BankAccountTableViewCell {
     func dataBind(_ data: BankAccountModel) {
         dateLabel.text = data.dateLabel
         transactionLabel.text = data.transactionLabel
+        tagLabel.text = data.tagLabel
         transactionAmountLabel.text = data.transactionAmountLabel
         totalAmountLabel.text = data.totalAmountLabel
     }
