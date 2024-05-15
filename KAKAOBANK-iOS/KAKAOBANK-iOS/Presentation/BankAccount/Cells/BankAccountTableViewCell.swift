@@ -18,6 +18,7 @@ class BankAccountTableViewCell: UITableViewCell {
     private let transactionLabel = UILabel()
     private let transactionAmountLabel = UILabel()
     private let totalAmountLabel = UILabel()
+    private let graylineLabel = UILabel()
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
@@ -36,7 +37,7 @@ class BankAccountTableViewCell: UITableViewCell {
 
 extension BankAccountTableViewCell {
     private func setHierarchy() {
-        [dateLabel, transactionLabel, transactionAmountLabel, totalAmountLabel].forEach {
+        [dateLabel, transactionLabel, transactionAmountLabel, totalAmountLabel, graylineLabel].forEach {
             contentView.addSubview($0)
         }
     }
@@ -60,7 +61,11 @@ extension BankAccountTableViewCell {
         totalAmountLabel.snp.makeConstraints {
             $0.top.equalTo(transactionAmountLabel.snp.bottom).offset(3)
             $0.trailing.equalTo(transactionAmountLabel)
-            //$0.bottom.equalToSuperview().offset(-24)
+        }
+        
+        graylineLabel.snp.makeConstraints {
+            $0.bottom.leading.trailing.equalToSuperview()
+            $0.height.equalTo(1)
         }
         
     }
@@ -84,6 +89,10 @@ extension BankAccountTableViewCell {
         totalAmountLabel.do {
             $0.attributedText = UILabel.attributedText(for: .number3, withText: "0원")
             $0.textColor = UIColor(resource: .gray10)
+        }
+        
+        graylineLabel.do {
+            $0.backgroundColor = UIColor(resource: .gray4)
         }
     }
 }

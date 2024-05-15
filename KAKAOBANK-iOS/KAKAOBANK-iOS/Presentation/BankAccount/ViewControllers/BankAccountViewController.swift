@@ -196,8 +196,10 @@ private extension BankAccountViewController {
         
         bankAccountTableView.do {
             $0.isScrollEnabled = false
+            $0.separatorStyle = .none
         }
-
+        
+        
     }
     
     func setDelegate() {
