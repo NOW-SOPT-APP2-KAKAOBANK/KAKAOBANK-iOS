@@ -37,9 +37,7 @@ final class StickyHeaderView: UIView {
 private extension StickyHeaderView {
     
     func setHierarchy() {
-        [searchButton, previousButton, nextButton, dateLabel, filterButton, monthlyTotalLabel, totalAmountLabel, graylineLabel].forEach {
-            self.addSubview($0)
-        }
+        self.addSubviews(searchButton, previousButton, nextButton, dateLabel, filterButton, monthlyTotalLabel, totalAmountLabel, graylineLabel)
     }
     
     func setLayout() {

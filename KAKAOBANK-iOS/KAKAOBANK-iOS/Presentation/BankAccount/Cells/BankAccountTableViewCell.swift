@@ -38,9 +38,7 @@ class BankAccountTableViewCell: UITableViewCell {
 
 extension BankAccountTableViewCell {
     private func setHierarchy() {
-        [dateLabel, transactionLabel, tagLabel, transactionAmountLabel, totalAmountLabel, graylineLabel].forEach {
-            contentView.addSubview($0)
-        }
+        contentView.addSubviews(dateLabel, transactionLabel, tagLabel, transactionAmountLabel, totalAmountLabel, graylineLabel)
     }
     
     private func setLayout() {
