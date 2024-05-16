@@ -64,14 +64,12 @@ private extension BankAccountViewController {
     func setHierarchy() {
         self.view.addSubviews(scrollView,bankAccountNaviBar,headerView)
     
-        scrollView.addSubview(contentView)
+        self.scrollView.addSubview(contentView)
+        
         self.contentView.addSubviews(accountLabel, underlineLabel, balanceStackView, transferButtonStackView, bankAccountTableView, stickyHeaderView)
     
-        balanceStackView.addArrangedSubview(balanceLabel)
-        balanceStackView.addArrangedSubview(wonLabel)
-        
-        transferButtonStackView.addArrangedSubview(transferButton)
-        transferButtonStackView.addArrangedSubview(takeButton)
+        balanceStackView.addArrangedSubviews(balanceLabel, wonLabel)
+        transferButtonStackView.addArrangedSubviews(transferButton, takeButton)
     }
     
     func setLayout() {
