@@ -1,18 +1,19 @@
 import UIKit
 import SnapKit
+import Then
 
 class MainAccountView: UIView {
     
-    private let bankImageView = UIImageView()
-    private let titleLabel = UILabel()
-    private let starImageView = UIImageView()
-    private let balanceLabel = UILabel()
-    private let moreButton = UIImageView()
-    private let cardButton = UIButton()
-    private let transferButton = UIButton()
-    private let separatorLine = UIView()
-    private let safeBoxLabel = UILabel()
-    private let amountLabel = UILabel()
+    private var bankImageView = UIImageView()
+    private var titleLabel = UILabel()
+    private var starImageView = UIImageView()
+    private var balanceLabel = UILabel()
+    private var moreButton = UIImageView()
+    private var cardButton = UIButton()
+    private var transferButton = UIButton()
+    private var separatorLine = UIView()
+    private var safeBoxLabel = UILabel()
+    private var amountLabel = UILabel()
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -29,61 +30,85 @@ class MainAccountView: UIView {
     }
     
     private func setHierarchy() {
-        addSubview(bankImageView)
-        addSubview(titleLabel)
-        addSubview(starImageView)
-        addSubview(balanceLabel)
-        addSubview(moreButton)
-        addSubview(separatorLine)
-        addSubview(cardButton)
-        addSubview(transferButton)
-        addSubview(safeBoxLabel)
-        addSubview(amountLabel)
+        addSubviews(bankImageView, titleLabel, starImageView, balanceLabel, moreButton, separatorLine, cardButton, transferButton, safeBoxLabel, amountLabel)
     }
     
     private func setStyle() {
-        bankImageView.image = UIImage(named: "icn_bankimg1_ios")
-        bankImageView.contentMode = .scaleAspectFit
+        bankImageView.do {
+            $0.image = UIImage(named: "icn_bankimg1_ios")
+            $0.contentMode = .scaleAspectFit
+        }
         
-        titleLabel.text = "햄들의 통장"
-        titleLabel.textColor = UIColor(named: "black2")
-        titleLabel.font = UIFont.pretendard(.body8)
+        titleLabel.do {
+//            $0.text = "햄들의 통장"
+            $0.textColor = UIColor(named: "black2")
+//            $0.font = UIFont.pretendard(.body8)
+            let attributedText = UILabel.attributedText(for: .body8, withText: "햄들의 통장")
+            $0.attributedText = attributedText
+        }
         
-        starImageView.image = UIImage(named: "icn_star_ios")
-        starImageView.contentMode = .scaleAspectFit
+        starImageView.do {
+            $0.image = UIImage(named: "icn_star_ios")
+            $0.contentMode = .scaleAspectFit
+        }
         
-        balanceLabel.text = "0원"
-        balanceLabel.textColor = UIColor(named: "black2")
-        balanceLabel.font = UIFont.pretendard(.head5)
+        balanceLabel.do {
+            $0.text = "0원"
+            $0.textColor = UIColor(named: "black2")
+            $0.font = UIFont.pretendard(.head5)
+        }
         
-        moreButton.image = UIImage(named: "btn_more_ios")
-        moreButton.contentMode = .scaleAspectFit
+        moreButton.do {
+            $0.image = UIImage(named: "btn_more_ios")
+            $0.contentMode = .scaleAspectFit
+        }
         
-        cardButton.setTitle("카드", for: .normal)
-        cardButton.setTitleColor(UIColor(named: "black2"), for: .normal)
-        cardButton.backgroundColor = UIColor(named: "yellow0")
-        cardButton.layer.cornerRadius = 15
-        cardButton.titleLabel?.font = UIFont.pretendard(.subTitle2)
+        cardButton.do {
+//            $0.setTitle("카드", for: .normal)
+            $0.setTitleColor(UIColor(named: "black2"), for: .normal)
+            $0.backgroundColor = UIColor(named: "yellow0")
+            $0.layer.cornerRadius = 15
+//            $0.titleLabel?.font = UIFont.pretendard(.subTitle2)
+            let attributedText = UILabel.attributedText(for: .subTitle2, withText: "카드")
+            $0.setAttributedTitle(attributedText, for: .normal)
+        }
         
-        transferButton.setTitle("이체", for: .normal)
-        transferButton.setTitleColor(UIColor(named: "black2"), for: .normal)
-        transferButton.backgroundColor = UIColor(named: "yellow0")
-        transferButton.layer.cornerRadius = 15
-        transferButton.titleLabel?.font = UIFont.pretendard(.subTitle2)
+        transferButton.do {
+//            $0.setTitle("이체", for: .normal)
+            $0.setTitleColor(UIColor(named: "black2"), for: .normal)
+            $0.backgroundColor = UIColor(named: "yellow0")
+            $0.layer.cornerRadius = 15
+//            $0.titleLabel?.font = UIFont.pretendard(.subTitle2)
+            let attributedText = UILabel.attributedText(for: .subTitle2, withText: "이체")
+            $0.setAttributedTitle(attributedText, for: .normal)
+        }
         
-        separatorLine.backgroundColor = UIColor(named: "yellow1")
+        separatorLine.do {
+            $0.backgroundColor = UIColor(named: "yellow1")
+        }
         
-        safeBoxLabel.text = "세이프박스"
-        safeBoxLabel.textColor = UIColor(named: "black2")
-        safeBoxLabel.font = UIFont.pretendard(.body8)
+        safeBoxLabel.do {
+//            $0.text = "세이프박스"
+            $0.textColor = UIColor(named: "black2")
+//            $0.font = UIFont.pretendard(.body8)
+            let attributedText = UILabel.attributedText(for: .body8, withText: "세이프박스")
+            $0.attributedText = attributedText
+        }
         
-        amountLabel.text = "394원"
-        amountLabel.textColor = UIColor(named: "black2")
-        amountLabel.font = UIFont.pretendard(.body6)
+        amountLabel.do {
+//            $0.text = "394원"
+            $0.textColor = UIColor(named: "black2")
+//            $0.font = UIFont.pretendard(.body6)
+            let attributedText = UILabel.attributedText(for: .body6, withText: "394원")
+            $0.attributedText = attributedText
+            
+        }
         
-        backgroundColor = UIColor(named: "mainColor")
-        layer.cornerRadius = 15
-        layer.masksToBounds = true
+        self.do {
+            $0.backgroundColor = UIColor(named: "mainColor")
+            $0.layer.cornerRadius = 15
+            $0.layer.masksToBounds = true
+        }
     }
     
     private func setLayout() {

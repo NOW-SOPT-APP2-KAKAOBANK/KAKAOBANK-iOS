@@ -1,4 +1,6 @@
 import UIKit
+import SnapKit
+import Then
 
 class HeaderView: UIView {
     
@@ -22,47 +24,56 @@ class HeaderView: UIView {
         setStyle()
     }
     
+   
+    
     private func setHierachy() {
         addSubviews(titleLabel, accountButton, profileButton)
     }
     
     private func setLayout() {
-        
-        // Using SnapKit to set constraints for titleLabel
-        titleLabel.snp.makeConstraints { make in
-            make.leading.equalToSuperview().offset(23)
-            make.centerY.equalToSuperview()
+
+        titleLabel.snp.makeConstraints {
+            $0.leading.equalToSuperview().offset(23)
+            $0.centerY.equalToSuperview()
         }
         
-        // Using SnapKit to set constraints for accountButton
-        accountButton.snp.makeConstraints { make in
-            make.leading.equalTo(titleLabel.snp.trailing).offset(5)
-            make.centerY.equalToSuperview()
-            make.height.equalTo(27)
-            make.width.equalTo(57)
+        accountButton.do {
+            $0.snp.makeConstraints {
+                $0.leading.equalTo(titleLabel.snp.trailing).offset(5)
+                $0.centerY.equalToSuperview()
+                $0.height.equalTo(27)
+                $0.width.equalTo(57)
+            }
         }
         
-        // Using SnapKit to set constraints for profileButton
-        profileButton.snp.makeConstraints { make in
-            make.trailing.equalToSuperview().offset(-26)
-            make.centerY.equalToSuperview()
-            make.height.equalTo(36)
-            make.width.equalTo(36)
+        profileButton.do {
+            $0.snp.makeConstraints {
+                $0.trailing.equalToSuperview().offset(-26)
+                $0.centerY.equalToSuperview()
+                $0.height.equalTo(36)
+                $0.width.equalTo(36)
+            }
         }
     }
     
     private func setStyle() {
-        // Set the styles for titleLabel
-        titleLabel.text = "김미정"
-        titleLabel.textColor = UIColor(named: "white")
-        titleLabel.font = UIFont.pretendard(.head4)
-        titleLabel.textAlignment = .left
         
-        // Set the styles for accountButton
-        accountButton.setImage(UIImage(named: "btn_myaccount_and"), for: .normal)
-        accountButton.imageView?.contentMode = .scaleAspectFit
-        
-        // Set the styles for profileButton
-        profileButton.setImage(UIImage(named: "icn_profile_ios"), for: .normal)
-    }
+        // Styling titleLabel
+       titleLabel.do {
+           $0.text = "김미정"
+           $0.textColor = UIColor(named: "white") ?? .white  // Fallback to .white if the color is not found
+           $0.textAlignment = .left
+       }
+       
+       // Styling accountButton
+       accountButton.do {
+           $0.setImage(UIImage(named: "btn_myaccount_and"), for: .normal)
+           $0.imageView?.contentMode = .scaleAspectFit
+       }
+       
+       // Styling profileButton
+       profileButton.do {
+           $0.setImage(UIImage(named: "icn_profile_ios"), for: .normal)
+       }
+   }
 }

@@ -3,50 +3,55 @@ import SnapKit
 
 class SecondAccountView: UIView {
     
-    private let bankImageView: UIImageView = UIImageView()
-    private let titleLabel: UILabel = UILabel()
-    private let balanceLabel: UILabel = UILabel()
-    private let moreButton: UIImageView = UIImageView()
+    // Simple instantiation of UI components
+    private var bankImageView = UIImageView()
+    private var titleLabel = UILabel()
+    private var balanceLabel = UILabel()
+    private var moreButton = UIImageView()
     
     override init(frame: CGRect) {
         super.init(frame: frame)
-        setHierachy()
+        setHierarchy()
         setStyle()
         setLayout()
     }
     
     required init?(coder: NSCoder) {
         super.init(coder: coder)
-        setHierachy()
+        setHierarchy()
         setStyle()
         setLayout()
     }
     
     private func setStyle() {
+        // Styling for bankImageView
         bankImageView.image = UIImage(named: "icn_profilesmall_ios")
         bankImageView.contentMode = .scaleAspectFit
         
-        titleLabel.text = "햄통장"
+        // Styling for titleLabel
+//        titleLabel.text = "햄통장"
         titleLabel.textColor = UIColor(named: "black2")
-        titleLabel.font = UIFont.pretendard(.body8)
+//        titleLabel.font = UIFont.pretendard(.body8)
+        titleLabel.attributedText = UILabel.attributedText(for: .body8, withText: "햄통장")
         
-        balanceLabel.text = "304원"
+        // Styling for balanceLabel
+//        balanceLabel.text = "304원"
         balanceLabel.textColor = UIColor(named: "black2")
-        balanceLabel.font = UIFont.pretendard(.head5)
+//        balanceLabel.font = UIFont.pretendard(.head5)
+        balanceLabel.attributedText = UILabel.attributedText(for: .head5, withText: "304원")
         
+        // Styling for moreButton
         moreButton.image = UIImage(named: "btn_more_ios")
         moreButton.contentMode = .scaleAspectFit
         
+        // Styling for the background of the view itself
         backgroundColor = UIColor(named: "pink0")
         layer.cornerRadius = 15
         layer.masksToBounds = true
     }
     
-    private func setHierachy() {
-        addSubview(bankImageView)
-        addSubview(titleLabel)
-        addSubview(balanceLabel)
-        addSubview(moreButton)
+    private func setHierarchy() {
+        addSubviews(bankImageView, titleLabel, balanceLabel, moreButton)
     }
     
     private func setLayout() {
