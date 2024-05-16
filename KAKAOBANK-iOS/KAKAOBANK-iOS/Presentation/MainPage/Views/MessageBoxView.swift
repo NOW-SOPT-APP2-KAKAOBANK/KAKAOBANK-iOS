@@ -1,4 +1,5 @@
 import UIKit
+
 import SnapKit
 import Then
 
@@ -30,13 +31,13 @@ class MessageBoxView: UIView {
     }
 
     private func setStyle() {
-        backgroundColor = UIColor(named: "darkgray0")  // Assets에서 배경색 설정
+        backgroundColor = UIColor(resource: .darkgray0)  // Assets에서 배경색 설정
         layer.cornerRadius = 10  // 모서리 둥글게 설정
         layer.masksToBounds = true  // 둥근 모서리가 콘텐츠를 넘지 않도록
 
         // Set the styles for messageLabel using Then
         messageLabel.do {
-            $0.textColor = UIColor(named: "white")
+            $0.textColor = UIColor(resource: .white)
             $0.attributedText = UILabel.attributedText(for: .subTitle2, withText: "김미정님의 신용점수는\n 대출 승인 가능성이 높아요")
             $0.numberOfLines = 0  // 여러 줄 표시 가능하도록 설정
         }
@@ -49,13 +50,10 @@ class MessageBoxView: UIView {
 
         // Set the styles for checkLimitButton using Then
         checkLimitButton.do {
-//            $0.setTitle("한도 확인하기", for: .normal)
-            $0.setTitleColor(UIColor(named: "black2"), for: .normal)
-            $0.backgroundColor = UIColor(named: "yellow0")  // Assets에서 색상 사용
-//            $0.titleLabel?.font = UIFont.pretendard(.subTitle2)
+            $0.setTitleColor(UIColor(resource: .black2), for: .normal)
+            $0.backgroundColor = UIColor(resource: .yellow0)
             let attributedText = UILabel.attributedText(for: .subTitle2, withText: "한도 확인하기")
             $0.setAttributedTitle(attributedText, for: .normal)
-            
             $0.layer.cornerRadius = 15  // 버튼 모서리 둥글게
         }
     }
