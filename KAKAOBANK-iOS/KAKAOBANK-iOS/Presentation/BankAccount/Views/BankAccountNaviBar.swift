@@ -39,19 +39,6 @@ private extension BankAccountNaviBar {
     }
     
     func setLayout() {
-        backButton.do {
-            $0.setImage(UIImage(resource: .btnBackleadingIos), for: .normal)
-        }
-        titleLabel.do {
-            $0.attributedText = UILabel.attributedText(for: .head5, withText: "햄들의 통장")
-            $0.textColor = UIColor(resource: .black2)
-        }
-        settingButton.do {
-            $0.setImage(UIImage(resource: .btnSettingIos), for: .normal)
-        }
-    }
-    
-    func setStyle() {
         self.backgroundColor = UIColor(resource: .main)
         
         backButton.snp.makeConstraints {
@@ -67,6 +54,19 @@ private extension BankAccountNaviBar {
             $0.top.equalToSuperview().inset(44)
             $0.trailing.equalToSuperview().inset(8)
             $0.height.width.equalTo(44)
+        }
+    }
+    
+    func setStyle() {
+        backButton.do {
+            $0.setImage(UIImage(resource: .btnBackleadingIos), for: .normal)
+        }
+        titleLabel.do {
+            $0.attributedText = UILabel.attributedText(for: .head5, withText: "햄들의 통장")
+            $0.textColor = UIColor(resource: .black2)
+        }
+        settingButton.do {
+            $0.setImage(UIImage(resource: .btnSettingIos), for: .normal)
         }
     }
 }

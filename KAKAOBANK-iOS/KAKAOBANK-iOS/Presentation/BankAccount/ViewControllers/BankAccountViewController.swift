@@ -21,15 +21,8 @@ final class BankAccountViewController: UIViewController {
     private let stickyHeaderView = StickyHeaderView()
     private let headerView = StickyHeaderView()
     
-    private var accountLabel = UILabel()
-    private var underlineLabel = UILabel()
-    private var balanceLabel = UILabel()
-    private var wonLabel = UILabel()
-    private var transferButton  = UIButton()
-    private var takeButton = UIButton()
-    
-    private var balanceStackView = UIStackView()
-    private var transferButtonStackView = UIStackView()
+    private var accountLabel = BankAccountUpperView()
+
     
     private let bankAccountList = BankAccountModel.dummy()
     
@@ -63,13 +56,9 @@ private extension BankAccountViewController {
     
     func setHierarchy() {
         self.view.addSubviews(scrollView,bankAccountNaviBar,headerView)
-    
-        self.scrollView.addSubview(contentView)
         
-        self.contentView.addSubviews(accountLabel, underlineLabel, balanceStackView, transferButtonStackView, bankAccountTableView, stickyHeaderView)
-    
-        balanceStackView.addArrangedSubviews(balanceLabel, wonLabel)
-        transferButtonStackView.addArrangedSubviews(transferButton, takeButton)
+        scrollView.addSubview(contentView)
+        self.contentView.addSubviews(accountLabel, bankAccountTableView, stickyHeaderView)
     }
     
     func setLayout() {
@@ -82,7 +71,7 @@ private extension BankAccountViewController {
             $0.edges.equalTo(scrollView)
             $0.width.equalTo(scrollView)
             $0.height.greaterThanOrEqualTo(bankAccountTableView.contentSize.height)
-
+            
         }
         
         bankAccountNaviBar.snp.makeConstraints {
@@ -92,40 +81,15 @@ private extension BankAccountViewController {
         }
         
         accountLabel.snp.makeConstraints {
-            $0.top.equalToSuperview().inset(37)
-            $0.centerX.equalToSuperview()
+            $0.top.equalToSuperview()
+            $0.leading.trailing.equalToSuperview()
+            $0.height.equalTo(229)
         }
         
-        underlineLabel.snp.makeConstraints {
-            $0.top.equalTo(accountLabel.snp.bottom).offset(1)
-            $0.centerX.equalToSuperview()
-            $0.width.equalTo(accountLabel)
-            $0.height.equalTo(1)
-        }
-        
-        balanceStackView.snp.makeConstraints {
-            $0.top.equalTo(accountLabel.snp.bottom).offset(15)
-            $0.centerX.equalToSuperview()
-        }
-        
-        transferButton.snp.makeConstraints {
-            $0.width.equalTo(145)
-            $0.height.equalTo(50)
-        }
-        
-        takeButton.snp.makeConstraints {
-            $0.width.equalTo(145)
-            $0.height.equalTo(50)
-        }
-        
-        transferButtonStackView.snp.makeConstraints {
-            $0.top.equalTo(balanceStackView.snp.bottom).offset(47)
-            $0.centerX.equalToSuperview()
-        }
         
         //스티키 헤더 뷰
         stickyHeaderView.snp.makeConstraints {
-            $0.top.equalTo(transferButtonStackView.snp.bottom).offset(24)
+            $0.top.equalTo(accountLabel.snp.bottom).offset(24)
             $0.leading.trailing.equalTo(scrollView)
             $0.height.equalTo(163)
         }
@@ -142,54 +106,7 @@ private extension BankAccountViewController {
         self.navigationController?.isNavigationBarHidden = true
         bankAccountTableView.isScrollEnabled = true
         
-        accountLabel.do {
-            $0.attributedText = UILabel.attributedText(for: .body7, withText: "3333-17-1799152")
-            $0.textColor = UIColor(resource: .yellow3)
-        }
         
-        underlineLabel.do {
-            $0.backgroundColor = UIColor(resource: .yellow1)
-        }
-        
-        balanceLabel.do {
-            $0.attributedText = UILabel.attributedText(for: .head1, withText: "0")
-            $0.textColor = UIColor(resource: .black2)
-        }
-        
-        wonLabel.do {
-            $0.attributedText = UILabel.attributedText(for: .head3, withText: "원")
-            $0.textColor = UIColor(resource: .black2)
-        }
-        
-        balanceStackView.do {
-            $0.axis = .horizontal
-            $0.alignment = .center
-            $0.spacing = 0
-        }
-        
-        transferButton.do {
-            $0.backgroundColor = .yellow0
-            $0.clipsToBounds = true
-            $0.layer.cornerRadius = 10
-            let attributedText = UILabel.attributedText(for: .number3, withText: "이체하기")
-            $0.setAttributedTitle(attributedText, for: .normal)
-            $0.setTitleColor(.black2, for: .normal)
-        }
-        
-        takeButton.do {
-            $0.backgroundColor = .yellow0
-            $0.clipsToBounds = true
-            $0.layer.cornerRadius = 10
-            let attributedText = UILabel.attributedText(for: .number3, withText: "가져오기")
-            $0.setAttributedTitle(attributedText, for: .normal)
-            $0.setTitleColor(.black2, for: .normal)
-        }
-        
-        transferButtonStackView.do {
-            $0.axis = .horizontal
-            $0.alignment = .center
-            $0.spacing = 8
-        }
         
         stickyHeaderView.do {
             $0.backgroundColor = .white
