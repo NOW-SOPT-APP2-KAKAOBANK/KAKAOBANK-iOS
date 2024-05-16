@@ -1,5 +1,7 @@
 import UIKit
+
 import SnapKit
+import Then
 
 class SecondAccountView: UIView {
     
@@ -30,13 +32,13 @@ class SecondAccountView: UIView {
         
         // Styling for titleLabel
 //        titleLabel.text = "햄통장"
-        titleLabel.textColor = UIColor(named: "black2")
+        titleLabel.textColor = UIColor(resource: .black2)
 //        titleLabel.font = UIFont.pretendard(.body8)
         titleLabel.attributedText = UILabel.attributedText(for: .body8, withText: "햄통장")
         
         // Styling for balanceLabel
 //        balanceLabel.text = "304원"
-        balanceLabel.textColor = UIColor(named: "black2")
+        balanceLabel.textColor = UIColor(resource: .black2)
 //        balanceLabel.font = UIFont.pretendard(.head5)
         balanceLabel.attributedText = UILabel.attributedText(for: .head5, withText: "304원")
         

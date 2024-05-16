@@ -1,4 +1,5 @@
 import UIKit
+
 import SnapKit
 import Then
 
@@ -22,14 +23,14 @@ class MeetingAccountView: UIView {
     }
     
     private func setStyle() {
-        backgroundColor = UIColor(named: "darkgray0")  // Assets에서 배경색 설정
+        backgroundColor = UIColor(resource: .darkgray0)  // Assets에서 배경색 설정
         layer.cornerRadius = 15  // 모서리 둥글게 설정
         layer.masksToBounds = true  // 둥근 모서리가 콘텐츠를 넘지 않도록
         
         // Style for titleLabel
         titleLabel.do {
 //            $0.text = "모임통장"
-            $0.textColor = UIColor(named: "white")
+            $0.textColor = UIColor(resource: .white)
 //            $0.font = UIFont.pretendard(.body1)
             $0.attributedText = UILabel.attributedText(for: .body1, withText: "모임통장")
 
