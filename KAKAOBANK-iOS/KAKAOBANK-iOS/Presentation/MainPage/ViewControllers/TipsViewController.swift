@@ -19,8 +19,8 @@ class TipsViewController: UIViewController {
     }
     
     private func setStyle() {
-        view.backgroundColor = UIColor(named: "darkgray1")
-        collectionView.backgroundColor = UIColor(named: "darkgray1")
+        view.backgroundColor = UIColor(resource: .darkgray1)
+        collectionView.backgroundColor = UIColor(resource: .darkgray1)
     }
     
     private func setLayout() {
@@ -46,7 +46,13 @@ class TipsViewController: UIViewController {
     }
 }
 
-extension TipsViewController: UICollectionViewDelegate, UICollectionViewDataSource {
+extension TipsViewController: UICollectionViewDelegate {
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        // Handle item selection if needed
+    }
+}
+
+extension TipsViewController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return tipsData.count
     }

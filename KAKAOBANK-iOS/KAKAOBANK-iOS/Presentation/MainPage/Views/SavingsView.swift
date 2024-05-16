@@ -31,20 +31,20 @@ class SavingsView: UIView {
         
         // Configure the style of messageLabel
 //        messageLabel.text = "춘식이와 한달동안 매일매일 저금"
-        messageLabel.textColor = UIColor(named: "gray8")
+        messageLabel.textColor = UIColor(resource: .gray8)
 //        messageLabel.font = UIFont.pretendard(.body8)
         messageLabel.attributedText = UILabel.attributedText(for: .body8, withText: "춘식이와 한달동안 매일매일 저금")
 
         
         // Configure the style of titleLabel
 //        titleLabel.text = "한달적금 시작하기"
-        titleLabel.textColor = UIColor(named: "white")
+        titleLabel.textColor = UIColor(resource: .white)
 //        titleLabel.font = UIFont.pretendard(.body1)
         titleLabel.attributedText = UILabel.attributedText(for: .body1, withText: "한달적금 시작하기")
 
         
         // Configure the style of the view itself
-        backgroundColor = UIColor(named: "darkgray0")
+        backgroundColor = UIColor(resource: .darkgray0)
         layer.cornerRadius = 15
         layer.masksToBounds = true
     }

@@ -7,6 +7,7 @@ import Then
 class MainViewController: UIViewController {
     
     private var scrollView = UIScrollView()
+    private var contentView = UIView()
     
     private var headerView = HeaderView()
     private var messageBoxView = MessageBoxView()
@@ -30,7 +31,7 @@ class MainViewController: UIViewController {
     }
     
     private func setStyle() {
-        view.backgroundColor = UIColor(named: "darkgray1")
+        view.backgroundColor = UIColor(resource: .darkgray1)
         adView.configure(with: "card_ad_ios")
     }
     
@@ -38,13 +39,19 @@ class MainViewController: UIViewController {
         view.addSubview(scrollView)
         addChild(tipsViewController)
         
-        scrollView.addSubviews(headerView, messageBoxView, mainAccountView, secondAccountView, thirdAccountView, savingsView, addButtonView, meetingAccountView, simpleBarView, adView, tipsViewController.view)
+        scrollView.addSubview(contentView)
+        contentView.addSubviews(headerView, messageBoxView, mainAccountView, secondAccountView, thirdAccountView, savingsView, addButtonView, meetingAccountView, simpleBarView, adView, tipsViewController.view)
+                
 
         tipsViewController.didMove(toParent: self)
     }
     
     private func setLayout() {
         scrollView.snp.makeConstraints {
+            $0.edges.equalToSuperview()
+        }
+        
+        contentView.snp.makeConstraints {
             $0.edges.equalToSuperview()
             $0.width.equalToSuperview()
         }
@@ -58,50 +65,43 @@ class MainViewController: UIViewController {
         
         messageBoxView.snp.makeConstraints {
             $0.top.equalTo(headerView.snp.bottom)
-            $0.centerX.equalToSuperview()
-            $0.width.equalTo(341)
+            $0.horizontalEdges.equalToSuperview().inset(17)
             $0.height.equalTo(99)
         }
         
         mainAccountView.snp.makeConstraints {
             $0.top.equalTo(messageBoxView.snp.bottom).offset(9)
-            $0.centerX.equalToSuperview()
-            $0.width.equalTo(341)
+            $0.horizontalEdges.equalToSuperview().inset(17)
             $0.height.equalTo(177)
         }
         
         secondAccountView.snp.makeConstraints {
             $0.top.equalTo(mainAccountView.snp.bottom).offset(9)
-            $0.centerX.equalToSuperview()
-            $0.width.equalTo(341)
+            $0.horizontalEdges.equalToSuperview().inset(17)
             $0.height.equalTo(99)
         }
         
         thirdAccountView.snp.makeConstraints {
             $0.top.equalTo(secondAccountView.snp.bottom).offset(9)
-            $0.centerX.equalToSuperview()
-            $0.width.equalTo(341)
+            $0.horizontalEdges.equalToSuperview().inset(17)
             $0.height.equalTo(140)
         }
         
         savingsView.snp.makeConstraints {
             $0.top.equalTo(thirdAccountView.snp.bottom).offset(9)
-            $0.centerX.equalToSuperview()
-            $0.width.equalTo(341)
+            $0.horizontalEdges.equalToSuperview().inset(17)
             $0.height.equalTo(85)
         }
         
         meetingAccountView.snp.makeConstraints {
             $0.top.equalTo(savingsView.snp.bottom).offset(9)
-            $0.centerX.equalToSuperview()
-            $0.width.equalTo(341)
+            $0.horizontalEdges.equalToSuperview().inset(17)
             $0.height.equalTo(62)
         }
         
         addButtonView.snp.makeConstraints {
             $0.top.equalTo(meetingAccountView.snp.bottom).offset(9)
-            $0.centerX.equalToSuperview()
-            $0.width.equalTo(341)
+            $0.horizontalEdges.equalToSuperview().inset(17)
             $0.height.equalTo(58)
         }
         
@@ -113,8 +113,7 @@ class MainViewController: UIViewController {
         
         tipsViewController.view.snp.makeConstraints {
             $0.top.equalTo(simpleBarView.snp.bottom).offset(4)
-            $0.left.equalToSuperview().offset(17)
-            $0.right.equalToSuperview().offset(-17)
+            $0.horizontalEdges.equalToSuperview().inset(17)
             $0.height.equalTo(150)
             $0.width.equalToSuperview()
         }
@@ -122,8 +121,7 @@ class MainViewController: UIViewController {
         adView.snp.makeConstraints {
             $0.top.equalTo(simpleBarView.snp.bottom).offset(170)
             $0.centerX.equalToSuperview()
-            $0.left.equalToSuperview().offset(17)
-            $0.width.equalTo(341)
+            $0.horizontalEdges.equalToSuperview().inset(17)
             $0.height.equalTo(82)
             $0.bottom.equalToSuperview().offset(-20)
         }

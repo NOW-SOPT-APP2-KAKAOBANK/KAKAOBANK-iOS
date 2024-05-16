@@ -3,7 +3,7 @@ import UIKit
 import SnapKit
 import Then
 
-class MainTabBarController: UITabBarController, UITabBarControllerDelegate {
+class MainTabBarController: UITabBarController {
 
     let profileVC = MainViewController()
     let gridVC = UIViewController()
@@ -24,7 +24,7 @@ class MainTabBarController: UITabBarController, UITabBarControllerDelegate {
     
     private func setStyle() {
         profileVC.do {
-            $0.view.backgroundColor = UIColor(named: "darkgray1")
+            $0.view.backgroundColor = UIColor(resource: .darkgray1)
             $0.tabBarItem = UITabBarItem(title: "", image: UIImage(named: "btn_mybank_ios"), tag: 0)
         }
         
@@ -44,7 +44,7 @@ class MainTabBarController: UITabBarController, UITabBarControllerDelegate {
         }
         
         tabBar.do {
-            $0.barTintColor = UIColor(named: "white")
+            $0.barTintColor = UIColor(resource: .white)
             $0.isTranslucent = true
             $0.tintColor = UIColor(named: "black2") // Color for selected item
             $0.unselectedItemTintColor = UIColor(named: "gray6") // Color for unselected items
@@ -61,10 +61,11 @@ class MainTabBarController: UITabBarController, UITabBarControllerDelegate {
             }
         }
     }
+}
 
+extension MainTabBarController: UITabBarControllerDelegate {
     func tabBarController(_ tabBarController: UITabBarController, shouldSelect viewController: UIViewController) -> Bool {
         // Prevent switching tabs, always stay on the first tab (profileVC)
         return viewController == tabBarController.viewControllers?.first
     }
 }
-

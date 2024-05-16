@@ -42,7 +42,7 @@ class MainAccountView: UIView {
         
         titleLabel.do {
 //            $0.text = "햄들의 통장"
-            $0.textColor = UIColor(named: "black2")
+            $0.textColor = UIColor(resource: .black2)
 //            $0.font = UIFont.pretendard(.body8)
             let attributedText = UILabel.attributedText(for: .body8, withText: "햄들의 통장")
             $0.attributedText = attributedText
@@ -55,7 +55,7 @@ class MainAccountView: UIView {
         
         balanceLabel.do {
             $0.text = "0원"
-            $0.textColor = UIColor(named: "black2")
+            $0.textColor = UIColor(resource: .black2)
             $0.font = UIFont.pretendard(.head5)
         }
         
@@ -66,8 +66,8 @@ class MainAccountView: UIView {
         
         cardButton.do {
 //            $0.setTitle("카드", for: .normal)
-            $0.setTitleColor(UIColor(named: "black2"), for: .normal)
-            $0.backgroundColor = UIColor(named: "yellow0")
+            $0.setTitleColor(UIColor(resource: .black2), for: .normal)
+            $0.backgroundColor = UIColor(resource: .yellow0)
             $0.layer.cornerRadius = 15
 //            $0.titleLabel?.font = UIFont.pretendard(.subTitle2)
             let attributedText = UILabel.attributedText(for: .subTitle2, withText: "카드")
@@ -76,8 +76,8 @@ class MainAccountView: UIView {
         
         transferButton.do {
 //            $0.setTitle("이체", for: .normal)
-            $0.setTitleColor(UIColor(named: "black2"), for: .normal)
-            $0.backgroundColor = UIColor(named: "yellow0")
+            $0.setTitleColor(UIColor(resource: .black2), for: .normal)
+            $0.backgroundColor = UIColor(resource: .yellow0)
             $0.layer.cornerRadius = 15
 //            $0.titleLabel?.font = UIFont.pretendard(.subTitle2)
             let attributedText = UILabel.attributedText(for: .subTitle2, withText: "이체")
@@ -85,12 +85,12 @@ class MainAccountView: UIView {
         }
         
         separatorLine.do {
-            $0.backgroundColor = UIColor(named: "yellow1")
+            $0.backgroundColor = UIColor(resource: .yellow1)
         }
         
         safeBoxLabel.do {
 //            $0.text = "세이프박스"
-            $0.textColor = UIColor(named: "black2")
+            $0.textColor = UIColor(resource: .black2)
 //            $0.font = UIFont.pretendard(.body8)
             let attributedText = UILabel.attributedText(for: .body8, withText: "세이프박스")
             $0.attributedText = attributedText
@@ -98,7 +98,7 @@ class MainAccountView: UIView {
         
         amountLabel.do {
 //            $0.text = "394원"
-            $0.textColor = UIColor(named: "black2")
+            $0.textColor = UIColor(resource: .black2)
 //            $0.font = UIFont.pretendard(.body6)
             let attributedText = UILabel.attributedText(for: .body6, withText: "394원")
             $0.attributedText = attributedText
