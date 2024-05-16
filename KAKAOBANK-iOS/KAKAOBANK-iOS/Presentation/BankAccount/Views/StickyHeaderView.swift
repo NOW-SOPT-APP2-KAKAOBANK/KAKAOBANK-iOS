@@ -92,7 +92,7 @@ private extension StickyHeaderView {
     
     func setStyle() {
         searchButton.do {
-            $0.setImage(UIImage(resource: .btnSearchpreIos), for: .normal)
+            $0.setImage(UIImage(resource: .btnGraySearchpreIos), for: .normal)
         }
         
         previousButton.do {

@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0D357E202BF3CB4000E044BB /* StickyHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D357E1F2BF3CB4000E044BB /* StickyHeaderView.swift */; };
+		0D357E242BF3DFE000E044BB /* BankAccountTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D357E232BF3DFE000E044BB /* BankAccountTableViewCell.swift */; };
+		0D357E262BF3E7B100E044BB /* BankAccountModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D357E252BF3E7B100E044BB /* BankAccountModel.swift */; };
 		0D5AB9052BF2663C00C41046 /* BankAccountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D5AB9042BF2663C00C41046 /* BankAccountViewController.swift */; };
 		0D5AB9072BF267E700C41046 /* BankAccountNaviBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D5AB9062BF267E700C41046 /* BankAccountNaviBar.swift */; };
 		2C2835392BF5239700245FE1 /* SavingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C2835382BF5239700245FE1 /* SavingsView.swift */; };
@@ -21,11 +24,6 @@
 		2CF9BFF12BF47A0C00C7BC35 /* MainAccountView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CF9BFF02BF47A0C00C7BC35 /* MainAccountView.swift */; };
 		2CF9BFF32BF48A6100C7BC35 /* SecondAccountView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CF9BFF22BF48A6100C7BC35 /* SecondAccountView.swift */; };
 		2CF9BFF52BF48A7A00C7BC35 /* ThirdAccountView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CF9BFF42BF48A7A00C7BC35 /* ThirdAccountView.swift */; };
-		0D357E202BF3CB4000E044BB /* StickyHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D357E1F2BF3CB4000E044BB /* StickyHeaderView.swift */; };
-		0D357E242BF3DFE000E044BB /* BankAccountTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D357E232BF3DFE000E044BB /* BankAccountTableViewCell.swift */; };
-		0D357E262BF3E7B100E044BB /* BankAccountModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D357E252BF3E7B100E044BB /* BankAccountModel.swift */; };
-		0D5AB9052BF2663C00C41046 /* BankAccountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D5AB9042BF2663C00C41046 /* BankAccountViewController.swift */; };
-		0D5AB9072BF267E700C41046 /* BankAccountNaviBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D5AB9062BF267E700C41046 /* BankAccountNaviBar.swift */; };
 		CA05B3A32BF27AF300DA77E1 /* MyAccountCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA05B3A22BF27AF300DA77E1 /* MyAccountCell.swift */; };
 		CA05B3A52BF27C1B00DA77E1 /* AccountInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA05B3A42BF27C1B00DA77E1 /* AccountInfoView.swift */; };
 		CA05B3A82BF282DB00DA77E1 /* AccountInfoModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA05B3A72BF282DB00DA77E1 /* AccountInfoModel.swift */; };
@@ -44,14 +42,15 @@
 		CA22B3FD2BF147040013B7AB /* UIStackView+.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA22B3FC2BF147040013B7AB /* UIStackView+.swift */; };
 		CA22B3FF2BF147980013B7AB /* UICollectionViewCell+.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA22B3FE2BF147980013B7AB /* UICollectionViewCell+.swift */; };
 		CA22B4012BF147BF0013B7AB /* UITableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA22B4002BF147BF0013B7AB /* UITableViewCell.swift */; };
-    CA51DE892BF202B10084E610 /* TransferViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA51DE882BF202B10084E610 /* TransferViewController.swift */; };
-    CA51DE8B2BF203070084E610 /* TransferNaviBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA51DE8A2BF203070084E610 /* TransferNaviBar.swift */; };
+		CA2CBDF42BF6677000049F8F /* BankListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA2CBDF32BF6677000049F8F /* BankListCell.swift */; };
+		CA51DE892BF202B10084E610 /* TransferViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA51DE882BF202B10084E610 /* TransferViewController.swift */; };
+		CA51DE8B2BF203070084E610 /* TransferNaviBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA51DE8A2BF203070084E610 /* TransferNaviBar.swift */; };
 		CA6B4FA42BF210D1009A641D /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA6B4FA32BF210D1009A641D /* Constants.swift */; };
 		CA6B4FA62BF2141D009A641D /* SectionHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA6B4FA52BF2141D009A641D /* SectionHeaderView.swift */; };
 		CA6B4FA92BF21643009A641D /* InputCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA6B4FA82BF21643009A641D /* InputCell.swift */; };
 		CA9982B82BF4A50000EC1F56 /* BankBookModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA9982B72BF4A50000EC1F56 /* BankBookModel.swift */; };
 		CA9982BC2BF5282600EC1F56 /* BottomSheetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA9982BB2BF5282600EC1F56 /* BottomSheetView.swift */; };
-		CA9982BF2BF52D6600EC1F56 /* BankListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA9982BE2BF52D6600EC1F56 /* BankListCell.swift */; };
+		CA9982BF2BF52D6600EC1F56 /* SelectBankPagerCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA9982BE2BF52D6600EC1F56 /* SelectBankPagerCell.swift */; };
 		CAD398732BECED3F00B57329 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAD398722BECED3F00B57329 /* AppDelegate.swift */; };
 		CAD398752BECED3F00B57329 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAD398742BECED3F00B57329 /* SceneDelegate.swift */; };
 		CAD398772BECED3F00B57329 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAD398762BECED3F00B57329 /* ViewController.swift */; };
@@ -64,6 +63,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		0D357E1F2BF3CB4000E044BB /* StickyHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StickyHeaderView.swift; sourceTree = "<group>"; };
+		0D357E232BF3DFE000E044BB /* BankAccountTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BankAccountTableViewCell.swift; sourceTree = "<group>"; };
+		0D357E252BF3E7B100E044BB /* BankAccountModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BankAccountModel.swift; sourceTree = "<group>"; };
 		0D5AB9042BF2663C00C41046 /* BankAccountViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BankAccountViewController.swift; sourceTree = "<group>"; };
 		0D5AB9062BF267E700C41046 /* BankAccountNaviBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BankAccountNaviBar.swift; sourceTree = "<group>"; };
 		2C2835382BF5239700245FE1 /* SavingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SavingsView.swift; sourceTree = "<group>"; };
@@ -78,11 +80,6 @@
 		2CF9BFF02BF47A0C00C7BC35 /* MainAccountView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainAccountView.swift; sourceTree = "<group>"; };
 		2CF9BFF22BF48A6100C7BC35 /* SecondAccountView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondAccountView.swift; sourceTree = "<group>"; };
 		2CF9BFF42BF48A7A00C7BC35 /* ThirdAccountView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThirdAccountView.swift; sourceTree = "<group>"; };
-		0D357E1F2BF3CB4000E044BB /* StickyHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StickyHeaderView.swift; sourceTree = "<group>"; };
-		0D357E232BF3DFE000E044BB /* BankAccountTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BankAccountTableViewCell.swift; sourceTree = "<group>"; };
-		0D357E252BF3E7B100E044BB /* BankAccountModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BankAccountModel.swift; sourceTree = "<group>"; };
-		0D5AB9042BF2663C00C41046 /* BankAccountViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BankAccountViewController.swift; sourceTree = "<group>"; };
-		0D5AB9062BF267E700C41046 /* BankAccountNaviBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BankAccountNaviBar.swift; sourceTree = "<group>"; };
 		CA05B3A22BF27AF300DA77E1 /* MyAccountCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyAccountCell.swift; sourceTree = "<group>"; };
 		CA05B3A42BF27C1B00DA77E1 /* AccountInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountInfoView.swift; sourceTree = "<group>"; };
 		CA05B3A72BF282DB00DA77E1 /* AccountInfoModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountInfoModel.swift; sourceTree = "<group>"; };
@@ -101,14 +98,15 @@
 		CA22B3FC2BF147040013B7AB /* UIStackView+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIStackView+.swift"; sourceTree = "<group>"; };
 		CA22B3FE2BF147980013B7AB /* UICollectionViewCell+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UICollectionViewCell+.swift"; sourceTree = "<group>"; };
 		CA22B4002BF147BF0013B7AB /* UITableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITableViewCell.swift; sourceTree = "<group>"; };
-    CA51DE882BF202B10084E610 /* TransferViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransferViewController.swift; sourceTree = "<group>"; };
-    CA51DE8A2BF203070084E610 /* TransferNaviBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransferNaviBar.swift; sourceTree = "<group>"; };
+		CA2CBDF32BF6677000049F8F /* BankListCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BankListCell.swift; sourceTree = "<group>"; };
+		CA51DE882BF202B10084E610 /* TransferViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransferViewController.swift; sourceTree = "<group>"; };
+		CA51DE8A2BF203070084E610 /* TransferNaviBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransferNaviBar.swift; sourceTree = "<group>"; };
 		CA6B4FA32BF210D1009A641D /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		CA6B4FA52BF2141D009A641D /* SectionHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SectionHeaderView.swift; sourceTree = "<group>"; };
 		CA6B4FA82BF21643009A641D /* InputCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputCell.swift; sourceTree = "<group>"; };
 		CA9982B72BF4A50000EC1F56 /* BankBookModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BankBookModel.swift; sourceTree = "<group>"; };
 		CA9982BB2BF5282600EC1F56 /* BottomSheetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BottomSheetView.swift; sourceTree = "<group>"; };
-		CA9982BE2BF52D6600EC1F56 /* BankListCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BankListCell.swift; sourceTree = "<group>"; };
+		CA9982BE2BF52D6600EC1F56 /* SelectBankPagerCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectBankPagerCell.swift; sourceTree = "<group>"; };
 		CAD3986F2BECED3F00B57329 /* KAKAOBANK-iOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "KAKAOBANK-iOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		CAD398722BECED3F00B57329 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		CAD398742BECED3F00B57329 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -133,35 +131,7 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		0D5AB9012BF264B700C41046 /* BankAccount */ = {
-			isa = PBXGroup;
-			children = (
-        0D357E212BF3DE0F00E044BB /* Cells */,
-				0D357E222BF3DE1800E044BB /* Models */,
-				0D5AB9022BF265D100C41046 /* ViewControllers */,
-				0D5AB9032BF265EF00C41046 /* Views */,
-			);
-			path = BankAccount;
-			sourceTree = "<group>";
-		};
-		0D5AB9022BF265D100C41046 /* ViewControllers */ = {
-			isa = PBXGroup;
-			children = (
-				0D5AB9042BF2663C00C41046 /* BankAccountViewController.swift */,
-			);
-			path = ViewControllers;
-			sourceTree = "<group>";
-		};
-    0D5AB9032BF265EF00C41046 /* Views */ = {
-			isa = PBXGroup;
-			children = (
-				0D5AB9062BF267E700C41046 /* BankAccountNaviBar.swift */,
-				0D357E1F2BF3CB4000E044BB /* StickyHeaderView.swift */,
-			);
-			path = Views;
-			sourceTree = "<group>";
-		};
-    0D357E212BF3DE0F00E044BB /* Cells */ = {
+		0D357E212BF3DE0F00E044BB /* Cells */ = {
 			isa = PBXGroup;
 			children = (
 				0D357E232BF3DFE000E044BB /* BankAccountTableViewCell.swift */,
@@ -177,42 +147,34 @@
 			path = Models;
 			sourceTree = "<group>";
 		};
-		CA05B3AE2BF34A0200DA77E1 /* SelectBank */ = {
+		0D5AB9012BF264B700C41046 /* BankAccount */ = {
 			isa = PBXGroup;
 			children = (
-				CA9982BD2BF52D4F00EC1F56 /* Cells */,
-				CA05B3B02BF34A2800DA77E1 /* ViewControllers */,
-				CA05B3AF2BF34A2100DA77E1 /* Views */,
+				0D357E212BF3DE0F00E044BB /* Cells */,
+				0D357E222BF3DE1800E044BB /* Models */,
+				0D5AB9022BF265D100C41046 /* ViewControllers */,
+				0D5AB9032BF265EF00C41046 /* Views */,
 			);
-			path = SelectBank;
+			path = BankAccount;
 			sourceTree = "<group>";
 		};
-		CA05B3AF2BF34A2100DA77E1 /* Views */ = {
+		0D5AB9022BF265D100C41046 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
-				CA05B3B32BF34B9800DA77E1 /* SelectBankHeaderView.swift */,
-				CA05B3B52BF3E6FF00DA77E1 /* SegmentView.swift */,
-				CA9982BB2BF5282600EC1F56 /* BottomSheetView.swift */,
-     	);
-			path = Views;
-			sourceTree = "<group>";
-		};   
-    CA05B3B02BF34A2800DA77E1 /* ViewControllers */ = {
-			isa = PBXGroup;
-			children = (
-				CA05B3B12BF34A5900DA77E1 /* SelectBankViewController.swift */,
-      );
+				0D5AB9042BF2663C00C41046 /* BankAccountViewController.swift */,
+			);
 			path = ViewControllers;
 			sourceTree = "<group>";
 		};
-    CA9982BD2BF52D4F00EC1F56 /* Cells */ = {
+		0D5AB9032BF265EF00C41046 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				CA9982BE2BF52D6600EC1F56 /* BankListCell.swift */,
+				0D5AB9062BF267E700C41046 /* BankAccountNaviBar.swift */,
+				0D357E1F2BF3CB4000E044BB /* StickyHeaderView.swift */,
 			);
-			path = Cells;
+			path = Views;
 			sourceTree = "<group>";
-		}; 
+		};
 		2CF9BFE22BF4380200C7BC35 /* MainPage */ = {
 			isa = PBXGroup;
 			children = (
@@ -244,6 +206,43 @@
 			children = (
 				2CF9BFE82BF4389E00C7BC35 /* MainViewController.swift */,
 				2C3F785F2BF5EC28005AF799 /* UITabBarController.swift */,
+			);
+			path = ViewControllers;
+			sourceTree = "<group>";
+		};
+		CA05B3A62BF282BC00DA77E1 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				CA05B3A72BF282DB00DA77E1 /* AccountInfoModel.swift */,
+				CA9982B72BF4A50000EC1F56 /* BankBookModel.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		CA05B3AE2BF34A0200DA77E1 /* SelectBank */ = {
+			isa = PBXGroup;
+			children = (
+				CA9982BD2BF52D4F00EC1F56 /* Cells */,
+				CA05B3B02BF34A2800DA77E1 /* ViewControllers */,
+				CA05B3AF2BF34A2100DA77E1 /* Views */,
+			);
+			path = SelectBank;
+			sourceTree = "<group>";
+		};
+		CA05B3AF2BF34A2100DA77E1 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				CA05B3B32BF34B9800DA77E1 /* SelectBankHeaderView.swift */,
+				CA05B3B52BF3E6FF00DA77E1 /* SegmentView.swift */,
+				CA9982BB2BF5282600EC1F56 /* BottomSheetView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		CA05B3B02BF34A2800DA77E1 /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				CA05B3B12BF34A5900DA77E1 /* SelectBankViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -302,14 +301,6 @@
 			path = Extension;
 			sourceTree = "<group>";
 		};
-    CA6B4FA22BF210C2009A641D /* Literals */ = {
-			isa = PBXGroup;
-			children = (
-				CA6B4FA32BF210D1009A641D /* Constants.swift */,
-			);
-			path = Literals;
-			sourceTree = "<group>";
-		};
 		CA22B3EC2BF133A30013B7AB /* Font */ = {
 			isa = PBXGroup;
 			children = (
@@ -343,7 +334,7 @@
 		CA51DE862BF2028E0084E610 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-      	CA51DE8A2BF203070084E610 /* TransferNaviBar.swift */,
+				CA51DE8A2BF203070084E610 /* TransferNaviBar.swift */,
 				CA6B4FA52BF2141D009A641D /* SectionHeaderView.swift */,
 				CA05B3A42BF27C1B00DA77E1 /* AccountInfoView.swift */,
 				CA05B3AB2BF2A50C00DA77E1 /* InputAccountButton.swift */,
@@ -354,28 +345,36 @@
 		CA51DE872BF202930084E610 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
-      	CA51DE882BF202B10084E610 /* TransferViewController.swift */,
+				CA51DE882BF202B10084E610 /* TransferViewController.swift */,
 			);
 			path = ViewControllers;
+			sourceTree = "<group>";
+		};
+		CA6B4FA22BF210C2009A641D /* Literals */ = {
+			isa = PBXGroup;
+			children = (
+				CA6B4FA32BF210D1009A641D /* Constants.swift */,
+			);
+			path = Literals;
 			sourceTree = "<group>";
 		};
 		CA6B4FA72BF2162A009A641D /* Cells */ = {
 			isa = PBXGroup;
 			children = (
-      	CA6B4FA82BF21643009A641D /* InputCell.swift */,
+				CA6B4FA82BF21643009A641D /* InputCell.swift */,
 				CA05B3A22BF27AF300DA77E1 /* MyAccountCell.swift */,
 				CA05B3A92BF2923700DA77E1 /* RecentTransferCell.swift */,
 			);
 			path = Cells;
 			sourceTree = "<group>";
 		};
-    CA05B3A62BF282BC00DA77E1 /* Models */ = {
+		CA9982BD2BF52D4F00EC1F56 /* Cells */ = {
 			isa = PBXGroup;
 			children = (
-				CA05B3A72BF282DB00DA77E1 /* AccountInfoModel.swift */,
-				CA9982B72BF4A50000EC1F56 /* BankBookModel.swift */,
+				CA9982BE2BF52D6600EC1F56 /* SelectBankPagerCell.swift */,
+				CA2CBDF32BF6677000049F8F /* BankListCell.swift */,
 			);
-			path = Models;
+			path = Cells;
 			sourceTree = "<group>";
 		};
 		CAD398662BECED3F00B57329 = {
@@ -507,7 +506,7 @@
 				CAD398772BECED3F00B57329 /* ViewController.swift in Sources */,
 				0D5AB9052BF2663C00C41046 /* BankAccountViewController.swift in Sources */,
 				CA05B3A82BF282DB00DA77E1 /* AccountInfoModel.swift in Sources */,
-				CA9982BF2BF52D6600EC1F56 /* BankListCell.swift in Sources */,
+				CA9982BF2BF52D6600EC1F56 /* SelectBankPagerCell.swift in Sources */,
 				CA22B3FB2BF146C50013B7AB /* UIVIew+.swift in Sources */,
 				CA05B3B22BF34A5900DA77E1 /* SelectBankViewController.swift in Sources */,
 				CA05B3B42BF34B9800DA77E1 /* SelectBankHeaderView.swift in Sources */,
@@ -526,6 +525,7 @@
 				2C3F78602BF5EC28005AF799 /* UITabBarController.swift in Sources */,
 				CA05B3AA2BF2923700DA77E1 /* RecentTransferCell.swift in Sources */,
 				CAD398732BECED3F00B57329 /* AppDelegate.swift in Sources */,
+				CA2CBDF42BF6677000049F8F /* BankListCell.swift in Sources */,
 				2CF9BFF12BF47A0C00C7BC35 /* MainAccountView.swift in Sources */,
 				2C28353F2BF5294D00245FE1 /* SimpleBarView.swift in Sources */,
 				2C2835392BF5239700245FE1 /* SavingsView.swift in Sources */,
@@ -536,10 +536,10 @@
 				2CF9BFED2BF440F900C7BC35 /* HeaderView.swift in Sources */,
 				0D357E242BF3DFE000E044BB /* BankAccountTableViewCell.swift in Sources */,
 				CA6B4FA42BF210D1009A641D /* Constants.swift in Sources */,
-        CA51DE892BF202B10084E610 /* TransferViewController.swift in Sources */,
-        CA6B4FA62BF2141D009A641D /* SectionHeaderView.swift in Sources */,
-        CA51DE8B2BF203070084E610 /* TransferNaviBar.swift in Sources */,
-        CA6B4FA92BF21643009A641D /* InputCell.swift in Sources */,
+				CA51DE892BF202B10084E610 /* TransferViewController.swift in Sources */,
+				CA6B4FA62BF2141D009A641D /* SectionHeaderView.swift in Sources */,
+				CA51DE8B2BF203070084E610 /* TransferNaviBar.swift in Sources */,
+				CA6B4FA92BF21643009A641D /* InputCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

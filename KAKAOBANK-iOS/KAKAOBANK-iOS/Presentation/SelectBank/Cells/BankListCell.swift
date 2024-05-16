@@ -2,7 +2,7 @@
 //  BankListCell.swift
 //  KAKAOBANK-iOS
 //
-//  Created by 윤희슬 on 5/16/24.
+//  Created by 윤희슬 on 5/17/24.
 //
 
 import UIKit
@@ -12,7 +12,7 @@ import Then
 
 final class BankListCell: UICollectionViewCell {
     
-    // MARK: - Life Cycles
+    // MARK: - UI Properties
     
     private let logoImg: UIImageView = UIImageView()
     

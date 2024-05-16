@@ -119,7 +119,7 @@ private extension SelectBankHeaderView {
             $0.attributedPlaceholder = UILabel.attributedText(for: .body2, withText: "은행검색")
             $0.textColor = UIColor(resource: .gray5)
 
-            searchImg.image = UIImage(resource: .btnSearchpreIos)
+            searchImg.image = UIImage(resource: .btnBlackSearchpreIos)
             $0.leftView = leftView
             $0.leftViewMode = .always
             $0.isUserInteractionEnabled = false

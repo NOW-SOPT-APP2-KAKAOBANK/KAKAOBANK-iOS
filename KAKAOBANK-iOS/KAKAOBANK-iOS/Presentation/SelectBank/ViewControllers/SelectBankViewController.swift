@@ -91,11 +91,6 @@ private extension SelectBankViewController {
 extension SelectBankViewController: SelectBankHeaderViewDelegate {
     
     func didChangedSegment(sender: UISegmentedControl) {
-        if let title = sender.titleForSegment(at: sender.selectedSegmentIndex) {
-            bottomSheetView.selectedTab = title
-        }
-        
-        let resetOffset = CGPoint(x: 0, y: -bottomSheetView.bankListCollectionView.contentInset.top)
-        bottomSheetView.bankListCollectionView.setContentOffset(resetOffset, animated: true)
+        bottomSheetView.selectedTab = sender.selectedSegmentIndex
     }
 }

@@ -11,30 +11,26 @@ import SnapKit
 import Then
 
 final class BottomSheetView: UIView {
-
+    
     // MARK: - UI Properties
-        
+    
     private let cancelButton = UIButton()
     
     let selectBankHeader = SelectBankHeaderView()
     
-    let bankListCollectionView = UICollectionView(frame: .zero, collectionViewLayout: UICollectionViewFlowLayout())
+    let selectBankPagerCollectionView = UICollectionView(frame: .zero, collectionViewLayout: UICollectionViewFlowLayout())
     
     
     // MARK: - Properties
     
-    var selectedTab: String = "은행" {
+    var selectedTab: Int = 0 {
         didSet {
-            bankListCollectionView.reloadData()
+            selectBankPagerCollectionView.reloadData()
         }
     }
     
-    private let bankListData: [BankBookModel] = BankBookModel.bankBookData
-
-    private let stockListData: [BankBookModel] = BankBookModel.stockData
-    
     private let screenWidth: CGFloat = UIScreen.main.bounds.width
-
+    
     
     // MARK: - Life Cycles
     
@@ -54,10 +50,13 @@ final class BottomSheetView: UIView {
     
 }
 
+
+// MARK: - Private Methods
+
 private extension BottomSheetView {
     
     func setHierarchy() {
-        self.addSubviews(cancelButton, selectBankHeader, bankListCollectionView)
+        self.addSubviews(cancelButton, selectBankHeader, selectBankPagerCollectionView)
         self.bringSubviewToFront(cancelButton)
     }
     
@@ -73,11 +72,12 @@ private extension BottomSheetView {
             $0.height.equalTo(204)
         }
         
-        bankListCollectionView.snp.makeConstraints {
+        selectBankPagerCollectionView.snp.makeConstraints {
             $0.top.equalTo(selectBankHeader.snp.bottom)
             $0.horizontalEdges.equalToSuperview()
             $0.bottom.equalToSuperview()
         }
+        
     }
     
     func setStyle() {
@@ -87,15 +87,23 @@ private extension BottomSheetView {
             $0.setTitleColor(UIColor(resource: .black2), for: .highlighted)
             $0.setAttributedTitle(UILabel.attributedText(for: .body2, withText: "취소"), for: .normal)
         }
+        
+        let layout = UICollectionViewFlowLayout()
+        layout.scrollDirection = .horizontal
+        selectBankPagerCollectionView.do {
+            $0.collectionViewLayout = layout
+            $0.isPagingEnabled = true
+            $0.showsHorizontalScrollIndicator = false
+        }
     }
     
     func setDelegate() {
-        bankListCollectionView.delegate = self
-        bankListCollectionView.dataSource = self
+        selectBankPagerCollectionView.delegate = self
+        selectBankPagerCollectionView.dataSource = self
     }
     
     func registerCell() {
-        bankListCollectionView.register(BankListCell.self, forCellWithReuseIdentifier: BankListCell.cellIdentifier)
+        selectBankPagerCollectionView.register(SelectBankPagerCell.self, forCellWithReuseIdentifier: SelectBankPagerCell.cellIdentifier)
     }
     
 }
@@ -106,72 +114,55 @@ private extension BottomSheetView {
 extension BottomSheetView: UICollectionViewDelegate {
     
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
-        let offsetY = scrollView.contentOffset.y
-
-        if offsetY > 20 {
-            selectBankHeader.frame.origin.y = -20
-        } else if offsetY <= 0 {
-            selectBankHeader.frame.origin.y = 0 
+        let pageWidth = selectBankPagerCollectionView.frame.size.width
+        let currentPage = selectBankPagerCollectionView.contentOffset.x / pageWidth
+        if currentPage < 0.5 {
+            self.selectedTab = 0
+            selectBankHeader.segmentView.selectedSegmentIndex = 0
         } else {
-            selectBankHeader.frame.origin.y = -offsetY
+            self.selectedTab = 1
+            selectBankHeader.segmentView.selectedSegmentIndex = 1
         }
-        
-        selectBankHeader.selectBankLabel.alpha = 1 - offsetY * 0.1
-        print(selectBankHeader.selectBankLabel.alpha)
     }
+    
 }
 
 extension BottomSheetView: UICollectionViewDelegateFlowLayout {
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        
-        return CGSize(width: (bankListCollectionView.frame.width - 58) / 2, height: 21)
+        return CGSize(width: selectBankPagerCollectionView.frame.width, height: selectBankPagerCollectionView.frame.height)
     }
     
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
-        
-        return 29
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
-        
-        return 0
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
-        
-        return UIEdgeInsets(top: 42, left: 29, bottom: 0, right: 29)
-    }
-
 }
 
 extension BottomSheetView: UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        
-        switch selectedTab {
-        case "은행":
-            bankListData.count
-        case "증권":
-            stockListData.count
-        default:
-            0
-        }
+        return 2
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        
-        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: BankListCell.cellIdentifier, for: indexPath) as? BankListCell else { return UICollectionViewCell() }
-        
-        switch selectedTab {
-        case "은행":
-            cell.bindData(data: bankListData[indexPath.row])
-        case "증권":
-            cell.bindData(data: stockListData[indexPath.row])
-        default:
-            return cell
-        }
+        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: SelectBankPagerCell.cellIdentifier, for: indexPath) as? SelectBankPagerCell else { return UICollectionViewCell() }
+        cell.selectedTab = self.selectedTab
+        cell.delegate = self
         return cell
     }
     
+}
+
+// MARK: - SelectBankPagerCellDelegate
+
+extension BottomSheetView: SelectBankPagerCellDelegate {
+    
+    func setStickHeader(offsetY: Double) {
+        if offsetY > 20 {
+            selectBankHeader.frame.origin.y = -20
+        } else if offsetY <= 0 {
+            selectBankHeader.frame.origin.y = 0
+        } else {
+            selectBankHeader.frame.origin.y = -offsetY
+        }
+        
+        selectBankHeader.selectBankLabel.alpha = 1 - offsetY * 0.1
+    }
 }
