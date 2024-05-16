@@ -10,11 +10,15 @@ import UIKit
 import SnapKit
 import Then
 
+protocol SelectBankHeaderViewDelegate: AnyObject {
+    func didChangedSegment(sender: UISegmentedControl)
+}
+
 final class SelectBankHeaderView: UIView {
 
     // MARK: - UI Properties
     
-    private let selectBankLabel = UILabel()
+    let selectBankLabel = UILabel()
     
     private let searchField = UITextField()
     
@@ -31,6 +35,8 @@ final class SelectBankHeaderView: UIView {
     
     let screenWidth = UIScreen.main.bounds.width
     
+    weak var delegate: SelectBankHeaderViewDelegate?
+    
     
     // MARK: - Life Cycles
 
@@ -44,6 +50,11 @@ final class SelectBankHeaderView: UIView {
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
+    }
+    
+    @objc
+    func didChangeValue(sender: UISegmentedControl) {
+        self.delegate?.didChangedSegment(sender: sender)
     }
     
 }
@@ -126,6 +137,7 @@ private extension SelectBankHeaderView {
             $0.backgroundColor = UIColor(resource: .white)
             $0.setWidth((screenWidth - 32) / 2, forSegmentAt: 0)
             $0.setWidth((screenWidth - 32) / 2, forSegmentAt: 1)
+            $0.addTarget(self, action: #selector(didChangeValue(sender: )), for: .valueChanged)
         }
     }
     

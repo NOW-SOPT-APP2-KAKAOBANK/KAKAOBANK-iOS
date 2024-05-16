@@ -30,8 +30,8 @@ final class SelectBankViewController: UIViewController {
         setHierarchy()
         setLayout()
         setStyle()
+        setDelegate()
     }
-
 
 }
 
@@ -70,4 +70,23 @@ private extension SelectBankViewController {
         }
     }
     
+    func setDelegate() {
+        self.bottomSheetView.selectBankHeader.delegate = self
+    }
+    
+}
+
+
+// MARK: - SelectBankHeader Delegate
+
+extension SelectBankViewController: SelectBankHeaderViewDelegate {
+    
+    func didChangedSegment(sender: UISegmentedControl) {
+        if let title = sender.titleForSegment(at: sender.selectedSegmentIndex) {
+            bottomSheetView.selectedTab = title
+        }
+        
+        let resetOffset = CGPoint(x: 0, y: -bottomSheetView.bankListCollectionView.contentInset.top)
+        bottomSheetView.bankListCollectionView.setContentOffset(resetOffset, animated: true)
+    }
 }

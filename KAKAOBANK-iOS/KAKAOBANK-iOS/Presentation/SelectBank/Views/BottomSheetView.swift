@@ -7,15 +7,18 @@
 
 import UIKit
 
+import SnapKit
+import Then
+
 final class BottomSheetView: UIView {
 
     // MARK: - UI Properties
         
     private let cancelButton = UIButton()
     
-    private let selectBankHeader = SelectBankHeaderView()
+    let selectBankHeader = SelectBankHeaderView()
     
-    private let bankListCollectionView = UICollectionView(frame: .zero, collectionViewLayout: UICollectionViewFlowLayout())
+    let bankListCollectionView = UICollectionView(frame: .zero, collectionViewLayout: UICollectionViewFlowLayout())
     
     
     // MARK: - Properties
@@ -84,11 +87,6 @@ private extension BottomSheetView {
             $0.setTitleColor(UIColor(resource: .black2), for: .highlighted)
             $0.setAttributedTitle(UILabel.attributedText(for: .body2, withText: "취소"), for: .normal)
         }
-        
-        selectBankHeader.do {
-            $0.segmentView.addTarget(self, action: #selector(didChangeValue(sender: )), for: .valueChanged)
-        }
-
     }
     
     func setDelegate() {
@@ -100,20 +98,28 @@ private extension BottomSheetView {
         bankListCollectionView.register(BankListCell.self, forCellWithReuseIdentifier: BankListCell.cellIdentifier)
     }
     
-    @objc
-    func didChangeValue(sender: UISegmentedControl) {
-        print("change to \(sender.selectedSegmentIndex)")
-        
-        if let title = sender.titleForSegment(at: sender.selectedSegmentIndex) {
-            selectedTab = title
-        }
-    }
 }
 
 
 // MARK: - UICollectionView Delegates
 
-extension BottomSheetView: UICollectionViewDelegate {}
+extension BottomSheetView: UICollectionViewDelegate {
+    
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        let offsetY = scrollView.contentOffset.y
+
+        if offsetY > 20 {
+            selectBankHeader.frame.origin.y = -20
+        } else if offsetY <= 0 {
+            selectBankHeader.frame.origin.y = 0 
+        } else {
+            selectBankHeader.frame.origin.y = -offsetY
+        }
+        
+        selectBankHeader.selectBankLabel.alpha = 1 - offsetY * 0.1
+        print(selectBankHeader.selectBankLabel.alpha)
+    }
+}
 
 extension BottomSheetView: UICollectionViewDelegateFlowLayout {
     
