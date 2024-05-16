@@ -14,9 +14,9 @@ final class SelectBankViewController: UIViewController {
 
     // MARK: - UI Properties
     
-    private let cancelButton = UIButton()
+    private let dimmedView = UIView()
     
-    private let selectBankHeader = SelectBankHeaderView()
+    private let bottomSheetView = BottomSheetView()
     
     
     // MARK: - Properties
@@ -40,41 +40,34 @@ final class SelectBankViewController: UIViewController {
 private extension SelectBankViewController {
     
     func setHierarchy() {
-        self.view.addSubviews(cancelButton, selectBankHeader)
-        self.view.bringSubviewToFront(cancelButton)
+        self.view.addSubview(dimmedView)
+        dimmedView.addSubview(bottomSheetView)
     }
     
     func setLayout() {
-        cancelButton.snp.makeConstraints {
-            $0.top.equalToSuperview().inset(11)
-            $0.trailing.equalToSuperview().inset(9)
-            $0.size.equalTo(44)
+        dimmedView.snp.makeConstraints {
+            $0.edges.equalToSuperview()
         }
         
-        selectBankHeader.snp.makeConstraints {
-            $0.top.horizontalEdges.equalToSuperview()
-            $0.height.equalTo(204)
+        bottomSheetView.snp.makeConstraints {
+            $0.top.equalToSuperview().inset(123)
+            $0.horizontalEdges.bottom.equalToSuperview()
         }
+        
     }
     
     func setStyle() {
-        self.view.backgroundColor = UIColor(resource: .white)
+        self.view.backgroundColor = .clear
         self.navigationController?.navigationBar.isHidden = true
         
-        cancelButton.do {
-            $0.backgroundColor = UIColor(resource: .white)
-            $0.setTitleColor(UIColor(resource: .black2), for: .normal)
-            $0.setTitleColor(UIColor(resource: .black2), for: .highlighted)
-            $0.setAttributedTitle(UILabel.attributedText(for: .body2, withText: "취소"), for: .normal)
+        dimmedView.do {
+            $0.layer.backgroundColor = UIColor(resource: .black1).withAlphaComponent(0.7).cgColor
         }
         
-        selectBankHeader.do {
-            $0.segmentView.addTarget(self, action: #selector(didChangeValue(sender: )), for: .valueChanged)
+        bottomSheetView.do {
+            $0.backgroundColor = UIColor(resource: .white)
+            $0.roundCorners(cornerRadius: 25, maskedCorners: [.layerMinXMinYCorner, .layerMaxXMinYCorner])
         }
     }
     
-    @objc
-    func didChangeValue(sender: UISegmentedControl) {
-        print("change to \(sender.selectedSegmentIndex)")
-    }
 }

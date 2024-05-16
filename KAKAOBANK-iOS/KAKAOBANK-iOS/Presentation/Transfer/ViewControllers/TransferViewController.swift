@@ -169,6 +169,9 @@ extension TransferViewController: InputAccountButtonDelegate {
     
     func pushToSelectBankVC() {
         print("tap pushToSelectBankVC")
+        let selectBankVC = SelectBankViewController()
+        selectBankVC.modalPresentationStyle = .overFullScreen
+        self.present(selectBankVC, animated: true)
     }
     
 }
