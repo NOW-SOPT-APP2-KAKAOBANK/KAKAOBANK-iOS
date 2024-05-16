@@ -143,7 +143,7 @@ private extension BankAccountViewController {
     }
     
     @objc func handleRefreshControl() {
-        DispatchQueue.main.async {
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.7) {
             self.scrollView.refreshControl?.endRefreshing()
         }
     }
