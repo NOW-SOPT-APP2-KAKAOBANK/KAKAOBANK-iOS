@@ -4,93 +4,125 @@ import SnapKit
 
 class MainViewController: UIViewController {
     
-    private var scrollView: UIScrollView?
-    private var headerView: HeaderView?
-    private var messageBoxView: MessageBoxView?
-    private var mainAccountView: MainAccountView?
-    private var secondAccountView: SecondAccountView?
-    private var thirdAccountView: ThirdAccountView?
+    private var scrollView = UIScrollView()
+    
+    private var headerView = HeaderView()
+    private var messageBoxView = MessageBoxView()
+    private var mainAccountView = MainAccountView()
+    private var secondAccountView = SecondAccountView()
+    private var thirdAccountView = ThirdAccountView()
+    private var savingsView = SavingsView()
+    private var meetingAccountView = MeetingAccountView()
+    private var addButtonView = AddButtonView()
+    private var simpleBarView = SimpleBarView()
+    
+    private var adView = AdView()
+
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        view.backgroundColor = UIColor(named: "darkgray1")
+        setStyle()
+        setHierachy()
+        setLayout()
         
-        scrollView = UIScrollView()
-        headerView = HeaderView()
-        messageBoxView = MessageBoxView()
-        mainAccountView = MainAccountView()
-        secondAccountView = SecondAccountView()
-        thirdAccountView = ThirdAccountView()
-        
-        setViews()
     }
     
-    private func setViews() {
-        // ScrollView의 기본 설정을 합니다.
-        if let scrollView = scrollView {
+    private func setStyle() {
+        view.backgroundColor = UIColor(named: "darkgray1")
+        
+        adView.configure(with: "card_ad_ios")
+    }
+    
+    private func setHierachy() {
+        view.addSubview(scrollView)
+        
+        scrollView.addSubviews(headerView, messageBoxView, mainAccountView, secondAccountView, thirdAccountView, savingsView, addButtonView, meetingAccountView, simpleBarView, adView)
+        
+    }
+    
+    private func setLayout() {
+        
+        
+
+        scrollView.snp.makeConstraints { make in
+            make.edges.equalToSuperview()
+        }
+        
+        headerView.snp.makeConstraints { make in
+            make.top.equalToSuperview().offset(0)
+            make.centerX.equalToSuperview()
+            make.width.equalToSuperview()
+            make.height.equalTo(60)
+        }
+    
+        messageBoxView.snp.makeConstraints { make in
+            make.top.equalTo(headerView.snp.bottom)
+            make.centerX.equalToSuperview()
+            make.width.equalTo(341)
+            make.height.equalTo(99)
+        }
+    
+        mainAccountView.snp.makeConstraints { make in
+            make.top.equalTo(messageBoxView.snp.bottom).offset(9)
+            make.centerX.equalToSuperview()
+            make.width.equalTo(341)
+            make.height.equalTo(177)
+        }
+
+        secondAccountView.snp.makeConstraints { make in
+            make.top.equalTo((mainAccountView.snp.bottom)).offset(9)
+            make.centerX.equalToSuperview()
+            make.width.equalTo(341)
+            make.height.equalTo(99)
+        }
+
+        thirdAccountView.snp.makeConstraints { make in
+            make.top.equalTo((secondAccountView.snp.bottom)).offset(9)
+            make.centerX.equalToSuperview()
+            make.width.equalTo(341)
+            make.height.equalTo(140)
+        }
+        
+        savingsView.snp.makeConstraints { make in
+            make.top.equalTo((thirdAccountView.snp.bottom)).offset(9)
+            make.centerX.equalToSuperview()
+            make.width.equalTo(341)
+            make.height.equalTo(85)
+        }
+        
+        meetingAccountView.snp.makeConstraints { make in
+            make.top.equalTo((savingsView.snp.bottom)).offset(9)
+            make.centerX.equalToSuperview()
+            make.width.equalTo(341)
+            make.height.equalTo(62)
+        }
+        
+        addButtonView.snp.makeConstraints { make in
+            make.top.equalTo((meetingAccountView.snp.bottom)).offset(9)
+            make.centerX.equalToSuperview()
+            make.width.equalTo(341)
+            make.height.equalTo(58)
+//            make.bottom.equalToSuperview().offset(-20)
+        }
+        
+        simpleBarView.snp.makeConstraints { make in
+            make.top.equalTo((addButtonView.snp.bottom)).offset(31)
+            make.centerX.equalToSuperview()
+//            make.width.equalTo(164)
+            make.height.equalTo(44)
+//            make.bottom.equalToSuperview().offset(-20)
             
-            view.addSubview(scrollView)
-            scrollView.snp.makeConstraints { make in
-                make.edges.equalToSuperview()
-            }
         }
         
-        if let headerView = headerView {
-            scrollView?.addSubview(headerView)
-            headerView.snp.makeConstraints { make in
-                make.top.equalToSuperview().offset(0)
-                make.centerX.equalToSuperview()
-                make.width.equalToSuperview()
-                make.height.equalTo(60)
-            }
-        }
-    
-        // MessageBoxView를 HeaderView 아래에 위치시키고 중앙 정렬합니다.
-        if let messageBoxView = messageBoxView, let headerView = headerView {
-            scrollView?.addSubview(messageBoxView)
-            messageBoxView.snp.makeConstraints { make in
-                make.top.equalTo(headerView.snp.bottom)
-                make.centerX.equalToSuperview()
-                make.width.equalTo(341)
-                make.height.equalTo(99)
-            }
-        }
-        
-        // Account views를 추가하고 중앙 정렬합니다.
-        if let mainAccountView = mainAccountView {
-            scrollView?.addSubview(mainAccountView)
-            mainAccountView.snp.makeConstraints { make in
-                make.top.equalTo(messageBoxView?.snp.bottom ?? scrollView!.snp.top).offset(9)
-                make.centerX.equalToSuperview()
-                make.width.equalTo(341)
-                make.height.equalTo(177)
-            }
-        }
-        
-        if let secondAccountView = secondAccountView {
-            scrollView?.addSubview(secondAccountView)
-            secondAccountView.snp.makeConstraints { make in
-                make.top.equalTo((mainAccountView?.snp.bottom)!).offset(9)
-                make.centerX.equalToSuperview()
-                make.width.equalTo(341)
-                make.height.equalTo(99)
-            }
-        }
-        
-        if let thirdAccountView = thirdAccountView {
-            scrollView?.addSubview(thirdAccountView)
-            thirdAccountView.snp.makeConstraints { make in
-                make.top.equalTo((secondAccountView?.snp.bottom)!).offset(9)
-                make.centerX.equalToSuperview()
-                make.width.equalTo(341)
-                make.height.equalTo(140)
-            }
-        }
-    
-    // 마지막으로 스크롤 뷰의 contentSize를 동적으로 조절하기 위해 마지막 요소에 대한 처리
-        if let lastView = thirdAccountView ?? secondAccountView ?? mainAccountView ?? messageBoxView ?? headerView {
-            scrollView?.contentSize = CGSize(width: view.frame.width, height: lastView.frame.maxY)
+        adView.snp.makeConstraints { make in
+            make.top.equalTo((simpleBarView.snp.bottom)).offset(187)
+            make.centerX.equalToSuperview()
+            make.left.equalToSuperview().offset(17)
+            make.width.equalTo(341)
+            make.height.equalTo(82)
+            make.bottom.equalToSuperview().offset(-20)
+            
         }
 
         self.view.layoutIfNeeded()

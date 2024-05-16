@@ -1,142 +1,154 @@
 import UIKit
+import SnapKit
+import Then
 
 class ThirdAccountView: UIView {
     
-    private let bankImageView: UIImageView = {
-        let imageView = UIImageView()
-        imageView.image = UIImage(named: "icn_bankimg2_ios")
-        imageView.contentMode = .scaleAspectFit
-        return imageView
-    }()
-    
-    private let titleLabel: UILabel = {
-        let label = UILabel()
-        label.text = "김미정의 통장"
-        label.textColor = UIColor(named: "black2")
-//        label.font = UIFont(name: "Pretendard-Regular", size: 12)
-        label.font = UIFont.pretendard(.body8)
-        return label
-    }()
-    
-    private let emerFund: UIButton = {
-        let button = UIButton()
-        button.setTitle("비상금", for: .normal)
-        button.setTitleColor(UIColor(named: "white0"), for: .normal)
-        button.backgroundColor = UIColor(named: "blue3")
-        button.layer.cornerRadius = 10
-//        button.titleLabel?.font = UIFont(name: "Pretendard-SemiBold", size: 9)
-        button.titleLabel?.font = UIFont.pretendard(.caption2)
-        return button
-    }()
-    
-    private let balanceLabel: UILabel = {
-        let label = UILabel()
-        label.text = "41원"
-        label.textColor = UIColor(named: "black2")
-//        label.font = UIFont(name: "Pretendard-SemiBold", size: 17)
-        label.font = UIFont.pretendard(.head5)
-        return label
-    }()
-    
-    private let withdrawLabel: UILabel = {
-        let label = UILabel()
-        label.text = "출금가능 3,000,041원"
-        label.textColor = UIColor(named: "blue4")
-//        label.font = UIFont(name: "Pretendard-Regular", size: 11)
-        label.font = UIFont.pretendard(.caption1)
-        return label
-    }()
-    
-    private let moreButton: UIImageView = {
-        let imageView = UIImageView()
-        imageView.image = UIImage(named: "btn_more_ios")
-        imageView.contentMode = .scaleAspectFit
-        return imageView
-    }()
-    
-    private let cardButton: UIButton = {
-        let button = UIButton()
-        button.setTitle("카드", for: .normal)
-        button.setTitleColor(UIColor(named: "black2"), for: .normal)
-        button.backgroundColor = UIColor(named: "blue1")
-        button.layer.cornerRadius = 15
-//        button.titleLabel?.font = UIFont(name: "Pretendard-SemiBold", size: 12)
-        button.titleLabel?.font = UIFont.pretendard(.subTitle2)
-        return button
-    }()
-    
-    private let transferButton: UIButton = {
-        let button = UIButton()
-        button.setTitle("이체", for: .normal)
-        button.setTitleColor(UIColor(named: "black2"), for: .normal)
-        button.backgroundColor = UIColor(named: "blue1")
-        button.layer.cornerRadius = 15
-//        button.titleLabel?.font = UIFont(name: "Pretendard-SemiBold", size: 12)
-        button.titleLabel?.font = UIFont.pretendard(.subTitle2)
-        return button
-    }()
+    // Instance creation with basic initializers
+    private var bankImageView = UIImageView()
+    private var titleLabel = UILabel()
+    private var emerFund = UIButton()
+    private var balanceLabel = UILabel()
+    private var withdrawLabel = UILabel()
+    private var moreButton = UIImageView()
+    private var cardButton = UIButton()
+    private var transferButton = UIButton()
     
     override init(frame: CGRect) {
         super.init(frame: frame)
-        setViews()
+        setHierarchy()
+        setStyle()
+        setLayout()
     }
     
     required init?(coder: NSCoder) {
         super.init(coder: coder)
-        setViews()
+        setHierarchy()
+        setStyle()
+        setLayout()
     }
     
-    private func setViews() {
-        backgroundColor = UIColor(named: "blue0")
-        layer.cornerRadius = 15  // 모서리 둥글게 설정
-        layer.masksToBounds = true  // 둥근 모서리가 콘텐츠를 넘지 않도록
-        
-        addSubviews(bankImageView, titleLabel, balanceLabel, emerFund,
-                    withdrawLabel, moreButton, cardButton, transferButton)
-        
-        setConstraints()
-    }
-
-        private func setConstraints() {
-                
-            NSLayoutConstraint.activate([
-                bankImageView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 20),
-                bankImageView.topAnchor.constraint(equalTo: topAnchor, constant: 34),
-                bankImageView.widthAnchor.constraint(equalToConstant: 40),
-                bankImageView.heightAnchor.constraint(equalToConstant: 40),
-                
-                titleLabel.leadingAnchor.constraint(equalTo: bankImageView.trailingAnchor, constant: 8),
-                titleLabel.topAnchor.constraint(equalTo: topAnchor, constant: 29),
-                
-                balanceLabel.leadingAnchor.constraint(equalTo: titleLabel.leadingAnchor),
-                balanceLabel.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: 5),
-                
-                emerFund.leadingAnchor.constraint(equalTo: titleLabel.trailingAnchor, constant: 4),
-                emerFund.topAnchor.constraint(equalTo: topAnchor, constant: 29),
-                emerFund.heightAnchor.constraint(equalToConstant: 16),
-                emerFund.widthAnchor.constraint(equalToConstant: 33),
-                
-                withdrawLabel.leadingAnchor.constraint(equalTo: titleLabel.leadingAnchor),
-                withdrawLabel.topAnchor.constraint(equalTo: topAnchor, constant: 78),
-                
-                moreButton.topAnchor.constraint(equalTo: topAnchor, constant: 13),
-                moreButton.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -19),
-                moreButton.widthAnchor.constraint(equalToConstant: 24),
-                moreButton.heightAnchor.constraint(equalToConstant: 24),
-                
-                cardButton.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -77), //216
-                cardButton.topAnchor.constraint(equalTo: topAnchor, constant: 90),
-                cardButton.heightAnchor.constraint(equalToConstant: 31),
-                cardButton.widthAnchor.constraint(equalToConstant: 48),
-                
-                transferButton.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 284),//271
-                transferButton.topAnchor.constraint(equalTo: topAnchor, constant: 90),
-                transferButton.heightAnchor.constraint(equalToConstant: 31),
-                transferButton.widthAnchor.constraint(equalToConstant: 48),
-               
-            ])
-            
-            subviews.forEach { $0.translatesAutoresizingMaskIntoConstraints = false }
+    private func setStyle() {
+        // Setting properties for each UI component using 'then' to maintain clarity and brevity
+        bankImageView.do {
+            $0.image = UIImage(named: "icn_bankimg2_ios")
+            $0.contentMode = .scaleAspectFit
         }
+        
+        titleLabel.do {
+//            $0.text = "김미정의 통장"
+            $0.textColor = UIColor(named: "black2")
+//            $0.font = UIFont.pretendard(.body8)
+            $0.attributedText = UILabel.attributedText(for: .body8, withText: "김미정의 통장")
+
+        }
+        
+        emerFund.do {
+//            $0.setTitle("비상금", for: .normal)
+            $0.setTitleColor(UIColor(named: "white0"), for: .normal)
+            $0.backgroundColor = UIColor(named: "blue3")
+            $0.layer.cornerRadius = 10
+//            $0.titleLabel?.font = UIFont.pretendard(.caption2)
+            let attributedText = UILabel.attributedText(for: .caption2, withText: "비상금")
+            $0.setAttributedTitle(attributedText, for: .normal)
+        }
+        
+        balanceLabel.do {
+//            $0.text = "41원"
+            $0.textColor = UIColor(named: "black2")
+//            $0.font = UIFont.pretendard(.head5)
+            $0.attributedText = UILabel.attributedText(for: .head5, withText: "41원")
+        }
+        
+        withdrawLabel.do {
+//            $0.text = "출금가능 3,000,041원"
+            $0.textColor = UIColor(named: "blue4")
+//            $0.font = UIFont.pretendard(.caption1)
+            $0.attributedText = UILabel.attributedText(for: .caption1, withText: "출금가능 3,000,041원")
+        }
+        
+        moreButton.do {
+            $0.image = UIImage(named: "btn_more_ios")
+            $0.contentMode = .scaleAspectFit
+        }
+        
+        cardButton.do {
+//            $0.setTitle("카드", for: .normal)
+            $0.setTitleColor(UIColor(named: "black2"), for: .normal)
+            $0.backgroundColor = UIColor(named: "blue1")
+            $0.layer.cornerRadius = 15
+//            $0.titleLabel?.font = UIFont.pretendard(.subTitle2)
+            let attributedText = UILabel.attributedText(for: .subTitle2, withText: "카드")
+            $0.setAttributedTitle(attributedText, for: .normal)
+        }
+        
+        transferButton.do {
+//            $0.setTitle("이체", for: .normal)
+            $0.setTitleColor(UIColor(named: "black2"), for: .normal)
+            $0.backgroundColor = UIColor(named: "blue1")
+            $0.layer.cornerRadius = 15
+//            $0.titleLabel?.font = UIFont.pretendard(.subTitle2)
+            let attributedText = UILabel.attributedText(for: .subTitle2, withText: "이체")
+            $0.setAttributedTitle(attributedText, for: .normal)
+        }
+        
+        // Setting properties of the view itself
+        self.backgroundColor = UIColor(named: "blue0")
+        self.layer.cornerRadius = 15
+        self.layer.masksToBounds = true
+    }
     
+    private func setHierarchy() {
+        addSubviews(bankImageView, titleLabel, balanceLabel, emerFund, withdrawLabel, moreButton, cardButton, transferButton)
+    }
+    
+    private func setLayout() {
+        bankImageView.snp.makeConstraints { make in
+            make.leading.equalToSuperview().offset(20)
+            make.top.equalToSuperview().offset(34)
+            make.width.height.equalTo(40)
+        }
+        
+        titleLabel.snp.makeConstraints { make in
+            make.leading.equalTo(bankImageView.snp.trailing).offset(8)
+            make.top.equalToSuperview().offset(29)
+        }
+        
+        balanceLabel.snp.makeConstraints { make in
+            make.leading.equalTo(titleLabel.snp.leading)
+            make.top.equalTo(titleLabel.snp.bottom).offset(5)
+        }
+        
+        emerFund.snp.makeConstraints { make in
+            make.leading.equalTo(titleLabel.snp.trailing).offset(4)
+            make.top.equalToSuperview().offset(29)
+            make.height.equalTo(16)
+            make.width.equalTo(33)
+        }
+        
+        withdrawLabel.snp.makeConstraints { make in
+            make.leading.equalTo(titleLabel.snp.leading)
+            make.top.equalToSuperview().offset(78)
+        }
+        
+        moreButton.snp.makeConstraints { make in
+            make.top.equalToSuperview().offset(13)
+            make.trailing.equalToSuperview().inset(19)
+            make.width.height.equalTo(24)
+        }
+        
+        cardButton.snp.makeConstraints { make in
+            make.trailing.equalToSuperview().inset(77)
+            make.top.equalToSuperview().offset(90)
+            make.height.equalTo(31)
+            make.width.equalTo(48)
+        }
+        
+        transferButton.snp.makeConstraints { make in
+            make.leading.equalToSuperview().offset(284)
+            make.top.equalToSuperview().offset(90)
+            make.height.equalTo(31)
+            make.width.equalTo(48)
+        }
+    }
 }

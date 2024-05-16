@@ -1,64 +1,79 @@
 import UIKit
+import SnapKit
+import Then
 
 class HeaderView: UIView {
     
-    private let titleLabel: UILabel = {
-        let label = UILabel()
-        label.text = "김미정"
-        label.textColor = UIColor(named: "white")
-//        label.font = UIFont(name: "Pretendard-SemiBold", size: 21)
-        label.font = UIFont.pretendard(.head4)
-        label.textAlignment = .left
-        return label
-    }()
-    
-    private let accountButton: UIButton = {
-        let button = UIButton()
-        button.setImage(UIImage(named: "btn_myaccount_and"), for: .normal)
-        button.imageView?.contentMode = .scaleAspectFit
-        return button
-    }()
-    
-    private let profileButton: UIButton = {
-        let button = UIButton()
-        button.setImage(UIImage(named: "icn_profile_ios"), for: .normal)
-        return button
-    }()
-    
+    private var titleLabel = UILabel()
+    private var accountButton = UIButton()
+    private var profileButton = UIButton()
+
     override init(frame: CGRect) {
         super.init(frame: frame)
-        setViews()
+        
+        setHierachy()
+        setLayout()
+        setStyle()
     }
     
     required init?(coder: NSCoder) {
         super.init(coder: coder)
-        setViews()
+        
+        setHierachy()
+        setLayout()
+        setStyle()
     }
     
-    private func setViews() {
-        
+   
+    
+    private func setHierachy() {
         addSubviews(titleLabel, accountButton, profileButton)
-        
-        titleLabel.translatesAutoresizingMaskIntoConstraints = false
-        accountButton.translatesAutoresizingMaskIntoConstraints = false
-        profileButton.translatesAutoresizingMaskIntoConstraints = false
-        
-        NSLayoutConstraint.activate([
-            // titleLabel을 뷰의 왼쪽 가장자리와 맞추기
-            titleLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 23),
-            titleLabel.centerYAnchor.constraint(equalTo: centerYAnchor),
-            
-            // accountButton을 titleLabel의 오른쪽에 배치
-            accountButton.leadingAnchor.constraint(equalTo: titleLabel.trailingAnchor, constant: 5),
-            accountButton.centerYAnchor.constraint(equalTo: centerYAnchor),
-            accountButton.heightAnchor.constraint(equalToConstant: 27),
-            accountButton.widthAnchor.constraint(equalToConstant: 57),
-            
-            // profileButton을 뷰의 오른쪽 가장자리와 맞추기
-            profileButton.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -26),
-            profileButton.centerYAnchor.constraint(equalTo: centerYAnchor),
-            profileButton.heightAnchor.constraint(equalToConstant: 36),
-            profileButton.widthAnchor.constraint(equalToConstant: 36)
-        ])
     }
+    
+    private func setLayout() {
+
+        titleLabel.snp.makeConstraints {
+            $0.leading.equalToSuperview().offset(23)
+            $0.centerY.equalToSuperview()
+        }
+        
+        accountButton.do {
+            $0.snp.makeConstraints {
+                $0.leading.equalTo(titleLabel.snp.trailing).offset(5)
+                $0.centerY.equalToSuperview()
+                $0.height.equalTo(27)
+                $0.width.equalTo(57)
+            }
+        }
+        
+        profileButton.do {
+            $0.snp.makeConstraints {
+                $0.trailing.equalToSuperview().offset(-26)
+                $0.centerY.equalToSuperview()
+                $0.height.equalTo(36)
+                $0.width.equalTo(36)
+            }
+        }
+    }
+    
+    private func setStyle() {
+        
+        // Styling titleLabel
+       titleLabel.do {
+           $0.text = "김미정"
+           $0.textColor = UIColor(named: "white") ?? .white  // Fallback to .white if the color is not found
+           $0.textAlignment = .left
+       }
+       
+       // Styling accountButton
+       accountButton.do {
+           $0.setImage(UIImage(named: "btn_myaccount_and"), for: .normal)
+           $0.imageView?.contentMode = .scaleAspectFit
+       }
+       
+       // Styling profileButton
+       profileButton.do {
+           $0.setImage(UIImage(named: "icn_profile_ios"), for: .normal)
+       }
+   }
 }
