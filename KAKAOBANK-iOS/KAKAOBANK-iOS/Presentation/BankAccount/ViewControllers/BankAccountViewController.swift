@@ -13,6 +13,7 @@ import Then
 final class BankAccountViewController: UIViewController {
     
     private let bankAccountNaviBar = BankAccountNaviBar()
+    private var bankAccountUpperView = BankAccountUpperView()
     
     private let scrollView = UIScrollView()
     private var contentView = UIView()
@@ -21,7 +22,7 @@ final class BankAccountViewController: UIViewController {
     private let stickyHeaderView = StickyHeaderView()
     private let headerView = StickyHeaderView()
     
-    private var accountLabel = BankAccountUpperView()
+    
 
     
     private let bankAccountList = BankAccountModel.dummy()
@@ -34,6 +35,7 @@ final class BankAccountViewController: UIViewController {
         setStyle()
         setDelegate()
         register()
+        configureRefreshControl()
     }
     
     
@@ -58,7 +60,7 @@ private extension BankAccountViewController {
         self.view.addSubviews(scrollView,bankAccountNaviBar,headerView)
         
         scrollView.addSubview(contentView)
-        self.contentView.addSubviews(accountLabel, bankAccountTableView, stickyHeaderView)
+        self.contentView.addSubviews(bankAccountUpperView, bankAccountTableView, stickyHeaderView)
     }
     
     func setLayout() {
@@ -80,7 +82,7 @@ private extension BankAccountViewController {
             $0.height.equalTo(88)
         }
         
-        accountLabel.snp.makeConstraints {
+        bankAccountUpperView.snp.makeConstraints {
             $0.top.equalToSuperview()
             $0.leading.trailing.equalToSuperview()
             $0.height.equalTo(229)
@@ -89,7 +91,7 @@ private extension BankAccountViewController {
         
         //스티키 헤더 뷰
         stickyHeaderView.snp.makeConstraints {
-            $0.top.equalTo(accountLabel.snp.bottom).offset(24)
+            $0.top.equalTo(bankAccountUpperView.snp.bottom)
             $0.leading.trailing.equalTo(scrollView)
             $0.height.equalTo(163)
         }
@@ -105,8 +107,6 @@ private extension BankAccountViewController {
         self.view.backgroundColor = UIColor(resource: .main)
         self.navigationController?.isNavigationBarHidden = true
         bankAccountTableView.isScrollEnabled = true
-        
-        
         
         stickyHeaderView.do {
             $0.backgroundColor = .white
@@ -134,6 +134,18 @@ private extension BankAccountViewController {
             BankAccountTableViewCell.self,
             forCellReuseIdentifier: BankAccountTableViewCell.identifier
         )
+    }
+    
+    //Pull to Refresh 새로 고침 구현
+    func configureRefreshControl() {
+        scrollView.refreshControl = UIRefreshControl()
+        scrollView.refreshControl?.addTarget(self, action: #selector(handleRefreshControl), for: .valueChanged)
+    }
+    
+    @objc func handleRefreshControl() {
+        DispatchQueue.main.async {
+            self.scrollView.refreshControl?.endRefreshing()
+        }
     }
     
 }
