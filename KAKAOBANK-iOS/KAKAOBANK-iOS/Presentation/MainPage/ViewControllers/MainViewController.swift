@@ -30,6 +30,8 @@ class MainViewController: UIViewController {
     
     private func setStyle() {
         view.backgroundColor = UIColor(named: "darkgray1")
+        
+        adView.configure(with: "card_ad_ios")
     }
     
     private func setHierachy() {
@@ -37,10 +39,11 @@ class MainViewController: UIViewController {
         
         scrollView.addSubviews(headerView, messageBoxView, mainAccountView, secondAccountView, thirdAccountView, savingsView, addButtonView, meetingAccountView, simpleBarView, adView)
         
-        adView.configure(with: "card_ad_ios")
     }
     
     private func setLayout() {
+        
+        
 
         scrollView.snp.makeConstraints { make in
             make.edges.equalToSuperview()

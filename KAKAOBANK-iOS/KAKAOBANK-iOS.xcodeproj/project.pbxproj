@@ -13,8 +13,8 @@
 		2C28353B2BF523A000245FE1 /* AddButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C28353A2BF523A000245FE1 /* AddButtonView.swift */; };
 		2C28353D2BF523AD00245FE1 /* MeetingAccountView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C28353C2BF523AD00245FE1 /* MeetingAccountView.swift */; };
 		2C28353F2BF5294D00245FE1 /* SimpleBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C28353E2BF5294D00245FE1 /* SimpleBarView.swift */; };
-		2C2835472BF534EB00245FE1 /* AdView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C2835462BF534EB00245FE1 /* AdView.swift */; };
 		2C3F78602BF5EC28005AF799 /* UITabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C3F785F2BF5EC28005AF799 /* UITabBarController.swift */; };
+		2C3F78622BF60A05005AF799 /* AddView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C3F78612BF60A05005AF799 /* AddView.swift */; };
 		2CF9BFE92BF4389E00C7BC35 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CF9BFE82BF4389E00C7BC35 /* MainViewController.swift */; };
 		2CF9BFED2BF440F900C7BC35 /* HeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CF9BFEC2BF440F900C7BC35 /* HeaderView.swift */; };
 		2CF9BFEF2BF44F1500C7BC35 /* MessageBoxView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CF9BFEE2BF44F1500C7BC35 /* MessageBoxView.swift */; };
@@ -55,8 +55,8 @@
 		2C28353A2BF523A000245FE1 /* AddButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddButtonView.swift; sourceTree = "<group>"; };
 		2C28353C2BF523AD00245FE1 /* MeetingAccountView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeetingAccountView.swift; sourceTree = "<group>"; };
 		2C28353E2BF5294D00245FE1 /* SimpleBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SimpleBarView.swift; sourceTree = "<group>"; };
-		2C2835462BF534EB00245FE1 /* AdView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AdView.swift; path = ../../../../../../../AdView.swift; sourceTree = "<group>"; };
 		2C3F785F2BF5EC28005AF799 /* UITabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITabBarController.swift; sourceTree = "<group>"; };
+		2C3F78612BF60A05005AF799 /* AddView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddView.swift; sourceTree = "<group>"; };
 		2CF9BFE82BF4389E00C7BC35 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		2CF9BFEC2BF440F900C7BC35 /* HeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderView.swift; sourceTree = "<group>"; };
 		2CF9BFEE2BF44F1500C7BC35 /* MessageBoxView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageBoxView.swift; sourceTree = "<group>"; };
@@ -131,7 +131,6 @@
 		2CF9BFE22BF4380200C7BC35 /* MainPage */ = {
 			isa = PBXGroup;
 			children = (
-				2CF9BFE72BF4388D00C7BC35 /* Cells */,
 				2CF9BFE42BF4385A00C7BC35 /* ViewControllers */,
 				2CF9BFE32BF4385400C7BC35 /* Views */,
 			);
@@ -150,7 +149,7 @@
 				2C28353A2BF523A000245FE1 /* AddButtonView.swift */,
 				2C28353C2BF523AD00245FE1 /* MeetingAccountView.swift */,
 				2C28353E2BF5294D00245FE1 /* SimpleBarView.swift */,
-				2C2835462BF534EB00245FE1 /* AdView.swift */,
+				2C3F78612BF60A05005AF799 /* AddView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -162,13 +161,6 @@
 				2C3F785F2BF5EC28005AF799 /* UITabBarController.swift */,
 			);
 			path = ViewControllers;
-			sourceTree = "<group>";
-		};
-		2CF9BFE72BF4388D00C7BC35 /* Cells */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Cells;
 			sourceTree = "<group>";
 		};
 		CA05B3A62BF282BC00DA77E1 /* Models */ = {
@@ -414,7 +406,6 @@
 				2CF9BFE92BF4389E00C7BC35 /* MainViewController.swift in Sources */,
 				CAD398772BECED3F00B57329 /* ViewController.swift in Sources */,
 				2CF9BFF52BF48A7A00C7BC35 /* ThirdAccountView.swift in Sources */,
-				2C2835472BF534EB00245FE1 /* AdView.swift in Sources */,
 				CA22B3FB2BF146C50013B7AB /* UIVIew+.swift in Sources */,
 				2CF9BFF32BF48A6100C7BC35 /* SecondAccountView.swift in Sources */,
 				CA05B3A52BF27C1B00DA77E1 /* AccountInfoView.swift in Sources */,
@@ -425,6 +416,7 @@
 				0D5AB9052BF2663C00C41046 /* BankAccountViewController.swift in Sources */,
 				CA05B3A82BF282DB00DA77E1 /* AccountInfoModel.swift in Sources */,
 				CA22B3FB2BF146C50013B7AB /* UIVIew+.swift in Sources */,
+				2C3F78622BF60A05005AF799 /* AddView.swift in Sources */,
 				0D5AB9072BF267E700C41046 /* BankAccountNaviBar.swift in Sources */,
 				2C28353B2BF523A000245FE1 /* AddButtonView.swift in Sources */,
 				CA22B3F92BF13C380013B7AB /* UILabel+.swift in Sources */,
