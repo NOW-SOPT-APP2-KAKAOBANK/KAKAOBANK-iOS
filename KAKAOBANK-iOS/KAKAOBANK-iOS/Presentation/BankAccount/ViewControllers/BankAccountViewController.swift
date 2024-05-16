@@ -10,6 +10,7 @@ import UIKit
 import SnapKit
 import Then
 
+
 final class BankAccountViewController: UIViewController {
     
     private let bankAccountNaviBar = BankAccountNaviBar()
@@ -143,6 +144,9 @@ private extension BankAccountViewController {
     }
     
     @objc func handleRefreshControl() {
+        //진동 추가
+        let feedbackGenerator = UIImpactFeedbackGenerator(style: .medium)
+                feedbackGenerator.impactOccurred()
         DispatchQueue.main.asyncAfter(deadline: .now() + 0.7) {
             self.scrollView.refreshControl?.endRefreshing()
         }
