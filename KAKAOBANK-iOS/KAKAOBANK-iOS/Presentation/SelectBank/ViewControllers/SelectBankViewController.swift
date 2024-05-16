@@ -62,6 +62,8 @@ private extension SelectBankViewController {
         
         dimmedView.do {
             $0.layer.backgroundColor = UIColor(resource: .black1).withAlphaComponent(0.7).cgColor
+            let gesture = UITapGestureRecognizer(target: self, action: #selector(didTapDimmedView(sender: )))
+            $0.addGestureRecognizer(gesture)
         }
         
         bottomSheetView.do {
@@ -74,6 +76,13 @@ private extension SelectBankViewController {
         self.bottomSheetView.selectBankHeader.delegate = self
     }
     
+    @objc
+    func didTapDimmedView(sender: UITapGestureRecognizer) {
+        guard !bottomSheetView.frame.contains(sender.location(in: view)) else {
+                return
+        }
+        self.dismiss(animated: true)
+    }
 }
 
 
