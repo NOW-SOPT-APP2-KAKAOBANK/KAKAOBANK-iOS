@@ -12,6 +12,7 @@
 		0D357E262BF3E7B100E044BB /* BankAccountModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D357E252BF3E7B100E044BB /* BankAccountModel.swift */; };
 		0D5AB9052BF2663C00C41046 /* BankAccountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D5AB9042BF2663C00C41046 /* BankAccountViewController.swift */; };
 		0D5AB9072BF267E700C41046 /* BankAccountNaviBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D5AB9062BF267E700C41046 /* BankAccountNaviBar.swift */; };
+		0DB63ACA2BF7565D007AA8C8 /* BankAccountUpperView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DB63AC92BF7565D007AA8C8 /* BankAccountUpperView.swift */; };
 		2C2835392BF5239700245FE1 /* SavingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C2835382BF5239700245FE1 /* SavingsView.swift */; };
 		2C28353B2BF523A000245FE1 /* AddButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C28353A2BF523A000245FE1 /* AddButtonView.swift */; };
 		2C28353D2BF523AD00245FE1 /* MeetingAccountView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C28353C2BF523AD00245FE1 /* MeetingAccountView.swift */; };
@@ -71,6 +72,7 @@
 		0D357E252BF3E7B100E044BB /* BankAccountModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BankAccountModel.swift; sourceTree = "<group>"; };
 		0D5AB9042BF2663C00C41046 /* BankAccountViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BankAccountViewController.swift; sourceTree = "<group>"; };
 		0D5AB9062BF267E700C41046 /* BankAccountNaviBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BankAccountNaviBar.swift; sourceTree = "<group>"; };
+		0DB63AC92BF7565D007AA8C8 /* BankAccountUpperView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BankAccountUpperView.swift; sourceTree = "<group>"; };
 		2C2835382BF5239700245FE1 /* SavingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SavingsView.swift; sourceTree = "<group>"; };
 		2C28353A2BF523A000245FE1 /* AddButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddButtonView.swift; sourceTree = "<group>"; };
 		2C28353C2BF523AD00245FE1 /* MeetingAccountView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeetingAccountView.swift; sourceTree = "<group>"; };
@@ -177,6 +179,7 @@
 			children = (
 				0D5AB9062BF267E700C41046 /* BankAccountNaviBar.swift */,
 				0D357E1F2BF3CB4000E044BB /* StickyHeaderView.swift */,
+				0DB63AC92BF7565D007AA8C8 /* BankAccountUpperView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -540,6 +543,7 @@
 				CA05B3B62BF3E6FF00DA77E1 /* SegmentView.swift in Sources */,
 				CA22B3F92BF13C380013B7AB /* UILabel+.swift in Sources */,
 				CA05B3A32BF27AF300DA77E1 /* MyAccountCell.swift in Sources */,
+				0DB63ACA2BF7565D007AA8C8 /* BankAccountUpperView.swift in Sources */,
 				CA9982BC2BF5282600EC1F56 /* BottomSheetView.swift in Sources */,
 				CA05B3AA2BF2923700DA77E1 /* RecentTransferCell.swift in Sources */,
 				CAD398732BECED3F00B57329 /* AppDelegate.swift in Sources */,
