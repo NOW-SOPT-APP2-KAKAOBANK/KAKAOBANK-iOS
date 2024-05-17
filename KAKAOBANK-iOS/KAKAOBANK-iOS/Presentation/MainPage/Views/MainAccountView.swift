@@ -37,7 +37,7 @@ class MainAccountView: UIView {
     private func setStyle() {
         bankImageView.do {
             $0.image = UIImage(named: "icn_bankimg1_ios")
-            $0.contentMode = .scaleAspectFit
+//            $0.contentMode = .scaleAspectFit
         }
         
         titleLabel.do {
@@ -50,7 +50,7 @@ class MainAccountView: UIView {
         
         starImageView.do {
             $0.image = UIImage(named: "icn_star_ios")
-            $0.contentMode = .scaleAspectFit
+//            $0.contentMode = .scaleAspectFit
         }
         
         balanceLabel.do {
@@ -61,7 +61,7 @@ class MainAccountView: UIView {
         
         moreButton.do {
             $0.image = UIImage(named: "btn_more_ios")
-            $0.contentMode = .scaleAspectFit
+//            $0.contentMode = .scaleAspectFit
         }
         
         cardButton.do {
@@ -116,7 +116,7 @@ class MainAccountView: UIView {
         bankImageView.snp.makeConstraints { make in
             make.leading.equalToSuperview().offset(20)
             make.top.equalToSuperview().offset(34)
-            make.width.height.equalTo(40)
+            make.width.height.equalTo(30)
         }
         
         titleLabel.snp.makeConstraints { make in
@@ -125,14 +125,14 @@ class MainAccountView: UIView {
         }
         
         starImageView.snp.makeConstraints { make in
-            make.leading.equalTo(titleLabel.snp.trailing).offset(4)
+            make.leading.equalTo(titleLabel.snp.trailing).offset(0)
             make.top.equalToSuperview().offset(26)
             make.width.height.equalTo(20)
         }
         
         balanceLabel.snp.makeConstraints { make in
             make.leading.equalTo(titleLabel.snp.leading)
-            make.top.equalTo(titleLabel.snp.bottom).offset(5)
+            make.top.equalTo(titleLabel.snp.bottom).offset(6)
         }
         
         moreButton.snp.makeConstraints { make in
@@ -142,29 +142,28 @@ class MainAccountView: UIView {
         }
         
         cardButton.snp.makeConstraints { make in
-            make.leading.equalToSuperview().offset(229)
+            make.leading.equalToSuperview().offset(216)
             make.top.equalToSuperview().offset(70)
             make.height.equalTo(31)
             make.width.equalTo(48)
         }
         
         transferButton.snp.makeConstraints { make in
-            make.leading.equalToSuperview().offset(284)
+            make.leading.equalTo(cardButton.snp.trailing).offset(7)
             make.top.equalToSuperview().offset(70)
             make.height.equalTo(31)
             make.width.equalTo(48)
         }
         
         separatorLine.snp.makeConstraints { make in
-            make.leading.equalToSuperview().offset(22)
             make.top.equalTo(balanceLabel.snp.bottom).offset(52)
-            make.width.equalTo(297)
+            make.horizontalEdges.equalToSuperview().inset(22)
             make.height.equalTo(1)
         }
         
         safeBoxLabel.snp.makeConstraints { make in
             make.leading.equalToSuperview().offset(21)
-            make.bottom.equalToSuperview().inset(21)
+            make.bottom.equalToSuperview().inset(22.5)
         }
         
         amountLabel.snp.makeConstraints { make in

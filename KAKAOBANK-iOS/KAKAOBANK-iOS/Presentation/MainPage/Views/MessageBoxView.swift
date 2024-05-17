@@ -38,7 +38,7 @@ class MessageBoxView: UIView {
         // Set the styles for messageLabel using Then
         messageLabel.do {
             $0.textColor = UIColor(resource: .white)
-            $0.attributedText = UILabel.attributedText(for: .subTitle2, withText: "김미정님의 신용점수는\n 대출 승인 가능성이 높아요")
+            $0.attributedText = UILabel.attributedText(for: .subTitle2, withText: "김미정님의 신용점수는\n대출 승인 가능성이 높아요")
             $0.numberOfLines = 0  // 여러 줄 표시 가능하도록 설정
         }
 

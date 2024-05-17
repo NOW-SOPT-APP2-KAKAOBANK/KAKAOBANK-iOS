@@ -60,7 +60,7 @@ class SecondAccountView: UIView {
         bankImageView.snp.makeConstraints { make in
             make.leading.equalToSuperview().offset(20)
             make.top.equalToSuperview().offset(34)
-            make.width.height.equalTo(40)
+            make.width.height.equalTo(30)
         }
         
         titleLabel.snp.makeConstraints { make in
@@ -70,7 +70,7 @@ class SecondAccountView: UIView {
         
         balanceLabel.snp.makeConstraints { make in
             make.leading.equalTo(titleLabel.snp.leading)
-            make.top.equalTo(titleLabel.snp.bottom).offset(5)
+            make.top.equalTo(titleLabel.snp.bottom).offset(6)
         }
         
         moreButton.snp.makeConstraints { make in
