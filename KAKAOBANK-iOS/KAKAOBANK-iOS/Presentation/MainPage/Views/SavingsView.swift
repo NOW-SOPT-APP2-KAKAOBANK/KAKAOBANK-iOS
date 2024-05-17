@@ -57,14 +57,14 @@ class SavingsView: UIView {
     // Set up constraints using SnapKit
     private func setLayout() {
         bagImageView.snp.makeConstraints { make in
-            make.leading.equalToSuperview().offset(24)
-            make.top.equalToSuperview().offset(18)
+            make.leading.equalToSuperview().offset(26)
+            make.top.equalToSuperview().offset(31)
             make.width.equalTo(30)
             make.height.equalTo(27)
         }
         
         messageLabel.snp.makeConstraints { make in
-            make.leading.equalTo(bagImageView.snp.trailing).offset(6)
+            make.leading.equalTo(bagImageView.snp.trailing).offset(13)
             make.top.equalToSuperview().offset(23)
         }
         

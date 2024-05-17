@@ -69,50 +69,57 @@ class MainViewController: UIViewController {
         headerView.snp.makeConstraints {
             $0.top.equalToSuperview().offset(0)
             $0.centerX.equalToSuperview()
-            $0.width.equalToSuperview()
+            $0.width.equalTo(380)
             $0.height.equalTo(118)
 
         }
         
         messageBoxView.snp.makeConstraints {
             $0.top.equalTo(contentView.snp.top).offset(60)
-            $0.horizontalEdges.equalToSuperview().inset(17)
+            $0.centerX.equalToSuperview()
+            $0.width.equalTo(341)
             $0.height.equalTo(99)
         }
         
         mainAccountView.snp.makeConstraints {
             $0.top.equalTo(messageBoxView.snp.bottom).offset(9)
-            $0.horizontalEdges.equalToSuperview().inset(17)
+            $0.centerX.equalToSuperview()
+            $0.width.equalTo(341)
             $0.height.equalTo(177)
         }
         
         secondAccountView.snp.makeConstraints {
             $0.top.equalTo(mainAccountView.snp.bottom).offset(9)
-            $0.horizontalEdges.equalToSuperview().inset(17)
+            $0.centerX.equalToSuperview()
+            $0.width.equalTo(341)
             $0.height.equalTo(99)
         }
         
         thirdAccountView.snp.makeConstraints {
             $0.top.equalTo(secondAccountView.snp.bottom).offset(9)
-            $0.horizontalEdges.equalToSuperview().inset(17)
+            $0.centerX.equalToSuperview()
+            $0.width.equalTo(341)
             $0.height.equalTo(140)
         }
         
         savingsView.snp.makeConstraints {
             $0.top.equalTo(thirdAccountView.snp.bottom).offset(9)
-            $0.horizontalEdges.equalToSuperview().inset(17)
+            $0.centerX.equalToSuperview()
+            $0.width.equalTo(341)
             $0.height.equalTo(85)
         }
         
         meetingAccountView.snp.makeConstraints {
             $0.top.equalTo(savingsView.snp.bottom).offset(9)
-            $0.horizontalEdges.equalToSuperview().inset(17)
+            $0.centerX.equalToSuperview()
+            $0.width.equalTo(341)
             $0.height.equalTo(62)
         }
         
         addButtonView.snp.makeConstraints {
             $0.top.equalTo(meetingAccountView.snp.bottom).offset(9)
-            $0.horizontalEdges.equalToSuperview().inset(17)
+            $0.centerX.equalToSuperview()
+            $0.width.equalTo(341)
             $0.height.equalTo(58)
         }
         
@@ -124,7 +131,7 @@ class MainViewController: UIViewController {
         
         tipsViewController.view.snp.makeConstraints {
             $0.top.equalTo(simpleBarView.snp.bottom).offset(4)
-            $0.horizontalEdges.equalToSuperview().inset(17)
+            $0.horizontalEdges.equalToSuperview().inset(14)
             $0.height.equalTo(150)
             $0.width.equalToSuperview()
         }
@@ -132,7 +139,8 @@ class MainViewController: UIViewController {
         adView.snp.makeConstraints {
             $0.top.equalTo(simpleBarView.snp.bottom).offset(170)
             $0.centerX.equalToSuperview()
-            $0.horizontalEdges.equalToSuperview().inset(17)
+            $0.centerX.equalToSuperview()
+            $0.width.equalTo(341)
             $0.height.equalTo(82)
             $0.bottom.equalToSuperview().offset(-20)
         }
@@ -147,10 +155,6 @@ extension MainViewController: UIScrollViewDelegate {
         let offsetY = scrollView.contentOffset.y
             headerViewTopConstraint?.update(offset: max(0, -offsetY))
         
-//        let offsetY = scrollView.contentOffset.y
-//        headerView.snp.updateConstraints {
-//            $0.top.equalTo(view.safeAreaLayoutGuide.snp.top).offset(max(0, -offsetY))
-//        }
     }
 }
 

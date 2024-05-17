@@ -39,10 +39,8 @@ class AddButtonView: UIView {
     
     private func setLayout() {
         leadingImageView.snp.makeConstraints { make in
-            make.leading.equalToSuperview().offset(158)
+            make.left.equalToSuperview().offset(158)
             make.top.equalToSuperview().offset(17)
-            make.width.equalTo(24)
-            make.height.equalTo(24)
         }
         
 

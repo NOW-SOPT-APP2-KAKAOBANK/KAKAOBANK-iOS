@@ -54,10 +54,8 @@ class MeetingAccountView: UIView {
         }
         
         leadingImageView.snp.makeConstraints { make in
-            make.leading.equalToSuperview().offset(293)
+            make.trailing.equalToSuperview().offset(-18.5)
             make.top.equalToSuperview().offset(19.5)
-            make.width.equalTo(24)
-            make.height.equalTo(24)
         }
     }
 }

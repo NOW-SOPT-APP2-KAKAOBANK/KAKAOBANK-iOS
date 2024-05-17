@@ -106,18 +106,18 @@ class ThirdAccountView: UIView {
     private func setLayout() {
         bankImageView.snp.makeConstraints { make in
             make.leading.equalToSuperview().offset(20)
-            make.top.equalToSuperview().offset(34)
-            make.width.height.equalTo(40)
+            make.top.equalToSuperview().offset(35)
+            make.width.height.equalTo(30)
         }
         
         titleLabel.snp.makeConstraints { make in
             make.leading.equalTo(bankImageView.snp.trailing).offset(8)
-            make.top.equalToSuperview().offset(29)
+            make.top.equalToSuperview().offset(30)
         }
         
         balanceLabel.snp.makeConstraints { make in
             make.leading.equalTo(titleLabel.snp.leading)
-            make.top.equalTo(titleLabel.snp.bottom).offset(5)
+            make.top.equalTo(titleLabel.snp.bottom).offset(6)
         }
         
         emerFund.snp.makeConstraints { make in
@@ -146,7 +146,7 @@ class ThirdAccountView: UIView {
         }
         
         transferButton.snp.makeConstraints { make in
-            make.leading.equalToSuperview().offset(284)
+            make.leading.equalToSuperview().offset(271)
             make.top.equalToSuperview().offset(90)
             make.height.equalTo(31)
             make.width.equalTo(48)

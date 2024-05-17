@@ -43,6 +43,8 @@ class TipsViewController: UIViewController {
         collectionView.delegate = self
         collectionView.dataSource = self
         collectionView.register(TipsCollectionViewCell.self, forCellWithReuseIdentifier: TipsCollectionViewCell.identifier)
+        
+        collectionView.showsHorizontalScrollIndicator = false
     }
 }
 
