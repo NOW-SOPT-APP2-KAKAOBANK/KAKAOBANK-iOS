@@ -21,18 +21,26 @@ class MainViewController: UIViewController {
     private var tipsViewController = TipsViewController()
     private var adView = AdView()
     
+    private var headerViewTopConstraint: Constraint?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        setDelegate()
         setStyle()
         setHierachy()
         setLayout()
         
     }
     
+    private func setDelegate() {
+        scrollView.delegate = self
+    }
+    
     private func setStyle() {
         view.backgroundColor = UIColor(resource: .darkgray1)
         adView.configure(with: "card_ad_ios")
+        
+        headerView.backgroundColor = UIColor(resource: .darkgray1)
     }
     
     private func setHierachy() {
@@ -40,10 +48,12 @@ class MainViewController: UIViewController {
         addChild(tipsViewController)
         
         scrollView.addSubview(contentView)
-        contentView.addSubviews(headerView, messageBoxView, mainAccountView, secondAccountView, thirdAccountView, savingsView, addButtonView, meetingAccountView, simpleBarView, adView, tipsViewController.view)
-                
-
+        contentView.addSubviews(messageBoxView, mainAccountView, secondAccountView, thirdAccountView, savingsView, addButtonView, meetingAccountView, simpleBarView, adView, tipsViewController.view)
+        
+        
         tipsViewController.didMove(toParent: self)
+        
+        view.addSubview(headerView)
     }
     
     private func setLayout() {
@@ -60,11 +70,12 @@ class MainViewController: UIViewController {
             $0.top.equalToSuperview().offset(0)
             $0.centerX.equalToSuperview()
             $0.width.equalToSuperview()
-            $0.height.equalTo(60)
+            $0.height.equalTo(118)
+
         }
         
         messageBoxView.snp.makeConstraints {
-            $0.top.equalTo(headerView.snp.bottom)
+            $0.top.equalTo(contentView.snp.top).offset(60)
             $0.horizontalEdges.equalToSuperview().inset(17)
             $0.height.equalTo(99)
         }
@@ -125,10 +136,22 @@ class MainViewController: UIViewController {
             $0.height.equalTo(82)
             $0.bottom.equalToSuperview().offset(-20)
         }
-
         self.view.layoutIfNeeded()
     }
-    
+}
+
+// UIScrollViewDelegate 구현
+extension MainViewController: UIScrollViewDelegate {
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        
+        let offsetY = scrollView.contentOffset.y
+            headerViewTopConstraint?.update(offset: max(0, -offsetY))
+        
+//        let offsetY = scrollView.contentOffset.y
+//        headerView.snp.updateConstraints {
+//            $0.top.equalTo(view.safeAreaLayoutGuide.snp.top).offset(max(0, -offsetY))
+//        }
+    }
 }
 
 // 프리뷰를 위한 코드
@@ -141,13 +164,13 @@ struct MainViewController_Previews: PreviewProvider {
 
 
 struct MainViewControllerRepresentable: UIViewControllerRepresentable {
-
+    
     func makeUIViewController(context: Context) -> MainViewController {
         MainViewController()
     }
- 
+    
     func updateUIViewController(_ uiViewController: MainViewController, context: Context) {
-
+        
     }
 }
 
