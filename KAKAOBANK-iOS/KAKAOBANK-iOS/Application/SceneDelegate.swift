@@ -21,10 +21,8 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         // 2.
         self.window = UIWindow(windowScene: windowScene)
         // 3.
-//        let navigationController = UINavigationController(rootViewController: MainViewController())
-//        self.window?.rootViewController = navigationController
-        let mainTabBarController = MainTabBarController()
-        window?.rootViewController = mainTabBarController
+        let navigationController = UINavigationController(rootViewController: SelectBankViewController())
+        self.window?.rootViewController = navigationController
         // 4.
         self.window?.makeKeyAndVisible()
     }

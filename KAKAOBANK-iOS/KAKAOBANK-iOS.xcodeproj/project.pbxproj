@@ -45,6 +45,7 @@
 		CA22B3FD2BF147040013B7AB /* UIStackView+.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA22B3FC2BF147040013B7AB /* UIStackView+.swift */; };
 		CA22B3FF2BF147980013B7AB /* UICollectionViewCell+.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA22B3FE2BF147980013B7AB /* UICollectionViewCell+.swift */; };
 		CA22B4012BF147BF0013B7AB /* UITableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA22B4002BF147BF0013B7AB /* UITableViewCell.swift */; };
+		CA2CBDF42BF6677000049F8F /* BankListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA2CBDF32BF6677000049F8F /* BankListCell.swift */; };
 		CA51DE892BF202B10084E610 /* TransferViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA51DE882BF202B10084E610 /* TransferViewController.swift */; };
 		CA51DE8B2BF203070084E610 /* TransferNaviBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA51DE8A2BF203070084E610 /* TransferNaviBar.swift */; };
 		CA6B4FA42BF210D1009A641D /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA6B4FA32BF210D1009A641D /* Constants.swift */; };
@@ -52,7 +53,7 @@
 		CA6B4FA92BF21643009A641D /* InputCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA6B4FA82BF21643009A641D /* InputCell.swift */; };
 		CA9982B82BF4A50000EC1F56 /* BankBookModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA9982B72BF4A50000EC1F56 /* BankBookModel.swift */; };
 		CA9982BC2BF5282600EC1F56 /* BottomSheetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA9982BB2BF5282600EC1F56 /* BottomSheetView.swift */; };
-		CA9982BF2BF52D6600EC1F56 /* BankListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA9982BE2BF52D6600EC1F56 /* BankListCell.swift */; };
+		CA9982BF2BF52D6600EC1F56 /* SelectBankPagerCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA9982BE2BF52D6600EC1F56 /* SelectBankPagerCell.swift */; };
 		CAD398732BECED3F00B57329 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAD398722BECED3F00B57329 /* AppDelegate.swift */; };
 		CAD398752BECED3F00B57329 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAD398742BECED3F00B57329 /* SceneDelegate.swift */; };
 		CAD398772BECED3F00B57329 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAD398762BECED3F00B57329 /* ViewController.swift */; };
@@ -103,6 +104,7 @@
 		CA22B3FC2BF147040013B7AB /* UIStackView+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIStackView+.swift"; sourceTree = "<group>"; };
 		CA22B3FE2BF147980013B7AB /* UICollectionViewCell+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UICollectionViewCell+.swift"; sourceTree = "<group>"; };
 		CA22B4002BF147BF0013B7AB /* UITableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITableViewCell.swift; sourceTree = "<group>"; };
+		CA2CBDF32BF6677000049F8F /* BankListCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BankListCell.swift; sourceTree = "<group>"; };
 		CA51DE882BF202B10084E610 /* TransferViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransferViewController.swift; sourceTree = "<group>"; };
 		CA51DE8A2BF203070084E610 /* TransferNaviBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransferNaviBar.swift; sourceTree = "<group>"; };
 		CA6B4FA32BF210D1009A641D /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
@@ -110,7 +112,7 @@
 		CA6B4FA82BF21643009A641D /* InputCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputCell.swift; sourceTree = "<group>"; };
 		CA9982B72BF4A50000EC1F56 /* BankBookModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BankBookModel.swift; sourceTree = "<group>"; };
 		CA9982BB2BF5282600EC1F56 /* BottomSheetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BottomSheetView.swift; sourceTree = "<group>"; };
-		CA9982BE2BF52D6600EC1F56 /* BankListCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BankListCell.swift; sourceTree = "<group>"; };
+		CA9982BE2BF52D6600EC1F56 /* SelectBankPagerCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectBankPagerCell.swift; sourceTree = "<group>"; };
 		CAD3986F2BECED3F00B57329 /* KAKAOBANK-iOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "KAKAOBANK-iOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		CAD398722BECED3F00B57329 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		CAD398742BECED3F00B57329 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -394,7 +396,8 @@
 		CA9982BD2BF52D4F00EC1F56 /* Cells */ = {
 			isa = PBXGroup;
 			children = (
-				CA9982BE2BF52D6600EC1F56 /* BankListCell.swift */,
+				CA9982BE2BF52D6600EC1F56 /* SelectBankPagerCell.swift */,
+				CA2CBDF32BF6677000049F8F /* BankListCell.swift */,
 			);
 			path = Cells;
 			sourceTree = "<group>";
@@ -529,7 +532,7 @@
 				CAD398772BECED3F00B57329 /* ViewController.swift in Sources */,
 				0D5AB9052BF2663C00C41046 /* BankAccountViewController.swift in Sources */,
 				CA05B3A82BF282DB00DA77E1 /* AccountInfoModel.swift in Sources */,
-				CA9982BF2BF52D6600EC1F56 /* BankListCell.swift in Sources */,
+				CA9982BF2BF52D6600EC1F56 /* SelectBankPagerCell.swift in Sources */,
 				CA22B3FB2BF146C50013B7AB /* UIVIew+.swift in Sources */,
 				CA05B3B22BF34A5900DA77E1 /* SelectBankViewController.swift in Sources */,
 				2CF8D89C2BF6387E00784038 /* TipsModel.swift in Sources */,
@@ -549,6 +552,7 @@
 				2C3F78602BF5EC28005AF799 /* MainTabBarController.swift in Sources */,
 				CA05B3AA2BF2923700DA77E1 /* RecentTransferCell.swift in Sources */,
 				CAD398732BECED3F00B57329 /* AppDelegate.swift in Sources */,
+				CA2CBDF42BF6677000049F8F /* BankListCell.swift in Sources */,
 				2CF9BFF12BF47A0C00C7BC35 /* MainAccountView.swift in Sources */,
 				2C28353F2BF5294D00245FE1 /* SimpleBarView.swift in Sources */,
 				2C2835392BF5239700245FE1 /* SavingsView.swift in Sources */,
