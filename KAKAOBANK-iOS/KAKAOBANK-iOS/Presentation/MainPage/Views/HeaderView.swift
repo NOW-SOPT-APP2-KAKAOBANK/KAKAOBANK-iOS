@@ -34,14 +34,14 @@ class HeaderView: UIView {
     private func setLayout() {
 
         titleLabel.snp.makeConstraints {
+            $0.top.equalToSuperview().offset(75)
             $0.leading.equalToSuperview().offset(23)
-            $0.centerY.equalToSuperview()
         }
         
         accountButton.do {
             $0.snp.makeConstraints {
                 $0.leading.equalTo(titleLabel.snp.trailing).offset(5)
-                $0.centerY.equalToSuperview()
+                $0.top.equalTo(titleLabel.snp.top)
                 $0.height.equalTo(27)
                 $0.width.equalTo(57)
             }
@@ -50,7 +50,7 @@ class HeaderView: UIView {
         profileButton.do {
             $0.snp.makeConstraints {
                 $0.trailing.equalToSuperview().offset(-26)
-                $0.centerY.equalToSuperview()
+                $0.top.equalTo(titleLabel.snp.top).offset(-5)
                 $0.height.equalTo(36)
                 $0.width.equalTo(36)
             }
@@ -61,9 +61,10 @@ class HeaderView: UIView {
         
         // Styling titleLabel
        titleLabel.do {
-           $0.text = "김미정"
-           $0.textColor = UIColor(named: "white") ?? .white  // Fallback to .white if the color is not found
+           $0.textColor = UIColor(resource: .white)
            $0.textAlignment = .left
+           let attributedText = UILabel.attributedText(for: .head4, withText: "김미정")
+           $0.attributedText = attributedText
        }
        
        // Styling accountButton
