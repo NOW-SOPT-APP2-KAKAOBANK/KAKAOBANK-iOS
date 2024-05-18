@@ -10,6 +10,10 @@ import UIKit
 import SnapKit
 import Then
 
+protocol BankAccountUpperViewDelegate: AnyObject {
+    func pushToTransferVC()
+}
+
 final class BankAccountUpperView: UIView {
     
     private var accountLabel = UILabel()
@@ -22,6 +26,8 @@ final class BankAccountUpperView: UIView {
     private var balanceStackView = UIStackView()
     private var transferButtonStackView = UIStackView()
     
+    weak var delegate: BankAccountUpperViewDelegate?
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
         
@@ -32,6 +38,11 @@ final class BankAccountUpperView: UIView {
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
+    }
+    
+    @objc
+    func didTapTransferButton() {
+        self.delegate?.pushToTransferVC()
     }
 }
 
@@ -113,6 +124,7 @@ private extension BankAccountUpperView {
             let attributedText = UILabel.attributedText(for: .number3, withText: "이체하기")
             $0.setAttributedTitle(attributedText, for: .normal)
             $0.setTitleColor(.black2, for: .normal)
+            $0.addTarget(self, action: #selector(didTapTransferButton), for: .touchUpInside)
         }
         
         takeButton.do {

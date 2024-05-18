@@ -49,7 +49,17 @@ class MainViewController: UIViewController {
         addChild(tipsViewController)
         
         scrollView.addSubview(contentView)
-        contentView.addSubviews(messageBoxView, mainAccountView, secondAccountView, thirdAccountView, savingsView, addButtonView, meetingAccountView, simpleBarView, adView, tipsViewController.view)
+        contentView.addSubviews(
+            messageBoxView,
+            mainAccountView,
+            secondAccountView,
+            thirdAccountView,
+            savingsView,
+            addButtonView,
+            meetingAccountView,
+            simpleBarView,
+            adView,
+            tipsViewController.view)
         
         
         tipsViewController.didMove(toParent: self)
@@ -140,7 +150,6 @@ class MainViewController: UIViewController {
         adView.snp.makeConstraints {
             $0.top.equalTo(simpleBarView.snp.bottom).offset(170)
             $0.centerX.equalToSuperview()
-            $0.centerX.equalToSuperview()
             $0.width.equalTo(341)
             $0.height.equalTo(82)
             $0.bottom.equalToSuperview().offset(-20)
@@ -163,7 +172,7 @@ extension MainViewController: MainAccountViewDelegate {
     
     func pushToBankAccountVC(sender: UITapGestureRecognizer) {
         let bankAccountVC = BankAccountViewController()
-        self.navigationController?.pushViewController(bankAccountVC, animated: true)
+        self.navigationController?.pushViewController(bankAccountVC, animated: false)
     }
 
 }

@@ -11,7 +11,7 @@ import SnapKit
 import Then
 
 protocol TransferNaviBarDelegate: AnyObject {
-    func popToMainVC()
+    func popToBankAccountVC()
 }
 
 final class TransferNaviBar: UIView {
@@ -42,7 +42,7 @@ final class TransferNaviBar: UIView {
     
     @objc
     func didTapCloseBtn() {
-        self.delegate?.popToMainVC()
+        self.delegate?.popToBankAccountVC()
     }
     
 }
