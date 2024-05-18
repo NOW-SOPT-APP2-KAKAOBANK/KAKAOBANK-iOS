@@ -40,7 +40,9 @@ final class BankAccountViewController: UIViewController {
     }
     
     
-    override func viewDidAppear(_ animated: Bool) {
+    override func viewWillAppear(_ animated: Bool) {
+        self.navigationController?.setNavigationBarHidden(true, animated: false)
+
         bankAccountTableView.reloadData()
         
         let conetentHeight = CGFloat(bankAccountList.count) * 87
@@ -125,6 +127,8 @@ private extension BankAccountViewController {
     }
     
     func setDelegate() {
+        bankAccountNaviBar.delegate = self
+        bankAccountUpperView.delegate = self
         bankAccountTableView.delegate = self
         bankAccountTableView.dataSource = self
         scrollView.delegate = self
@@ -177,5 +181,20 @@ extension BankAccountViewController: UIScrollViewDelegate {
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
         let shouldShowSticky = scrollView.contentOffset.y > stickyHeaderView.frame.minY
         headerView.isHidden = !shouldShowSticky
+    }
+}
+
+extension BankAccountViewController: BankAccountNaviBarDelegate {
+    
+    func popToMainVC() {
+        self.navigationController?.popViewController(animated: true)
+    }
+}
+
+extension BankAccountViewController: BankAccountUpperViewDelegate {
+    
+    func pushToTransferVC() {
+        let transferVC = TransferViewController()
+        self.navigationController?.pushViewController(transferVC, animated: true)
     }
 }

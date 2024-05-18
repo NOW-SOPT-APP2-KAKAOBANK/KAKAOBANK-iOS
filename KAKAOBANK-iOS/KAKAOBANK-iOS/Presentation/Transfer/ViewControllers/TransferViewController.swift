@@ -37,6 +37,9 @@ final class TransferViewController: UIViewController {
         registerCell()
     }
 
+    override func viewWillAppear(_ animated: Bool) {
+        self.navigationController?.setNavigationBarHidden(false, animated: false)
+    }
 }
 
 
@@ -45,10 +48,12 @@ final class TransferViewController: UIViewController {
 private extension TransferViewController {
     
     func setNaviBar() {
+        self.navigationItem.hidesBackButton = true
         self.rightItem.customView = transferNaviBar
         self.navigationItem.rightBarButtonItem = rightItem
         self.navigationController?.navigationBar.barTintColor = .white
-        self.navigationController?.navigationBar.backgroundColor = .white
+        self.navigationController?.navigationBar.backgroundColor = .clear
+        self.navigationController?.navigationBar.shadowImage = UIImage()
     }
     
     func setHierarchy() {
@@ -158,9 +163,8 @@ private extension TransferViewController {
 
 extension TransferViewController: TransferNaviBarDelegate {
     
-    func popToMainVC() {
-        print("tap popToMainVC")
-//        self.navigationController?.popViewController(animated: true)
+    func popToBankAccountVC() {
+        self.navigationController?.popViewController(animated: true)
     }
     
 }

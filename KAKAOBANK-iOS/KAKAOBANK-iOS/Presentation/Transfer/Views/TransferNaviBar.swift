@@ -11,7 +11,7 @@ import SnapKit
 import Then
 
 protocol TransferNaviBarDelegate: AnyObject {
-    func popToMainVC()
+    func popToBankAccountVC()
 }
 
 final class TransferNaviBar: UIView {
@@ -42,7 +42,7 @@ final class TransferNaviBar: UIView {
     
     @objc
     func didTapCloseBtn() {
-        self.delegate?.popToMainVC()
+        self.delegate?.popToBankAccountVC()
     }
     
 }
@@ -64,7 +64,7 @@ private extension TransferNaviBar {
     
     func setStyle() {
         closeButton.do {
-            let attributedText = UILabel.attributedText(for: .body6, withText: "닫기")
+            let attributedText = UILabel.attributedText(for: .body2, withText: "닫기")
             $0.setAttributedTitle(attributedText, for: .normal)
             $0.setTitleColor(UIColor(resource: .black2), for: .normal)
             $0.backgroundColor = UIColor(resource: .white)

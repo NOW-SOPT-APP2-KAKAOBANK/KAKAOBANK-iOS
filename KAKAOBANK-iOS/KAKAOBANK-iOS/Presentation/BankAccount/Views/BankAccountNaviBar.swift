@@ -10,12 +10,17 @@ import UIKit
 import SnapKit
 import Then
 
+protocol BankAccountNaviBarDelegate: AnyObject {
+    func popToMainVC()
+}
+
 final class BankAccountNaviBar: UIView {
     
     private let backButton = UIButton()
     private let titleLabel = UILabel()
     private let settingButton = UIButton()
     
+    weak var delegate: BankAccountNaviBarDelegate?
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -27,6 +32,11 @@ final class BankAccountNaviBar: UIView {
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
+    }
+    
+    @objc
+    func didTapBackButton() {
+        self.delegate?.popToMainVC()
     }
 }
 
@@ -41,6 +51,7 @@ private extension BankAccountNaviBar {
     func setLayout() {
         backButton.do {
             $0.setImage(UIImage(resource: .btnBackleadingIos), for: .normal)
+            $0.addTarget(self, action: #selector(didTapBackButton), for: .touchUpInside)
         }
         titleLabel.do {
             $0.attributedText = UILabel.attributedText(for: .head5, withText: "햄들의 통장")

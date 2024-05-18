@@ -10,6 +10,10 @@ import UIKit
 import SnapKit
 import Then
 
+protocol BottomSheetViewDelegate: AnyObject {
+    func popToTransferVC()
+}
+
 final class BottomSheetView: UIView {
     
     // MARK: - UI Properties
@@ -29,6 +33,8 @@ final class BottomSheetView: UIView {
         }
     }
     
+    weak var delegate: BottomSheetViewDelegate?
+    
     private let screenWidth: CGFloat = UIScreen.main.bounds.width
     
     
@@ -46,6 +52,11 @@ final class BottomSheetView: UIView {
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
+    }
+    
+    @objc
+    func didTapCancelButton() {
+        self.delegate?.popToTransferVC()
     }
     
 }
@@ -85,6 +96,7 @@ private extension BottomSheetView {
             $0.backgroundColor = UIColor(resource: .white)
             $0.setTitleColor(UIColor(resource: .black2), for: .normal)
             $0.setTitleColor(UIColor(resource: .black2), for: .highlighted)
+            $0.addTarget(self, action: #selector(didTapCancelButton), for: .touchUpInside)
             $0.setAttributedTitle(UILabel.attributedText(for: .body2, withText: "취소"), for: .normal)
         }
         

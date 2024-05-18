@@ -34,6 +34,7 @@ class MainViewController: UIViewController {
     
     private func setDelegate() {
         scrollView.delegate = self
+        mainAccountView.delegate = self
     }
     
     private func setStyle() {
@@ -48,7 +49,17 @@ class MainViewController: UIViewController {
         addChild(tipsViewController)
         
         scrollView.addSubview(contentView)
-        contentView.addSubviews(messageBoxView, mainAccountView, secondAccountView, thirdAccountView, savingsView, addButtonView, meetingAccountView, simpleBarView, adView, tipsViewController.view)
+        contentView.addSubviews(
+            messageBoxView,
+            mainAccountView,
+            secondAccountView,
+            thirdAccountView,
+            savingsView,
+            addButtonView,
+            meetingAccountView,
+            simpleBarView,
+            adView,
+            tipsViewController.view)
         
         
         tipsViewController.didMove(toParent: self)
@@ -139,7 +150,6 @@ class MainViewController: UIViewController {
         adView.snp.makeConstraints {
             $0.top.equalTo(simpleBarView.snp.bottom).offset(170)
             $0.centerX.equalToSuperview()
-            $0.centerX.equalToSuperview()
             $0.width.equalTo(341)
             $0.height.equalTo(82)
             $0.bottom.equalToSuperview().offset(-20)
@@ -157,6 +167,16 @@ extension MainViewController: UIScrollViewDelegate {
         
     }
 }
+
+extension MainViewController: MainAccountViewDelegate {
+    
+    func pushToBankAccountVC(sender: UITapGestureRecognizer) {
+        let bankAccountVC = BankAccountViewController()
+        self.navigationController?.pushViewController(bankAccountVC, animated: true)
+    }
+
+}
+
 
 // 프리뷰를 위한 코드
 struct MainViewController_Previews: PreviewProvider {
