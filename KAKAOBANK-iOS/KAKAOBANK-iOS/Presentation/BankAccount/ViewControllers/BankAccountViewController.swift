@@ -187,7 +187,7 @@ extension BankAccountViewController: UIScrollViewDelegate {
 extension BankAccountViewController: BankAccountNaviBarDelegate {
     
     func popToMainVC() {
-        self.navigationController?.popViewController(animated: false)
+        self.navigationController?.popViewController(animated: true)
     }
 }
 
@@ -195,6 +195,6 @@ extension BankAccountViewController: BankAccountUpperViewDelegate {
     
     func pushToTransferVC() {
         let transferVC = TransferViewController()
-        self.navigationController?.pushViewController(transferVC, animated: false)
+        self.navigationController?.pushViewController(transferVC, animated: true)
     }
 }

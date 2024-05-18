@@ -52,7 +52,8 @@ private extension TransferViewController {
         self.rightItem.customView = transferNaviBar
         self.navigationItem.rightBarButtonItem = rightItem
         self.navigationController?.navigationBar.barTintColor = .white
-        self.navigationController?.navigationBar.backgroundColor = .white
+        self.navigationController?.navigationBar.backgroundColor = .clear
+        self.navigationController?.navigationBar.shadowImage = UIImage()
     }
     
     func setHierarchy() {
@@ -163,7 +164,7 @@ private extension TransferViewController {
 extension TransferViewController: TransferNaviBarDelegate {
     
     func popToBankAccountVC() {
-        self.navigationController?.popViewController(animated: false)
+        self.navigationController?.popViewController(animated: true)
     }
     
 }

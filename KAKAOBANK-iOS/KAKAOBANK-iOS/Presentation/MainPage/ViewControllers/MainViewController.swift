@@ -172,7 +172,7 @@ extension MainViewController: MainAccountViewDelegate {
     
     func pushToBankAccountVC(sender: UITapGestureRecognizer) {
         let bankAccountVC = BankAccountViewController()
-        self.navigationController?.pushViewController(bankAccountVC, animated: false)
+        self.navigationController?.pushViewController(bankAccountVC, animated: true)
     }
 
 }

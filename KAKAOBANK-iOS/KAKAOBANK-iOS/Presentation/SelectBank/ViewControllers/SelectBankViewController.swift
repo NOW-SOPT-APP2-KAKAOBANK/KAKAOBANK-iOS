@@ -73,6 +73,7 @@ private extension SelectBankViewController {
     }
     
     func setDelegate() {
+        self.bottomSheetView.delegate = self
         self.bottomSheetView.selectBankHeader.delegate = self
     }
     
@@ -94,5 +95,14 @@ extension SelectBankViewController: SelectBankHeaderViewDelegate {
         bottomSheetView.selectedTab = sender.selectedSegmentIndex
         let resetOffset = CGPoint(x: 0, y: -bottomSheetView.selectBankPagerCollectionView.contentInset.top)
         bottomSheetView.selectBankPagerCollectionView.setContentOffset(resetOffset, animated: false)
+    }
+}
+
+// MARK: - SelectBankHeader Delegate
+
+extension SelectBankViewController: BottomSheetViewDelegate {
+    
+    func popToTransferVC() {
+        self.dismiss(animated: true)
     }
 }
