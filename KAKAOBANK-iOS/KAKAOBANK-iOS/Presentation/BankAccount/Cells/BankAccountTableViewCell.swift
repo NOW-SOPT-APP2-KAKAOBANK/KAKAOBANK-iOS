@@ -86,7 +86,8 @@ extension BankAccountTableViewCell {
         }
         
         tagLabel.do {
-            $0.attributedText = UILabel.attributedText(for: .number2, withText: "#예금이자")
+            //폰트 caption1인디?
+            $0.attributedText = UILabel.attributedText(for: .caption1, withText: "#예금이자")
             $0.textColor = UIColor(resource: .deepblue0)
         }
         

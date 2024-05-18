@@ -11,7 +11,7 @@ enum FontName {
     case head1, head3
     case head4, head5, head6, head7, body1, body6, subTitle1, subTitle2, caption2, ad1
     case body2
-    case body4, number2, number3, body7, body8, caption1
+    case body4, number3, body7, body8, caption1
     
     var rawValue: String {
         switch self {
@@ -21,7 +21,7 @@ enum FontName {
             return "Pretendard-SemiBold"
         case .body2:
             return "Pretendard-Medium"
-        case .body4,.number2, .number3,.body7, .body8, .caption1:
+        case .body4, .number3,.body7, .body8, .caption1:
             return "Pretendard-Regular"
         }
     }
@@ -48,7 +48,7 @@ enum FontName {
             return 13
         case .subTitle2, .body8:
             return 12
-        case .caption1, .number2:
+        case .caption1:
             return 11
         case .caption2:
             return 9
