@@ -34,6 +34,7 @@ class MainViewController: UIViewController {
     
     private func setDelegate() {
         scrollView.delegate = self
+        mainAccountView.delegate = self
     }
     
     private func setStyle() {
@@ -157,6 +158,16 @@ extension MainViewController: UIScrollViewDelegate {
         
     }
 }
+
+extension MainViewController: MainAccountViewDelegate {
+    
+    func pushToBankAccountVC(sender: UITapGestureRecognizer) {
+        let bankAccountVC = BankAccountViewController()
+        self.navigationController?.pushViewController(bankAccountVC, animated: true)
+    }
+
+}
+
 
 // 프리뷰를 위한 코드
 struct MainViewController_Previews: PreviewProvider {

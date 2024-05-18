@@ -13,14 +13,14 @@ class MainTabBarController: UITabBarController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        setDelegate()
+//        setDelegate()
         setStyle()
         setHierarchy()
     }
     
-    private func setDelegate() {
-        self.delegate = self
-    }
+//    private func setDelegate() {
+//        self.delegate = self
+//    }
     
     private func setStyle() {
         profileVC.do {
@@ -64,9 +64,9 @@ class MainTabBarController: UITabBarController {
     }
 }
 
-extension MainTabBarController: UITabBarControllerDelegate {
-    func tabBarController(_ tabBarController: UITabBarController, shouldSelect viewController: UIViewController) -> Bool {
-        // Prevent switching tabs, always stay on the first tab (profileVC)
-        return viewController == tabBarController.viewControllers?.first
-    }
-}
+//extension MainTabBarController: UITabBarControllerDelegate {
+//    func tabBarController(_ tabBarController: UITabBarController, shouldSelect viewController: UIViewController) -> Bool {
+//        // Prevent switching tabs, always stay on the first tab (profileVC)
+//        return viewController == tabBarController.viewControllers?.first
+//    }
+//}

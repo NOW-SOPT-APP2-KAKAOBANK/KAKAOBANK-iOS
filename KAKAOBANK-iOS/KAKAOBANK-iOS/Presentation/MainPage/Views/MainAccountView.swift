@@ -3,6 +3,10 @@ import UIKit
 import SnapKit
 import Then
 
+protocol MainAccountViewDelegate: AnyObject {
+    func pushToBankAccountVC(sender: UITapGestureRecognizer)
+}
+
 class MainAccountView: UIView {
     
     private var bankImageView = UIImageView()
@@ -15,6 +19,8 @@ class MainAccountView: UIView {
     private var separatorLine = UIView()
     private var safeBoxLabel = UILabel()
     private var amountLabel = UILabel()
+    
+    weak var delegate: MainAccountViewDelegate?
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -30,11 +36,19 @@ class MainAccountView: UIView {
         setLayout()
     }
     
+    @objc
+    func didTapMainBankBook(sender: UITapGestureRecognizer) {
+        self.delegate?.pushToBankAccountVC(sender: sender)
+    }
+    
     private func setHierarchy() {
         addSubviews(bankImageView, titleLabel, starImageView, balanceLabel, moreButton, separatorLine, cardButton, transferButton, safeBoxLabel, amountLabel)
     }
     
     private func setStyle() {
+        let gesture = UITapGestureRecognizer(target: self, action: #selector(didTapMainBankBook))
+        self.addGestureRecognizer(gesture)
+        
         bankImageView.do {
             $0.image = UIImage(named: "icn_bankimg1_ios")
 //            $0.contentMode = .scaleAspectFit
