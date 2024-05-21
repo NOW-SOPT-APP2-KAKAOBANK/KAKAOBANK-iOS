@@ -8,9 +8,9 @@
 import UIKit
 
 final class TransferViewController: UIViewController {
-
+    
     // MARK: - UI Properties
-
+    
     private var rightItem = UIBarButtonItem()
     
     private let transferNaviBar = TransferNaviBar()
@@ -21,11 +21,15 @@ final class TransferViewController: UIViewController {
     
     
     // MARK: - Properties
-
     
+    private var recentTransferData: [AccountInfoModel] = [] {
+        didSet {
+            self.transferCollectionView.reloadData()
+        }
+    }
     
     // MARK: - Life Cycle
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -36,9 +40,10 @@ final class TransferViewController: UIViewController {
         setDelegate()
         registerCell()
     }
-
+    
     override func viewWillAppear(_ animated: Bool) {
         self.navigationController?.setNavigationBarHidden(false, animated: false)
+        getRecentTransferList()
     }
 }
 
@@ -106,7 +111,7 @@ private extension TransferViewController {
                 
             case .myAccount, .recentTransfer:
                 return self.makeAccountInfoLayout()
-
+                
             }
             
         }
@@ -155,6 +160,25 @@ private extension TransferViewController {
                                                                  alignment: .top)
         return header
         
+    }
+    
+    func getRecentTransferList() {
+        self.recentTransferData.removeAll()
+        NetworkService.shared.transferService.getRecentTransfer(accountId: 1) { result in
+            switch result {
+            case .success(let data):
+                for i in data {
+                    self.recentTransferData.append(AccountInfoModel(accountName: i.accountName,
+                                                                    accountNumber: i.accountNumber,
+                                                                    isAccountLike: i.isAccountLike,
+                                                                    bankName: i.bankName,
+                                                                    imgURL: i.imgURL,
+                                                                    accountID: i.accountID))
+                }
+            default:
+                print("에러입니다")
+            }
+        }
     }
 }
 
@@ -206,7 +230,7 @@ extension TransferViewController: UICollectionViewDataSource {
             return AccountInfoModel.myAccountInfoAppData.count
             
         case .recentTransfer:
-            return AccountInfoModel.recentTransferInfoAppData.count
+            return recentTransferData.count
             
         }
     }
@@ -221,19 +245,23 @@ extension TransferViewController: UICollectionViewDataSource {
         case .myAccount:
             guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: MyAccountCell.cellIdentifier, for: indexPath) as? MyAccountCell else { return UICollectionViewCell() }
             let data = AccountInfoModel.myAccountInfoAppData[indexPath.row]
-            cell.accountInfoView.bindAccountInfo(
-                image: data.bankImg,
-                name: data.bankbookName,
-                number: data.accountNumber)
+            cell.accountInfoView.bindAccountInfo(accountName: data.accountName,
+                                                 accountNumber: data.accountNumber,
+                                                 isAccountLike: data.isAccountLike,
+                                                 bankName: data.bankName,
+                                                 imgURL: data.imgURL,
+                                                 accountID: data.accountID)
             return cell
             
         case .recentTransfer:
             guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: RecentTransferCell.cellIdentifier, for: indexPath) as? RecentTransferCell else { return UICollectionViewCell() }
-            let data = AccountInfoModel.recentTransferInfoAppData[indexPath.row]
-            cell.accountInfoView.bindAccountInfo(
-                image: data.bankImg,
-                name: data.bankbookName,
-                number: data.accountNumber)
+            let data = recentTransferData[indexPath.row]
+            cell.accountInfoView.bindAccountInfo(accountName: data.accountName,
+                                                 accountNumber: data.accountNumber,
+                                                 isAccountLike: data.isAccountLike,
+                                                 bankName: data.bankName,
+                                                 imgURL: data.imgURL,
+                                                 accountID: data.accountID)
             cell.delegate = self
             return cell
         }
