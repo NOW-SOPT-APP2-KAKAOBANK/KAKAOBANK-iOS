@@ -42,8 +42,11 @@ final class AccountInfoView: UIView {
     }
     
     func bindAccountInfo(data: AccountInfoModel) {
-        guard let url = URL(string: data.imgURL) else { return }
-        self.bankImageView.kf.setImage(with: url)
+        if let url = URL(string: data.imgURL) {
+            self.bankImageView.kf.setImage(with: url)
+        } else {
+            self.bankImageView.image = UIImage(resource: .btnKakaoBankIos)
+        }
         self.bankbookNameLabel.attributedText = UILabel.attributedText(for: .body4, withText: data.accountName)
         self.accountNumberLabel.attributedText = UILabel.attributedText(for: .body8, withText: "\(data.bankName) \(data.accountNumber)")
     }
