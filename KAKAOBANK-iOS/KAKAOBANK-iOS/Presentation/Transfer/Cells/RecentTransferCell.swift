@@ -11,7 +11,7 @@ import SnapKit
 import Then
 
 protocol RecentTransferDelegate: AnyObject {
-    func changeFavoriteButtonState(_ cell: RecentTransferCell)
+    func changeFavoriteButtonState(_ cell: RecentTransferCell, markedButtonId: Int)
 }
 
 final class RecentTransferCell: UICollectionViewCell {
@@ -33,6 +33,11 @@ final class RecentTransferCell: UICollectionViewCell {
         }
     }
     
+    var markedButtonId: Int = 0 {
+        didSet {
+            self.favoriteButton.tag = markedButtonId
+        }
+    }
     
     // MARK: - LifeCycles
     
@@ -61,7 +66,7 @@ final class RecentTransferCell: UICollectionViewCell {
     
     @objc
     func didTapFavoriteButton() {
-        self.delegate?.changeFavoriteButtonState(self)
+        self.delegate?.changeFavoriteButtonState(self, markedButtonId: self.markedButtonId)
     }
 }
 
