@@ -244,24 +244,12 @@ extension TransferViewController: UICollectionViewDataSource {
             
         case .myAccount:
             guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: MyAccountCell.cellIdentifier, for: indexPath) as? MyAccountCell else { return UICollectionViewCell() }
-            let data = AccountInfoModel.myAccountInfoAppData[indexPath.row]
-            cell.accountInfoView.bindAccountInfo(accountName: data.accountName,
-                                                 accountNumber: data.accountNumber,
-                                                 isAccountLike: data.isAccountLike,
-                                                 bankName: data.bankName,
-                                                 imgURL: data.imgURL,
-                                                 accountID: data.accountID)
+            cell.accountInfoView.bindAccountInfo(data: AccountInfoModel.myAccountInfoAppData[indexPath.row])
             return cell
             
         case .recentTransfer:
             guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: RecentTransferCell.cellIdentifier, for: indexPath) as? RecentTransferCell else { return UICollectionViewCell() }
-            let data = recentTransferData[indexPath.row]
-            cell.accountInfoView.bindAccountInfo(accountName: data.accountName,
-                                                 accountNumber: data.accountNumber,
-                                                 isAccountLike: data.isAccountLike,
-                                                 bankName: data.bankName,
-                                                 imgURL: data.imgURL,
-                                                 accountID: data.accountID)
+            cell.accountInfoView.bindAccountInfo(data: recentTransferData[indexPath.row])
             cell.delegate = self
             return cell
         }
