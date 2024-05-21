@@ -40,10 +40,11 @@ final class AccountInfoView: UIView {
         fatalError("init(coder:) has not been implemented")
     }
     
-    func bindAccountInfo(image: UIImage, name: String, number: String) {
-        self.bankImageView.image = image
-        self.bankbookNameLabel.attributedText = UILabel.attributedText(for: .body4, withText: name)
-        self.accountNumberLabel.attributedText = UILabel.attributedText(for: .body8, withText: number)
+    func bindAccountInfo(data: AccountInfoModel) {
+        // 추후 이미지 세팅 수정
+        self.bankImageView.image = UIImage(resource: .btnKakaoBankIos)
+        self.bankbookNameLabel.attributedText = UILabel.attributedText(for: .body4, withText: data.accountName)
+        self.accountNumberLabel.attributedText = UILabel.attributedText(for: .body8, withText: "\(data.bankName) \(data.accountNumber)")
     }
     
 }
