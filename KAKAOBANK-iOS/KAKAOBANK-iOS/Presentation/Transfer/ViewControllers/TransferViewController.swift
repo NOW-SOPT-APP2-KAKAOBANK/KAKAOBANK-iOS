@@ -208,7 +208,6 @@ extension TransferViewController: TransferNaviBarDelegate {
 extension TransferViewController: InputAccountButtonDelegate {
     
     func pushToSelectBankVC() {
-        print("tap pushToSelectBankVC")
         let selectBankVC = SelectBankViewController()
         selectBankVC.modalPresentationStyle = .overFullScreen
         self.present(selectBankVC, animated: true)
@@ -219,7 +218,11 @@ extension TransferViewController: InputAccountButtonDelegate {
 extension TransferViewController: RecentTransferDelegate {
     
     func changeFavoriteButtonState(_ cell: RecentTransferCell, markedButtonId: Int) {
-        self.postBookmarkState(markedButtonId: markedButtonId, cell: cell)
+        if !cell.isFavorite {
+            self.postBookmarkState(markedButtonId: markedButtonId, cell: cell)
+        } else {
+            // 즐겨찾기 해제 서버 통신
+        }
     }
     
 }
