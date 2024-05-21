@@ -195,6 +195,7 @@ extension BankAccountViewController: BankAccountUpperViewDelegate {
     
     func pushToTransferVC() {
         let transferVC = TransferViewController()
+        transferVC.hidesBottomBarWhenPushed = true
         self.navigationController?.pushViewController(transferVC, animated: true)
     }
 }

@@ -53,7 +53,9 @@ class MainTabBarController: UITabBarController {
     }
     
     private func setHierarchy() {
-        let viewControllers = [profileVC, gridVC, bellVC, dotsVC]
+        let profileNavVC = UINavigationController(rootViewController: profileVC)
+        
+        let viewControllers = [profileNavVC, gridVC, bellVC, dotsVC]
         self.setViewControllers(viewControllers, animated: false)
         
         if let items = tabBar.items {

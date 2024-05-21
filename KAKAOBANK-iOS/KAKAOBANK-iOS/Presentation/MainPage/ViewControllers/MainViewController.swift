@@ -178,7 +178,7 @@ extension MainViewController: MainAccountViewDelegate {
 }
 
 
-// 프리뷰를 위한 코드
+// 프리뷰를 위한 코드 
 struct MainViewController_Previews: PreviewProvider {
     static var previews: some View {
         MainViewControllerRepresentable()
