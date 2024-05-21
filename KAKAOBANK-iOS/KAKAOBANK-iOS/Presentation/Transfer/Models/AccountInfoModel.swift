@@ -18,16 +18,6 @@ struct AccountInfoModel {
 
 extension AccountInfoModel {
     
-//    static let myAccountInfoAppData:  [AccountInfoModel] = [
-//        AccountInfoModel(bankImg: .btnKakaoBankIos, bankbookName: "윤희슬의 통장", accountNumber: "카카오뱅크 3333-23-9165754")
-//    ]
-//    
-//    static let recentTransferInfoAppData:  [AccountInfoModel] = [
-//        AccountInfoModel(bankImg: .btnNonghupBankIos, bankbookName: "윤희슬", accountNumber: "농협 3333-23-9165754"),
-//        AccountInfoModel(bankImg: .btnKakaoBankIos, bankbookName: "김민서", accountNumber: "카카오 뱅크 3333-23-9165754"),
-//        AccountInfoModel(bankImg: .btnKukminBankIos, bankbookName: "오서영", accountNumber: "국민 3333-23-9165754")
-//    ]
-    
         static let myAccountInfoAppData:  [AccountInfoModel] = [
             AccountInfoModel(accountName: "윤희슬의 통장", accountNumber: 3333239165754, isAccountLike: false, bankName: "카카오뱅크", imgURL: "",  accountID: 1)
         ]

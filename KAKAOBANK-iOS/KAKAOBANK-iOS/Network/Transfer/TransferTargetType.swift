@@ -33,8 +33,5 @@ extension TransferTargetType: BaseTargetType {
     var task: Moya.Task {
         return .requestPlain
     }
-    
 
-    
-    
 }
