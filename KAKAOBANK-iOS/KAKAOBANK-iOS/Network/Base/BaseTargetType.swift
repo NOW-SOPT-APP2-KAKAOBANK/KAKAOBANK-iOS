@@ -10,7 +10,7 @@ import Foundation
 import Moya
 
 protocol BaseTargetType: TargetType {
-    var path: String { get }
+    var utilPath: String { get }
     var method: Moya.Method { get }
 }
 
