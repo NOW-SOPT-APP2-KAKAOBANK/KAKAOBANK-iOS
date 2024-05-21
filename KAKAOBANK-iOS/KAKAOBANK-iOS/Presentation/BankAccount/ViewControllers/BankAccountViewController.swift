@@ -23,6 +23,8 @@ final class BankAccountViewController: UIViewController {
     private let stickyHeaderView = StickyHeaderView()
     private let headerView = StickyHeaderView()
     
+    private let backgroundView = UIView()
+    
     
 
     
@@ -60,7 +62,7 @@ final class BankAccountViewController: UIViewController {
 private extension BankAccountViewController {
     
     func setHierarchy() {
-        self.view.addSubviews(scrollView,bankAccountNaviBar,headerView)
+        self.view.addSubviews(backgroundView,scrollView,bankAccountNaviBar, headerView)
         
         scrollView.addSubview(contentView)
         self.contentView.addSubviews(bankAccountUpperView, bankAccountTableView, stickyHeaderView)
@@ -91,7 +93,6 @@ private extension BankAccountViewController {
             $0.height.equalTo(229)
         }
         
-        
         //스티키 헤더 뷰
         stickyHeaderView.snp.makeConstraints {
             $0.top.equalTo(bankAccountUpperView.snp.bottom)
@@ -104,12 +105,21 @@ private extension BankAccountViewController {
             $0.leading.trailing.equalToSuperview()
             $0.height.equalTo(163)
         }
+        
+        backgroundView.snp.makeConstraints {
+            $0.bottom.equalToSuperview()
+            $0.leading.trailing.equalToSuperview()
+            $0.height.equalTo(300)
+        }
+        
     }
     
     func setStyle() {
         self.view.backgroundColor = UIColor(resource: .main)
         self.navigationController?.isNavigationBarHidden = true
         bankAccountTableView.isScrollEnabled = true
+     
+        backgroundView.backgroundColor = .white
         
         stickyHeaderView.do {
             $0.backgroundColor = .white
@@ -124,6 +134,8 @@ private extension BankAccountViewController {
             $0.backgroundColor = .white
             $0.isHidden = true
         }
+        
+        
     }
     
     func setDelegate() {
