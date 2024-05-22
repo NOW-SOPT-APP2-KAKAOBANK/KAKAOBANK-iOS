@@ -10,6 +10,13 @@ import UIKit
 import SnapKit
 import Then
 
+struct AccountData {
+    var accountName: String
+    var balance: Int
+    var accountNumber: String
+}
+
+
 
 final class BankAccountViewController: UIViewController {
     
@@ -24,9 +31,7 @@ final class BankAccountViewController: UIViewController {
     private let headerView = StickyHeaderView()
     
     private let backgroundView = UIView()
-    
-    
-    
+
     
     private let bankAccountList = BankAccountModel.dummy()
     
@@ -66,9 +71,11 @@ private extension BankAccountViewController {
         MyAccountService.shared.getMyAccount(accountId: 1) { result in
             switch result {
             case .success(let data):
+                let formattedAccount = self.formatAccount("\(data.accountNumber)")
+                
                 self.bankAccountNaviBar.titleLabel.text = data.accountName
                 self.bankAccountUpperView.balanceLabel.text = "\(data.balance)"
-                self.bankAccountUpperView.accountLabel.text = "\(data.accountNumber)"
+                self.bankAccountUpperView.accountLabel.text = formattedAccount
                 
             case .requestErr:
                 print("요청 오류입니다")
@@ -82,6 +89,18 @@ private extension BankAccountViewController {
                 print("네트워크 오류입니다")
             }
         }
+    }
+
+    //계좌번호 사이 - 추가를 위한 메서드
+    func formatAccount(_ accountNumber: String) -> String {
+        var formattedAccount = ""
+        for (index, char) in accountNumber.enumerated() {
+            if index == 4 || index == 6 {
+                formattedAccount.append("-")
+            }
+            formattedAccount.append(char)
+        }
+        return formattedAccount
     }
 
     
