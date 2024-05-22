@@ -16,9 +16,9 @@ protocol BankAccountUpperViewDelegate: AnyObject {
 
 final class BankAccountUpperView: UIView {
     
-    private var accountLabel = UILabel()
+    var accountLabel = UILabel()
     private var underlineLabel = UILabel()
-    private var balanceLabel = UILabel()
+    var balanceLabel = UILabel()
     private var wonLabel = UILabel()
     private var transferButton  = UIButton()
     private var takeButton = UIButton()
