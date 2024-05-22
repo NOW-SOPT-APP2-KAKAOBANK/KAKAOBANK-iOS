@@ -18,7 +18,7 @@ final class StickyHeaderView: UIView {
     private let dateLabel = UILabel()
     private let filterButton = UIButton()
     private let monthlyTotalLabel = UILabel()
-    private let totalAmountLabel = UILabel()
+    let totalAmountLabel = UILabel()
     private let graylineLabel = UILabel()
     
     override init(frame: CGRect) {

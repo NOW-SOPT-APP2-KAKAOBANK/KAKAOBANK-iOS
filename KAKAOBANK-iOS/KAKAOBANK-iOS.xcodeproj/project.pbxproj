@@ -16,6 +16,9 @@
 		0D5AB9052BF2663C00C41046 /* BankAccountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D5AB9042BF2663C00C41046 /* BankAccountViewController.swift */; };
 		0D5AB9072BF267E700C41046 /* BankAccountNaviBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D5AB9062BF267E700C41046 /* BankAccountNaviBar.swift */; };
 		0DB63ACA2BF7565D007AA8C8 /* BankAccountUpperView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DB63AC92BF7565D007AA8C8 /* BankAccountUpperView.swift */; };
+		0DFFFABA2BFDFCEE00581A92 /* PaymentService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DFFFAB92BFDFCEE00581A92 /* PaymentService.swift */; };
+		0DFFFABC2BFDFCFD00581A92 /* PaymentTargetType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DFFFABB2BFDFCFD00581A92 /* PaymentTargetType.swift */; };
+		0DFFFAC02BFE00CB00581A92 /* GetPaymentResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DFFFABF2BFE00CB00581A92 /* GetPaymentResponse.swift */; };
 		2C2835392BF5239700245FE1 /* SavingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C2835382BF5239700245FE1 /* SavingsView.swift */; };
 		2C28353B2BF523A000245FE1 /* AddButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C28353A2BF523A000245FE1 /* AddButtonView.swift */; };
 		2C28353D2BF523AD00245FE1 /* MeetingAccountView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C28353C2BF523AD00245FE1 /* MeetingAccountView.swift */; };
@@ -91,6 +94,9 @@
 		0D5AB9042BF2663C00C41046 /* BankAccountViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BankAccountViewController.swift; sourceTree = "<group>"; };
 		0D5AB9062BF267E700C41046 /* BankAccountNaviBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BankAccountNaviBar.swift; sourceTree = "<group>"; };
 		0DB63AC92BF7565D007AA8C8 /* BankAccountUpperView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BankAccountUpperView.swift; sourceTree = "<group>"; };
+		0DFFFAB92BFDFCEE00581A92 /* PaymentService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaymentService.swift; sourceTree = "<group>"; };
+		0DFFFABB2BFDFCFD00581A92 /* PaymentTargetType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaymentTargetType.swift; sourceTree = "<group>"; };
+		0DFFFABF2BFE00CB00581A92 /* GetPaymentResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetPaymentResponse.swift; sourceTree = "<group>"; };
 		2C2835382BF5239700245FE1 /* SavingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SavingsView.swift; sourceTree = "<group>"; };
 		2C28353A2BF523A000245FE1 /* AddButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddButtonView.swift; sourceTree = "<group>"; };
 		2C28353C2BF523AD00245FE1 /* MeetingAccountView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeetingAccountView.swift; sourceTree = "<group>"; };
@@ -233,6 +239,24 @@
 			path = Views;
 			sourceTree = "<group>";
 		};
+		0DFFFAB72BFDFCB600581A92 /* MonthlyPayment */ = {
+			isa = PBXGroup;
+			children = (
+				0DFFFAB82BFDFCC700581A92 /* DTO */,
+				0DFFFAB92BFDFCEE00581A92 /* PaymentService.swift */,
+				0DFFFABB2BFDFCFD00581A92 /* PaymentTargetType.swift */,
+			);
+			path = MonthlyPayment;
+			sourceTree = "<group>";
+		};
+		0DFFFAB82BFDFCC700581A92 /* DTO */ = {
+			isa = PBXGroup;
+			children = (
+				0DFFFABF2BFE00CB00581A92 /* GetPaymentResponse.swift */,
+			);
+			path = DTO;
+			sourceTree = "<group>";
+		};
 		2CF8D8942BF62F2600784038 /* Cells */ = {
 			isa = PBXGroup;
 			children = (
@@ -327,6 +351,7 @@
 		CA0C2CD22BFC7C7B0026C6C7 /* Network */ = {
 			isa = PBXGroup;
 			children = (
+				0DFFFAB72BFDFCB600581A92 /* MonthlyPayment */,
 				0D3F13542BFDB36E00B2685E /* MyAccount */,
 				CA0C2CE92BFCE8400026C6C7 /* Bookmark */,
 				CA0C2CDF2BFC85BA0026C6C7 /* Transfer */,
@@ -661,6 +686,7 @@
 				CAD398732BECED3F00B57329 /* AppDelegate.swift in Sources */,
 				CA9982B82BF4A50000EC1F56 /* BankBookModel.swift in Sources */,
 				2C3F78622BF60A05005AF799 /* AddView.swift in Sources */,
+				0DFFFAC02BFE00CB00581A92 /* GetPaymentResponse.swift in Sources */,
 				CA0C2CDA2BFC7DCD0026C6C7 /* MoyaLoggingPlugin.swift in Sources */,
 				0D5AB9072BF267E700C41046 /* BankAccountNaviBar.swift in Sources */,
 				2C28353B2BF523A000245FE1 /* AddButtonView.swift in Sources */,
@@ -671,6 +697,7 @@
 				CAD398732BECED3F00B57329 /* AppDelegate.swift in Sources */,
 				CA2CBDF42BF6677000049F8F /* BankListCell.swift in Sources */,
 				2CF9BFF12BF47A0C00C7BC35 /* MainAccountView.swift in Sources */,
+				0DFFFABC2BFDFCFD00581A92 /* PaymentTargetType.swift in Sources */,
 				0D3F13562BFDB38B00B2685E /* MyAccountService.swift in Sources */,
 				2C28353F2BF5294D00245FE1 /* SimpleBarView.swift in Sources */,
 				2C2835392BF5239700245FE1 /* SavingsView.swift in Sources */,
@@ -679,6 +706,7 @@
 				CA0C2CD62BFC7CFD0026C6C7 /* Config.swift in Sources */,
 				CA22B3FF2BF147980013B7AB /* UICollectionViewCell+.swift in Sources */,
 				2CF9BFEF2BF44F1500C7BC35 /* MessageBoxView.swift in Sources */,
+				0DFFFABA2BFDFCEE00581A92 /* PaymentService.swift in Sources */,
 				CAD398752BECED3F00B57329 /* SceneDelegate.swift in Sources */,
 				2CF9BFED2BF440F900C7BC35 /* HeaderView.swift in Sources */,
 				0D357E242BF3DFE000E044BB /* BankAccountTableViewCell.swift in Sources */,

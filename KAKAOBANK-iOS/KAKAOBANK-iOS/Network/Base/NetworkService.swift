@@ -18,5 +18,7 @@ final class NetworkService {
     let bookmarkService: BookmarkService = BookmarkService()
     
     let myAccountService: MyAccountService = MyAccountService()
+    
+    let paymentService: PaymentService = PaymentService()
 
 }
