@@ -24,8 +24,6 @@ final class BankAccountViewController: UIViewController {
     private let headerView = StickyHeaderView()
     
     private let backgroundView = UIView()
-    
-    
 
     
     private let bankAccountList = BankAccountModel.dummy()
@@ -38,13 +36,14 @@ final class BankAccountViewController: UIViewController {
         setStyle()
         setDelegate()
         register()
+        getMyAccount()
         configureRefreshControl()
     }
     
     
     override func viewWillAppear(_ animated: Bool) {
         self.navigationController?.setNavigationBarHidden(true, animated: false)
-
+        
         bankAccountTableView.reloadData()
         
         let conetentHeight = CGFloat(bankAccountList.count) * 87
@@ -60,6 +59,43 @@ final class BankAccountViewController: UIViewController {
 }
 
 private extension BankAccountViewController {
+  
+    func getMyAccount() {
+        MyAccountService.shared.getMyAccount(accountId: 1) { result in
+            switch result {
+            case .success(let data):
+                let formattedAccount = self.formatAccount("\(data.accountNumber)")
+                
+                self.bankAccountNaviBar.titleLabel.text = data.accountName
+                self.bankAccountUpperView.balanceLabel.text = "\(data.balance)"
+                self.bankAccountUpperView.accountLabel.text = formattedAccount
+                
+            case .requestErr:
+                print("요청 오류입니다")
+            case .decodedErr:
+                print("디코딩 오류입니다")
+            case .pathErr:
+                print("경로 오류입니다")
+            case .serverErr:
+                print("서버 오류입니다")
+            case .networkFail:
+                print("네트워크 오류입니다")
+            }
+        }
+    }
+
+    //계좌번호 사이 - 추가를 위한 메서드
+    func formatAccount(_ accountNumber: String) -> String {
+        var formattedAccount = ""
+        for (index, char) in accountNumber.enumerated() {
+            if index == 4 || index == 6 {
+                formattedAccount.append("-")
+            }
+            formattedAccount.append(char)
+        }
+        return formattedAccount
+    }
+
     
     func setHierarchy() {
         self.view.addSubviews(backgroundView,scrollView,bankAccountNaviBar, headerView)
@@ -118,7 +154,7 @@ private extension BankAccountViewController {
         self.view.backgroundColor = UIColor(resource: .main)
         self.navigationController?.isNavigationBarHidden = true
         bankAccountTableView.isScrollEnabled = true
-     
+        
         backgroundView.backgroundColor = .white
         
         stickyHeaderView.do {
@@ -162,7 +198,7 @@ private extension BankAccountViewController {
     @objc func handleRefreshControl() {
         //진동 추가
         let feedbackGenerator = UIImpactFeedbackGenerator(style: .medium)
-                feedbackGenerator.impactOccurred()
+        feedbackGenerator.impactOccurred()
         DispatchQueue.main.asyncAfter(deadline: .now() + 0.7) {
             self.scrollView.refreshControl?.endRefreshing()
         }
@@ -211,3 +247,4 @@ extension BankAccountViewController: BankAccountUpperViewDelegate {
         self.navigationController?.pushViewController(transferVC, animated: true)
     }
 }
+

@@ -17,7 +17,7 @@ protocol BankAccountNaviBarDelegate: AnyObject {
 final class BankAccountNaviBar: UIView {
     
     private let backButton = UIButton()
-    private let titleLabel = UILabel()
+    let titleLabel = UILabel()
     private let settingButton = UIButton()
     
     weak var delegate: BankAccountNaviBarDelegate?
