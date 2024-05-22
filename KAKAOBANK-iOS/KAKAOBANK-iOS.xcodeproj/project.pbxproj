@@ -45,6 +45,9 @@
 		CA0C2CE32BFC86960026C6C7 /* TransferTargetType.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA0C2CE22BFC86960026C6C7 /* TransferTargetType.swift */; };
 		CA0C2CE52BFC88B90026C6C7 /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA0C2CE42BFC88B90026C6C7 /* NetworkService.swift */; };
 		CA0C2CE82BFC8C9E0026C6C7 /* GetRecentTransferResponseDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA0C2CE72BFC8C9E0026C6C7 /* GetRecentTransferResponseDTO.swift */; };
+		CA0C2CEC2BFCE8550026C6C7 /* BookmarkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA0C2CEB2BFCE8550026C6C7 /* BookmarkService.swift */; };
+		CA0C2CF22BFCE9CB0026C6C7 /* BookmarkTargetType.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA0C2CF12BFCE9CB0026C6C7 /* BookmarkTargetType.swift */; };
+		CA0C2CF52BFCFDD20026C6C7 /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = CA0C2CF42BFCFDD20026C6C7 /* Kingfisher */; };
 		CA22B3EF2BF136420013B7AB /* Pretendard-Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = CA22B3EE2BF136420013B7AB /* Pretendard-Bold.otf */; };
 		CA22B3F12BF1364C0013B7AB /* Pretendard-Medium.otf in Resources */ = {isa = PBXBuildFile; fileRef = CA22B3F02BF1364C0013B7AB /* Pretendard-Medium.otf */; };
 		CA22B3F32BF136580013B7AB /* Pretendard-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = CA22B3F22BF136580013B7AB /* Pretendard-Regular.otf */; };
@@ -115,6 +118,8 @@
 		CA0C2CE22BFC86960026C6C7 /* TransferTargetType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransferTargetType.swift; sourceTree = "<group>"; };
 		CA0C2CE42BFC88B90026C6C7 /* NetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkService.swift; sourceTree = "<group>"; };
 		CA0C2CE72BFC8C9E0026C6C7 /* GetRecentTransferResponseDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetRecentTransferResponseDTO.swift; sourceTree = "<group>"; };
+		CA0C2CEB2BFCE8550026C6C7 /* BookmarkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookmarkService.swift; sourceTree = "<group>"; };
+		CA0C2CF12BFCE9CB0026C6C7 /* BookmarkTargetType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookmarkTargetType.swift; sourceTree = "<group>"; };
 		CA22B3EE2BF136420013B7AB /* Pretendard-Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Pretendard-Bold.otf"; sourceTree = "<group>"; };
 		CA22B3F02BF1364C0013B7AB /* Pretendard-Medium.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Pretendard-Medium.otf"; sourceTree = "<group>"; };
 		CA22B3F22BF136580013B7AB /* Pretendard-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Pretendard-Regular.otf"; sourceTree = "<group>"; };
@@ -152,6 +157,7 @@
 				CAD3988D2BECEEE100B57329 /* Then in Frameworks */,
 				CAD398902BECEF1A00B57329 /* Moya in Frameworks */,
 				CAD3988A2BECEEB900B57329 /* SnapKit-Dynamic in Frameworks */,
+				CA0C2CF52BFCFDD20026C6C7 /* Kingfisher in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -297,6 +303,7 @@
 		CA0C2CD22BFC7C7B0026C6C7 /* Network */ = {
 			isa = PBXGroup;
 			children = (
+				CA0C2CE92BFCE8400026C6C7 /* Bookmark */,
 				CA0C2CDF2BFC85BA0026C6C7 /* Transfer */,
 				CA0C2CD32BFC7C810026C6C7 /* Base */,
 			);
@@ -332,6 +339,15 @@
 				CA0C2CE72BFC8C9E0026C6C7 /* GetRecentTransferResponseDTO.swift */,
 			);
 			path = DTO;
+			sourceTree = "<group>";
+		};
+		CA0C2CE92BFCE8400026C6C7 /* Bookmark */ = {
+			isa = PBXGroup;
+			children = (
+				CA0C2CEB2BFCE8550026C6C7 /* BookmarkService.swift */,
+				CA0C2CF12BFCE9CB0026C6C7 /* BookmarkTargetType.swift */,
+			);
+			path = Bookmark;
 			sourceTree = "<group>";
 		};
 		CA22B3E02BF1328E0013B7AB /* Global */ = {
@@ -514,6 +530,7 @@
 				CAD398892BECEEB900B57329 /* SnapKit-Dynamic */,
 				CAD3988C2BECEEE100B57329 /* Then */,
 				CAD3988F2BECEF1A00B57329 /* Moya */,
+				CA0C2CF42BFCFDD20026C6C7 /* Kingfisher */,
 			);
 			productName = "KAKAOBANK-iOS";
 			productReference = CAD3986F2BECED3F00B57329 /* KAKAOBANK-iOS.app */;
@@ -547,6 +564,7 @@
 				CAD398862BECEEB900B57329 /* XCRemoteSwiftPackageReference "SnapKit" */,
 				CAD3988B2BECEEE100B57329 /* XCRemoteSwiftPackageReference "Then" */,
 				CAD3988E2BECEF1A00B57329 /* XCRemoteSwiftPackageReference "Moya" */,
+				CA0C2CF32BFCFDD20026C6C7 /* XCRemoteSwiftPackageReference "Kingfisher" */,
 			);
 			productRefGroup = CAD398702BECED3F00B57329 /* Products */;
 			projectDirPath = "";
@@ -605,10 +623,12 @@
 				CA05B3B42BF34B9800DA77E1 /* SelectBankHeaderView.swift in Sources */,
 				CA05B3B62BF3E6FF00DA77E1 /* SegmentView.swift in Sources */,
 				CA22B3F92BF13C380013B7AB /* UILabel+.swift in Sources */,
+				CA0C2CF22BFCE9CB0026C6C7 /* BookmarkTargetType.swift in Sources */,
 				CA0C2CE12BFC86280026C6C7 /* TransferService.swift in Sources */,
 				CA05B3A32BF27AF300DA77E1 /* MyAccountCell.swift in Sources */,
 				CA0C2CE82BFC8C9E0026C6C7 /* GetRecentTransferResponseDTO.swift in Sources */,
 				0DB63ACA2BF7565D007AA8C8 /* BankAccountUpperView.swift in Sources */,
+				CA0C2CEC2BFCE8550026C6C7 /* BookmarkService.swift in Sources */,
 				CA9982BC2BF5282600EC1F56 /* BottomSheetView.swift in Sources */,
 				CA05B3AA2BF2923700DA77E1 /* RecentTransferCell.swift in Sources */,
 				CA0C2CE32BFC86960026C6C7 /* TransferTargetType.swift in Sources */,
@@ -862,6 +882,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		CA0C2CF32BFCFDD20026C6C7 /* XCRemoteSwiftPackageReference "Kingfisher" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/onevcat/Kingfisher.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 7.11.0;
+			};
+		};
 		CAD398862BECEEB900B57329 /* XCRemoteSwiftPackageReference "SnapKit" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/SnapKit/SnapKit";
@@ -889,6 +917,11 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		CA0C2CF42BFCFDD20026C6C7 /* Kingfisher */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = CA0C2CF32BFCFDD20026C6C7 /* XCRemoteSwiftPackageReference "Kingfisher" */;
+			productName = Kingfisher;
+		};
 		CAD398872BECEEB900B57329 /* SnapKit */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = CAD398862BECEEB900B57329 /* XCRemoteSwiftPackageReference "SnapKit" */;

@@ -7,6 +7,7 @@
 
 import UIKit
 
+import Kingfisher
 import SnapKit
 import Then
 
@@ -41,8 +42,11 @@ final class AccountInfoView: UIView {
     }
     
     func bindAccountInfo(data: AccountInfoModel) {
-        // 추후 이미지 세팅 수정
-        self.bankImageView.image = UIImage(resource: .btnKakaoBankIos)
+        if let url = URL(string: data.imgURL) {
+            self.bankImageView.kf.setImage(with: url)
+        } else {
+            self.bankImageView.image = UIImage(resource: .btnKakaoBankIos)
+        }
         self.bankbookNameLabel.attributedText = UILabel.attributedText(for: .body4, withText: data.accountName)
         self.accountNumberLabel.attributedText = UILabel.attributedText(for: .body8, withText: "\(data.bankName) \(data.accountNumber)")
     }
@@ -81,6 +85,7 @@ private extension AccountInfoView {
         bankImageView.do {
             $0.clipsToBounds = true
             $0.layer.cornerRadius = 21
+            $0.contentMode = .scaleAspectFit
         }
         
         labelStackView.do {

@@ -180,6 +180,18 @@ private extension TransferViewController {
             }
         }
     }
+    
+    func postBookmarkState(markedButtonId: Int, cell: RecentTransferCell) {
+        NetworkService.shared.bookmarkService.postBookmarkState(myAccountId: 1, markedAccountId: markedButtonId) { result in
+            switch result {
+            case 200:
+                cell.isFavorite = !cell.isFavorite
+            default:
+                print("에러입니다")
+            }
+        }
+    }
+    
 }
 
 
@@ -196,7 +208,6 @@ extension TransferViewController: TransferNaviBarDelegate {
 extension TransferViewController: InputAccountButtonDelegate {
     
     func pushToSelectBankVC() {
-        print("tap pushToSelectBankVC")
         let selectBankVC = SelectBankViewController()
         selectBankVC.modalPresentationStyle = .overFullScreen
         self.present(selectBankVC, animated: true)
@@ -206,8 +217,12 @@ extension TransferViewController: InputAccountButtonDelegate {
 
 extension TransferViewController: RecentTransferDelegate {
     
-    func changeFavoriteButtonState(_ cell: RecentTransferCell) {
-        cell.isFavorite = !cell.isFavorite
+    func changeFavoriteButtonState(_ cell: RecentTransferCell, markedButtonId: Int) {
+        if !cell.isFavorite {
+            self.postBookmarkState(markedButtonId: markedButtonId, cell: cell)
+        } else {
+            // 즐겨찾기 해제 서버 통신
+        }
     }
     
 }
@@ -250,6 +265,8 @@ extension TransferViewController: UICollectionViewDataSource {
         case .recentTransfer:
             guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: RecentTransferCell.cellIdentifier, for: indexPath) as? RecentTransferCell else { return UICollectionViewCell() }
             cell.accountInfoView.bindAccountInfo(data: recentTransferData[indexPath.row])
+            cell.isFavorite = recentTransferData[indexPath.row].isAccountLike
+            cell.markedButtonId = recentTransferData[indexPath.row].accountID
             cell.delegate = self
             return cell
         }

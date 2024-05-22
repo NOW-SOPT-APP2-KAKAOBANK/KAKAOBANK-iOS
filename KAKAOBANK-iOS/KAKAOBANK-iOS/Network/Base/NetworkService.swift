@@ -14,4 +14,6 @@ final class NetworkService {
     private init() {}
     
     let transferService: TransferService = TransferService()
+    
+    let bookmarkService: BookmarkService = BookmarkService()
 }
