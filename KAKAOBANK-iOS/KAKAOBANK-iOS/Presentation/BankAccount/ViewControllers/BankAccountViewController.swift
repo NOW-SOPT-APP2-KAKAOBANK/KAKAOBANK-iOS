@@ -10,13 +10,6 @@ import UIKit
 import SnapKit
 import Then
 
-struct AccountData {
-    var accountName: String
-    var balance: Int
-    var accountNumber: String
-}
-
-
 
 final class BankAccountViewController: UIViewController {
     
