@@ -186,8 +186,23 @@ private extension TransferViewController {
             switch result {
             case 200:
                 cell.isFavorite = !cell.isFavorite
+                print("즐겨찾기 추가 성공: \(markedButtonId)")
             default:
-                print("에러입니다")
+                print("즐겨찾기 추가 에러입니다")
+            }
+        }
+    }
+    
+    func deleteBookmarkState(markedButtonId: Int, cell: RecentTransferCell) {
+        NetworkService.shared.transferService.deleteBookmarkState(myAccountId: 1, markedAccountId: markedButtonId) { result in
+            switch result {
+            case 200:
+                cell.isFavorite = !cell.isFavorite
+                print("즐겨찾기 삭제 성공: \(markedButtonId)")
+            case 500:
+                print("서버 오류입니다. 나중에 다시 시도해주세요.")
+            default:
+                print("즐겨찾기 삭제 에러: \(result)")
             }
         }
     }
@@ -221,7 +236,7 @@ extension TransferViewController: RecentTransferDelegate {
         if !cell.isFavorite {
             self.postBookmarkState(markedButtonId: markedButtonId, cell: cell)
         } else {
-            // 즐겨찾기 해제 서버 통신
+            self.deleteBookmarkState(markedButtonId: markedButtonId, cell: cell)
         }
     }
     
@@ -264,10 +279,13 @@ extension TransferViewController: UICollectionViewDataSource {
             
         case .recentTransfer:
             guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: RecentTransferCell.cellIdentifier, for: indexPath) as? RecentTransferCell else { return UICollectionViewCell() }
-            cell.accountInfoView.bindAccountInfo(data: recentTransferData[indexPath.row])
-            cell.isFavorite = recentTransferData[indexPath.row].isAccountLike
-            cell.markedButtonId = recentTransferData[indexPath.row].accountID
+            
+            let transferData = recentTransferData[indexPath.row]
+            cell.accountInfoView.bindAccountInfo(data: transferData)
+            cell.isFavorite = transferData.isAccountLike
+            cell.markedButtonId = transferData.accountID
             cell.delegate = self
+            
             return cell
         }
     }

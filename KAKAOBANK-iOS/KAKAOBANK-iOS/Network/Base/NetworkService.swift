@@ -16,5 +16,7 @@ final class NetworkService {
     let transferService: TransferService = TransferService()
     
     let bookmarkService: BookmarkService = BookmarkService()
+    
+    let mainAccountService: MainAccountService = MainAccountService()
 
 }

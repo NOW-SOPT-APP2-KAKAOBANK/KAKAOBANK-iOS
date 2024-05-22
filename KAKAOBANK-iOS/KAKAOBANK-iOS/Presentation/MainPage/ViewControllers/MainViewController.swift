@@ -23,12 +23,15 @@ class MainViewController: UIViewController {
     
     private var headerViewTopConstraint: Constraint?
     
+    private let mainAccountService: MainAccountServiceProtocol = MainAccountService()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         setDelegate()
         setStyle()
         setHierachy()
         setLayout()
+        getAccountInfo()
         
     }
     
@@ -155,6 +158,41 @@ class MainViewController: UIViewController {
             $0.bottom.equalToSuperview().offset(-20)
         }
         self.view.layoutIfNeeded()
+    }
+    
+    private func getAccountInfo() {
+        mainAccountService.getAccountInfo(accountId: 1) { result in
+            switch result {
+            case .success(let response):
+                DispatchQueue.main.async {
+                    self.mainAccountView.configure(with: response)
+                }
+            case .failure(let error):
+                print("Failed to fetch account info: \(error.localizedDescription)")
+            }
+        }
+        
+        mainAccountService.getAccountInfo(accountId: 2) { result in
+            switch result {
+            case .success(let response):
+                DispatchQueue.main.async {
+                    self.secondAccountView.configure(with: response)
+                }
+            case .failure(let error):
+                print("Failed to fetch account info: \(error.localizedDescription)")
+            }
+        }
+        
+        mainAccountService.getAccountInfo(accountId: 3) { result in
+            switch result {
+            case .success(let response):
+                DispatchQueue.main.async {
+                    self.thirdAccountView.configure(with: response)
+                }
+            case .failure(let error):
+                print("Failed to fetch account info: \(error.localizedDescription)")
+            }
+        }
     }
 }
 

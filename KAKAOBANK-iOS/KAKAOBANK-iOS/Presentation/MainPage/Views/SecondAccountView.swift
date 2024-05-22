@@ -79,4 +79,9 @@ class SecondAccountView: UIView {
             make.width.height.equalTo(24)
         }
     }
+    
+    func configure(with response: GetMainAccountResponse) {
+        titleLabel.text = response.accountName
+        balanceLabel.text = "\(response.balance)원"
+    }
 }
