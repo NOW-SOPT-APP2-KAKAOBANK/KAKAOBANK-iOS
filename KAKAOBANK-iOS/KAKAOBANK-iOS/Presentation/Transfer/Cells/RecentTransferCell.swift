@@ -29,6 +29,7 @@ final class RecentTransferCell: UICollectionViewCell {
     
     var isFavorite: Bool = false {
         didSet {
+            print("isFavorite 상태 변경: \(isFavorite)")
             changeButtonStyle()
         }
     }
