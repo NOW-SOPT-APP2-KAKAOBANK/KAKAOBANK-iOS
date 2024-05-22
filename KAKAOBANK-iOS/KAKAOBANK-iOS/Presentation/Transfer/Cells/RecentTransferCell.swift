@@ -53,13 +53,6 @@ final class RecentTransferCell: UICollectionViewCell {
         fatalError("init(coder:) has not been implemented")
     }
     
-    override func prepareForReuse() {
-        super.prepareForReuse()
-        self.isFavorite = false
-        self.markedButtonId = 0
-        self.favoriteButton.setImage(.icnStarOffIos, for: .normal)
-        self.favoriteButton.isSelected = false
-    }
     
     func changeButtonStyle() {
         if isFavorite {
