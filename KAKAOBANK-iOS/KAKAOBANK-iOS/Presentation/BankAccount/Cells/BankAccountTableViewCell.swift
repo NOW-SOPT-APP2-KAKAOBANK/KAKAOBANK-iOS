@@ -111,15 +111,17 @@ extension BankAccountTableViewCell {
     func dataBind(_ data: BankAccountModel) {
         dateLabel.text = data.dateLabel
         transactionLabel.text = data.transactionLabel
-        tagLabel.text = data.tagLabel
         transactionAmountLabel.text = data.transactionAmountLabel
         totalAmountLabel.text = data.totalAmountLabel
-        
+
+        //해시태그가 공백일때와 아닐때 # 처리
+        tagLabel.text = data.tagLabel != "" ? "#\(data.tagLabel)" : data.tagLabel
+
         if let firstChar = data.transactionAmountLabel.first {
             setTextColor(for: firstChar)
         }
     }
-    
+
     private func setTextColor(for firstCharacter: Character) {
         if firstCharacter == "-" {
             transactionAmountLabel.textColor = UIColor(resource: .black2) 
