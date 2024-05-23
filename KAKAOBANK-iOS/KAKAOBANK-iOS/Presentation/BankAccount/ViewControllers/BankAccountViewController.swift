@@ -44,17 +44,6 @@ final class BankAccountViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         self.navigationController?.setNavigationBarHidden(true, animated: false)
-        
-        bankAccountTableView.reloadData()
-        
-        let conetentHeight = CGFloat(bankAccountList.count) * 87
-        self.bankAccountTableView.snp.remakeConstraints {
-            $0.top.equalTo(self.stickyHeaderView.snp.bottom)
-            $0.leading.trailing.equalToSuperview()
-            $0.bottom.equalTo(self.contentView)
-            $0.height.equalTo(conetentHeight)
-        }
-        bankAccountTableView.layoutIfNeeded()
     }
 }
 
@@ -92,16 +81,18 @@ private extension BankAccountViewController {
                 self.stickyHeaderView.totalAmountLabel.text = "\(data.payment)원"
                 self.bankAccountList = data.monthlyTransferList.map { $0.toBankAccountModel() }
                 self.bankAccountTableView.reloadData()
-                
-                
+
+
+
                 DispatchQueue.main.async {
                     let contentHeight = CGFloat(self.bankAccountList.count) * 87
                     self.bankAccountTableView.snp.remakeConstraints {
                         $0.top.equalTo(self.stickyHeaderView.snp.bottom)
                         $0.leading.trailing.equalToSuperview()
                         $0.height.equalTo(contentHeight)
+                        $0.bottom.equalTo(self.contentView)
                     }
-                    self.bankAccountTableView.layoutIfNeeded()
+                    self.view.layoutIfNeeded()
                 }
                 
             case .requestErr:
@@ -280,8 +271,8 @@ extension BankAccountViewController: BankAccountUpperViewDelegate {
 extension BankAccountViewController: StickyHeaderViewDelegate {
     func didTapNextMonthButton() {
         currentMonth += 1
-        if currentMonth < 1 {
-            currentMonth = 12
+        if currentMonth > 12 {
+            currentMonth = 1
         }
         setMonth()
         getPayment()
