@@ -79,7 +79,6 @@ private extension AccountInfoView {
     }
         
     func setStyle() {
-        
         self.backgroundColor = .white
         
         bankImageView.do {

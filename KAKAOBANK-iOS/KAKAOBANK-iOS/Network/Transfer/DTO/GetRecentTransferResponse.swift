@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct GetRecentTransferResponseDTO: Codable {
+struct GetRecentTransferResponse: Codable {
     let accountName: String
     let accountNumber: Int
     let isAccountLike: Bool

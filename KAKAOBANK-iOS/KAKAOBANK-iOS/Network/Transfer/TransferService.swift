@@ -10,7 +10,7 @@ import Foundation
 import Moya
 
 protocol TransferServiceProtocol {
-    func getRecentTransfer(accountId: Int, completion: @escaping (NetworkResult<[GetRecentTransferResponseDTO]>) -> Void)
+    func getRecentTransfer(accountId: Int, completion: @escaping (NetworkResult<[GetRecentTransferResponse]>) -> Void)
     func deleteBookmarkState(myAccountId: Int, markedAccountId: Int, completion: @escaping (Int) -> Void)
 }
 
@@ -18,14 +18,14 @@ final class TransferService: BaseService, TransferServiceProtocol {
     
     let provider = MoyaProvider<TransferTargetType>(plugins: [MoyaLoggingPlugin()])
     
-    func getRecentTransfer(accountId: Int, completion: @escaping (NetworkResult<[GetRecentTransferResponseDTO]>) -> Void) {
+    func getRecentTransfer(accountId: Int, completion: @escaping (NetworkResult<[GetRecentTransferResponse]>) -> Void) {
         provider.request(.getRecentTransfers(accountId: accountId)) { response in
             switch response {
             case .success(let result):
                 let statusCode = result.statusCode
                 let data = result.data
                 
-                let networkResult: NetworkResult<[GetRecentTransferResponseDTO]> = self.judgeStatus(statusCode: statusCode, data: data)
+                let networkResult: NetworkResult<[GetRecentTransferResponse]> = self.judgeStatus(statusCode: statusCode, data: data)
                 completion(networkResult)
             case .failure:
                 completion(.networkFail)
