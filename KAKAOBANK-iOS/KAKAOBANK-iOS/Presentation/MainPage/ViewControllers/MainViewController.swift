@@ -23,8 +23,6 @@ class MainViewController: UIViewController {
     
     private var headerViewTopConstraint: Constraint?
     
-    private let mainAccountService: MainAccountServiceProtocol = MainAccountService()
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         setDelegate()
@@ -161,38 +159,39 @@ class MainViewController: UIViewController {
     }
     
     private func getAccountInfo() {
-        mainAccountService.getAccountInfo(accountId: 1) { result in
+        NetworkService.shared.mainAccountService.getAccountInfo(accountId: 1) { result in
             switch result {
             case .success(let response):
                 DispatchQueue.main.async {
                     self.mainAccountView.configure(with: response)
                 }
-            case .failure(let error):
-                print("Failed to fetch account info: \(error.localizedDescription)")
+            default:
+                print("Failed to fetch account info")
             }
         }
         
-        mainAccountService.getAccountInfo(accountId: 2) { result in
+        NetworkService.shared.mainAccountService.getAccountInfo(accountId: 2) { result in
             switch result {
             case .success(let response):
                 DispatchQueue.main.async {
                     self.secondAccountView.configure(with: response)
                 }
-            case .failure(let error):
-                print("Failed to fetch account info: \(error.localizedDescription)")
+            default:
+                print("Failed to fetch account info")
             }
         }
         
-        mainAccountService.getAccountInfo(accountId: 3) { result in
+        NetworkService.shared.mainAccountService.getAccountInfo(accountId: 3) { result in
             switch result {
             case .success(let response):
                 DispatchQueue.main.async {
                     self.thirdAccountView.configure(with: response)
                 }
-            case .failure(let error):
-                print("Failed to fetch account info: \(error.localizedDescription)")
+            default:
+                print("Failed to fetch account info")
             }
         }
+    
     }
 }
 
