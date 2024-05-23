@@ -17,9 +17,6 @@ final class MyAccountCell: UICollectionViewCell {
     let accountInfoView = AccountInfoView()
     
     
-    // MARK: - Properties
-    
-    
     // MARK: - Life Cycles
     
     override init(frame: CGRect) {

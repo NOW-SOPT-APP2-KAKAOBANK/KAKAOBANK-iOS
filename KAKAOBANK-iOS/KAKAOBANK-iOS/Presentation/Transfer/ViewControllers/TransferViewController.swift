@@ -176,10 +176,7 @@ private extension TransferViewController {
                                                                     imgURL: i.imgURL,
                                                                     accountID: i.accountID))
                 }
-                
-                DispatchQueue.main.async {
-                    self.transferCollectionView.reloadData()
-                }
+                self.transferCollectionView.reloadData()
             default:
                 print("getRecentTransferList - 데이터 로드 에러")
             }

@@ -64,7 +64,6 @@ private extension InputAccountButton {
     }
         
     func setStyle() {
-        
         self.backgroundColor = .white
         
         inputAccountButton.do {
