@@ -114,10 +114,7 @@ private extension BankAccountViewController {
         self.headerView.dateLabel.text = "2024 \(currentMonth)월"
         self.headerView.monthlyTotalLabel.text = "\(currentMonth)월 전체"
     }
-    // 거래금액 색상
-    func setTransferAmountColor() {
-        
-    }
+  
     func formatAccount(_ accountNumber: String) -> String {
         var formattedAccount = ""
         for (index, char) in accountNumber.enumerated() {
