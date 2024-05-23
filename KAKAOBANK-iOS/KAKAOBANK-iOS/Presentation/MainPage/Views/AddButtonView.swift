@@ -25,11 +25,10 @@ class AddButtonView: UIView {
     }
     
     private func setStyle() {
-        // UIView의 스타일 설정
         self.do {
-            $0.backgroundColor = UIColor(resource: .darkgray0)  // Assets에서 배경색 설정
-            $0.layer.cornerRadius = 15  // 모서리 둥글게 설정
-            $0.layer.masksToBounds = true  // 둥근 모서리가 콘텐츠를 넘지 않도록
+            $0.backgroundColor = UIColor(resource: .darkgray0)
+            $0.layer.cornerRadius = 15
+            $0.layer.masksToBounds = true
         }
     }
     

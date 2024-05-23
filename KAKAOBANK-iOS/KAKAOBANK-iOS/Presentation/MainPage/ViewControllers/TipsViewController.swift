@@ -50,7 +50,6 @@ class TipsViewController: UIViewController {
 
 extension TipsViewController: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        // Handle item selection if needed
     }
 }
 

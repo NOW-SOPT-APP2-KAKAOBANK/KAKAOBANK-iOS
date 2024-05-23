@@ -31,30 +31,27 @@ class MessageBoxView: UIView {
     }
 
     private func setStyle() {
-        backgroundColor = UIColor(resource: .darkgray0)  // Assets에서 배경색 설정
-        layer.cornerRadius = 10  // 모서리 둥글게 설정
-        layer.masksToBounds = true  // 둥근 모서리가 콘텐츠를 넘지 않도록
+        backgroundColor = UIColor(resource: .darkgray0)
+        layer.cornerRadius = 10  
+        layer.masksToBounds = true
 
-        // Set the styles for messageLabel using Then
         messageLabel.do {
             $0.textColor = UIColor(resource: .white)
             $0.attributedText = UILabel.attributedText(for: .subTitle2, withText: "김미정님의 신용점수는\n대출 승인 가능성이 높아요")
-            $0.numberOfLines = 0  // 여러 줄 표시 가능하도록 설정
+            $0.numberOfLines = 0
         }
 
-        // Set the styles for closeButton using Then
         closeButton.do {
             $0.setImage(UIImage(named: "icn_x_ios"), for: .normal)
             $0.addTarget(self, action: #selector(handleCloseButton), for: .touchUpInside)
         }
 
-        // Set the styles for checkLimitButton using Then
         checkLimitButton.do {
             $0.setTitleColor(UIColor(resource: .black2), for: .normal)
             $0.backgroundColor = UIColor(resource: .yellow0)
             let attributedText = UILabel.attributedText(for: .subTitle2, withText: "한도 확인하기")
             $0.setAttributedTitle(attributedText, for: .normal)
-            $0.layer.cornerRadius = 15  // 버튼 모서리 둥글게
+            $0.layer.cornerRadius = 15
         }
     }
 
@@ -85,10 +82,10 @@ class MessageBoxView: UIView {
             self.snp.updateConstraints { make in
                 make.height.equalTo(0)
             }
-            self.alpha = 0  // 뷰를 투명하게 만들어 숨김 효과 추가
-            self.superview?.layoutIfNeeded()  // 부모 뷰의 레이아웃 업데이트
+            self.alpha = 0
+            self.superview?.layoutIfNeeded()
         } completion: { _ in
-            self.isHidden = true  // 애니메이션이 끝난 후 뷰를 숨김
+            self.isHidden = true
         }
     }
 }

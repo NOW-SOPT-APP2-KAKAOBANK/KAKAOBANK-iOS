@@ -195,7 +195,6 @@ class MainViewController: UIViewController {
     }
 }
 
-// UIScrollViewDelegate 구현
 extension MainViewController: UIScrollViewDelegate {
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
         
