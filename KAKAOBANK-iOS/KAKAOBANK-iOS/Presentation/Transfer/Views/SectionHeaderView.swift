@@ -52,13 +52,10 @@ class SectionHeaderView: UICollectionReusableView {
 private extension SectionHeaderView {
     
     func setHierarchy() {
-        
         self.addSubview(titleLabel)
-        
     }
     
     func setLayout() {
-        
         titleLabel.snp.makeConstraints {
             $0.verticalEdges.equalToSuperview()
             $0.leading.equalToSuperview()
