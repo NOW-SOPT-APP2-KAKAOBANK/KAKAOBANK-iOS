@@ -17,7 +17,6 @@ struct MonthlyTransferList: Codable {
     let date: String
     let transferAmount: Int
     let balance: Int
-    let isWithdraw: Bool
     let hashTag: String?
 }
 
@@ -27,7 +26,6 @@ extension MonthlyTransferList {
             dateLabel: self.date,
             transactionLabel: self.accountName,
             tagLabel: self.hashTag ?? "",
-            isWithdraw: self.isWithdraw,
             transactionAmountLabel: "\(self.transferAmount)원",
             totalAmountLabel: "\(self.balance)원"
         )
