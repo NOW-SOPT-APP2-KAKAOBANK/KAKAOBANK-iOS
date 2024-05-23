@@ -25,6 +25,9 @@
 		2C28353F2BF5294D00245FE1 /* SimpleBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C28353E2BF5294D00245FE1 /* SimpleBarView.swift */; };
 		2C3F78602BF5EC28005AF799 /* MainTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C3F785F2BF5EC28005AF799 /* MainTabBarController.swift */; };
 		2C3F78622BF60A05005AF799 /* AddView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C3F78612BF60A05005AF799 /* AddView.swift */; };
+		2CD3F19B2BFE247C00596073 /* GetMainAccountResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CD3F19A2BFE247C00596073 /* GetMainAccountResponse.swift */; };
+		2CD3F19D2BFE249400596073 /* MainAccountService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CD3F19C2BFE249400596073 /* MainAccountService.swift */; };
+		2CD3F19F2BFE249F00596073 /* MainAccountTargetType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CD3F19E2BFE249F00596073 /* MainAccountTargetType.swift */; };
 		2CF8D8972BF6306D00784038 /* TipsCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CF8D8962BF6306D00784038 /* TipsCollectionViewCell.swift */; };
 		2CF8D8992BF6311100784038 /* TipsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CF8D8982BF6311100784038 /* TipsViewController.swift */; };
 		2CF8D89C2BF6387E00784038 /* TipsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CF8D89B2BF6387E00784038 /* TipsModel.swift */; };
@@ -103,6 +106,9 @@
 		2C28353E2BF5294D00245FE1 /* SimpleBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SimpleBarView.swift; sourceTree = "<group>"; };
 		2C3F785F2BF5EC28005AF799 /* MainTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabBarController.swift; sourceTree = "<group>"; };
 		2C3F78612BF60A05005AF799 /* AddView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddView.swift; sourceTree = "<group>"; };
+		2CD3F19A2BFE247C00596073 /* GetMainAccountResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetMainAccountResponse.swift; sourceTree = "<group>"; };
+		2CD3F19C2BFE249400596073 /* MainAccountService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainAccountService.swift; sourceTree = "<group>"; };
+		2CD3F19E2BFE249F00596073 /* MainAccountTargetType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainAccountTargetType.swift; sourceTree = "<group>"; };
 		2CF8D8962BF6306D00784038 /* TipsCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TipsCollectionViewCell.swift; sourceTree = "<group>"; };
 		2CF8D8982BF6311100784038 /* TipsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TipsViewController.swift; sourceTree = "<group>"; };
 		2CF8D89B2BF6387E00784038 /* TipsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TipsModel.swift; sourceTree = "<group>"; };
@@ -253,6 +259,24 @@
 			isa = PBXGroup;
 			children = (
 				0DFFFABF2BFE00CB00581A92 /* GetPaymentResponse.swift */,
+      );
+      path = DTO;
+			sourceTree = "<group>";
+		};
+		2CD3F1982BFE246300596073 /* MainAccount */ = {
+			isa = PBXGroup;
+			children = (
+				2CD3F1992BFE246A00596073 /* DTO */,
+				2CD3F19C2BFE249400596073 /* MainAccountService.swift */,
+				2CD3F19E2BFE249F00596073 /* MainAccountTargetType.swift */,
+			);
+			path = MainAccount;
+			sourceTree = "<group>";
+		};
+		2CD3F1992BFE246A00596073 /* DTO */ = {
+			isa = PBXGroup;
+			children = (
+				2CD3F19A2BFE247C00596073 /* GetMainAccountResponse.swift */,
 			);
 			path = DTO;
 			sourceTree = "<group>";
@@ -352,6 +376,7 @@
 			isa = PBXGroup;
 			children = (
 				0DFFFAB72BFDFCB600581A92 /* MonthlyPayment */,
+				2CD3F1982BFE246300596073 /* MainAccount */,
 				0D3F13542BFDB36E00B2685E /* MyAccount */,
 				CA0C2CE92BFCE8400026C6C7 /* Bookmark */,
 				CA0C2CDF2BFC85BA0026C6C7 /* Transfer */,
@@ -647,6 +672,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				2C28353D2BF523AD00245FE1 /* MeetingAccountView.swift in Sources */,
+				2CD3F19F2BFE249F00596073 /* MainAccountTargetType.swift in Sources */,
 				0D357E202BF3CB4000E044BB /* StickyHeaderView.swift in Sources */,
 				CA22B4012BF147BF0013B7AB /* UITableViewCell.swift in Sources */,
 				CA22B3FD2BF147040013B7AB /* UIStackView+.swift in Sources */,
@@ -679,6 +705,7 @@
 				CA05B3A32BF27AF300DA77E1 /* MyAccountCell.swift in Sources */,
 				CA0C2CE82BFC8C9E0026C6C7 /* GetRecentTransferResponseDTO.swift in Sources */,
 				0DB63ACA2BF7565D007AA8C8 /* BankAccountUpperView.swift in Sources */,
+				2CD3F19D2BFE249400596073 /* MainAccountService.swift in Sources */,
 				CA0C2CEC2BFCE8550026C6C7 /* BookmarkService.swift in Sources */,
 				CA9982BC2BF5282600EC1F56 /* BottomSheetView.swift in Sources */,
 				CA05B3AA2BF2923700DA77E1 /* RecentTransferCell.swift in Sources */,
@@ -690,6 +717,7 @@
 				CA0C2CDA2BFC7DCD0026C6C7 /* MoyaLoggingPlugin.swift in Sources */,
 				0D5AB9072BF267E700C41046 /* BankAccountNaviBar.swift in Sources */,
 				2C28353B2BF523A000245FE1 /* AddButtonView.swift in Sources */,
+				2CD3F19B2BFE247C00596073 /* GetMainAccountResponse.swift in Sources */,
 				CA22B3F92BF13C380013B7AB /* UILabel+.swift in Sources */,
 				CA05B3A32BF27AF300DA77E1 /* MyAccountCell.swift in Sources */,
 				2C3F78602BF5EC28005AF799 /* MainTabBarController.swift in Sources */,

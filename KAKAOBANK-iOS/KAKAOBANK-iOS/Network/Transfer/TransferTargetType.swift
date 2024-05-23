@@ -11,6 +11,7 @@ import Moya
 
 enum TransferTargetType {
     case getRecentTransfers(accountId: Int)
+    case deleteBookmarkState(myAccountId: Int, markedAccountId: Int)
 }
 
 extension TransferTargetType: BaseTargetType {
@@ -20,13 +21,20 @@ extension TransferTargetType: BaseTargetType {
     }
     
     var method: Moya.Method {
-        return .get
+        switch self {
+        case .getRecentTransfers:
+            return .get
+        case .deleteBookmarkState:
+            return .delete
+        }
     }
     
     var path: String {
         switch self {
         case .getRecentTransfers(let accountId):
             return utilPath + "recent-transfers/\(accountId)"
+        case .deleteBookmarkState(let myAccountId, let markedAccountId):
+            return utilPath + "recent-transfers/\(myAccountId)/bookmark/\(markedAccountId)"
         }
     }
     

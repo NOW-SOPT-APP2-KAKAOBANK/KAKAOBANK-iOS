@@ -29,6 +29,7 @@ class MainViewController: UIViewController {
         setStyle()
         setHierachy()
         setLayout()
+        getAccountInfo()
         
     }
     
@@ -155,6 +156,42 @@ class MainViewController: UIViewController {
             $0.bottom.equalToSuperview().offset(-20)
         }
         self.view.layoutIfNeeded()
+    }
+    
+    private func getAccountInfo() {
+        NetworkService.shared.mainAccountService.getAccountInfo(accountId: 1) { result in
+            switch result {
+            case .success(let response):
+                DispatchQueue.main.async {
+                    self.mainAccountView.configure(with: response)
+                }
+            default:
+                print("Failed to fetch account info")
+            }
+        }
+        
+        NetworkService.shared.mainAccountService.getAccountInfo(accountId: 2) { result in
+            switch result {
+            case .success(let response):
+                DispatchQueue.main.async {
+                    self.secondAccountView.configure(with: response)
+                }
+            default:
+                print("Failed to fetch account info")
+            }
+        }
+        
+        NetworkService.shared.mainAccountService.getAccountInfo(accountId: 3) { result in
+            switch result {
+            case .success(let response):
+                DispatchQueue.main.async {
+                    self.thirdAccountView.configure(with: response)
+                }
+            default:
+                print("Failed to fetch account info")
+            }
+        }
+    
     }
 }
 

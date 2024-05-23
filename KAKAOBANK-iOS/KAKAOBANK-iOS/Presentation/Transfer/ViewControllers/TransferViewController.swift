@@ -42,7 +42,9 @@ final class TransferViewController: UIViewController {
     }
     
     override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
         self.navigationController?.setNavigationBarHidden(false, animated: false)
+        print("viewWillAppear - 데이터 로드 시작")
         getRecentTransferList()
     }
 }
@@ -163,10 +165,12 @@ private extension TransferViewController {
     }
     
     func getRecentTransferList() {
+        print("getRecentTransferList - 데이터 로드 시작")
         self.recentTransferData.removeAll()
         NetworkService.shared.transferService.getRecentTransfer(accountId: 1) { result in
             switch result {
             case .success(let data):
+                print("getRecentTransferList - 데이터 로드 성공")
                 for i in data {
                     self.recentTransferData.append(AccountInfoModel(accountName: i.accountName,
                                                                     accountNumber: i.accountNumber,
@@ -175,19 +179,41 @@ private extension TransferViewController {
                                                                     imgURL: i.imgURL,
                                                                     accountID: i.accountID))
                 }
+                
+                DispatchQueue.main.async {
+                    print("getRecentTransferList - 컬렉션 뷰 리로드")
+                    self.transferCollectionView.reloadData()
+                }
             default:
-                print("에러입니다")
+                print("getRecentTransferList - 데이터 로드 에러")
             }
         }
     }
     
     func postBookmarkState(markedButtonId: Int, cell: RecentTransferCell) {
+        print("postBookmarkState - 요청 데이터: myAccountId: 1, markedAccountId: \(markedButtonId)")
         NetworkService.shared.bookmarkService.postBookmarkState(myAccountId: 1, markedAccountId: markedButtonId) { result in
             switch result {
             case 200:
                 cell.isFavorite = !cell.isFavorite
+                print("즐겨찾기 추가 성공: \(markedButtonId)")
             default:
-                print("에러입니다")
+                print("즐겨찾기 추가 에러입니다")
+            }
+        }
+    }
+    
+    func deleteBookmarkState(markedButtonId: Int, cell: RecentTransferCell) {
+        print("deleteBookmarkState - 요청 데이터: myAccountId: 1, markedAccountId: \(markedButtonId)")
+        NetworkService.shared.transferService.deleteBookmarkState(myAccountId: 1, markedAccountId: markedButtonId) { result in
+            switch result {
+            case 200:
+                cell.isFavorite = !cell.isFavorite
+                print("즐겨찾기 삭제 성공: \(markedButtonId)")
+            case 500:
+                print("서버 오류입니다. 나중에 다시 시도해주세요.")
+            default:
+                print("즐겨찾기 삭제 에러: \(result)")
             }
         }
     }
@@ -221,7 +247,7 @@ extension TransferViewController: RecentTransferDelegate {
         if !cell.isFavorite {
             self.postBookmarkState(markedButtonId: markedButtonId, cell: cell)
         } else {
-            // 즐겨찾기 해제 서버 통신
+            self.deleteBookmarkState(markedButtonId: markedButtonId, cell: cell)
         }
     }
     
@@ -264,10 +290,15 @@ extension TransferViewController: UICollectionViewDataSource {
             
         case .recentTransfer:
             guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: RecentTransferCell.cellIdentifier, for: indexPath) as? RecentTransferCell else { return UICollectionViewCell() }
-            cell.accountInfoView.bindAccountInfo(data: recentTransferData[indexPath.row])
-            cell.isFavorite = recentTransferData[indexPath.row].isAccountLike
-            cell.markedButtonId = recentTransferData[indexPath.row].accountID
+            
+            let transferData = recentTransferData[indexPath.row]
+            cell.accountInfoView.bindAccountInfo(data: transferData)
+            cell.isFavorite = transferData.isAccountLike
+            cell.markedButtonId = transferData.accountID
             cell.delegate = self
+            
+            print("cellForItemAt - 셀 설정 완료: \(transferData.accountName), isFavorite: \(transferData.isAccountLike)")
+            
             return cell
         }
     }
