@@ -114,7 +114,7 @@ extension BankAccountTableViewCell {
         tagLabel.text = data.tagLabel
         transactionAmountLabel.text = data.transactionAmountLabel
         totalAmountLabel.text = data.totalAmountLabel
-
+        
         if let firstChar = data.transactionAmountLabel.first {
             setTextColor(for: firstChar)
         }
@@ -122,8 +122,9 @@ extension BankAccountTableViewCell {
     
     private func setTextColor(for firstCharacter: Character) {
         if firstCharacter == "-" {
-            transactionAmountLabel.textColor = UIColor(resource: .black2)
+            transactionAmountLabel.textColor = UIColor(resource: .black2) 
+        } else {
+            transactionAmountLabel.textColor = UIColor(resource: .deepblue0)
         }
     }
 }
-
