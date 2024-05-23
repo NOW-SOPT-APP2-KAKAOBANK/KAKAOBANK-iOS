@@ -5,7 +5,6 @@ import Then
 
 class ThirdAccountView: UIView {
     
-    // Instance creation with basic initializers
     private var bankImageView = UIImageView()
     private var titleLabel = UILabel()
     private var emerFund = UIButton()
@@ -30,41 +29,32 @@ class ThirdAccountView: UIView {
     }
     
     private func setStyle() {
-        // Setting properties for each UI component using 'then' to maintain clarity and brevity
         bankImageView.do {
             $0.image = UIImage(named: "icn_bankimg2_ios")
             $0.contentMode = .scaleAspectFit
         }
         
         titleLabel.do {
-//            $0.text = "김미정의 통장"
             $0.textColor = UIColor(resource: .black2)
-//            $0.font = UIFont.pretendard(.body8)
             $0.attributedText = UILabel.attributedText(for: .body8, withText: "김미정의 통장")
 
         }
         
         emerFund.do {
-//            $0.setTitle("비상금", for: .normal)
             $0.setTitleColor(UIColor(named: "white0"), for: .normal)
             $0.backgroundColor = UIColor(resource: .blue3)
             $0.layer.cornerRadius = 10
-//            $0.titleLabel?.font = UIFont.pretendard(.caption2)
             let attributedText = UILabel.attributedText(for: .caption2, withText: "비상금")
             $0.setAttributedTitle(attributedText, for: .normal)
         }
         
         balanceLabel.do {
-//            $0.text = "41원"
             $0.textColor = UIColor(resource: .black2)
-//            $0.font = UIFont.pretendard(.head5)
             $0.attributedText = UILabel.attributedText(for: .head5, withText: "41원")
         }
         
         withdrawLabel.do {
-//            $0.text = "출금가능 3,000,041원"
             $0.textColor = UIColor(resource: .blue4)
-//            $0.font = UIFont.pretendard(.caption1)
             $0.attributedText = UILabel.attributedText(for: .caption1, withText: "출금가능 3,000,041원")
         }
         
@@ -74,26 +64,21 @@ class ThirdAccountView: UIView {
         }
         
         cardButton.do {
-//            $0.setTitle("카드", for: .normal)
             $0.setTitleColor(UIColor(named: "black2"), for: .normal)
             $0.backgroundColor = UIColor(resource: .blue1)
             $0.layer.cornerRadius = 15
-//            $0.titleLabel?.font = UIFont.pretendard(.subTitle2)
             let attributedText = UILabel.attributedText(for: .subTitle2, withText: "카드")
             $0.setAttributedTitle(attributedText, for: .normal)
         }
         
         transferButton.do {
-//            $0.setTitle("이체", for: .normal)
             $0.setTitleColor(UIColor(named: "black2"), for: .normal)
             $0.backgroundColor = UIColor(resource: .blue1)
             $0.layer.cornerRadius = 15
-//            $0.titleLabel?.font = UIFont.pretendard(.subTitle2)
             let attributedText = UILabel.attributedText(for: .subTitle2, withText: "이체")
             $0.setAttributedTitle(attributedText, for: .normal)
         }
         
-        // Setting properties of the view itself
         self.backgroundColor = UIColor(resource: .blue0)
         self.layer.cornerRadius = 15
         self.layer.masksToBounds = true

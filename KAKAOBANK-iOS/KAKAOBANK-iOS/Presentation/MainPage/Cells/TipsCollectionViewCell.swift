@@ -35,7 +35,7 @@ class TipsCollectionViewCell: UICollectionViewCell {
         titleLabel.do {
             $0.textColor = UIColor(named: "white")
             $0.font = UIFont.pretendard(.body6)
-            $0.numberOfLines = 0  // 여러 줄을 표시하도록 설정
+            $0.numberOfLines = 0 
         }
     }
     
@@ -53,7 +53,7 @@ class TipsCollectionViewCell: UICollectionViewCell {
         
         titleLabel.snp.makeConstraints { make in
             make.top.equalTo(iconImageView.snp.bottom).offset(25)
-            make.leading.trailing.equalToSuperview().inset(16) // 좌우 여백 추가
+            make.leading.trailing.equalToSuperview().inset(16)
         }
     }
     

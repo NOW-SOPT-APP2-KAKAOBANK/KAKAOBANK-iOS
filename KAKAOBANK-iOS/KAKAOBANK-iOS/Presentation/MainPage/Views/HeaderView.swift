@@ -59,7 +59,6 @@ class HeaderView: UIView {
     
     private func setStyle() {
         
-        // Styling titleLabel
        titleLabel.do {
            $0.textColor = UIColor(resource: .white)
            $0.textAlignment = .left
@@ -67,13 +66,11 @@ class HeaderView: UIView {
            $0.attributedText = attributedText
        }
        
-       // Styling accountButton
        accountButton.do {
            $0.setImage(UIImage(named: "btn_myaccount_and"), for: .normal)
            $0.imageView?.contentMode = .scaleAspectFit
        }
        
-       // Styling profileButton
        profileButton.do {
            $0.setImage(UIImage(named: "icn_profile_ios"), for: .normal)
        }

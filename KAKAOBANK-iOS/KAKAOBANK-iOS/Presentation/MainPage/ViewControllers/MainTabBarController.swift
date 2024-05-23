@@ -13,14 +13,9 @@ class MainTabBarController: UITabBarController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-//        setDelegate()
         setStyle()
         setHierarchy()
     }
-    
-//    private func setDelegate() {
-//        self.delegate = self
-//    }
     
     private func setStyle() {
         profileVC.do {
@@ -46,8 +41,7 @@ class MainTabBarController: UITabBarController {
         tabBar.do {
             $0.barTintColor = UIColor(resource: .white)
             $0.isTranslucent = false
-            $0.tintColor = UIColor(named: "black2") // Color for selected item
-//            $0.unselectedItemTintColor = UIColor(named: "gray6")
+            $0.tintColor = UIColor(named: "black2")
             $0.backgroundColor = .white
         }
     }
@@ -67,10 +61,3 @@ class MainTabBarController: UITabBarController {
         }
     }
 }
-
-//extension MainTabBarController: UITabBarControllerDelegate {
-//    func tabBarController(_ tabBarController: UITabBarController, shouldSelect viewController: UIViewController) -> Bool {
-//        // Prevent switching tabs, always stay on the first tab (profileVC)
-//        return viewController == tabBarController.viewControllers?.first
-//    }
-//}

@@ -51,20 +51,16 @@ class MainAccountView: UIView {
         
         bankImageView.do {
             $0.image = UIImage(named: "icn_bankimg1_ios")
-//            $0.contentMode = .scaleAspectFit
         }
         
         titleLabel.do {
-//            $0.text = "햄들의 통장"
             $0.textColor = UIColor(resource: .black2)
-//            $0.font = UIFont.pretendard(.body8)
             let attributedText = UILabel.attributedText(for: .body8, withText: "햄들의 통장")
             $0.attributedText = attributedText
         }
         
         starImageView.do {
             $0.image = UIImage(named: "icn_star_ios")
-//            $0.contentMode = .scaleAspectFit
         }
         
         balanceLabel.do {
@@ -75,25 +71,20 @@ class MainAccountView: UIView {
         
         moreButton.do {
             $0.image = UIImage(named: "btn_more_ios")
-//            $0.contentMode = .scaleAspectFit
         }
         
         cardButton.do {
-//            $0.setTitle("카드", for: .normal)
             $0.setTitleColor(UIColor(resource: .black2), for: .normal)
             $0.backgroundColor = UIColor(resource: .yellow0)
             $0.layer.cornerRadius = 15
-//            $0.titleLabel?.font = UIFont.pretendard(.subTitle2)
             let attributedText = UILabel.attributedText(for: .subTitle2, withText: "카드")
             $0.setAttributedTitle(attributedText, for: .normal)
         }
         
         transferButton.do {
-//            $0.setTitle("이체", for: .normal)
             $0.setTitleColor(UIColor(resource: .black2), for: .normal)
             $0.backgroundColor = UIColor(resource: .yellow0)
             $0.layer.cornerRadius = 15
-//            $0.titleLabel?.font = UIFont.pretendard(.subTitle2)
             let attributedText = UILabel.attributedText(for: .subTitle2, withText: "이체")
             $0.setAttributedTitle(attributedText, for: .normal)
         }
@@ -103,17 +94,13 @@ class MainAccountView: UIView {
         }
         
         safeBoxLabel.do {
-//            $0.text = "세이프박스"
             $0.textColor = UIColor(resource: .black2)
-//            $0.font = UIFont.pretendard(.body8)
             let attributedText = UILabel.attributedText(for: .body8, withText: "세이프박스")
             $0.attributedText = attributedText
         }
         
         amountLabel.do {
-//            $0.text = "394원"
             $0.textColor = UIColor(resource: .black2)
-//            $0.font = UIFont.pretendard(.body6)
             let attributedText = UILabel.attributedText(for: .body6, withText: "394원")
             $0.attributedText = attributedText
             

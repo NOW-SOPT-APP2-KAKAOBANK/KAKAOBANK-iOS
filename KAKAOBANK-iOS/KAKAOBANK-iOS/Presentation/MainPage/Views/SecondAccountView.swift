@@ -5,7 +5,6 @@ import Then
 
 class SecondAccountView: UIView {
     
-    // Simple instantiation of UI components
     private var bankImageView = UIImageView()
     private var titleLabel = UILabel()
     private var balanceLabel = UILabel()
@@ -26,27 +25,19 @@ class SecondAccountView: UIView {
     }
     
     private func setStyle() {
-        // Styling for bankImageView
         bankImageView.image = UIImage(named: "icn_profilesmall_ios")
         bankImageView.contentMode = .scaleAspectFit
         
-        // Styling for titleLabel
-//        titleLabel.text = "햄통장"
+
         titleLabel.textColor = UIColor(resource: .black2)
-//        titleLabel.font = UIFont.pretendard(.body8)
         titleLabel.attributedText = UILabel.attributedText(for: .body8, withText: "햄통장")
         
-        // Styling for balanceLabel
-//        balanceLabel.text = "304원"
         balanceLabel.textColor = UIColor(resource: .black2)
-//        balanceLabel.font = UIFont.pretendard(.head5)
         balanceLabel.attributedText = UILabel.attributedText(for: .head5, withText: "304원")
-        
-        // Styling for moreButton
+
         moreButton.image = UIImage(named: "btn_more_ios")
         moreButton.contentMode = .scaleAspectFit
         
-        // Styling for the background of the view itself
         backgroundColor = UIColor(named: "pink0")
         layer.cornerRadius = 15
         layer.masksToBounds = true

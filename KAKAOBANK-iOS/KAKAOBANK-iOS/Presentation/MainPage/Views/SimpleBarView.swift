@@ -25,16 +25,12 @@ class SimpleBarView: UIView {
     private func setStyle() {
         easyHomeLabel.do {
             $0.textColor = UIColor(named: "gray10")
-//            $0.font = UIFont.pretendard(.body8)
-//            $0.text = "간편 홈"
             $0.attributedText = UILabel.attributedText(for: .body8, withText: "간편 홈")
 
         }
         
         screenEditLabel.do {
             $0.textColor = UIColor(named: "gray10")
-//            $0.font = UIFont.pretendard(.body8)
-//            $0.text = "화면 편집"
             $0.attributedText = UILabel.attributedText(for: .body8, withText: "화면 편집")
 
         }
