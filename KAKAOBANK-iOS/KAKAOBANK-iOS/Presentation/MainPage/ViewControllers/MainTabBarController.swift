@@ -55,6 +55,8 @@ class MainTabBarController: UITabBarController {
     private func setHierarchy() {
         let profileNavVC = UINavigationController(rootViewController: profileVC)
         
+        profileNavVC.setNavigationBarHidden(true, animated: false)
+
         let viewControllers = [profileNavVC, gridVC, bellVC, dotsVC]
         self.setViewControllers(viewControllers, animated: false)
         

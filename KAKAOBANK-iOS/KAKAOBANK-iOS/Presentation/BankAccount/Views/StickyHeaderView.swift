@@ -10,16 +10,27 @@ import UIKit
 import SnapKit
 import Then
 
+
+protocol StickyHeaderViewDelegate: AnyObject {
+    func didTapPreviousMonthButton()
+    func didTapNextMonthButton()
+}
+
+
+
+
 final class StickyHeaderView: UIView {
     
     private let searchButton = UIButton()
     private let previousButton = UIButton()
     private let nextButton = UIButton()
-    private let dateLabel = UILabel()
+    let dateLabel = UILabel()
     private let filterButton = UIButton()
-    private let monthlyTotalLabel = UILabel()
-    private let totalAmountLabel = UILabel()
+    let monthlyTotalLabel = UILabel()
+    let totalAmountLabel = UILabel()
     private let graylineLabel = UILabel()
+    
+    weak var delegate: StickyHeaderViewDelegate?
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -27,6 +38,19 @@ final class StickyHeaderView: UIView {
         setHierarchy()
         setLayout()
         setStyle()
+    }
+    
+//    private func setActions() {
+//        previousButton.addTarget(self, action: #selector(previousMonthButtonTapped), for: .touchUpInside)
+//        nextButton.addTarget(self, action: #selector(nextMonthButtonTapped), for: .touchUpInside)
+//    }
+    
+    @objc private func previousMonthButtonTapped() {
+        delegate?.didTapPreviousMonthButton()
+    }
+    
+    @objc private func nextMonthButtonTapped() {
+        delegate?.didTapNextMonthButton()
     }
     
     required init?(coder: NSCoder) {
@@ -97,10 +121,13 @@ private extension StickyHeaderView {
         
         previousButton.do {
             $0.setImage(UIImage(resource: .btnBackleadingGrayIos), for: .normal)
+            $0.isUserInteractionEnabled = true
+            $0.addTarget(self, action: #selector(previousMonthButtonTapped), for: .touchUpInside)
         }
         
         nextButton.do {
             $0.setImage(UIImage(resource: .btnFrontleadingGrayIos), for: .normal)
+            $0.addTarget(self, action: #selector(nextMonthButtonTapped), for: .touchUpInside)
         }
         
         dateLabel.do {

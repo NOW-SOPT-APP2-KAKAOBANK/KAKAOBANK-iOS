@@ -24,9 +24,10 @@ final class BankAccountViewController: UIViewController {
     private let headerView = StickyHeaderView()
     
     private let backgroundView = UIView()
-
     
-    private let bankAccountList = BankAccountModel.dummy()
+    private var bankAccountList = [BankAccountModel]()
+    
+    private var currentMonth: Int = Calendar.current.component(.month, from: Date())
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -37,31 +38,19 @@ final class BankAccountViewController: UIViewController {
         setDelegate()
         register()
         getMyAccount()
+        getPayment()
         configureRefreshControl()
     }
     
-    
     override func viewWillAppear(_ animated: Bool) {
         self.navigationController?.setNavigationBarHidden(true, animated: false)
-        
-        bankAccountTableView.reloadData()
-        
-        let conetentHeight = CGFloat(bankAccountList.count) * 87
-        self.bankAccountTableView.snp.remakeConstraints {
-            $0.top.equalTo(self.stickyHeaderView.snp.bottom)
-            $0.leading.trailing.equalToSuperview()
-            $0.bottom.equalTo(self.contentView)
-            $0.height.equalTo(conetentHeight)
-        }
-        bankAccountTableView.layoutIfNeeded()
     }
-    
 }
 
 private extension BankAccountViewController {
-  
+    
     func getMyAccount() {
-        MyAccountService.shared.getMyAccount(accountId: 1) { result in
+        NetworkService.shared.myAccountService.getMyAccount(accountId: 1) { result in
             switch result {
             case .success(let data):
                 let formattedAccount = self.formatAccount("\(data.accountNumber)")
@@ -69,6 +58,7 @@ private extension BankAccountViewController {
                 self.bankAccountNaviBar.titleLabel.text = data.accountName
                 self.bankAccountUpperView.balanceLabel.text = "\(data.balance)"
                 self.bankAccountUpperView.accountLabel.text = formattedAccount
+                self.setMonth()
                 
             case .requestErr:
                 print("요청 오류입니다")
@@ -83,8 +73,50 @@ private extension BankAccountViewController {
             }
         }
     }
+    
+    func getPayment() {
+        NetworkService.shared.paymentService.getPayment(accountId: 1, month: currentMonth) { result in
+            switch result {
+            case .success(let data):
+                self.stickyHeaderView.totalAmountLabel.text = "\(data.payment)원"
+                self.headerView.totalAmountLabel.text = "\(data.payment)원"
+                self.bankAccountList = data.monthlyTransferList.map { $0.toBankAccountModel() }
+                self.bankAccountTableView.reloadData()
 
-    //계좌번호 사이 - 추가를 위한 메서드
+
+
+                DispatchQueue.main.async {
+                    let contentHeight = CGFloat(self.bankAccountList.count) * 87
+                    self.bankAccountTableView.snp.remakeConstraints {
+                        $0.top.equalTo(self.stickyHeaderView.snp.bottom)
+                        $0.leading.trailing.equalToSuperview()
+                        $0.height.equalTo(contentHeight)
+                        $0.bottom.equalTo(self.contentView)
+                    }
+                    self.view.layoutIfNeeded()
+                }
+                
+            case .requestErr:
+                print("요청 오류입니다")
+            case .decodedErr:
+                print("디코딩 오류입니다")
+            case .pathErr:
+                print("경로 오류입니다")
+            case .serverErr:
+                print("서버 오류입니다")
+            case .networkFail:
+                print("네트워크 오류입니다")
+            }
+        }
+    }
+    
+    func setMonth(){
+        self.stickyHeaderView.dateLabel.text = "2024 \(currentMonth)월"
+        self.stickyHeaderView.monthlyTotalLabel.text = "\(currentMonth)월 전체"
+        self.headerView.dateLabel.text = "2024 \(currentMonth)월"
+        self.headerView.monthlyTotalLabel.text = "\(currentMonth)월 전체"
+    }
+    
     func formatAccount(_ accountNumber: String) -> String {
         var formattedAccount = ""
         for (index, char) in accountNumber.enumerated() {
@@ -95,10 +127,9 @@ private extension BankAccountViewController {
         }
         return formattedAccount
     }
-
     
     func setHierarchy() {
-        self.view.addSubviews(backgroundView,scrollView,bankAccountNaviBar, headerView)
+        self.view.addSubviews(backgroundView, scrollView, bankAccountNaviBar, headerView)
         
         scrollView.addSubview(contentView)
         self.contentView.addSubviews(bankAccountUpperView, bankAccountTableView, stickyHeaderView)
@@ -114,7 +145,6 @@ private extension BankAccountViewController {
             $0.edges.equalTo(scrollView)
             $0.width.equalTo(scrollView)
             $0.height.greaterThanOrEqualTo(bankAccountTableView.contentSize.height)
-            
         }
         
         bankAccountNaviBar.snp.makeConstraints {
@@ -129,7 +159,6 @@ private extension BankAccountViewController {
             $0.height.equalTo(229)
         }
         
-        //스티키 헤더 뷰
         stickyHeaderView.snp.makeConstraints {
             $0.top.equalTo(bankAccountUpperView.snp.bottom)
             $0.leading.trailing.equalTo(scrollView)
@@ -145,9 +174,8 @@ private extension BankAccountViewController {
         backgroundView.snp.makeConstraints {
             $0.bottom.equalToSuperview()
             $0.leading.trailing.equalToSuperview()
-            $0.height.equalTo(300)
+            $0.height.equalTo(400)
         }
-        
     }
     
     func setStyle() {
@@ -170,8 +198,6 @@ private extension BankAccountViewController {
             $0.backgroundColor = .white
             $0.isHidden = true
         }
-        
-        
     }
     
     func setDelegate() {
@@ -180,6 +206,8 @@ private extension BankAccountViewController {
         bankAccountTableView.delegate = self
         bankAccountTableView.dataSource = self
         scrollView.delegate = self
+        stickyHeaderView.delegate = self
+        headerView.delegate = self
     }
     
     private func register() {
@@ -189,14 +217,12 @@ private extension BankAccountViewController {
         )
     }
     
-    //Pull to Refresh 새로 고침 구현
     func configureRefreshControl() {
         scrollView.refreshControl = UIRefreshControl()
         scrollView.refreshControl?.addTarget(self, action: #selector(handleRefreshControl), for: .valueChanged)
     }
     
     @objc func handleRefreshControl() {
-        //진동 추가
         let feedbackGenerator = UIImpactFeedbackGenerator(style: .medium)
         feedbackGenerator.impactOccurred()
         DispatchQueue.main.asyncAfter(deadline: .now() + 0.7) {
@@ -212,7 +238,7 @@ extension BankAccountViewController: UITableViewDataSource, UITableViewDelegate 
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 14
+        return bankAccountList.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -233,14 +259,12 @@ extension BankAccountViewController: UIScrollViewDelegate {
 }
 
 extension BankAccountViewController: BankAccountNaviBarDelegate {
-    
     func popToMainVC() {
         self.navigationController?.popViewController(animated: true)
     }
 }
 
 extension BankAccountViewController: BankAccountUpperViewDelegate {
-    
     func pushToTransferVC() {
         let transferVC = TransferViewController()
         transferVC.hidesBottomBarWhenPushed = true
@@ -248,3 +272,23 @@ extension BankAccountViewController: BankAccountUpperViewDelegate {
     }
 }
 
+extension BankAccountViewController: StickyHeaderViewDelegate {
+    func didTapNextMonthButton() {
+        currentMonth += 1
+        if currentMonth > 12 {
+            currentMonth = 1
+        }
+        setMonth()
+        getPayment()
+    }
+    
+    func didTapPreviousMonthButton() {
+        currentMonth -= 1
+        if currentMonth < 1 {
+            currentMonth = 12
+        }
+        setMonth()
+        getPayment()
+    }
+    
+}

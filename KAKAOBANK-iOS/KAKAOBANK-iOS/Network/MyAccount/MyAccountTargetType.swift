@@ -13,9 +13,9 @@ enum MyAccountTargetType {
     case getMyAccountInfo(accountId: Int)
 }
 
-extension MyAccountTargetType: TargetType {
-    var baseURL: URL {
-        return URL(string: Config.baseURL)!
+extension MyAccountTargetType: BaseTargetType {
+    var utilPath: String {
+        return "/api/v1/"
     }
     
     var path: String {
@@ -26,20 +26,10 @@ extension MyAccountTargetType: TargetType {
     }
     
     var method: Moya.Method {
-        switch self {
-        case .getMyAccountInfo:
-            return .get
-        }
+        return .get
     }
     
     var task: Moya.Task {
-        switch self {
-        case .getMyAccountInfo:
-            return .requestPlain
-        }
-    }
-    
-    var headers: [String : String]? {
-        return ["Content-Type": "application/json"]
+        return .requestPlain
     }
 }
