@@ -8,7 +8,7 @@ import Foundation
 
 struct GetPaymentResponse: Codable {
     let payment: Int
-    let montlyTransferList: [MonthlyTransferList]
+    let monthlyTransferList: [MonthlyTransferList]
 }
 
 
