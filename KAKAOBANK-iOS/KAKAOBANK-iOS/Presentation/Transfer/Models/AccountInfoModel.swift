@@ -10,10 +10,19 @@ import UIKit
 struct AccountInfoModel {
     let accountName: String
     let accountNumber: Int
-    let isAccountLike: Bool
+    var isAccountLike: Bool
     let bankName: String
     let imgURL: String
     let accountID: Int
+    
+    enum CodingKeys: String, CodingKey {
+        case accountName
+        case accountNumber
+        case isAccountLike
+        case bankName
+        case imgURL = "imgUrl"
+        case accountID = "accountId"
+    }
 }
 
 extension AccountInfoModel {

@@ -21,4 +21,6 @@ final class NetworkService {
     
     let paymentService: PaymentService = PaymentService()
 
+  let mainAccountService: MainAccountService = MainAccountService()
+
 }

@@ -11,6 +11,7 @@ import Moya
 
 protocol TransferServiceProtocol {
     func getRecentTransfer(accountId: Int, completion: @escaping (NetworkResult<[GetRecentTransferResponseDTO]>) -> Void)
+    func deleteBookmarkState(myAccountId: Int, markedAccountId: Int, completion: @escaping (Int) -> Void)
 }
 
 final class TransferService: BaseService, TransferServiceProtocol {
@@ -28,6 +29,18 @@ final class TransferService: BaseService, TransferServiceProtocol {
                 completion(networkResult)
             case .failure:
                 completion(.networkFail)
+            }
+        }
+    }
+    
+    func deleteBookmarkState(myAccountId: Int, markedAccountId: Int, completion: @escaping (Int) -> Void) {
+        provider.request(.deleteBookmarkState(myAccountId: myAccountId, markedAccountId: markedAccountId)) { result in
+            switch result {
+            case .success(let response):
+                let statusCode = response.statusCode
+                completion(statusCode)
+            case .failure(let response):
+                completion(response.errorCode)
             }
         }
     }

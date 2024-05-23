@@ -29,6 +29,7 @@ final class RecentTransferCell: UICollectionViewCell {
     
     var isFavorite: Bool = false {
         didSet {
+            print("isFavorite 상태 변경: \(isFavorite)")
             changeButtonStyle()
         }
     }
@@ -53,6 +54,7 @@ final class RecentTransferCell: UICollectionViewCell {
         fatalError("init(coder:) has not been implemented")
     }
     
+    
     func changeButtonStyle() {
         if isFavorite {
             self.favoriteButton.setImage(.icnStarOnIos, for: .normal)
@@ -68,6 +70,7 @@ final class RecentTransferCell: UICollectionViewCell {
     func didTapFavoriteButton() {
         self.delegate?.changeFavoriteButtonState(self, markedButtonId: self.markedButtonId)
     }
+    
 }
 
 
