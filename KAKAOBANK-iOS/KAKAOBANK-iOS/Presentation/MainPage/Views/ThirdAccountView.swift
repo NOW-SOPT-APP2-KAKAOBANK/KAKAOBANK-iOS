@@ -152,4 +152,9 @@ class ThirdAccountView: UIView {
             make.width.equalTo(48)
         }
     }
+    
+    func configure(with response: GetMainAccountResponse) {
+        titleLabel.text = response.accountName
+        balanceLabel.text = "\(response.balance)원"
+    }
 }
