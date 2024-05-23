@@ -17,7 +17,6 @@ struct MonthlyTransferList: Codable {
     let date: String
     let transferAmount: Int
     let balance: Int
-    let isWithdraw: Bool
     let hashTag: String?
 }
 
@@ -32,3 +31,4 @@ extension MonthlyTransferList {
         )
     }
 }
+

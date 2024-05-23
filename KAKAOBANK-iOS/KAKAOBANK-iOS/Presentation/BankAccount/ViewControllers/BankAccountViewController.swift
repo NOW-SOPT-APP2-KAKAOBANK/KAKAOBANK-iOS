@@ -83,8 +83,6 @@ private extension BankAccountViewController {
                 self.bankAccountList = data.monthlyTransferList.map { $0.toBankAccountModel() }
                 self.bankAccountTableView.reloadData()
 
-
-
                 DispatchQueue.main.async {
                     let contentHeight = CGFloat(self.bankAccountList.count) * 87
                     self.bankAccountTableView.snp.remakeConstraints {
@@ -110,13 +108,13 @@ private extension BankAccountViewController {
         }
     }
     
-    func setMonth(){
+    func setMonth() {
         self.stickyHeaderView.dateLabel.text = "2024 \(currentMonth)월"
         self.stickyHeaderView.monthlyTotalLabel.text = "\(currentMonth)월 전체"
         self.headerView.dateLabel.text = "2024 \(currentMonth)월"
         self.headerView.monthlyTotalLabel.text = "\(currentMonth)월 전체"
     }
-    
+  
     func formatAccount(_ accountNumber: String) -> String {
         var formattedAccount = ""
         for (index, char) in accountNumber.enumerated() {
