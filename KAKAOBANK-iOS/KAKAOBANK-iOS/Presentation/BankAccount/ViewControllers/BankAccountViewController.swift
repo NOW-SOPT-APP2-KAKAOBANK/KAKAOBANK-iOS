@@ -79,6 +79,7 @@ private extension BankAccountViewController {
             switch result {
             case .success(let data):
                 self.stickyHeaderView.totalAmountLabel.text = "\(data.payment)원"
+                self.headerView.totalAmountLabel.text = "\(data.payment)원"
                 self.bankAccountList = data.monthlyTransferList.map { $0.toBankAccountModel() }
                 self.bankAccountTableView.reloadData()
 
@@ -112,6 +113,8 @@ private extension BankAccountViewController {
     func setMonth(){
         self.stickyHeaderView.dateLabel.text = "2024 \(currentMonth)월"
         self.stickyHeaderView.monthlyTotalLabel.text = "\(currentMonth)월 전체"
+        self.headerView.dateLabel.text = "2024 \(currentMonth)월"
+        self.headerView.monthlyTotalLabel.text = "\(currentMonth)월 전체"
     }
     
     func formatAccount(_ accountNumber: String) -> String {
@@ -171,7 +174,7 @@ private extension BankAccountViewController {
         backgroundView.snp.makeConstraints {
             $0.bottom.equalToSuperview()
             $0.leading.trailing.equalToSuperview()
-            $0.height.equalTo(300)
+            $0.height.equalTo(400)
         }
     }
     
@@ -204,6 +207,7 @@ private extension BankAccountViewController {
         bankAccountTableView.dataSource = self
         scrollView.delegate = self
         stickyHeaderView.delegate = self
+        headerView.delegate = self
     }
     
     private func register() {

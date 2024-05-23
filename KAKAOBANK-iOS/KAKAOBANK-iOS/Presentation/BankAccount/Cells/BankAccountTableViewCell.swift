@@ -122,7 +122,7 @@ extension BankAccountTableViewCell {
     
     private func setTextColor(for firstCharacter: Character) {
         if firstCharacter == "-" {
-            transactionAmountLabel.textColor = UIColor(resource: .black2) // 파란색으로 변경
+            transactionAmountLabel.textColor = UIColor(resource: .black2)
         }
     }
 }

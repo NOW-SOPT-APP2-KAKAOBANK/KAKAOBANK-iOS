@@ -78,7 +78,6 @@
 		CA9982BF2BF52D6600EC1F56 /* SelectBankPagerCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA9982BE2BF52D6600EC1F56 /* SelectBankPagerCell.swift */; };
 		CAD398732BECED3F00B57329 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAD398722BECED3F00B57329 /* AppDelegate.swift */; };
 		CAD398752BECED3F00B57329 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAD398742BECED3F00B57329 /* SceneDelegate.swift */; };
-		CAD398772BECED3F00B57329 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAD398762BECED3F00B57329 /* ViewController.swift */; };
 		CAD3987C2BECED4000B57329 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CAD3987B2BECED4000B57329 /* Assets.xcassets */; };
 		CAD3987F2BECED4000B57329 /* Base in Resources */ = {isa = PBXBuildFile; fileRef = CAD3987E2BECED4000B57329 /* Base */; };
 		CAD398882BECEEB900B57329 /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = CAD398872BECEEB900B57329 /* SnapKit */; };
@@ -160,7 +159,6 @@
 		CAD3986F2BECED3F00B57329 /* KAKAOBANK-iOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "KAKAOBANK-iOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		CAD398722BECED3F00B57329 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		CAD398742BECED3F00B57329 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		CAD398762BECED3F00B57329 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		CAD3987B2BECED4000B57329 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		CAD3987E2BECED4000B57329 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		CAD398802BECED4000B57329 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = Info.plist; path = "KAKAOBANK-iOS/Global/Settings/Info.plist"; sourceTree = SOURCE_ROOT; };
@@ -259,8 +257,8 @@
 			isa = PBXGroup;
 			children = (
 				0DFFFABF2BFE00CB00581A92 /* GetPaymentResponse.swift */,
-      );
-      path = DTO;
+			);
+			path = DTO;
 			sourceTree = "<group>";
 		};
 		2CD3F1982BFE246300596073 /* MainAccount */ = {
@@ -579,7 +577,6 @@
 				CA22B3E32BF132D20013B7AB /* Presentation */,
 				CA22B3E12BF132C00013B7AB /* Application */,
 				CA22B3E02BF1328E0013B7AB /* Global */,
-				CAD398762BECED3F00B57329 /* ViewController.swift */,
 			);
 			path = "KAKAOBANK-iOS";
 			sourceTree = "<group>";
@@ -678,7 +675,6 @@
 				CA22B3FD2BF147040013B7AB /* UIStackView+.swift in Sources */,
 				CA22B3F72BF1379B0013B7AB /* UIFont+.swift in Sources */,
 				2CF9BFE92BF4389E00C7BC35 /* MainViewController.swift in Sources */,
-				CAD398772BECED3F00B57329 /* ViewController.swift in Sources */,
 				2CF9BFF52BF48A7A00C7BC35 /* ThirdAccountView.swift in Sources */,
 				CA0C2CDE2BFC82C20026C6C7 /* BaseService.swift in Sources */,
 				CA22B3FB2BF146C50013B7AB /* UIVIew+.swift in Sources */,
@@ -690,7 +686,6 @@
 				CA22B3F72BF1379B0013B7AB /* UIFont+.swift in Sources */,
 				CA05B3AC2BF2A50C00DA77E1 /* InputAccountButton.swift in Sources */,
 				2CF8D8992BF6311100784038 /* TipsViewController.swift in Sources */,
-				CAD398772BECED3F00B57329 /* ViewController.swift in Sources */,
 				0D5AB9052BF2663C00C41046 /* BankAccountViewController.swift in Sources */,
 				CA05B3A82BF282DB00DA77E1 /* AccountInfoModel.swift in Sources */,
 				CA9982BF2BF52D6600EC1F56 /* SelectBankPagerCell.swift in Sources */,
