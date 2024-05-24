@@ -53,11 +53,9 @@ private extension BankAccountViewController {
         NetworkService.shared.myAccountService.getMyAccount(accountId: 1) { result in
             switch result {
             case .success(let data):
-                let formattedAccount = self.formatAccount("\(data.accountNumber)")
-                
                 self.bankAccountNaviBar.titleLabel.text = data.accountName
-                self.bankAccountUpperView.balanceLabel.text = "\(data.balance)"
-                self.bankAccountUpperView.accountLabel.text = formattedAccount
+                self.bankAccountUpperView.balanceLabel.text = "\(data.balance.formattedWithSeparator)"
+                self.bankAccountUpperView.accountLabel.text = self.formatAccount("\(data.accountNumber)")
                 self.setMonth()
                 
             case .requestErr:
@@ -78,8 +76,8 @@ private extension BankAccountViewController {
         NetworkService.shared.paymentService.getPayment(accountId: 1, month: currentMonth) { result in
             switch result {
             case .success(let data):
-                self.stickyHeaderView.totalAmountLabel.text = "\(data.payment)원"
-                self.headerView.totalAmountLabel.text = "\(data.payment)원"
+                self.stickyHeaderView.totalAmountLabel.text = "\(data.payment.formattedWithSeparator)원"
+                self.headerView.totalAmountLabel.text = "\(data.payment.formattedWithSeparator)원"
                 self.bankAccountList = data.monthlyTransferList.map { $0.toBankAccountModel() }
                 self.bankAccountTableView.reloadData()
 
@@ -108,12 +106,24 @@ private extension BankAccountViewController {
         }
     }
     
+    
     func setMonth() {
         self.stickyHeaderView.dateLabel.text = "2024 \(currentMonth)월"
         self.stickyHeaderView.monthlyTotalLabel.text = "\(currentMonth)월 전체"
         self.headerView.dateLabel.text = "2024 \(currentMonth)월"
         self.headerView.monthlyTotalLabel.text = "\(currentMonth)월 전체"
     }
+    
+//    func formatNumber(_ accountNumber: Int) -> String {
+//        let requestNumber: Int = accountNumber
+//
+//        let numberFormatter: NumberFormatter = NumberFormatter()
+//        numberFormatter.numberStyle = .decimal
+//        
+//        let fotmattedNumber: String = numberFormatter.string(for: requestNumber)!
+//        
+//        return fotmattedNumber
+//    }
   
     func formatAccount(_ accountNumber: String) -> String {
         var formattedAccount = ""
