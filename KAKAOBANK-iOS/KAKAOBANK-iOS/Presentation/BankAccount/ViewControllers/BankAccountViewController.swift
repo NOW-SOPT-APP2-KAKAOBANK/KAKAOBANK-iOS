@@ -113,17 +113,6 @@ private extension BankAccountViewController {
         self.headerView.dateLabel.text = "2024 \(currentMonth)월"
         self.headerView.monthlyTotalLabel.text = "\(currentMonth)월 전체"
     }
-    
-//    func formatNumber(_ accountNumber: Int) -> String {
-//        let requestNumber: Int = accountNumber
-//
-//        let numberFormatter: NumberFormatter = NumberFormatter()
-//        numberFormatter.numberStyle = .decimal
-//        
-//        let fotmattedNumber: String = numberFormatter.string(for: requestNumber)!
-//        
-//        return fotmattedNumber
-//    }
   
     func formatAccount(_ accountNumber: String) -> String {
         var formattedAccount = ""
