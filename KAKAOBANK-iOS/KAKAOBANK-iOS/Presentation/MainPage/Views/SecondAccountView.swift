@@ -34,7 +34,7 @@ final class SecondAccountView: UIView {
     
     func configure(with response: GetMainAccountResponse) {
         titleLabel.text = response.accountName
-        balanceLabel.text = "\(response.balance)원"
+        balanceLabel.text = "\(response.balance.formattedWithSeparator)원"
     }
 }
 
