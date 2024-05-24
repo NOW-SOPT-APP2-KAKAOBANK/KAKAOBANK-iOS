@@ -26,8 +26,8 @@ extension MonthlyTransferList {
             dateLabel: self.date,
             transactionLabel: self.accountName,
             tagLabel: self.hashTag ?? "",
-            transactionAmountLabel: "\(self.transferAmount)원",
-            totalAmountLabel: "\(self.balance)원"
+            transactionAmountLabel: "\(self.transferAmount.formattedWithSeparator)원",
+            totalAmountLabel: "\(self.balance.formattedWithSeparator)원"
         )
     }
 }
