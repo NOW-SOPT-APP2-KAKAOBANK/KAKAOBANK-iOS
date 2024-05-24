@@ -13,14 +13,20 @@ import Then
 
 final class BankAccountViewController: UIViewController {
     
+    // MARK: - UI Properties
+
     private let bankAccountNaviBar = BankAccountNaviBar()
+
     private var bankAccountUpperView = BankAccountUpperView()
     
     private let scrollView = UIScrollView()
+
     private var contentView = UIView()
     
     private let bankAccountTableView = UITableView()
+   
     private let stickyHeaderView = StickyHeaderView()
+    
     private let headerView = StickyHeaderView()
     
     private let backgroundView = UIView()
@@ -29,6 +35,9 @@ final class BankAccountViewController: UIViewController {
     
     private var currentMonth: Int = Calendar.current.component(.month, from: Date())
     
+    
+    // MARK: - Life Cycles
+
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -47,7 +56,11 @@ final class BankAccountViewController: UIViewController {
     }
 }
 
+
+// MARK: - Private Methods
+
 private extension BankAccountViewController {
+    
     func setHierarchy() {
         self.view.addSubviews(backgroundView, scrollView, bankAccountNaviBar, headerView)
         
@@ -130,7 +143,7 @@ private extension BankAccountViewController {
         headerView.delegate = self
     }
     
-    private func register() {
+    func register() {
         bankAccountTableView.register(
             BankAccountTableViewCell.self,
             forCellReuseIdentifier: BankAccountTableViewCell.identifier
@@ -142,7 +155,8 @@ private extension BankAccountViewController {
         scrollView.refreshControl?.addTarget(self, action: #selector(handleRefreshControl), for: .valueChanged)
     }
     
-    @objc func handleRefreshControl() {
+    @objc 
+    func handleRefreshControl() {
         let feedbackGenerator = UIImpactFeedbackGenerator(style: .medium)
         feedbackGenerator.impactOccurred()
         DispatchQueue.main.asyncAfter(deadline: .now() + 0.7) {
@@ -150,9 +164,6 @@ private extension BankAccountViewController {
         }
     }
     
-}
-
-private extension BankAccountViewController {
     func getMyAccount() {
         NetworkService.shared.myAccountService.getMyAccount(accountId: 1) { result in
             switch result {
@@ -228,7 +239,11 @@ private extension BankAccountViewController {
         }
         return formattedAccount
     }
+    
 }
+
+
+// MARK: - Delegates
 
 extension BankAccountViewController: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {

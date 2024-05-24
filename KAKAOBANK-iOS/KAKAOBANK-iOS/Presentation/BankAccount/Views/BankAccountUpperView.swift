@@ -16,18 +16,32 @@ protocol BankAccountUpperViewDelegate: AnyObject {
 
 final class BankAccountUpperView: UIView {
     
+    // MARK: - UI Properties
+
     var accountLabel = UILabel()
+
     private var underlineLabel = UILabel()
+
     var balanceLabel = UILabel()
+
     private var wonLabel = UILabel()
+
     private var transferButton  = UIButton()
+
     private var takeButton = UIButton()
     
     private var balanceStackView = UIStackView()
+
     private var transferButtonStackView = UIStackView()
+
     
+    // MARK: UI Properties
+
     weak var delegate: BankAccountUpperViewDelegate?
     
+
+    // MARK: - Life Cycles
+
     override init(frame: CGRect) {
         super.init(frame: frame)
         
@@ -45,6 +59,9 @@ final class BankAccountUpperView: UIView {
         self.delegate?.pushToTransferVC()
     }
 }
+
+
+// MARK: - Private Methods
 
 private extension BankAccountUpperView {
     

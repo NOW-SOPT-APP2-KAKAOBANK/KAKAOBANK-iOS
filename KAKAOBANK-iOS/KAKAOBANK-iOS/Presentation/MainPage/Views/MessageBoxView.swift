@@ -3,13 +3,22 @@ import UIKit
 import SnapKit
 import Then
 
-class MessageBoxView: UIView {
-    var heightConstraint: Constraint?
+final class MessageBoxView: UIView {
+    
+    // MARK: - UI Properties
 
     private var messageLabel = UILabel()
     private var closeButton = UIButton()
     private var checkLimitButton = UIButton()
+    
+    
+    // MARK: - Properties
 
+    var heightConstraint: Constraint?
+
+
+    // MARK: - Life Cycles
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
         setHierachy()
@@ -26,13 +35,20 @@ class MessageBoxView: UIView {
         setLayout()
     }
 
-    private func setHierachy() {
+}
+
+
+// MARK: - Private Methods
+
+private extension MessageBoxView {
+    
+    func setHierachy() {
         addSubviews(messageLabel, closeButton, checkLimitButton)
     }
 
-    private func setStyle() {
+    func setStyle() {
         backgroundColor = UIColor(resource: .darkgray0)
-        layer.cornerRadius = 10  
+        layer.cornerRadius = 10
         layer.masksToBounds = true
 
         messageLabel.do {
@@ -77,7 +93,8 @@ class MessageBoxView: UIView {
         }
     }
 
-    @objc private func handleCloseButton() {
+    @objc
+    func handleCloseButton() {
         UIView.animate(withDuration: 0.3) {
             self.snp.updateConstraints { make in
                 make.height.equalTo(0)
@@ -89,5 +106,4 @@ class MessageBoxView: UIView {
         }
     }
 }
-
 

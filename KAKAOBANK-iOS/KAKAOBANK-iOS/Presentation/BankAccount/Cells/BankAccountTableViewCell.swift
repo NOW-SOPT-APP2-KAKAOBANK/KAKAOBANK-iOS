@@ -10,17 +10,30 @@ import UIKit
 import SnapKit
 import Then
 
-class BankAccountTableViewCell: UITableViewCell {
+final class BankAccountTableViewCell: UITableViewCell {
     
+    // MARK: - Properties
+
     static let identifier = "BankAccountTableViewCell"
     
+    
+    // MARK: - UI Properties
+
     private let dateLabel = UILabel()
+    
     private let transactionLabel = UILabel()
+    
     private let tagLabel = UILabel()
+    
     private let transactionAmountLabel = UILabel()
+    
     private let totalAmountLabel = UILabel()
+    
     private let graylineLabel = UILabel()
     
+    
+    // MARK: - Life Cycles
+
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         
@@ -34,14 +47,37 @@ class BankAccountTableViewCell: UITableViewCell {
         fatalError("init(coder:) has not been implemented")
     }
 
-}
+    func dataBind(_ data: BankAccountModel) {
+        dateLabel.text = data.dateLabel
+        transactionLabel.text = data.transactionLabel
+        transactionAmountLabel.text = data.transactionAmountLabel
+        totalAmountLabel.text = data.totalAmountLabel
 
-extension BankAccountTableViewCell {
-    private func setHierarchy() {
-        contentView.addSubviews(dateLabel, transactionLabel, tagLabel, transactionAmountLabel, totalAmountLabel, graylineLabel)
+        //해시태그가 공백일때와 아닐때 # 처리
+        tagLabel.text = data.tagLabel != "" ? "#\(data.tagLabel)" : data.tagLabel
+
+        if let firstChar = data.transactionAmountLabel.first {
+            setTextColor(for: firstChar)
+        }
     }
     
-    private func setLayout() {
+}
+
+
+// MARK: - Private Methods
+
+private extension BankAccountTableViewCell {
+    
+    func setHierarchy() {
+        contentView.addSubviews(dateLabel, 
+                                transactionLabel,
+                                tagLabel,
+                                transactionAmountLabel,
+                                totalAmountLabel,
+                                graylineLabel)
+    }
+    
+    func setLayout() {
         dateLabel.snp.makeConstraints {
             $0.top.equalToSuperview().inset(25.5)
             $0.leading.equalToSuperview().inset(15)
@@ -74,7 +110,7 @@ extension BankAccountTableViewCell {
         
     }
     
-    private func setStyle() {
+    func setStyle() {
         dateLabel.do {
             $0.attributedText = UILabel.attributedText(for: .number3, withText: "03.23")
             $0.textColor = UIColor(resource: .gray11)
@@ -86,7 +122,6 @@ extension BankAccountTableViewCell {
         }
         
         tagLabel.do {
-            //폰트 caption1인디?
             $0.attributedText = UILabel.attributedText(for: .caption1, withText: "#예금이자")
             $0.textColor = UIColor(resource: .deepblue0)
         }
@@ -105,26 +140,10 @@ extension BankAccountTableViewCell {
             $0.backgroundColor = UIColor(resource: .gray4)
         }
     }
-}
-
-extension BankAccountTableViewCell {
-    func dataBind(_ data: BankAccountModel) {
-        dateLabel.text = data.dateLabel
-        transactionLabel.text = data.transactionLabel
-        transactionAmountLabel.text = data.transactionAmountLabel
-        totalAmountLabel.text = data.totalAmountLabel
-
-        //해시태그가 공백일때와 아닐때 # 처리
-        tagLabel.text = data.tagLabel != "" ? "#\(data.tagLabel)" : data.tagLabel
-
-        if let firstChar = data.transactionAmountLabel.first {
-            setTextColor(for: firstChar)
-        }
-    }
-
-    private func setTextColor(for firstCharacter: Character) {
+    
+    func setTextColor(for firstCharacter: Character) {
         if firstCharacter == "-" {
-            transactionAmountLabel.textColor = UIColor(resource: .black2) 
+            transactionAmountLabel.textColor = UIColor(resource: .black2)
         } else {
             transactionAmountLabel.textColor = UIColor(resource: .deepblue0)
         }

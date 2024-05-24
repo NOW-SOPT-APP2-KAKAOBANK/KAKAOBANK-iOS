@@ -17,10 +17,7 @@ final class SelectBankViewController: UIViewController {
     private let dimmedView = UIView()
     
     private let bottomSheetView = BottomSheetView()
-    
-    
-    // MARK: - Properties
-    
+
     
     // MARK: - Life Cycles
     
@@ -34,6 +31,7 @@ final class SelectBankViewController: UIViewController {
     }
 
 }
+
 
 // MARK: - Private Methods
 

@@ -3,13 +3,21 @@ import UIKit
 import SnapKit
 import Then
 
-class SecondAccountView: UIView {
+final class SecondAccountView: UIView {
     
+    // MARK: - UI Properties
+
     private var bankImageView = UIImageView()
-    private var titleLabel = UILabel()
-    private var balanceLabel = UILabel()
-    private var moreButton = UIImageView()
     
+    private var titleLabel = UILabel()
+    
+    private var balanceLabel = UILabel()
+    
+    private var moreButton = UIImageView()
+
+    
+    // MARK: - Life Cycles
+
     override init(frame: CGRect) {
         super.init(frame: frame)
         setHierarchy()
@@ -24,7 +32,18 @@ class SecondAccountView: UIView {
         setLayout()
     }
     
-    private func setStyle() {
+    func configure(with response: GetMainAccountResponse) {
+        titleLabel.text = response.accountName
+        balanceLabel.text = "\(response.balance.formattedWithSeparator)원"
+    }
+}
+
+
+// MARK: - Private Methods
+
+private extension SecondAccountView {
+    
+    func setStyle() {
         bankImageView.image = UIImage(named: "icn_profilesmall_ios")
         bankImageView.contentMode = .scaleAspectFit
         
@@ -43,11 +62,11 @@ class SecondAccountView: UIView {
         layer.masksToBounds = true
     }
     
-    private func setHierarchy() {
+    func setHierarchy() {
         addSubviews(bankImageView, titleLabel, balanceLabel, moreButton)
     }
     
-    private func setLayout() {
+    func setLayout() {
         bankImageView.snp.makeConstraints { make in
             make.leading.equalToSuperview().offset(20)
             make.top.equalToSuperview().offset(34)
@@ -69,10 +88,5 @@ class SecondAccountView: UIView {
             make.trailing.equalToSuperview().inset(19)
             make.width.height.equalTo(24)
         }
-    }
-    
-    func configure(with response: GetMainAccountResponse) {
-        titleLabel.text = response.accountName
-        balanceLabel.text = "\(response.balance)원"
     }
 }

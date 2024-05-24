@@ -21,7 +21,7 @@ extension PaymentTargetType: BaseTargetType {
     var path: String {
         switch self {
         case .getPayment(let accountId, _):
-            return "/api/v1/payment/\(accountId)"
+            return utilPath + "payment/\(accountId)"
         }
     }
 

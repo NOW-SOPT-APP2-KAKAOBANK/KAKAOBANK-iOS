@@ -21,7 +21,7 @@ extension MyAccountTargetType: BaseTargetType {
     var path: String {
         switch self {
         case .getMyAccountInfo(let accountId):
-            return "/api/v1/account-info/\(accountId)"
+            return utilPath + "account-info/\(accountId)"
         }
     }
     

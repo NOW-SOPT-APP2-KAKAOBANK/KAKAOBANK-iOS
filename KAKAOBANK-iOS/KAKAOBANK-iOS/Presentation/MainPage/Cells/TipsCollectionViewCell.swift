@@ -3,11 +3,21 @@ import UIKit
 import SnapKit
 import Then
 
-class TipsCollectionViewCell: UICollectionViewCell {
-    static let identifier = "TipsCollectionViewCell"
+final class TipsCollectionViewCell: UICollectionViewCell {
+
+    // MARK: - UI Properties
     
     private let iconImageView = UIImageView()
+    
     private let titleLabel = UILabel()
+    
+    
+    // MARK: - Properties
+   
+    static let identifier = "TipsCollectionViewCell"
+    
+    
+    // MARK: - Life Cycles
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -21,7 +31,18 @@ class TipsCollectionViewCell: UICollectionViewCell {
         fatalError("init(coder:) has not been implemented")
     }
     
-    private func setStyle() {
+    func configure(with model: TipsModel) {
+        iconImageView.image = model.icon
+        titleLabel.text = model.title
+    }
+}
+
+
+// MARK: - Private Methods
+
+private extension TipsCollectionViewCell {
+    
+    func setStyle() {
         contentView.do {
             $0.backgroundColor = UIColor(named: "darkgray0")
             $0.layer.cornerRadius = 15
@@ -35,15 +56,15 @@ class TipsCollectionViewCell: UICollectionViewCell {
         titleLabel.do {
             $0.textColor = UIColor(named: "white")
             $0.font = UIFont.pretendard(.body6)
-            $0.numberOfLines = 0 
+            $0.numberOfLines = 0
         }
     }
     
-    private func setHierarcy() {
+    func setHierarcy() {
         contentView.addSubviews(iconImageView, titleLabel)
     }
     
-    private func setLayout() {
+    func setLayout() {
         
         iconImageView.snp.makeConstraints { make in
             make.top.equalToSuperview().offset(17)
@@ -55,10 +76,5 @@ class TipsCollectionViewCell: UICollectionViewCell {
             make.top.equalTo(iconImageView.snp.bottom).offset(25)
             make.leading.trailing.equalToSuperview().inset(16)
         }
-    }
-    
-    func configure(with model: TipsModel) {
-        iconImageView.image = model.icon
-        titleLabel.text = model.title
     }
 }

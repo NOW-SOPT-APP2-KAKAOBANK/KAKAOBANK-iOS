@@ -3,11 +3,18 @@ import UIKit
 import SnapKit
 import Then
 
-class HeaderView: UIView {
+final class HeaderView: UIView {
     
+    // MARK: - UI Properties
+
     private var titleLabel = UILabel()
+    
     private var accountButton = UIButton()
+    
     private var profileButton = UIButton()
+
+    
+    // MARK: - Life Cycles
 
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -25,13 +32,18 @@ class HeaderView: UIView {
         setStyle()
     }
     
-   
+}
+
+
+// MARK: - Private Methods
+
+private extension HeaderView {
     
-    private func setHierachy() {
+    func setHierachy() {
         addSubviews(titleLabel, accountButton, profileButton)
     }
     
-    private func setLayout() {
+    func setLayout() {
 
         titleLabel.snp.makeConstraints {
             $0.top.equalToSuperview().offset(75)
@@ -57,7 +69,7 @@ class HeaderView: UIView {
         }
     }
     
-    private func setStyle() {
+    func setStyle() {
         
        titleLabel.do {
            $0.textColor = UIColor(resource: .white)

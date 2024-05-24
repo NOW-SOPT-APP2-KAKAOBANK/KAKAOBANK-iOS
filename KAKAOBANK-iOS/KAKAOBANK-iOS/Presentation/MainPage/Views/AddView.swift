@@ -3,10 +3,15 @@ import UIKit
 import SnapKit
 import Then
 
-class AdView: UIView {
+final class AdView: UIView {
     
-    private let imageView = UIImageView()
+    // MARK: - UI Properties
 
+    private let imageView = UIImageView()
+    
+    
+    // MARK: - Life Cycles
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
         
@@ -22,24 +27,29 @@ class AdView: UIView {
         setStyle()
         setLayout()
     }
-    
-    private func setHierachy() {
-        addSubview(imageView)
-    }
-    
-    private func setStyle() {
-        imageView.contentMode = .scaleAspectFill
-        imageView.clipsToBounds = true
-    }
-    
-    private func setLayout() {
-        imageView.snp.makeConstraints { make in
-            make.edges.equalToSuperview()
-        }
-    }
 
     func configure(with imageName: String) {
         imageView.image = UIImage(named: "card_ad_ios")
     }
 }
 
+
+// MARK: - Private Methods
+
+private extension AdView {
+    
+    func setHierachy() {
+        addSubview(imageView)
+    }
+    
+    func setStyle() {
+        imageView.contentMode = .scaleAspectFill
+        imageView.clipsToBounds = true
+    }
+    
+    func setLayout() {
+        imageView.snp.makeConstraints { make in
+            make.edges.equalToSuperview()
+        }
+    }
+}
