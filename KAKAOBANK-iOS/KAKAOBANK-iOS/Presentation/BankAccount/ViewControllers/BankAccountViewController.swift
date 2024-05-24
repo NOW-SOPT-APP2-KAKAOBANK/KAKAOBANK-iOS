@@ -48,83 +48,6 @@ final class BankAccountViewController: UIViewController {
 }
 
 private extension BankAccountViewController {
-    
-    func getMyAccount() {
-        NetworkService.shared.myAccountService.getMyAccount(accountId: 1) { result in
-            switch result {
-            case .success(let data):
-                self.bankAccountNaviBar.titleLabel.text = data.accountName
-                self.bankAccountUpperView.balanceLabel.text = "\(data.balance.formattedWithSeparator)"
-                self.bankAccountUpperView.accountLabel.text = self.formatAccount("\(data.accountNumber)")
-                self.setMonth()
-                
-            case .requestErr:
-                print("요청 오류입니다")
-            case .decodedErr:
-                print("디코딩 오류입니다")
-            case .pathErr:
-                print("경로 오류입니다")
-            case .serverErr:
-                print("서버 오류입니다")
-            case .networkFail:
-                print("네트워크 오류입니다")
-            }
-        }
-    }
-    
-    func getPayment() {
-        NetworkService.shared.paymentService.getPayment(accountId: 1, month: currentMonth) { result in
-            switch result {
-            case .success(let data):
-                self.stickyHeaderView.totalAmountLabel.text = "\(data.payment.formattedWithSeparator)원"
-                self.headerView.totalAmountLabel.text = "\(data.payment.formattedWithSeparator)원"
-                self.bankAccountList = data.monthlyTransferList.map { $0.toBankAccountModel() }
-                self.bankAccountTableView.reloadData()
-
-                DispatchQueue.main.async {
-                    let contentHeight = CGFloat(self.bankAccountList.count) * 87
-                    self.bankAccountTableView.snp.remakeConstraints {
-                        $0.top.equalTo(self.stickyHeaderView.snp.bottom)
-                        $0.leading.trailing.equalToSuperview()
-                        $0.height.equalTo(contentHeight)
-                        $0.bottom.equalTo(self.contentView)
-                    }
-                    self.view.layoutIfNeeded()
-                }
-                
-            case .requestErr:
-                print("요청 오류입니다")
-            case .decodedErr:
-                print("디코딩 오류입니다")
-            case .pathErr:
-                print("경로 오류입니다")
-            case .serverErr:
-                print("서버 오류입니다")
-            case .networkFail:
-                print("네트워크 오류입니다")
-            }
-        }
-    }
-    
-    
-    func setMonth() {
-        self.stickyHeaderView.dateLabel.text = "2024 \(currentMonth)월"
-        self.stickyHeaderView.monthlyTotalLabel.text = "\(currentMonth)월 전체"
-        self.headerView.dateLabel.text = "2024 \(currentMonth)월"
-        self.headerView.monthlyTotalLabel.text = "\(currentMonth)월 전체"
-    }
-  
-    func formatAccount(_ accountNumber: String) -> String {
-        var formattedAccount = ""
-        for (index, char) in accountNumber.enumerated() {
-            if index == 4 || index == 6 {
-                formattedAccount.append("-")
-            }
-            formattedAccount.append(char)
-        }
-        return formattedAccount
-    }
-    
     func setHierarchy() {
         self.view.addSubviews(backgroundView, scrollView, bankAccountNaviBar, headerView)
         
@@ -227,6 +150,84 @@ private extension BankAccountViewController {
         }
     }
     
+}
+
+private extension BankAccountViewController {
+    func getMyAccount() {
+        NetworkService.shared.myAccountService.getMyAccount(accountId: 1) { result in
+            switch result {
+            case .success(let data):
+                self.bankAccountNaviBar.titleLabel.text = data.accountName
+                self.bankAccountUpperView.balanceLabel.text = "\(data.balance.formattedWithSeparator)"
+                self.bankAccountUpperView.accountLabel.text = self.formatAccount("\(data.accountNumber)")
+                self.setMonth()
+                
+            case .requestErr:
+                print("요청 오류입니다")
+            case .decodedErr:
+                print("디코딩 오류입니다")
+            case .pathErr:
+                print("경로 오류입니다")
+            case .serverErr:
+                print("서버 오류입니다")
+            case .networkFail:
+                print("네트워크 오류입니다")
+            }
+        }
+    }
+    
+    func getPayment() {
+        NetworkService.shared.paymentService.getPayment(accountId: 1, month: currentMonth) { result in
+            switch result {
+            case .success(let data):
+                self.stickyHeaderView.totalAmountLabel.text = "\(data.payment.formattedWithSeparator)원"
+                self.headerView.totalAmountLabel.text = "\(data.payment.formattedWithSeparator)원"
+                self.bankAccountList = data.monthlyTransferList.map { $0.toBankAccountModel() }
+                self.bankAccountTableView.reloadData()
+                
+                DispatchQueue.main.async {
+                    let contentHeight = CGFloat(self.bankAccountList.count) * 87
+                    self.bankAccountTableView.snp.remakeConstraints {
+                        $0.top.equalTo(self.stickyHeaderView.snp.bottom)
+                        $0.leading.trailing.equalToSuperview()
+                        $0.height.equalTo(contentHeight)
+                        $0.bottom.equalTo(self.contentView)
+                    }
+                    self.view.layoutIfNeeded()
+                }
+                
+            case .requestErr:
+                print("요청 오류입니다")
+            case .decodedErr:
+                print("디코딩 오류입니다")
+            case .pathErr:
+                print("경로 오류입니다")
+            case .serverErr:
+                print("서버 오류입니다")
+            case .networkFail:
+                print("네트워크 오류입니다")
+            }
+        }
+    }
+    
+    
+    func setMonth() {
+        self.stickyHeaderView.dateLabel.text = "2024 \(currentMonth)월"
+        self.stickyHeaderView.monthlyTotalLabel.text = "\(currentMonth)월 전체"
+        self.headerView.dateLabel.text = "2024 \(currentMonth)월"
+        self.headerView.monthlyTotalLabel.text = "\(currentMonth)월 전체"
+    }
+    
+    func formatAccount(_ accountNumber: String) -> String {
+        var formattedAccount = ""
+        for (index, char) in accountNumber.enumerated() {
+            if index == 4 || index == 6 {
+                formattedAccount.append("-")
+            }
+            formattedAccount.append(char)
+        }
+        return formattedAccount
+    }
 }
 
 extension BankAccountViewController: UITableViewDataSource, UITableViewDelegate {
