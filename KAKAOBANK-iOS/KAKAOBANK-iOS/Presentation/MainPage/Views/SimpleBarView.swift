@@ -3,26 +3,41 @@ import UIKit
 import SnapKit
 import Then
 
-class SimpleBarView: UIView {
+final class SimpleBarView: UIView {
+    
+    // MARK: - UI Properties
+    
     private var easyHomeLabel = UILabel()
+    
     private var screenEditLabel = UILabel()
+    
     private var lineIcon = UIImageView()
-
+    
+    
+    // MARK: - Life Cycles
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
         setStyle()
         setHierarchy()
         setLayout()
     }
-
+    
     required init?(coder: NSCoder) {
         super.init(coder: coder)
         setStyle()
         setHierarchy()
         setLayout()
     }
+    
+}
 
-    private func setStyle() {
+
+// MARK: - Private Methods
+
+private extension SimpleBarView {
+    
+    func setStyle() {
         easyHomeLabel.do {
             $0.textColor = UIColor(named: "gray10")
             $0.attributedText = UILabel.attributedText(for: .body8, withText: "간편 홈")
@@ -40,11 +55,11 @@ class SimpleBarView: UIView {
         }
     }
 
-    private func setHierarchy() {
+    func setHierarchy() {
         addSubviews(easyHomeLabel, screenEditLabel, lineIcon)
     }
 
-    private func setLayout() {
+    func setLayout() {
         screenEditLabel.snp.makeConstraints { make in
             make.left.equalToSuperview().offset(30)
             make.centerY.equalToSuperview()

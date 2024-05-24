@@ -3,17 +3,29 @@ import UIKit
 import SnapKit
 import Then
 
-class ThirdAccountView: UIView {
+final class ThirdAccountView: UIView {
     
+    // MARK: - UI Properties
+
     private var bankImageView = UIImageView()
+
     private var titleLabel = UILabel()
+
     private var emerFund = UIButton()
+
     private var balanceLabel = UILabel()
+
     private var withdrawLabel = UILabel()
+
     private var moreButton = UIImageView()
+
     private var cardButton = UIButton()
+
     private var transferButton = UIButton()
+
     
+    // MARK: - Life Cycles
+
     override init(frame: CGRect) {
         super.init(frame: frame)
         setHierarchy()
@@ -27,8 +39,19 @@ class ThirdAccountView: UIView {
         setStyle()
         setLayout()
     }
+ 
+    func configure(with response: GetMainAccountResponse) {
+        titleLabel.text = response.accountName
+        balanceLabel.text = "\(response.balance)원"
+    }
+}
+
+
+// MARK: - Private Methods
+
+private extension ThirdAccountView {
     
-    private func setStyle() {
+    func setStyle() {
         bankImageView.do {
             $0.image = UIImage(named: "icn_bankimg2_ios")
             $0.contentMode = .scaleAspectFit
@@ -84,11 +107,18 @@ class ThirdAccountView: UIView {
         self.layer.masksToBounds = true
     }
     
-    private func setHierarchy() {
-        addSubviews(bankImageView, titleLabel, balanceLabel, emerFund, withdrawLabel, moreButton, cardButton, transferButton)
+    func setHierarchy() {
+        addSubviews(bankImageView, 
+                    titleLabel,
+                    balanceLabel,
+                    emerFund,
+                    withdrawLabel, 
+                    moreButton,
+                    cardButton,
+                    transferButton)
     }
     
-    private func setLayout() {
+    func setLayout() {
         bankImageView.snp.makeConstraints { make in
             make.leading.equalToSuperview().offset(20)
             make.top.equalToSuperview().offset(35)
@@ -138,8 +168,4 @@ class ThirdAccountView: UIView {
         }
     }
     
-    func configure(with response: GetMainAccountResponse) {
-        titleLabel.text = response.accountName
-        balanceLabel.text = "\(response.balance)원"
-    }
 }

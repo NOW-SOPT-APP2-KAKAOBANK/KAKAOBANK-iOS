@@ -3,12 +3,19 @@ import UIKit
 import SnapKit
 import Then
 
-class SavingsView: UIView {
+final class SavingsView: UIView {
     
+    // MARK: - UI Properties
+
     private var bagImageView = UIImageView()
+    
     private var messageLabel = UILabel()
+    
     private var titleLabel = UILabel()
     
+
+    // MARK: - Life Cycles
+
     override init(frame: CGRect) {
         super.init(frame: frame)
         setStyle()
@@ -23,7 +30,14 @@ class SavingsView: UIView {
         setLayout()
     }
     
-    private func setStyle() {
+}
+
+
+// MARK: - Private Methods
+
+private extension SavingsView {
+    
+    func setStyle() {
         bagImageView.image = UIImage(named: "icn_31image_ios")
         bagImageView.contentMode = .scaleAspectFit
         
@@ -38,11 +52,11 @@ class SavingsView: UIView {
         layer.masksToBounds = true
     }
     
-    private func setHierarchy() {
+    func setHierarchy() {
         addSubviews(bagImageView, titleLabel, messageLabel)
     }
     
-    private func setLayout() {
+    func setLayout() {
         bagImageView.snp.makeConstraints { make in
             make.leading.equalToSuperview().offset(26)
             make.top.equalToSuperview().offset(31)

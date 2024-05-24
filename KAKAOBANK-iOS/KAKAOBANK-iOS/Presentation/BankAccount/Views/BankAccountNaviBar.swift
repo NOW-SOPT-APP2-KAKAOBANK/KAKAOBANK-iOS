@@ -16,12 +16,22 @@ protocol BankAccountNaviBarDelegate: AnyObject {
 
 final class BankAccountNaviBar: UIView {
     
+    // MARK: - UI Properties
+
     private let backButton = UIButton()
+
     let titleLabel = UILabel()
+
     private let settingButton = UIButton()
+
     
+    // MARK: - Properties
+
     weak var delegate: BankAccountNaviBarDelegate?
     
+    
+    // MARK: - Life Cycles
+
     override init(frame: CGRect) {
         super.init(frame: frame)
         
@@ -40,12 +50,13 @@ final class BankAccountNaviBar: UIView {
     }
 }
 
+
+// MARK: - Private Methods
+
 private extension BankAccountNaviBar {
     
     func setHierarchy() {
-        [backButton,titleLabel,settingButton].forEach {
-            self.addSubview($0)
-        }
+        self.addSubviews(backButton,titleLabel,settingButton)
     }
     
     func setLayout() {

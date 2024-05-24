@@ -3,12 +3,20 @@ import UIKit
 import SwiftUI
 import SnapKit
 
-class TipsViewController: UIViewController {
-    
-    private var tipsData = TipsModel.dummy()
-    
+final class TipsViewController: UIViewController {
+
+    // MARK: - UI Properties
+
     private let collectionView = UICollectionView(frame: .zero, collectionViewLayout: UICollectionViewFlowLayout())
     
+    
+    // MARK: - Properties
+    
+    private var tipsData = TipsModel.dummy()
+
+    
+    // MARK: - Life Cycles
+
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -18,22 +26,29 @@ class TipsViewController: UIViewController {
         setCollectionView()
     }
     
-    private func setStyle() {
+}
+
+
+// MARK: - Private Methods
+
+private extension TipsViewController {
+    
+    func setStyle() {
         view.backgroundColor = UIColor(resource: .darkgray1)
         collectionView.backgroundColor = UIColor(resource: .darkgray1)
     }
     
-    private func setLayout() {
+    func setLayout() {
         collectionView.snp.makeConstraints {
             $0.edges.equalToSuperview().inset(11)
         }
     }
     
-    private func setHierarchy() {
+    func setHierarchy() {
         view.addSubview(collectionView)
     }
     
-    private func setCollectionView() {
+    func setCollectionView() {
         let layout = UICollectionViewFlowLayout()
         layout.scrollDirection = .horizontal
         layout.minimumLineSpacing = 11
@@ -47,6 +62,9 @@ class TipsViewController: UIViewController {
         collectionView.showsHorizontalScrollIndicator = false
     }
 }
+
+
+// MARK: - Delegates
 
 extension TipsViewController: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {

@@ -3,12 +3,17 @@ import UIKit
 import SnapKit
 import Then
 
-class AddButtonView: UIView {
+final class AddButtonView: UIView {
+    
+    // MARK: - UI Properties
 
     private let leadingImageView = UIImageView().then {
         $0.image = UIImage(named: "icn_plus_ios")
         $0.contentMode = .scaleAspectFit
     }
+    
+    
+    // MARK: - Life Cycles
 
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -23,8 +28,15 @@ class AddButtonView: UIView {
         setHierarchy()
         setLayout()
     }
+
+}
+
+
+// MARK: - Private Methods
+
+private extension AddButtonView {
     
-    private func setStyle() {
+    func setStyle() {
         self.do {
             $0.backgroundColor = UIColor(resource: .darkgray0)
             $0.layer.cornerRadius = 15
@@ -32,16 +44,14 @@ class AddButtonView: UIView {
         }
     }
     
-    private func setHierarchy() {
+    func setHierarchy() {
         addSubview(leadingImageView)
     }
     
-    private func setLayout() {
+    func setLayout() {
         leadingImageView.snp.makeConstraints { make in
             make.left.equalToSuperview().offset(158)
             make.top.equalToSuperview().offset(17)
         }
-        
-
     }
 }

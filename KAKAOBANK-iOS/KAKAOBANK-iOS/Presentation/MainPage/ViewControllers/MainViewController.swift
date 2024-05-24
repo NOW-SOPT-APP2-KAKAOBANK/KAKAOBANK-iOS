@@ -4,24 +4,43 @@ import SwiftUI
 import SnapKit
 import Then
 
-class MainViewController: UIViewController {
+final class MainViewController: UIViewController {
+    
+    // MARK: - UI Properties
     
     private var scrollView = UIScrollView()
+    
     private var contentView = UIView()
     
     private var headerView = HeaderView()
+    
     private var messageBoxView = MessageBoxView()
+    
     private var mainAccountView = MainAccountView()
+    
     private var secondAccountView = SecondAccountView()
+    
     private var thirdAccountView = ThirdAccountView()
+    
     private var savingsView = SavingsView()
+    
     private var meetingAccountView = MeetingAccountView()
+    
     private var addButtonView = AddButtonView()
+    
     private var simpleBarView = SimpleBarView()
+    
     private var tipsViewController = TipsViewController()
+    
     private var adView = AdView()
     
+    
+    // MARK: - Properties
+    
     private var headerViewTopConstraint: Constraint?
+    
+    
+    // MARK: - Life Cycles
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -32,21 +51,28 @@ class MainViewController: UIViewController {
         getAccountInfo()
         
     }
+
+}
+
+
+// MARK: - Private Methods
+
+private extension MainViewController {
     
-    private func setDelegate() {
+    func setDelegate() {
         scrollView.delegate = self
         mainAccountView.delegate = self
     }
     
-    private func setStyle() {
+    func setStyle() {
         view.backgroundColor = UIColor(resource: .darkgray1)
         adView.configure(with: "card_ad_ios")
         
         headerView.backgroundColor = UIColor(resource: .darkgray1)
     }
     
-    private func setHierachy() {
-        view.addSubview(scrollView)
+    func setHierachy() {
+        view.addSubviews(scrollView, headerView)
         addChild(tipsViewController)
         
         scrollView.addSubview(contentView)
@@ -65,10 +91,9 @@ class MainViewController: UIViewController {
         
         tipsViewController.didMove(toParent: self)
         
-        view.addSubview(headerView)
     }
     
-    private func setLayout() {
+    func setLayout() {
         scrollView.snp.makeConstraints {
             $0.edges.equalToSuperview()
         }
@@ -83,7 +108,6 @@ class MainViewController: UIViewController {
             $0.centerX.equalToSuperview()
             $0.width.equalTo(380)
             $0.height.equalTo(118)
-
         }
         
         messageBoxView.snp.makeConstraints {
@@ -158,7 +182,7 @@ class MainViewController: UIViewController {
         self.view.layoutIfNeeded()
     }
     
-    private func getAccountInfo() {
+    func getAccountInfo() {
         NetworkService.shared.mainAccountService.getAccountInfo(accountId: 1) { result in
             switch result {
             case .success(let response):
@@ -194,6 +218,9 @@ class MainViewController: UIViewController {
     
     }
 }
+
+
+// MARK: - Delegates
 
 extension MainViewController: UIScrollViewDelegate {
     func scrollViewDidScroll(_ scrollView: UIScrollView) {

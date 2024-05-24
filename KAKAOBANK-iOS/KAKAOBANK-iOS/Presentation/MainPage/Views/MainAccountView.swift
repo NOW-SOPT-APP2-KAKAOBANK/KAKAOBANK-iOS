@@ -7,21 +7,38 @@ protocol MainAccountViewDelegate: AnyObject {
     func pushToBankAccountVC(sender: UITapGestureRecognizer)
 }
 
-class MainAccountView: UIView {
+final class MainAccountView: UIView {
     
+    // MARK: - UI Properties
+
     private var bankImageView = UIImageView()
+    
     private var titleLabel = UILabel()
+    
     private var starImageView = UIImageView()
+    
     private var balanceLabel = UILabel()
+    
     private var moreButton = UIImageView()
+    
     private var cardButton = UIButton()
+    
     private var transferButton = UIButton()
+    
     private var separatorLine = UIView()
+    
     private var safeBoxLabel = UILabel()
+    
     private var amountLabel = UILabel()
     
+    
+    // MARK: - Properties
+
     weak var delegate: MainAccountViewDelegate?
     
+    
+    // MARK: - Life Cycles
+
     override init(frame: CGRect) {
         super.init(frame: frame)
         setHierarchy()
@@ -41,11 +58,31 @@ class MainAccountView: UIView {
         self.delegate?.pushToBankAccountVC(sender: sender)
     }
     
-    private func setHierarchy() {
-        addSubviews(bankImageView, titleLabel, starImageView, balanceLabel, moreButton, separatorLine, cardButton, transferButton, safeBoxLabel, amountLabel)
+    func configure(with response: GetMainAccountResponse) {
+        titleLabel.text = response.accountName
+        balanceLabel.text = "\(response.balance)원"
+    }
+}
+
+
+// MARK: - Private Methods
+
+private extension MainAccountView {
+    
+    func setHierarchy() {
+        addSubviews(bankImageView, 
+                    titleLabel,
+                    starImageView,
+                    balanceLabel,
+                    moreButton,
+                    separatorLine,
+                    cardButton, 
+                    transferButton,
+                    safeBoxLabel,
+                    amountLabel)
     }
     
-    private func setStyle() {
+    func setStyle() {
         let gesture = UITapGestureRecognizer(target: self, action: #selector(didTapMainBankBook))
         self.addGestureRecognizer(gesture)
         
@@ -113,7 +150,7 @@ class MainAccountView: UIView {
         }
     }
     
-    private func setLayout() {
+    func setLayout() {
         bankImageView.snp.makeConstraints { make in
             make.leading.equalToSuperview().offset(20)
             make.top.equalToSuperview().offset(34)
@@ -171,10 +208,5 @@ class MainAccountView: UIView {
             make.trailing.equalToSuperview().inset(22)
             make.bottom.equalToSuperview().inset(21)
         }
-    }
-    
-    func configure(with response: GetMainAccountResponse) {
-        titleLabel.text = response.accountName
-        balanceLabel.text = "\(response.balance)원"
     }
 }

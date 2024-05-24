@@ -3,21 +3,36 @@ import UIKit
 import SnapKit
 import Then
 
-class MainTabBarController: UITabBarController {
-
+final class MainTabBarController: UITabBarController {
+    
+    // MARK: - UI Properties
+    
     let profileVC = MainViewController()
+    
     let gridVC = UIViewController()
+    
     let bellVC = UIViewController()
+    
     let dotsVC = UIViewController()
 
+    
+    // MARK: - Life Cycles
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         setStyle()
         setHierarchy()
     }
+
+}
+
+
+// MARK: - Private Methods
+
+private extension MainTabBarController {
     
-    private func setStyle() {
+    func setStyle() {
         profileVC.do {
             $0.view.backgroundColor = UIColor(resource: .darkgray1)
             $0.tabBarItem = UITabBarItem(title: "", image: UIImage(named: "btn_mybank_ios"), tag: 0)
@@ -46,7 +61,7 @@ class MainTabBarController: UITabBarController {
         }
     }
     
-    private func setHierarchy() {
+    func setHierarchy() {
         let profileNavVC = UINavigationController(rootViewController: profileVC)
         
         profileNavVC.setNavigationBarHidden(true, animated: false)

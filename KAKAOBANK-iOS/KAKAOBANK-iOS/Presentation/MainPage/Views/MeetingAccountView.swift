@@ -3,11 +3,17 @@ import UIKit
 import SnapKit
 import Then
 
-class MeetingAccountView: UIView {
+final class MeetingAccountView: UIView {
     
+    // MARK: - UI Properties
+
     private var titleLabel = UILabel()
+    
     private var leadingImageView = UIImageView()
     
+
+    // MARK: - Life Cycles
+
     override init(frame: CGRect) {
         super.init(frame: frame)
         setStyle()
@@ -22,8 +28,15 @@ class MeetingAccountView: UIView {
         setLayout()
     }
     
-    private func setStyle() {
-        backgroundColor = UIColor(resource: .darkgray0)  
+}
+
+
+// MARK: - Private Methods
+
+private extension MeetingAccountView {
+    
+    func setStyle() {
+        backgroundColor = UIColor(resource: .darkgray0)
         layer.cornerRadius = 15
         layer.masksToBounds = true
         
@@ -40,11 +53,11 @@ class MeetingAccountView: UIView {
         }
     }
     
-    private func setHierarchy() {
+    func setHierarchy() {
         addSubviews(titleLabel, leadingImageView)
     }
     
-    private func setLayout() {
+    func setLayout() {
         titleLabel.snp.makeConstraints { make in
             make.leading.equalToSuperview().offset(21)
             make.top.equalToSuperview().offset(22.5)

@@ -15,10 +15,6 @@ final class SegmentView: UISegmentedControl {
     // MARK: - UI Properties
     
     private let underline = UIView()
-    
-    
-    // MARK: - Properties
-    
 
     
     // MARK: - UI Properties

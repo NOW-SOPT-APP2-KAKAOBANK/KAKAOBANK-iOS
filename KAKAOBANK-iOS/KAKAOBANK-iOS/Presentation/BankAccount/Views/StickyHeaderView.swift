@@ -10,28 +10,39 @@ import UIKit
 import SnapKit
 import Then
 
-
 protocol StickyHeaderViewDelegate: AnyObject {
     func didTapPreviousMonthButton()
     func didTapNextMonthButton()
 }
 
-
-
-
 final class StickyHeaderView: UIView {
     
+    // MARK: - UI Properties
+
     private let searchButton = UIButton()
+
     private let previousButton = UIButton()
+
     private let nextButton = UIButton()
+
     let dateLabel = UILabel()
+
     private let filterButton = UIButton()
+
     let monthlyTotalLabel = UILabel()
+
     let totalAmountLabel = UILabel()
+
     private let graylineLabel = UILabel()
     
+    
+    // MARK: - Properties
+
     weak var delegate: StickyHeaderViewDelegate?
     
+    
+    // MARK: - Life Cycles
+
     override init(frame: CGRect) {
         super.init(frame: frame)
         
@@ -40,23 +51,13 @@ final class StickyHeaderView: UIView {
         setStyle()
     }
     
-//    private func setActions() {
-//        previousButton.addTarget(self, action: #selector(previousMonthButtonTapped), for: .touchUpInside)
-//        nextButton.addTarget(self, action: #selector(nextMonthButtonTapped), for: .touchUpInside)
-//    }
-    
-    @objc private func previousMonthButtonTapped() {
-        delegate?.didTapPreviousMonthButton()
-    }
-    
-    @objc private func nextMonthButtonTapped() {
-        delegate?.didTapNextMonthButton()
-    }
-    
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
 }
+
+
+// MARK: - Private Methods
 
 private extension StickyHeaderView {
     
@@ -152,5 +153,15 @@ private extension StickyHeaderView {
         graylineLabel.do {
             $0.backgroundColor = UIColor(resource: .gray4)
         }
+    }
+    
+    @objc
+    func previousMonthButtonTapped() {
+        delegate?.didTapPreviousMonthButton()
+    }
+    
+    @objc
+    func nextMonthButtonTapped() {
+        delegate?.didTapNextMonthButton()
     }
 }
