@@ -92,7 +92,8 @@ private extension SelectBankViewController {
 extension SelectBankViewController: SelectBankHeaderViewDelegate {
     
     func didChangedSegment(sender: UISegmentedControl) {
-        bottomSheetView.selectedTab = sender.selectedSegmentIndex
+        let selectedIndex = sender.selectedSegmentIndex
+        bottomSheetView.selectedTab = selectedIndex
         let resetOffset = CGPoint(x: 0, y: -bottomSheetView.selectBankPagerCollectionView.contentInset.top)
         bottomSheetView.selectBankPagerCollectionView.setContentOffset(resetOffset, animated: false)
     }

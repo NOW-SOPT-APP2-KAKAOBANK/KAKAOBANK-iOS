@@ -29,6 +29,10 @@ final class BottomSheetView: UIView {
     
     var selectedTab: Int = 0 {
         didSet {
+            let nextIndex = IndexPath(item: selectedTab, section: 0)
+            UIView.animate(withDuration: 0.2) {
+                self.selectBankPagerCollectionView.scrollToItem(at: nextIndex, at: .centeredHorizontally, animated: false)
+            }
             selectBankPagerCollectionView.reloadData()
         }
     }
@@ -128,12 +132,20 @@ extension BottomSheetView: UICollectionViewDelegate {
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
         let pageWidth = selectBankPagerCollectionView.frame.size.width
         let currentPage = selectBankPagerCollectionView.contentOffset.x / pageWidth
-        if currentPage < 0.5 {
-            self.selectedTab = 0
-            selectBankHeader.segmentView.selectedSegmentIndex = 0
+        
+        if selectedTab == 0 {
+            if currentPage > 0.1 {
+                self.selectedTab = 1
+                self.selectBankHeader.segmentView.selectedSegmentIndex = 1
+            }
         } else {
-            self.selectedTab = 1
-            selectBankHeader.segmentView.selectedSegmentIndex = 1
+            if currentPage < 0 {
+                self.selectedTab = 0
+                self.selectBankHeader.segmentView.selectedSegmentIndex = 0
+            } else if currentPage > 0 {
+                self.selectedTab = 1
+                self.selectBankHeader.segmentView.selectedSegmentIndex = 1
+            }
         }
     }
     
@@ -154,7 +166,8 @@ extension BottomSheetView: UICollectionViewDataSource {
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: SelectBankPagerCell.cellIdentifier, for: indexPath) as? SelectBankPagerCell else { return UICollectionViewCell() }
+        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: SelectBankPagerCell.cellIdentifier, for: indexPath) as? SelectBankPagerCell 
+        else { return UICollectionViewCell() }
         cell.selectedTab = self.selectedTab
         cell.delegate = self
         return cell

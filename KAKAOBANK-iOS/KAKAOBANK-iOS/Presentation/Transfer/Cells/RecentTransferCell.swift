@@ -62,7 +62,6 @@ final class RecentTransferCell: UICollectionViewCell {
             self.favoriteButton.setImage(.icnStarOffIos, for: .normal)
             self.favoriteButton.isSelected = false
         }
-        print(self.favoriteButton.isSelected)
     }
     
     @objc
